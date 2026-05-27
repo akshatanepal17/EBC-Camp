@@ -1,0 +1,2058 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <title>Everest Base Camp</title>
+  </head>
+  <body>
+    <style>
+      .star-dot {
+        width: 18px;
+        height: 18px;
+        background: #00AC7E;
+        border-radius: 100%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        flex-shrink: 0;
+      }
+      .star-dot::before {
+        content: '';
+        width: 7px;
+        height: 7px;
+        background: #fff;
+        border-radius: 50%;
+        position: absolute;
+      }
+      @keyframes scroll {
+        0%   { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
+      .animate-scroll {
+        display: flex;
+        width: max-content;
+        animation: scroll 10s linear infinite;
+      }
+      .animate-scroll:hover {
+        animation-play-state: paused;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: calc(var(--header-height, 0px) + var(--subnav-height, 56px) + 16px);
+      }
+
+      .nav-dropdown {
+        margin-block: -12px;
+        padding-block: 12px;
+      }
+
+      .nav-dropdown-trigger .nav-chevron,
+      .mobile-dropdown-trigger .mobile-chevron {
+        transition: transform 180ms ease;
+      }
+
+      .desktop-dropdown {
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(12px);
+        transition:
+          opacity 180ms ease,
+          transform 180ms ease,
+          visibility 180ms ease;
+        visibility: hidden;
+      }
+
+      .desktop-dropdown.dropdown-center {
+        transform: translate(-50%, 12px);
+      }
+
+      .nav-dropdown:hover > .desktop-dropdown,
+      .nav-dropdown:focus-within > .desktop-dropdown,
+      .nav-dropdown.open > .desktop-dropdown {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+        visibility: visible;
+      }
+
+      .nav-dropdown:hover > .desktop-dropdown.dropdown-center,
+      .nav-dropdown:focus-within > .desktop-dropdown.dropdown-center,
+      .nav-dropdown.open > .desktop-dropdown.dropdown-center {
+        transform: translate(-50%, 0);
+      }
+
+      .nav-dropdown:hover .nav-chevron,
+      .nav-dropdown:focus-within .nav-chevron,
+      .nav-dropdown.open .nav-chevron,
+      .mobile-dropdown.open .mobile-chevron {
+        transform: rotate(180deg);
+      }
+
+      .nav-chevron{
+        transition:transform 0.3s ease;
+      }
+     
+      #mobile-menu {
+        display: flex;
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transform: translateY(-8px);
+        transition:
+          max-height 300ms ease,
+          opacity 220ms ease,
+          transform 220ms ease,
+          visibility 220ms ease;
+        visibility: hidden;
+      }
+
+      #mobile-menu.open {
+        max-height: calc(100vh - 72px);
+        opacity: 1;
+        overflow-y: auto;
+        transform: translateY(0);
+        visibility: visible;
+      }
+
+      .mobile-submenu {
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transform: translateY(-4px);
+        transition:
+          max-height 260ms ease,
+          opacity 200ms ease,
+          transform 200ms ease;
+      }
+
+      .mobile-dropdown.open .mobile-submenu {
+        max-height: 520px;
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      #hamburger span {
+        transform-origin: center;
+      }
+
+      #hamburger.is-open span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+      }
+
+      #hamburger.is-open span:nth-child(2) {
+        opacity: 0;
+      }
+
+      #hamburger.is-open span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+      }
+
+      @media (min-width: 1024px) {
+        #mobile-menu {
+          display: none !important;
+        }
+      }
+
+      /* sub-nav */
+        :root {
+            --header-height: 0px;
+            --subnav-height: 56px;
+        }
+
+        #subnav {
+            opacity: 1;
+            pointer-events: auto;
+            top: var(--header-height, 0px);
+            transform: none;
+            transition: box-shadow 220ms ease;
+            visibility: visible;
+            z-index: 45;
+        }
+
+        #subnav a {
+            align-items: center;
+            border-bottom: 2px solid transparent;
+            color: #334155;
+            display: inline-flex;
+            padding-bottom: 4px;
+            transition: color 220ms ease, border-color 220ms ease;
+            white-space: nowrap;
+        }
+
+        #subnav a:hover,
+        #subnav a:focus-visible {
+            color: #000;
+            outline: none;
+        }
+
+        #subnav a.active {
+            color: #000;
+            font-weight: 600;
+            border-bottom-color: #000;
+        }
+
+        #overview,
+        #highlights,
+        #included,
+        #excluded,
+        #itinerary,
+        #reviews,
+        #trip-details {
+            scroll-margin-top: calc(var(--header-height, 0px) + var(--subnav-height, 56px) + 16px);
+        }
+
+      /* Hero slider  */
+      /* banner section css */
+    #hero-slider .slide {   
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transform: scale(1.04);
+    transition: opacity .75s cubic-bezier(.4,0,.2,1),
+                transform .75s cubic-bezier(.4,0,.2,1);
+    pointer-events: none;
+  }
+  #hero-slider .slide.active {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: auto;
+    z-index: 1;
+  }
+  #hero-slider .slide.exit-left  { opacity:0; transform: translateX(-4%) scale(1); z-index:0; }
+  #hero-slider .slide.exit-right { opacity:0; transform: translateX( 4%) scale(1); z-index:0; }
+ 
+  /* Gradient overlay */
+  #hero-slider .slide-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(0,0,0,.72) 0%,
+      rgba(0,0,0,.25) 50%,
+      rgba(0,0,0,.10) 100%
+    );
+  }
+ 
+  /* Animated text block */
+  #hero-slider .slide-content {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 2rem 2rem 1.75rem;
+    z-index: 2;
+  }
+  @media(max-width:639px){
+    #hero-slider .slide-content { padding: 1rem 1rem 4rem; }
+  }
+ 
+  #hero-slider .slide-badge {
+    display: inline-block;
+    background: rgba(255,255,255,.18);
+    border: 1px solid rgba(255,255,255,.38);
+    backdrop-filter: blur(10px);
+    color: #fff;
+    font-size: 10px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    padding: 3px 11px;
+    border-radius: 20px;
+    margin-bottom: 8px;
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity .5s .1s, transform .5s .1s;
+  }
+  #hero-slider .slide-title {
+    color: #fff;
+    font-size: clamp(1.25rem, 3vw, 2.25rem);
+    font-weight: 600;
+    line-height: 1.2;
+    margin: 0 0 6px;
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity .5s .22s, transform .5s .22s;
+  }
+  #hero-slider .slide-desc {
+    color: rgba(255,255,255,.82);
+    font-size: clamp(.75rem, 1.4vw, .9rem);
+    margin: 0;
+    max-width: 520px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity .5s .34s, transform .5s .34s;
+  }
+  @media(max-width:639px){ #hero-slider .slide-desc { display:none; } }
+ 
+  #hero-slider .slide.active .slide-badge,
+  #hero-slider .slide.active .slide-title,
+  #hero-slider .slide.active .slide-desc {
+    opacity: 1;
+    transform: translateY(0);
+  }
+ 
+  /* Progress bar */
+  #progress-bar {
+    position: absolute;
+    bottom: 0; left: 0;
+    height: 3px;
+    width: 0%;
+    background: rgba(255,255,255,.9);
+    z-index: 10;
+    transition: width linear;
+  }
+ 
+  /* Counter */
+  #counter {
+    position: absolute;
+    top: 14px; right: 16px;
+    background: rgba(0,0,0,.38);
+    border: 1px solid rgba(255,255,255,.22);
+    backdrop-filter: blur(10px);
+    color: #fff;
+    font-size: 11px;
+    letter-spacing: .07em;
+    padding: 4px 12px;
+    border-radius: 20px;
+    z-index: 10;
+  }
+ 
+  /* Arrow buttons — mobile/tablet only */
+  .arrow-btn {
+    display: none;
+    position: absolute;
+    top: 50%; transform: translateY(-50%);
+    width: 42px; height: 42px;
+    background: rgba(255,255,255,.15);
+    border: 1px solid rgba(255,255,255,.32);
+    backdrop-filter: blur(14px);
+    color: #fff;
+    border-radius: 50%;
+    align-items: center; justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: background .2s, transform .2s;
+  }
+  .arrow-btn:hover  { background: rgba(255,255,255,.28); transform: translateY(-50%) scale(1.08); }
+  .arrow-btn:active { transform: translateY(-50%) scale(.94); }
+  #arrow-left  { left:  12px; }
+  #arrow-right { right: 12px; }
+  @media(max-width:1023px){ .arrow-btn { display:flex; } }
+ 
+  /* Thumbnails — desktop only (≥1024px), bottom-right */
+  #thumb-bar {
+    display: none;
+    position: absolute;
+    bottom: 16px; right: 16px;
+    gap: 10px;
+    z-index: 10;
+  }
+  @media(min-width:1024px){ #thumb-bar { display:flex; } }
+ 
+  .thumb {
+    width: 160px; height: 100px;
+    object-fit: cover;
+    cursor: pointer;
+    border: 3px solid rgba(255,255,255,.38);
+    border-radius: 4px;
+    opacity: .68;
+    transition: border-color .25s, transform .25s, opacity .25s, box-shadow .25s;
+  }
+  @media(min-width:1024px) and (max-width:1279px){
+    .thumb { width:120px; height:76px; }
+  }
+  .thumb:hover {
+    opacity: .92;
+    transform: scale(1.05) translateY(-2px);
+    border-color: rgba(255,255,255,.7);
+  }
+  .thumb.active {
+    border-color: #fff;
+    opacity: 1;
+    transform: scale(1.07) translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0,0,0,.45);
+  }
+
+   .highlights-list {
+        grid-template-columns: 1fr;
+      }
+    </style>
+
+    <!-- Header -->
+    <header class="sticky-header sticky top-0 z-50 bg-white shadow-sm">
+      <div class="flex items-center justify-between px-4 sm:px-6 lg:px-8 py-3 lg:py-4">
+
+        <!-- Logo -->
+        <!-- Make sure logo div has a min-width so it doesn't collapse -->
+        <div class="flex-shrink-0 min-w-[120px]">
+          <img src="images/Everest/Logo.png" class="w-16 sm:w-20 md:w-24 lg:w-32 h-auto object-contain" alt="logo"/>
+        </div>
+
+        <!-- Desktop Nav -->
+        <nav class="hidden lg:flex items-center gap-6 xl:gap-8">
+          <ul class="flex items-center lg:gap-2 xl:gap-7">
+            <li class="relative nav-dropdown">
+              <button type="button" class="nav-dropdown-trigger flex items-center gap-1 font-medium text-sm hover:text-blue-600 transition-colors" aria-expanded="false" aria-controls="about-menu">
+                ABOUT US <i data-lucide="chevron-down" class="nav-chevron w-4 h-4"></i>
+              </button>
+              <div id="about-menu" class="desktop-dropdown absolute left-0 top-full z-50 mt-0 w-72 rounded-md border border-gray-100 bg-white p-3 shadow-2xl">
+                <a href="#about" class="flex items-start gap-3 rounded-md px-3 py-3 text-sm transition hover:bg-blue-50 hover:text-blue-600">
+                  <i data-lucide="users" class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-600"></i>                 
+                    <span class="block font-bold">Why Travel With Us</span>
+                </a>
+                <a href="#about" class="flex items-start gap-3 rounded-md px-3 py-3 text-sm transition hover:bg-blue-50 hover:text-blue-600">
+                  <i data-lucide="shield-check" class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-600"></i>
+                    <span class="block font-bold">Terms & Conditions</span>
+                </a>
+                <a href="#about" class="flex items-start gap-3 rounded-md px-3 py-3 text-sm transition hover:bg-blue-50 hover:text-blue-600">
+                  <i data-lucide="key" class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-600"></i>
+                    <span class="block font-bold">Privacy Policy</span>
+                </a>
+                <a href="#faq" class="flex item-start gap-3 rounded-md px-3 py-3 text-sm transition hover:bg-blue-50 hover:text-blue-600">
+                  <i data-lucide="help-circle" class="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-600"></i>
+                  <span class="block font-bold">FAQ</span>
+                </a>
+              </div>
+            </li>
+            <li class="relative nav-dropdown">
+              <button type="button" class="nav-dropdown-trigger flex items-center gap-1 font-medium text-sm hover:text-blue-600 transition-colors" aria-expanded="false" aria-controls="nepal-menu">
+                NEPAL <i data-lucide="chevron-down" class="nav-chevron w-4 h-4"></i>
+              </button>
+
+              <!-- trekking in nepal -->
+              <div id="nepal-menu" class="desktop-dropdown dropdown-center  absolute left-1/2 top-full z-50 mt-0 w-[400px] rounded-md border border-gray-100 bg-white p-5 shadow-2xl">
+                  <div>
+                    <div class="grid gap-1">
+                      <div class="relative nav-dropdown">
+                       <a href="" class="nav-dropdown-trigger trekking-menu-trigger rounded-md flex px-3 py-2 text-sm font-bold hover:bg-blue-50 hover:text-blue-600 gap-6 scrollbar-thin overflow-auto">Trekking in Nepal
+                        <i data-lucide="chevron-up" class="nav-chevron w-4 h-4"></i>
+                       </a>
+                        <div id="trekking-menu" class="open grid gap-1 hidden">
+                        <a href="" class="rounded-md px-3 py-2 text-sm font-regular hover:bg-blue-50 hover:text-blue-600">Everest Region</a>
+                        <a href="" class="rounded-md px-3 py-2 text-sm font-regular hover:bg-blue-50 hover:text-blue-600">Annapurna Region</a>
+                        <a href="" class="rounded-md px-3 py-2 text-sm font-regular hover:bg-blue-50 hover:text-blue-600">Langtang Region</a>
+                        <a href="" class="rounded-md px-3 py-2 text-sm font-regular hover:bg-blue-50 hover:text-blue-600">Manaslu Region</a>
+                        <a href="" class="rounded-md px-3 py-2 text-sm font-regular hover:bg-blue-50  hover:text-blue-600">Kanchanjunga Region</a>
+                        <a href="" class="rounded-md px-3 py-2 text-sm font-regular hover:bg-blue-50 hover:text-blue-600">Ganesh Himal Region</a>
+                        <a href="" class="rounded-md px-3 py-2 text-sm font-regular hover:bg-blue-50 hover:text-blue-600">Dhulagiri Region</a>
+                        </div>
+                      </div>
+
+                      <!-- peak climbing -->
+                     <div class="relative nav-dropdown">
+                       <a href="" class="nav-dropdown-trigger peak-menu-trigger rounded-md flex px-3 py-2 text-sm font-bold hover:bg-blue-50 hover:text-blue-600 gap-11">Peak Climbing
+                        <i data-lucide="chevron-up" class="nav-chevron w-4 h-4"></i>
+                       </a>
+                        <div id="peak-menu" class="open grid gap-1 hidden">
+                        <a href="" class="rounded-md px-3 py-2 text-sm font-regular hover:bg-blue-50 hover:text-blue-600">Yala Peak Climbing</a>
+                        <a href="" class="rounded-md px-3 py-2 text-sm font-regular hover:bg-blue-50 hover:text-blue-600">Island Peak Climbing with Everest Base Camp</a> 
+                        <a href="" class="rounded-md px-3 py-2 text-sm font-regular hover:bg-blue-50 hover:text-blue-600">Pokalade Peak Climbing</a>
+                        <a href="" class="rounded-md px-3 py-2 text-sm font-regular hover:bg-blue-50 hover:text-blue-600">Lobuche Peak Climbing</a>
+                        <a href="" class="rounded-md px-3 py-2 text-sm font-regular hover:bg-blue-50  hover:text-blue-600">Mardi Himal Climbing</a>
+                        <a href="" class="rounded-md px-3 py-2 text-sm font-regular hover:bg-blue-50 hover:text-blue-600">Chulu West Peak</a>
+                        <a href="" class="rounded-md px-3 py-2 text-sm font-regular hover:bg-blue-50 hover:text-blue-600">Dhampus Peak Climbing</a>
+                        </div>
+                      </div>
+
+                      <!-- Tours in Nepal -->
+                      <a href="" class="rounded-md px-3 py-2 text-sm font-bold hover:bg-blue-50 hover:text-blue-600 gap-12">Tours in Nepal</a> 
+                    </div>                   
+                  </div>
+              </div>
+            </li>
+            <li class="relative nav-dropdown">
+              <button type="button" class="nav-dropdown-trigger flex items-center gap-1 font-medium text-sm hover:text-blue-600 transition-colors" aria-expanded="false" aria-controls="day-tours-menu">
+                DAY TOURS <i data-lucide="chevron-down" class="nav-chevron w-4 h-4"></i>
+              </button>
+              <div id="day-tours-menu" class="desktop-dropdown absolute left-0 top-full z-50 mt-0 w-80 rounded-md border border-gray-100 bg-white p-3 shadow-2xl">
+                <a href="" class="flex items-center justify-between rounded-md px-3 py-3 text-sm font-bold transition hover:bg-blue-50 hover:text-blue-600">
+                  Kathmandu Heritage Tour <span class="text-xs text-gray-400">1 Day</span>
+                </a>
+                <a href="" class="flex items-center justify-between rounded-md px-3 py-3 text-sm font-bold transition hover:bg-blue-50 hover:text-blue-600">
+                  Bhaktapur & Patan Tour <span class="text-xs text-gray-400">1 Day</span>
+                </a>
+                <a href="" class="flex items-center justify-between rounded-md px-3 py-3 text-sm font-bold transition hover:bg-blue-50 hover:text-blue-600">
+                  Nagarkot Sunrise Hike <span class="text-xs text-gray-400">1 Day</span>
+                </a>
+                <a href="" class="flex items-center justify-between rounded-md px-3 py-3 text-sm font-bold transition hover:bg-blue-50 hover:text-blue-600">
+                  Pokhara Sightseeing <span class="text-xs text-gray-400">1 Day</span>
+                </a>
+              </div>
+            </li>
+            <li><a href="#testimonials" class="font-medium text-sm hover:text-blue-600 transition-colors">TESTIMONIALS</a></li>
+            <li><a href="#blog" class="font-medium text-sm hover:text-blue-600 transition-colors">BLOG</a></li>
+            <li><a href="#contact" class="font-medium text-sm hover:text-blue-600 transition-colors">CONTACT</a></li>
+          </ul>
+        </nav>
+
+        <!-- Desktop Contact -->
+        <div class="hidden lg:flex gap-2 items-center">
+  <!-- Viber Box -->
+  <div class="bg-[#7360F2] rounded-lg p-2">
+    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/viber.svg" class="w-5 h-5 invert" alt="Viber" />
+  </div>
+
+  <!-- WhatsApp Box -->
+  <div class="bg-[#25D366] rounded-lg p-2">
+    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/whatsapp.svg" class="w-5 h-5  invert" alt="Whatsapp" />
+  </div>
+
+  <span class="text-sm font-bold">+9779851205116</span>
+</div>
+ 
+        <!-- Mobile Hamburger -->
+        <button id="hamburger" class="lg:hidden flex flex-col gap-1 p-1.5" aria-label="Toggle menu" aria-controls="mobile-menu" aria-expanded="false">
+          <span class="w-4 h-0.5 lg:w-6 bg-black block transition-all"></span>
+          <span class="w-4 h-0.5 lg:w-6 bg-black block transition-all"></span>
+          <span class="w-4 h-0.5 lg:w-6 bg-black block transition-all"></span>
+        </button>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="lg:hidden flex-col bg-white border-t border-gray-100 gap-1">
+        <div class="mobile-dropdown border-b border-gray-100 px-4">
+          <button type="button" class="mobile-dropdown-trigger flex w-full items-center justify-between py-3 text-sm font-bold hover:text-blue-600" aria-expanded="false">
+            ABOUT US <i data-lucide="chevron-down" class="mobile-chevron w-4 h-4"></i>
+          </button>
+          <div class="mobile-submenu">
+            <div class="grid gap-1 pb-3 pl-3">
+              <a href="#about" class="block rounded-md px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600">About Company</a>
+              <a href="#about" class="block rounded-md px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600">Why Travel With Us</a>
+              <a href="#testimonials" class="block rounded-md px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600">Client Reviews</a>
+              <a href="#faq" class="block rounded-md px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600">FAQs</a>
+            </div>
+          </div>
+        </div>
+        <div class="mobile-dropdown border-b border-gray-100 px-4">
+  <button type="button" class="mobile-dropdown-trigger flex w-full items-center justify-between py-3 text-sm font-bold hover:text-blue-600" aria-expanded="false">
+    NEPAL <i data-lucide="chevron-down" class="mobile-chevron w-4 h-4"></i>
+  </button>
+  <div class="mobile-submenu">
+    <div class="grid gap-1 pb-3 pl-3">
+
+      <!-- Trekking in Nepal nested accordion -->
+      <div class="mobile-nested-dropdown">
+        <button type="button" class="mobile-nested-trigger flex w-full items-center justify-between rounded-md px-3 py-2 text-sm font-bold text-gray-700 hover:bg-blue-50 hover:text-blue-600" aria-expanded="false">
+          Trekking in Nepal
+          <i data-lucide="chevron-down" class="mobile-nested-chevron w-4 h-4 transition-transform duration-200"></i>
+        </button>
+        <div class="mobile-nested-submenu hidden">
+          <div class="grid gap-1 pl-3 pb-1">
+            <a href="" class="block rounded-md px-3 py-2 text-sm text-gray-500 hover:bg-blue-50 hover:text-blue-600">Everest Region</a>
+            <a href="" class="block rounded-md px-3 py-2 text-sm text-gray-500 hover:bg-blue-50 hover:text-blue-600">Annapurna Region</a>
+            <a href="" class="block rounded-md px-3 py-2 text-sm text-gray-500 hover:bg-blue-50 hover:text-blue-600">Langtang Region</a>
+            <a href="" class="block rounded-md px-3 py-2 text-sm text-gray-500 hover:bg-blue-50 hover:text-blue-600">Manaslu Region</a>
+            <a href="" class="block rounded-md px-3 py-2 text-sm text-gray-500 hover:bg-blue-50 hover:text-blue-600">Kanchanjunga Region</a>
+            <a href="" class="block rounded-md px-3 py-2 text-sm text-gray-500 hover:bg-blue-50 hover:text-blue-600">Ganesh Himal Region</a>
+            <a href="" class="block rounded-md px-3 py-2 text-sm text-gray-500 hover:bg-blue-50 hover:text-blue-600">Dhulagiri Region</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Peak Climbing nested accordion -->
+      <div class="mobile-nested-dropdown">
+        <button type="button" class="mobile-nested-trigger flex w-full items-center justify-between rounded-md px-3 py-2 text-sm font-bold text-gray-700 hover:bg-blue-50 hover:text-blue-600" aria-expanded="false">
+          Peak Climbing
+          <i data-lucide="chevron-down" class="mobile-nested-chevron w-4 h-4 transition-transform duration-200"></i>
+        </button>
+        <div class="mobile-nested-submenu hidden">
+          <div class="grid gap-1 pl-3 pb-1">
+            <a href="" class="block rounded-md px-3 py-2 text-sm text-gray-500 hover:bg-blue-50 hover:text-blue-600">Yala Peak Climbing</a>
+            <a href="" class="block rounded-md px-3 py-2 text-sm text-gray-500 hover:bg-blue-50 hover:text-blue-600">Island Peak Climbing with EBC</a>
+            <a href="" class="block rounded-md px-3 py-2 text-sm text-gray-500 hover:bg-blue-50 hover:text-blue-600">Pokalade Peak Climbing</a>
+            <a href="" class="block rounded-md px-3 py-2 text-sm text-gray-500 hover:bg-blue-50 hover:text-blue-600">Lobuche Peak Climbing</a>
+            <a href="" class="block rounded-md px-3 py-2 text-sm text-gray-500 hover:bg-blue-50 hover:text-blue-600">Mardi Himal Climbing</a>
+            <a href="" class="block rounded-md px-3 py-2 text-sm text-gray-500 hover:bg-blue-50 hover:text-blue-600">Chulu West Peak</a>
+            <a href="" class="block rounded-md px-3 py-2 text-sm text-gray-500 hover:bg-blue-50 hover:text-blue-600">Dhampus Peak Climbing</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tours in Nepal -->
+      <a href="" class="block rounded-md px-3 py-2 text-sm font-bold text-gray-700 hover:bg-blue-50 hover:text-blue-600">Tours in Nepal</a>
+
+    </div>
+  </div>
+</div>
+        <div class="mobile-dropdown border-b border-gray-100 px-4">
+          <button type="button" class="mobile-dropdown-trigger flex w-full items-center justify-between py-3 text-sm font-bold hover:text-blue-600" aria-expanded="false">
+            DAY TOURS <i data-lucide="chevron-down" class="mobile-chevron w-4 h-4"></i>
+          </button>
+          <div class="mobile-submenu">
+            <div class="grid gap-1 pb-3 pl-3">
+              <a href="#contact" class="block rounded-md px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600">Kathmandu Heritage Tour</a>
+              <a href="#contact" class="block rounded-md px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600">Bhaktapur & Patan Tour</a>
+              <a href="#contact" class="block rounded-md px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600">Nagarkot Sunrise Hike</a>
+              <a href="#contact" class="block rounded-md px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600">Mountain Flight</a>
+              <a href="#contact" class="block rounded-md px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600">Pokhara Sightseeing</a>
+            </div>
+          </div>
+        </div>
+        <a href="#testimonials" class="block border-b border-gray-100 px-4 py-3 text-sm font-bold hover:text-blue-600">TESTIMONIALS</a>
+        <a href="#blog" class="block border-b border-gray-100 py-3 text-sm px-4 font-bold hover:text-blue-600">BLOG</a>
+        <a href="#contact" class="block py-3 px-4 text-sm font-bold hover:text-blue-600">CONTACT</a>
+        <div class="flex items-center gap-3 pt-2 border-t border-gray-100 px-4">
+          <img src="Images/Everest/Viber.png" class="w-7 h-7 object-contain" alt="Viber" />
+          <img src="Images/Everest/Whatsapp.png" class="w-7 h-7 object-contain" alt="Whatsapp" />
+          <span class="text-sm">+9779851205116</span>
+        </div>
+      </div>
+    </header>
+    <!-- Header End -->
+
+    <!-- Subnav Start -->
+     <!-- subnav placeholder -->
+     <div id="subnav-placeholder" style="height: 0;"></div>
+
+     <nav id="subnav" class="overflow-x-auto overflow-y-hidden bg-[#E6E7EB] border-b border-[#F0F3F7] smooth-scroll fixed top-0 right-0 left-0 z-40 shadow-sm" aria-label="Trip section navigation">
+				<div class="max-w-[1340px] mx-auto">
+					<ul class="flex min-w-max gap-8 py-2 md:py-4 text-sm md:text-[16px] text-slate-700 px-3 md:px-4 justify-start">
+													<li>
+								<a href="#overview" class="nig-single-subnav-link hover:text-blue-600 active" aria-current="true">
+									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="eye" aria-hidden="true" class="lucide lucide-eye mr-2 h-5 w-5 shrink-0"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"></path><circle cx="12" cy="12" r="3"></circle></svg>
+									Overview</a>
+							</li>
+										    	<li>
+								<a href="#highlights" class="nig-single-subnav-link hover:text-blue-600">
+									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="clipboard-list" aria-hidden="true" class="lucide lucide-clipboard-list mr-2 h-5 w-5 shrink-0"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"></rect><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><path d="M12 11h4"></path><path d="M12 16h4"></path><path d="M8 11h.01"></path><path d="M8 16h.01"></path></svg>
+									Highlights								</a>
+							</li>
+													<li>
+								<a href="#services" class="nig-single-subnav-link hover:text-blue-600">
+									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="circle-check" aria-hidden="true" class="lucide lucide-circle-check mr-2 h-5 w-5 shrink-0"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>
+									Services								</a>
+							</li>
+													<li>
+								<a href="#itinerary" class="nig-single-subnav-link hover:text-blue-600">
+									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="map" aria-hidden="true" class="lucide lucide-map mr-2 h-5 w-5 shrink-0"><path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z"></path><path d="M15 5.764v15"></path><path d="M9 3.236v15"></path></svg>
+									Itinerary								</a>
+							</li>
+              			<li>
+								<a href="#routes" class="nig-single-subnav-link hover:text-blue-600">
+									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="calendar-days" aria-hidden="true" class="lucide lucide-calendar-days mr-2 h-5 w-5 shrink-0"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path><path d="M8 14h.01"></path><path d="M12 14h.01"></path><path d="M16 14h.01"></path><path d="M8 18h.01"></path><path d="M12 18h.01"></path><path d="M16 18h.01"></path></svg>
+									Routes							</a>
+							</li>
+													<li>
+								<a href="#faq" class="nig-single-subnav-link hover:text-blue-600">
+									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="circle-help" aria-hidden="true" class="lucide lucide-circle-help mr-2 h-5 w-5 shrink-0"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><path d="M12 17h.01"></path></svg>
+									FAQs								</a>
+							</li>
+													<li>
+								<a href="#reviews" class="nig-single-subnav-link hover:text-blue-600">
+									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="message-circle" aria-hidden="true" class="lucide lucide-message-circle mr-2 h-5 w-5 shrink-0"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"></path></svg>
+									Reviews								</a>
+							</li>
+											</ul>
+				</div>
+			</nav>
+    <!-- Subnav End -->
+
+    <!-- Banner Start -->
+    <section id="hero-slider"
+    class="relative w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] xl:h-[654px] overflow-hidden bg-black" tabindex="0" aria-label="Hero banner slider" role="region">
+   
+  <!-- SLIDE 1 -->
+  <div class="slide active" role="img" aria-label="Slide 1">
+    <img class="w-full h-full object-cover" src="Images/Everest/Trek Banner.png" alt="Everest Base Camp Trek"/>
+  </div>
+
+  <!-- SLIDE 2 -->
+  <div class="slide" role="img" aria-label="Slide 2">
+    <img class="w-full h-full object-cover" src="images/Everest/Trek Banner1.png" alt="Trek Banner2"/>
+  </div>
+
+  <!-- SLIDE 3 -->
+  <div class="slide" role="img" aria-label="Slide 3">
+    <img class="w-full h-full object-cover" src="images/Everest/Trek Banner2.png" alt="Trek Banner3"/>
+  </div>
+
+  <!-- SLIDE 4 -->
+  <div class="slide" role="img" aria-label="Slide 4">
+    <img class="w-full h-full object-cover" src="images/Everest/Trek Banner3.png" alt="Trek Banner4"/>
+  </div>
+
+  
+  <!-- AUTOPLAY PROGRESS BAR -->
+  <div id="progress-bar"></div>
+
+  <!-- ARROW BUTTONS (mobile/tablet only) -->
+  <button id="arrow-left" class="arrow-btn" aria-label="Previous slide">
+    <i data-lucide="chevron-left"></i>
+  </button>
+  <button id="arrow-right" class="arrow-btn" aria-label="Next slide">
+    <i data-lucide="chevron-right"></i>
+  </button>
+
+  <!-- THUMBNAILS (desktop only, bottom-right) -->
+  <div id="thumb-bar" aria-label="Slide thumbnails" role="tablist">
+     <img class="thumb" src="Images/Everest/Trek Banner.png" alt="Everest Base Camp Trek" role="tab" aria-selected="true"  tabindex="0" />
+    <img class="thumb active" src="images/Everest/Trek Banner1.png" alt="Everest Base Camp Trek" role="tab" aria-selected="true"  tabindex="0" />
+    <img class="thumb"        src="images/Everest/Trek Banner2.png"     alt="Trek Image 1"            role="tab" aria-selected="true" tabindex="0" />
+    <img class="thumb"        src="images/Everest/Trek Banner3.png"     alt="Trek Image 2"            role="tab" aria-selected="true" tabindex="0" />
+  </div>
+
+    </section>
+    <!-- Banner End -->
+
+    <!-- main section start -->
+      <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
+  <div class="flex flex-col lg:flex-row gap-10 lg:gap-12">
+    
+    <!-- left section start -->
+    <div class="w-full lg:w-2/3 space-y-10 scrollable-content">
+      
+      <!-- Overview Card Start -->
+      <section id="overview" class="px-8"> 
+          <!-- <h2 class="text-2xl font-bold tracking-wide mb-8">
+            Overview
+          </h2> -->
+
+          <div class="w-full bg-gray-100 p-8 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10">
+
+            <!-- ITEM -->
+            <div class="flex items-start gap-5">
+              <div class="w-10 h-10 rounded-full bg-black flex items-center justify-center shrink-0">
+                <i data-lucide="map-pinned" class="w-5 h-5 text-white"></i>
+              </div>
+
+              <div>
+                <p class="text-sm text-black/60 tracking-wide">
+                  Departure From
+                </p>
+
+                <h4 class="text-base font-bold tracking-wide">
+                  Kathmandu
+                </h4>
+              </div>
+            </div>
+
+            <!-- ITEM -->
+            <div class="flex items-start gap-5">
+              <div class="w-10 h-10 rounded-full bg-black flex items-center justify-center shrink-0">
+                <i data-lucide="mountain" class="w-5 h-5 text-white"></i>
+              </div>
+
+              <div>
+                <p class="text-sm text-black/60 tracking-wide">
+                  Destination
+                </p>
+
+                <h4 class="text-sm font-bold tracking-wide">
+                  Everest Region
+                </h4>
+              </div>
+            </div>
+
+            <!-- ITEM -->
+            <div class="flex items-start gap-5">
+              <div class="w-10 h-10 rounded-full bg-black flex items-center justify-center shrink-0">
+                <i data-lucide="plane" class="w-5 h-5 text-white"></i>
+              </div>
+
+              <div>
+                <p class="text-sm text-black/60 tracking-wide">
+                  Transportation
+                </p>
+
+                <h4 class="text-sm font-bold tracking-wide">
+                  Flight to Lukla to Kathmandu
+                </h4>
+              </div>
+            </div>
+
+            <!-- ITEM -->
+            <div class="flex items-start gap-5">
+              <div class="w-10 h-10 rounded-full bg-black flex items-center justify-center shrink-0">
+                <i data-lucide="ruler" class="w-5 h-5 text-white"></i>
+              </div>
+
+              <div>
+                <p class="text-sm text-black/60 tracking-wide">
+                  Max. Altitude
+                </p>
+
+                <h4 class="text-sm font-bold tracking-wide">
+                  8,848.86 m
+                </h4>
+              </div>
+            </div>
+
+            <!-- ITEM -->
+            <div class="flex items-start gap-5">
+              <div class="w-10 h-10 rounded-full bg-black flex items-center justify-center shrink-0">
+                <i data-lucide="calendar-days" class="w-5 h-5 text-white"></i>
+              </div>
+
+              <div>
+                <p class="text-sm text-black/60 tracking-wide">
+                  Trip Duration
+                </p>
+
+                <h4 class="text-sm font-bold tracking-wide">
+                  14 Days
+                </h4>
+              </div>
+            </div>
+
+            <!-- ITEM -->
+            <div class="flex items-start gap-5">
+              <div class="w-10 h-10 rounded-full bg-black flex items-center justify-center shrink-0">
+                <i data-lucide="gauge" class="w-5 h-5 text-white"></i>
+              </div>
+
+              <div>
+                <p class="text-sm text-black/60 tracking-wide">
+                  Trip Grade
+                </p>
+
+                <h4 class="text-sm font-bold tracking-wide">
+                  Strenuous
+                </h4>
+              </div>
+            </div>
+
+            <!-- ITEM -->
+            <div class="flex items-start gap-5">
+              <div class="w-10 h-10 rounded-full bg-black flex items-center justify-center shrink-0">
+                <i data-lucide="utensils-crossed" class="w-5 h-5 text-white"></i>
+              </div>
+
+              <div>
+                <p class="text-sm text-black/60 tracking-wide">
+                  Meals
+                </p>
+
+                <h4 class="text-sm font-bold tracking-wide">
+                  Breakfast, Lunch, Dinner
+                </h4>
+              </div>
+            </div>
+
+            <!-- ITEM -->
+            <div class="flex items-start gap-5">
+              <div class="w-10 h-10 rounded-full bg-black flex items-center justify-center shrink-0">
+                <i data-lucide="house" class="w-5 h-5 text-white"></i>
+              </div>
+
+              <div>
+                <p class="text-sm text-black/60 tracking-wide">
+                  Accommodation
+                </p>
+
+                <h4 class="text-sm font-bold tracking-wide">
+                  Tea House
+                </h4>
+              </div>
+            </div>
+
+          </div>
+      </section>
+      <!-- Overview Card End -->
+
+      <!-- Description EBC Start-->
+     <section class="px-8 space-y-8">
+          <h2 class="text-2xl font-bold tracking-wide">
+            Everest Base Camp Trek (14 Days)
+          </h2>
+
+            <p class="text-base text-black/70">
+              The Everest Base Camp trek is a bucket-list adventure for trekking enthusiasts worldwide. This trek, takes you to the foot of the highest mountain on earth Mt.Everest 8,848.86 meters (29,031.7 feet). Offering an unforgettable combination of cultural immersion, breathtaking landscapes, and physical challenge. The journey to Everest Base Camp, often referred to as EBC, is not just about reaching a destination, but also about experiencing the Sherpa culture, the rugged Himalayan environment, and the camaraderie formed with fellow trekkers along the way.
+            </p>
+
+            <p class="text-base text-black/70">
+              The EBC hike is ideal for adventure seekers and nature lovers alike. The sense of accomplishment from standing at the base of Mount Everest is incomparable, but the journey itself is full of memorable experiences. From the vibrant streets of Kathmandu, where the adventure begins, to the quiet, meditative moments in the shadow of towering peaks, every step offers a new perspective. Along the way, you will pass through Sherpa villages, visit monasteries, and gaze upon some of the world’s most iconic peaks, such as Ama Dablam 6,812 meters (22,349 feet) , Lhotse 8,516 meters (27,940 feet), and Nuptse 7,861 meters (25,791 feet).
+            </p>
+
+            <p class="text-base text-black/70">
+              The 12 days Everest Base Camp hike is also a test of endurance and perseverance. While the trail is well-marked and doesn’t require technical climbing skills.  The high altitude and long trekking days can be physically demanding. Proper acclimatization and a steady pace are key to enjoying the journey and avoiding altitude sickness. 
+            </p>
+     </section>
+        <!-- Description EBC End -->
+
+      <!-- Highlights Section Start -->
+      <section id="highlights" class="px-8 space-y-8">
+          <h2 class="text-2xl lg:text-3xl text-black font-bold tracking-wide">
+            Highlights</h2>
+          <ul role="list" class="list-disc pl-5 space-y-2 text-black/70 text-16px font-light tracking-wide">
+          <li>Stunning views of Mount Everest, Lhotse, Nuptse, and Ama Dablam</li>
+          <li>Experience Sherpa culture and Buddhist traditions</li>
+          <li>Visit Tengboche Monastery</li>
+          <li>Explore Namche Bazaar</li>
+          <li>Trek through diverse landscapes</li>
+          <li>Sunrise view from Kala Patthar</li>
+          <li>Reach Everest Base Camp</li>
+          <li>High-altitude trekking above 5,000 meters</li>
+          <li>Walk inside Sagarmatha National Park</li>
+          <li>Cross iconic suspension bridges</li>
+          <li>Spot Himalayan wildlife</li>
+          <li>A lifetime trekking achievement</li>
+          </ul>
+      </section>
+      <!-- Highlights Section End -->
+
+      <!-- Services Section Start -->
+       <div id="services" class="space-y-8 scroll-mt-28">
+      <!-- Included Section Start -->
+     <section class="px-8 space-y-8">
+      <div id="included" class="scroll-mt-28">
+        <h2 class="text-2xl font-bold mb-4">Included</h2>
+        <ul class="check-list">
+          <li class="flex gap-2 "><span class="icon mt-1">
+            <svg width="15" height="15" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 11L10 13L14 9M21 11C21 16.5228 16.5228 21 11 21C5.47715 21 1 16.5228 1 11C1 5.47715 5.47715 1 11 1C16.5228 1 21 5.47715 21 11Z" stroke="#10A300" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>Domestic flights between Kathmandu and Lukla (via Manthali peak season)</li>
+          <li class="flex gap-2"><span class="icon mt-1">
+            <svg width="15" height="15" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 11L10 13L14 9M21 11C21 16.5228 16.5228 21 11 21C5.47715 21 1 16.5228 1 11C1 5.47715 5.47715 1 11 1C16.5228 1 21 5.47715 21 11Z" stroke="#10A300" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span> Three meals daily (breakfast, lunch, dinner) with multi-cuisine options</li>
+          <li class="flex gap-2"><span class="icon mt-1">
+            <svg width="15" height="15" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 11L10 13L14 9M21 11C21 16.5228 16.5228 21 11 21C5.47715 21 1 16.5228 1 11C1 5.47715 5.47715 1 11 1C16.5228 1 21 5.47715 21 11Z" stroke="#10A300" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>Tea house accommodation throughout the trek</li>
+          <li class="flex gap-2"><span class="icon mt-1">
+            <svg width="15" height="15" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 11L10 13L14 9M21 11C21 16.5228 16.5228 21 11 21C5.47715 21 1 16.5228 1 11C1 5.47715 5.47715 1 11 1C16.5228 1 21 5.47715 21 11Z" stroke="#10A300" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span> Permits for Sagarmatha National Park and Khumbu region</li>
+          <li class="flex gap-2"><span class="icon mt-1">
+             <svg width="15" height="15" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 11L10 13L14 9M21 11C21 16.5228 16.5228 21 11 21C5.47715 21 1 16.5228 1 11C1 5.47715 5.47715 1 11 1C16.5228 1 21 5.47715 21 11Z" stroke="#10A300" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span> Experienced licensed English-speaking trekking guide & porter service (1 porter for 2 trekkers)</li>
+          <li class="flex gap-2"><span class="icon mt-1">
+             <svg width="15" height="15" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 11L10 13L14 9M21 11C21 16.5228 16.5228 21 11 21C5.47715 21 1 16.5228 1 11C1 5.47715 5.47715 1 11 1C16.5228 1 21 5.47715 21 11Z" stroke="#10A300" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>Guide and porter meals, accommodation, salary, and insurance</li>
+          <li class="flex gap-2"><span class="icon mt-1">
+             <svg width="15" height="15" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 11L10 13L14 9M21 11C21 16.5228 16.5228 21 11 21C5.47715 21 1 16.5228 1 11C1 5.47715 5.47715 1 11 1C16.5228 1 21 5.47715 21 11Z" stroke="#10A300" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span> Sleeping bag, kitbag (available if needed) & completion certificate</li>
+        </ul>
+      </div>
+      </section>
+      <!-- Included Section End -->
+
+      <!-- Excluded Section Start -->
+       <section class="px-8 space-y-8">
+      <div id="excluded" class="scroll-mt-28">
+        <h2 class="text-2xl font-bold mb-4">Excluded</h2>
+        <ul class="check-list">
+          <li class="flex gap-2"><span class="icon mt-1">
+            <svg width="15" height="15" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+             <path d="M14 8L8 14M8 8L14 14M21 11C21 16.5228 16.5228 21 11 21C5.47715 21 1 16.5228 1 11C1 5.47715 5.47715 1 11 1C16.5228 1 21 5.47715 21 11Z" stroke="#FF5B1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>
+          </span>International airfare to and from Nepal</li>
+          <li class="flex gap-2"><span class="icon mt-1">
+            <svg width="15" height="15" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+             <path d="M14 8L8 14M8 8L14 14M21 11C21 16.5228 16.5228 21 11 21C5.47715 21 1 16.5228 1 11C1 5.47715 5.47715 1 11 1C16.5228 1 21 5.47715 21 11Z" stroke="#FF5B1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>Nepal entry visa fees at Tribhuvan International Airport</li>
+          <li class="flex gap-2"><span class="icon mt-1">
+            <svg width="15" height="15" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+             <path d="M14 8L8 14M8 8L14 14M21 11C21 16.5228 16.5228 21 11 21C5.47715 21 1 16.5228 1 11C1 5.47715 5.47715 1 11 1C16.5228 1 21 5.47715 21 11Z" stroke="#FF5B1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>Personal trekking equipment & high-altitude personal expenses</li>
+          <li class="flex gap-2"><span class="icon mt-1">
+            <svg width="15" height="15" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+             <path d="M14 8L8 14M8 8L14 14M21 11C21 16.5228 16.5228 21 11 21C5.47715 21 1 16.5228 1 11C1 5.47715 5.47715 1 11 1C16.5228 1 21 5.47715 21 11Z" stroke="#FF5B1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>Emergency rescue and evacuation (must be covered by travel insurance)</li>
+          <li class="flex gap-2"><span class="icon mt-1">
+            <svg width="15" height="15" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+             <path d="M14 8L8 14M8 8L14 14M21 11C21 16.5228 16.5228 21 11 21C5.47715 21 1 16.5228 1 11C1 5.47715 5.47715 1 11 1C16.5228 1 21 5.47715 21 11Z" stroke="#FF5B1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>Beverages including soft drinks, tea/coffee, alcohol, and bottled water</li>
+          <li class="flex gap-2"><span class="icon mt-1">
+            <svg width="15" height="15" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+             <path d="M14 8L8 14M8 8L14 14M21 11C21 16.5228 16.5228 21 11 21C5.47715 21 1 16.5228 1 11C1 5.47715 5.47715 1 11 1C16.5228 1 21 5.47715 21 11Z" stroke="#FF5B1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>Additional services like hot showers, laundry, and personal expenses</li>
+          <li class="flex gap-2"><span class="icon mt-1">
+            <svg width="15" height="15" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+             <path d="M14 8L8 14M8 8L14 14M21 11C21 16.5228 16.5228 21 11 21C5.47715 21 1 16.5228 1 11C1 5.47715 5.47715 1 11 1C16.5228 1 21 5.47715 21 11Z" stroke="#FF5B1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>Tips for guide and porter</li>
+          <li class="flex gap-2"><span class="icon mt-1">
+            <svg width="15" height="15" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+             <path d="M14 8L8 14M8 8L14 14M21 11C21 16.5228 16.5228 21 11 21C5.47715 21 1 16.5228 1 11C1 5.47715 5.47715 1 11 1C16.5228 1 21 5.47715 21 11Z" stroke="#FF5B1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>Any expenses not listed under “Cost Included”</li>
+          <li class="flex gap-2"><span class="icon mt-1">
+            <svg width="15" height="15" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+             <path d="M14 8L8 14M8 8L14 14M21 11C21 16.5228 16.5228 21 11 21C5.47715 21 1 16.5228 1 11C1 5.47715 5.47715 1 11 1C16.5228 1 21 5.47715 21 11Z" stroke="#FF5B1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>Extra costs due to unforeseen situations like weather delays, landslides, illness, strikes, or policy changes</li>
+        </ul>
+      </div>
+     </section>
+      <!-- Excluded Section End -->
+     </div>  
+     <!-- Services Section End -->
+
+      <!-- Itinerary Section Start-->
+      <section id="itinerary" class="px-8 space-y-8 scroll-mt-28">
+         <h2 class="text-2xl font-bold mb-4">Itinerary</h2>
+          <div class="overflow-hidden text-sm">
+
+    <div class="flex items-center justify-between px-4 py-3 border shadow-md border-gray-100 mb-2">
+      <div class="flex items-center gap-4">
+        <span class="text-black font-bold w-7">01</span>
+        <span class="font-bold">Arrival in Kathmandu</span>
+      </div>
+      <span class="text-xs font-bold border border-black rounded px-2.5 py-1 text-black whitespace-nowrap hover:bg-gray-200">1,400m</span>
+    </div>
+
+    <div class="flex items-center justify-between px-4 py-3 border shadow-md border-gray-100 mb-2">
+      <div class="flex items-center gap-4">
+        <span class="text-black font-bold w-7">02</span>
+        <span class="font-bold">Flight to Lukla and Trek to Phakding</span>
+      </div>
+      <span class="text-xs font-bold border border-black rounded px-2.5 py-1 text-black whitespace-nowrap hover:bg-gray-200">2,610m</span>
+    </div> 
+
+    <div class="flex items-center justify-between px-4 py-3 border shadow-md border-gray-100 mb-2">
+      <div class="flex items-center gap-4">
+        <span class="text-black font-bold w-7">03</span>
+        <span class="font-bold">Phakding to Namche Bazaar</span>
+      </div>
+      <span class="text-xs font-bold border border-black rounded px-2.5 py-1 text-black whitespace-nowrap hover:bg-gray-200">3,440m</span>
+    </div>
+
+    <div class="flex items-center justify-between px-4 py-3 border shadow-md border-gray-100 mb-2">
+      <div class="flex items-center gap-4">
+        <span class="text-black font-bold w-7">04</span>
+        <span class="font-bold">Acclimatization Day at Namche Bazaar</span>
+      </div>
+      <span class="text-xs font-bold border border-black rounded px-2.5 py-1 text-black whitespace-nowrap hover:bg-gray-200">3,440m</span>
+    </div>
+
+    <div class="flex items-center justify-between px-4 py-3 border shadow-md border-gray-100 mb-2">
+      <div class="flex items-center gap-4">
+        <span class="text-black font-bold w-7">05</span>
+        <span class="font-bold">Namche Bazaar to Tengboche</span>
+      </div>
+      <span class="text-xs font-black border border-black rounded px-2.5 py-1 text-black whitespace-nowrap hover:bg-gray-200">3,860m</span>
+    </div>
+
+    <div class="flex items-center justify-between px-4 py-3 border shadow-md border-gray-100 mb-2">
+      <div class="flex items-center gap-4">
+        <span class="text-black font-bold w-7">06</span>
+        <span class="font-bold">Trek from Tengboche to Dingboche</span>
+      </div>
+      <span class="text-xs font-bold border border-black rounded px-2.5 py-1 text-black whitespace-nowrap hover:bg-gray-200">4,410m</span>
+    </div>
+
+    <div class="flex items-center justify-between px-4 py-3 border shadow-md border-gray-100 mb-2">
+      <div class="flex items-center gap-4">
+        <span class="text-black font-bold w-7">07</span>
+        <span class="font-bold"> Acclimatization Day at Dingboche</span>
+      </div>
+      <span class="text-xs font-bold border border-black rounded px-2.5 py-1 text-black whitespace-nowrap hover:bg-gray-200">4,410m</span>
+    </div>
+
+    <div class="flex items-center justify-between px-4 py-3 border shadow-md border-gray-100 mb-2">
+      <div class="flex items-center gap-4">
+        <span class="text-black font-bold w-7">08</span>
+        <span class="font-bold">Dingboche to Lobuche</span>
+      </div>
+      <span class="text-xs font-bold border border-black rounded px-2.5 py-1 text-black whitespace-nowrap hover:bg-gray-200">4,940m</span>
+    </div>
+
+    <div class="flex items-center justify-between px-4 py-3 border shadow-md border-gray-100 mb-2">
+      <div class="flex items-center gap-4">
+        <span class="text-black font-bold w-7">09</span>
+        <span class="font-bold">Lobuche to Gorak Shep (5,170m) and Everest Base Camp (5,364m)</span>
+      </div>
+      <span class="text-xs font-bold border border-black rounded px-2.5 py-1 text-black whitespace-nowrap hover:bg-gray-200">5,364m</span>
+    </div>
+
+    <div class="flex items-center justify-between px-4 py-3 border shadow-md border-gray-100 mb-2">
+      <div class="flex items-center gap-4">
+        <span class="text-black font-bold w-7">10</span>
+        <span class="font-bold">Hike to Kala Patthar (5,545m) and Return to Pheriche (4,240m)</span>
+      </div>
+      <span class="text-xs font-bold border border-black rounded px-2.5 py-1 text-black whitespace-nowrap hover:bg-gray-200">5,545m</span>
+    </div>
+
+    <div class="flex items-center justify-between px-4 py-3 border shadow-md border-gray-100 mb-2">
+      <div class="flex items-center gap-4">
+        <span class="text-black font-bold w-7">11</span>
+        <span class="font-bold">Pheriche to Namche Bazaar</span>
+      </div>
+      <span class="text-xs font-bold border border-black rounded px-2.5 py-1 text-black whitespace-nowrap hover:bg-gray-200">5,545m</span>
+    </div>
+
+    <div class="flex items-center justify-between px-4 py-3 border shadow-md border-gray-100 mb-2">
+      <div class="flex items-center gap-4">
+        <span class="text-black font-bold w-7">12</span>
+        <span class="font-bold">Namche Bazaar to Lukla</span>
+      </div>
+      <span class="text-xs font-bold border border-black rounded px-2.5 py-1 text-black whitespace-nowrap hover:bg-gray-200">2,860m</span>
+    </div>
+
+    <div class="flex items-center justify-between px-4 py-3 border shadow-md border-gray-100 mb-2">
+      <div class="flex items-center gap-4">
+        <span class="text-black font-bold w-7">13</span>
+        <span class="font-bold">Flight to Kathmandu</span>
+      </div>
+      <span class="text-xs font-bold border border-black rounded px-2.5 py-1 text-black whitespace-nowrap hover:bg-gray-200">3,440m</span>
+    </div>
+    
+  </div>
+      </section>
+      <!-- Itinerary Section End -->
+
+      <!-- Routes Start-->
+                <div id="routes" class="mb-[56px] lg:mb-[72px] scroll-mt-24 lg:scroll-mt-28 px-8">
+                    <h2 class="font-extrabold text-2xl lg:text-2xl mb-[12px] lg:mb-[20px]">
+                        Routes
+                    </h2>
+                    <img src="Images/Everest/trek route map.png" class="object-cover">
+                </div>
+      <!-- Routes End -->
+
+      <!-- Altitude Start -->
+       <div id="routes" class="mb-[56px] lg:mb-[72px] scroll-mt-24 lg:scroll-mt-28 px-8">
+          <h2 class="font-extrabold text-xl lg:text-2xl mb-[12px] lg:mb-[20px]">
+             Altitude
+          </h2>
+            <img src="Images/Everest/ebc altitude.png" class="w-full object-cover">
+        </div>
+       <!-- Altitude End -->
+                
+      <!-- Departure Section Start -->
+      <div id="departures" class="scroll-mt-28">
+          <h2 class="text-xl lg:text-2xl font-bold mb-6">Availability</h2>
+
+  <!-- Month Selector -->
+  <div class="bg-white px-6 py-4 flex items-center justify-between mb-4">
+    <span class="text-sm font-bold text-gray-800">Select a trip month</span>
+      <select class="appearance-none bg-white border border-black rounded pl-3 pr-9 py-2 text-sm font-medium text-gray-800 cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500 min-w-[130px]">
+        <option>April 2026</option>
+        <option>May 2026</option>
+        <option>June 2026</option>
+      </select>
+      <svg class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+      </svg>
+
+  </div>
+
+    <!-- Row Template -->
+    <div class="bg-white border border-gray-100 px-6 py-4 flex items-center gap-6 transition-all duration-200 hover:border-gray-200 hover:shadow-md hover:-translate-y-px cursor-default mb-2">
+      <!-- Departure Date -->
+      <div class="flex items-center gap-3 flex-1">
+        <svg width="20" height="22" viewBox="0 0 20 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+         <path d="M6 1V5M14 1V5M1 9H19M3 3H17C18.1046 3 19 3.89543 19 5V19C19 20.1046 18.1046 21 17 21H3C1.89543 21 1 20.1046 1 19V5C1 3.89543 1.89543 3 3 3Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div>
+          <p class="text-xs text-gray-500">Departure Date</p>
+          <p class="text-sm font-bold text-gray-900">10 April, 2026</p>
+        </div>
+      </div>
+      <!-- Trip Duration -->
+      <div class="flex items-center gap-3 flex-1">
+       <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+       <path d="M11 5V11L15 13M21 11C21 16.5228 16.5228 21 11 21C5.47715 21 1 16.5228 1 11C1 5.47715 5.47715 1 11 1C16.5228 1 21 5.47715 21 11Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+        <div>
+          <p class="text-xs text-gray-500">Trip Duration</p>
+          <p class="text-sm font-bold text-gray-900">14 Days</p>
+        </div>
+      </div>
+      <!-- Price -->
+      <div class="flex items-center gap-3 flex-1">
+       <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M19 14V18C19 18.2652 18.8946 18.5196 18.7071 18.7071C18.5196 18.8946 18.2652 19 18 19H3C2.46957 19 1.96086 18.7893 1.58579 18.4142C1.21071 18.0391 1 17.5304 1 17V3C1 2.46957 1.21071 1.96086 1.58579 1.58579C1.96086 1.21071 2.46957 1 3 1H16C16.2652 1 16.5196 1.10536 16.7071 1.29289C16.8946 1.48043 17 1.73478 17 2V5M1 3C1 3.53043 1.21071 4.03914 1.58579 4.41421C1.96086 4.78929 2.46957 5 3 5H18C18.2652 5 18.5196 5.10536 18.7071 5.29289C18.8946 5.48043 19 5.73478 19 6V10M19 10H16C15.4696 10 14.9609 10.2107 14.5858 10.5858C14.2107 10.9609 14 11.4696 14 12C14 12.5304 14.2107 13.0391 14.5858 13.4142C14.9609 13.7893 15.4696 14 16 14H19M19 10C19.2652 10 19.5196 10.1054 19.7071 10.2929C19.8946 10.4804 20 10.7348 20 11V13C20 13.2652 19.8946 13.5196 19.7071 13.7071C19.5196 13.8946 19.2652 14 19 14" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+        <div>
+          <p class="text-xs text-gray-500">Price</p>
+          <p class="text-sm font-bold text-gray-900">USD $1390</p>
+        </div>
+      </div>
+      <!-- Status -->
+      <div class="flex items-center gap-3 flex-1">
+        <svg width="18" height="20" viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+         <path d="M9 11C11.7614 11 14 8.76142 14 6C14 3.23858 11.7614 1 9 1C6.23858 1 4 3.23858 4 6C4 8.76142 6.23858 11 9 11ZM9 11C11.1217 11 13.1566 11.8429 14.6569 13.3431C16.1571 14.8434 17 16.8783 17 19M9 11C6.87827 11 4.84344 11.8429 3.34315 13.3431C1.84285 14.8434 1 16.8783 1 19" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div>
+          <p class="text-xs text-gray-500">Status</p>
+          <p class="text-sm font-bold text-green-600">Available</p>
+        </div>
+      </div>
+      <!-- Book Button -->
+      <button class="bg-blue-600 hover:bg-blue-700 active:scale-95 text-white text-sm font-bold px-5 py-2.5 rounded transition-all duration-150 shrink-0">
+        Book Now
+      </button>
+    </div>
+
+    <div class="bg-white border border-gray-100 px-6 py-4 flex items-center gap-6 transition-all duration-200 hover:border-gray-200 hover:shadow-md hover:-translate-y-px cursor-default mb-2">
+      <!-- Departure Date -->
+      <div class="flex items-center gap-3 flex-1">
+        <svg width="20" height="22" viewBox="0 0 20 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+         <path d="M6 1V5M14 1V5M1 9H19M3 3H17C18.1046 3 19 3.89543 19 5V19C19 20.1046 18.1046 21 17 21H3C1.89543 21 1 20.1046 1 19V5C1 3.89543 1.89543 3 3 3Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div>
+          <p class="text-xs text-gray-500">Departure Date</p>
+          <p class="text-sm font-bold text-gray-900">15 April, 2026</p>
+        </div>
+      </div>
+      <!-- Trip Duration -->
+      <div class="flex items-center gap-3 flex-1">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+       <path d="M11 5V11L15 13M21 11C21 16.5228 16.5228 21 11 21C5.47715 21 1 16.5228 1 11C1 5.47715 5.47715 1 11 1C16.5228 1 21 5.47715 21 11Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+        <div>
+          <p class="text-xs text-gray-500">Trip Duration</p>
+          <p class="text-sm font-bold text-gray-900">14 Days</p>
+        </div>
+      </div>
+      <!-- Price -->
+      <div class="flex items-center gap-3 flex-1">
+        <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M19 14V18C19 18.2652 18.8946 18.5196 18.7071 18.7071C18.5196 18.8946 18.2652 19 18 19H3C2.46957 19 1.96086 18.7893 1.58579 18.4142C1.21071 18.0391 1 17.5304 1 17V3C1 2.46957 1.21071 1.96086 1.58579 1.58579C1.96086 1.21071 2.46957 1 3 1H16C16.2652 1 16.5196 1.10536 16.7071 1.29289C16.8946 1.48043 17 1.73478 17 2V5M1 3C1 3.53043 1.21071 4.03914 1.58579 4.41421C1.96086 4.78929 2.46957 5 3 5H18C18.2652 5 18.5196 5.10536 18.7071 5.29289C18.8946 5.48043 19 5.73478 19 6V10M19 10H16C15.4696 10 14.9609 10.2107 14.5858 10.5858C14.2107 10.9609 14 11.4696 14 12C14 12.5304 14.2107 13.0391 14.5858 13.4142C14.9609 13.7893 15.4696 14 16 14H19M19 10C19.2652 10 19.5196 10.1054 19.7071 10.2929C19.8946 10.4804 20 10.7348 20 11V13C20 13.2652 19.8946 13.5196 19.7071 13.7071C19.5196 13.8946 19.2652 14 19 14" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+        <div>
+          <p class="text-xs text-gray-500">Price</p>
+          <p class="text-sm font-bold text-gray-900">USD $1390</p>
+        </div>
+      </div>
+      <!-- Status -->
+      <div class="flex items-center gap-3 flex-1">
+        <svg width="18" height="20" viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+         <path d="M9 11C11.7614 11 14 8.76142 14 6C14 3.23858 11.7614 1 9 1C6.23858 1 4 3.23858 4 6C4 8.76142 6.23858 11 9 11ZM9 11C11.1217 11 13.1566 11.8429 14.6569 13.3431C16.1571 14.8434 17 16.8783 17 19M9 11C6.87827 11 4.84344 11.8429 3.34315 13.3431C1.84285 14.8434 1 16.8783 1 19" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div>
+          <p class="text-xs text-gray-500">Status</p>
+          <p class="text-sm font-bold text-green-600">Available</p>
+        </div>
+      </div>
+      <!-- Book Button -->
+      <button class="bg-blue-600 hover:bg-blue-700 active:scale-95 text-white text-sm font-bold px-5 py-2.5 rounded transition-all duration-150 shrink-0">
+        Book Now
+      </button>
+    </div>
+
+    <div class="bg-white border border-gray-100 px-6 py-4 flex items-center gap-6 transition-all duration-200 hover:border-gray-200 hover:shadow-md hover:-translate-y-px cursor-default mb-2">
+      <!-- Departure Date -->
+      <div class="flex items-center gap-3 flex-1">
+        <svg width="20" height="22" viewBox="0 0 20 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+         <path d="M6 1V5M14 1V5M1 9H19M3 3H17C18.1046 3 19 3.89543 19 5V19C19 20.1046 18.1046 21 17 21H3C1.89543 21 1 20.1046 1 19V5C1 3.89543 1.89543 3 3 3Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div>
+          <p class="text-xs text-gray-500">Departure Date</p>
+          <p class="text-sm font-bold text-gray-900">20 April, 2026</p>
+        </div>
+      </div>
+      <!-- Trip Duration -->
+      <div class="flex items-center gap-3 flex-1">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+       <path d="M11 5V11L15 13M21 11C21 16.5228 16.5228 21 11 21C5.47715 21 1 16.5228 1 11C1 5.47715 5.47715 1 11 1C16.5228 1 21 5.47715 21 11Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+        <div>
+          <p class="text-xs text-gray-500">Trip Duration</p>
+          <p class="text-sm font-bold text-gray-900">14 Days</p>
+        </div>
+      </div>
+      <!-- Price -->
+      <div class="flex items-center gap-3 flex-1">
+         <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M19 14V18C19 18.2652 18.8946 18.5196 18.7071 18.7071C18.5196 18.8946 18.2652 19 18 19H3C2.46957 19 1.96086 18.7893 1.58579 18.4142C1.21071 18.0391 1 17.5304 1 17V3C1 2.46957 1.21071 1.96086 1.58579 1.58579C1.96086 1.21071 2.46957 1 3 1H16C16.2652 1 16.5196 1.10536 16.7071 1.29289C16.8946 1.48043 17 1.73478 17 2V5M1 3C1 3.53043 1.21071 4.03914 1.58579 4.41421C1.96086 4.78929 2.46957 5 3 5H18C18.2652 5 18.5196 5.10536 18.7071 5.29289C18.8946 5.48043 19 5.73478 19 6V10M19 10H16C15.4696 10 14.9609 10.2107 14.5858 10.5858C14.2107 10.9609 14 11.4696 14 12C14 12.5304 14.2107 13.0391 14.5858 13.4142C14.9609 13.7893 15.4696 14 16 14H19M19 10C19.2652 10 19.5196 10.1054 19.7071 10.2929C19.8946 10.4804 20 10.7348 20 11V13C20 13.2652 19.8946 13.5196 19.7071 13.7071C19.5196 13.8946 19.2652 14 19 14" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+        <div>
+          <p class="text-xs text-gray-500">Price</p>
+          <p class="text-sm font-bold text-gray-900">USD $1390</p>
+        </div>
+      </div>
+      <!-- Status -->
+      <div class="flex items-center gap-3 flex-1">
+        <svg width="18" height="20" viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+         <path d="M9 11C11.7614 11 14 8.76142 14 6C14 3.23858 11.7614 1 9 1C6.23858 1 4 3.23858 4 6C4 8.76142 6.23858 11 9 11ZM9 11C11.1217 11 13.1566 11.8429 14.6569 13.3431C16.1571 14.8434 17 16.8783 17 19M9 11C6.87827 11 4.84344 11.8429 3.34315 13.3431C1.84285 14.8434 1 16.8783 1 19" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div>
+          <p class="text-xs text-gray-500">Status</p>
+          <p class="text-sm font-bold text-green-600">Available</p>
+        </div>
+      </div>
+      <!-- Book Button -->
+      <button class="bg-blue-600 hover:bg-blue-700 active:scale-95 text-white text-sm font-bold px-5 py-2.5 rounded transition-all duration-150 shrink-0">
+        Book Now
+      </button>
+    </div>
+
+    <div class="bg-white border border-gray-100 px-6 py-4 flex items-center gap-6 transition-all duration-200 hover:border-gray-200 hover:shadow-md hover:-translate-y-px cursor-default mb-2">
+      <!-- Departure Date -->
+      <div class="flex items-center gap-3 flex-1">
+        <svg width="20" height="22" viewBox="0 0 20 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+         <path d="M6 1V5M14 1V5M1 9H19M3 3H17C18.1046 3 19 3.89543 19 5V19C19 20.1046 18.1046 21 17 21H3C1.89543 21 1 20.1046 1 19V5C1 3.89543 1.89543 3 3 3Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div>
+          <p class="text-xs text-gray-500">Departure Date</p>
+          <p class="text-sm font-bold text-gray-900">25 April, 2026</p>
+        </div>
+      </div>
+      <!-- Trip Duration -->
+      <div class="flex items-center gap-3 flex-1">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+       <path d="M11 5V11L15 13M21 11C21 16.5228 16.5228 21 11 21C5.47715 21 1 16.5228 1 11C1 5.47715 5.47715 1 11 1C16.5228 1 21 5.47715 21 11Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+        <div>
+          <p class="text-xs text-gray-500">Trip Duration</p>
+          <p class="text-sm font-bold text-gray-900">14 Days</p>
+        </div>
+      </div>
+      <!-- Price -->
+      <div class="flex items-center gap-3 flex-1">
+        <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M19 14V18C19 18.2652 18.8946 18.5196 18.7071 18.7071C18.5196 18.8946 18.2652 19 18 19H3C2.46957 19 1.96086 18.7893 1.58579 18.4142C1.21071 18.0391 1 17.5304 1 17V3C1 2.46957 1.21071 1.96086 1.58579 1.58579C1.96086 1.21071 2.46957 1 3 1H16C16.2652 1 16.5196 1.10536 16.7071 1.29289C16.8946 1.48043 17 1.73478 17 2V5M1 3C1 3.53043 1.21071 4.03914 1.58579 4.41421C1.96086 4.78929 2.46957 5 3 5H18C18.2652 5 18.5196 5.10536 18.7071 5.29289C18.8946 5.48043 19 5.73478 19 6V10M19 10H16C15.4696 10 14.9609 10.2107 14.5858 10.5858C14.2107 10.9609 14 11.4696 14 12C14 12.5304 14.2107 13.0391 14.5858 13.4142C14.9609 13.7893 15.4696 14 16 14H19M19 10C19.2652 10 19.5196 10.1054 19.7071 10.2929C19.8946 10.4804 20 10.7348 20 11V13C20 13.2652 19.8946 13.5196 19.7071 13.7071C19.5196 13.8946 19.2652 14 19 14" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+        <div>
+          <p class="text-xs text-gray-500">Price</p>
+          <p class="text-sm font-bold text-gray-900">USD $1390</p>
+        </div>
+      </div>
+      <!-- Status -->
+      <div class="flex items-center gap-3 flex-1">
+       <svg width="18" height="20" viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+         <path d="M9 11C11.7614 11 14 8.76142 14 6C14 3.23858 11.7614 1 9 1C6.23858 1 4 3.23858 4 6C4 8.76142 6.23858 11 9 11ZM9 11C11.1217 11 13.1566 11.8429 14.6569 13.3431C16.1571 14.8434 17 16.8783 17 19M9 11C6.87827 11 4.84344 11.8429 3.34315 13.3431C1.84285 14.8434 1 16.8783 1 19" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div>
+          <p class="text-xs text-gray-500">Status</p>
+          <p class="text-sm font-bold text-green-600">Available</p>
+        </div>
+      </div>
+      <!-- Book Button -->
+      <button class="bg-blue-600 hover:bg-blue-700 active:scale-95 text-white text-sm font-bold px-5 py-2.5 rounded transition-all duration-150 shrink-0">
+        Book Now
+      </button>
+    </div>
+
+      </div>
+      <!-- Departure Section End -->
+
+      <!-- Trip Details Start -->
+        <div id="trip-details">
+  <h2 class="text-2xl font-bold tracking-wide mb-6">Trip Details</h2>
+
+  <div class="bg-gray-100 p-6">
+    <div class="grid grid-cols-2 gap-4">
+
+      <!-- Essential Trip Information -->
+      <div class="bg-white px-7 py-6">
+        <div class="flex items-center gap-6 mb-6">
+          <div class="w-12 h-12 bg-black flex items-center justify-center shrink-0">
+            <svg width="22" height="27" viewBox="0 0 22 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M7.25 13.4985L9.75 15.998L14.75 10.9989M21 14.7483C21 20.9972 16.625 24.1217 11.425 25.9339C11.1527 26.0261 10.8569 26.0217 10.5875 25.9214C5.375 24.1217 1 20.9972 1 14.7483V5.99972C1 5.66826 1.1317 5.35037 1.36612 5.11599C1.60054 4.88161 1.91848 4.74993 2.25 4.74993C4.75 4.74993 7.875 3.25018 10.05 1.3505C10.3148 1.12429 10.6517 1 11 1C11.3483 1 11.6852 1.12429 11.95 1.3505C14.1375 3.26268 17.25 4.74993 19.75 4.74993C20.0815 4.74993 20.3995 4.88161 20.6339 5.11599C20.8683 5.35037 21 5.66826 21 5.99972V14.7483Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+
+          </div>
+          <span class="text-xl font-bold tracking-wide">Essential trip information</span>
+        </div>
+        <ul class="flex flex-col gap-4">
+          <li class="flex items-center gap-5">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 11L10 13L14 9M21 11C21 16.5228 16.5228 21 11 21C5.47715 21 1 16.5228 1 11C1 5.47715 5.47715 1 11 1C16.5228 1 21 5.47715 21 11Z" stroke="#10A300" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+
+            <span class="text-xl font-light text-black/80 leading-7 tracking-wide">Travel insurance</span>
+          </li>
+          <li class="flex items-center gap-5">
+             <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 11L10 13L14 9M21 11C21 16.5228 16.5228 21 11 21C5.47715 21 1 16.5228 1 11C1 5.47715 5.47715 1 11 1C16.5228 1 21 5.47715 21 11Z" stroke="#10A300" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+
+            <span class="text-xl font-light text-black/80 leading-7 tracking-wide">Accomodation</span>
+          </li>
+          <li class="flex items-center gap-5">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#15803d" stroke-width="1.8"/><path d="M6.5 10l2.5 2.5 4.5-5" stroke="#15803d" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="text-xl font-light text-black/80 leading-7 tracking-wide">Lukla flights</span>
+          </li>
+          <li class="flex items-center gap-5">
+           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 11L10 13L14 9M21 11C21 16.5228 16.5228 21 11 21C5.47715 21 1 16.5228 1 11C1 5.47715 5.47715 1 11 1C16.5228 1 21 5.47715 21 11Z" stroke="#10A300" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+
+            <span class="text-xl font-light text-black/80 leading-7 tracking-wide">Internet services</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Packing Essentials -->
+      <div class="bg-white px-7 py-6">
+        <div class="flex items-center gap-6 mb-6">
+          <div class="w-12 h-12 bg-black rounded-lg flex items-center justify-center shrink-0">
+            <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M25 20.2H5.8C5.16348 20.2 4.55303 19.9471 4.10294 19.4971C3.65286 19.047 3.4 18.4365 3.4 17.8V7C3.4 6.36348 3.14714 5.75303 2.69706 5.30294C2.24697 4.85286 1.63652 4.6 1 4.6M19 15.4V3.4C19 2.76348 18.7471 2.15303 18.2971 1.70294C17.847 1.25286 17.2365 1 16.6 1H15.4C14.7635 1 14.153 1.25286 13.7029 1.70294C13.2529 2.15303 13 2.76348 13 3.4V15.4M9.4 5.8H22.6C23.2627 5.8 23.8 6.33726 23.8 7V14.2C23.8 14.8627 23.2627 15.4 22.6 15.4H9.4C8.73726 15.4 8.2 14.8627 8.2 14.2V7C8.2 6.33726 8.73726 5.8 9.4 5.8ZM22.6 22.6C22.6 23.9255 21.5255 25 20.2 25C18.8745 25 17.8 23.9255 17.8 22.6C17.8 21.2745 18.8745 20.2 20.2 20.2C21.5255 20.2 22.6 21.2745 22.6 22.6ZM11.8 22.6C11.8 23.9255 10.7255 25 9.4 25C8.07452 25 7 23.9255 7 22.6C7 21.2745 8.07452 20.2 9.4 20.2C10.7255 20.2 11.8 21.2745 11.8 22.6Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <span class="text-xl font-semibold tracking-wide">Packing Essentials</span>
+        </div>
+        <ul class="flex flex-col gap-4">
+          <li class="flex items-center gap-5">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+             <path d="M8 11L10 13L14 9M21 11C21 16.5228 16.5228 21 11 21C5.47715 21 1 16.5228 1 11C1 5.47715 5.47715 1 11 1C16.5228 1 21 5.47715 21 11Z" stroke="#10A300" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="text-xl font-light text-black/80 leading-7 tracking-wide">Clothing</span>
+          </li>
+          <li class="flex items-center gap-5">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+           <path d="M8 11L10 13L14 9M21 11C21 16.5228 16.5228 21 11 21C5.47715 21 1 16.5228 1 11C1 5.47715 5.47715 1 11 1C16.5228 1 21 5.47715 21 11Z" stroke="#10A300" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+            <span class="text-xl font-light text-black/80 leading-7 tracking-wide">Gear</span>
+          </li>
+          <li class="flex items-center gap-5">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 11L10 13L14 9M21 11C21 16.5228 16.5228 21 11 21C5.47715 21 1 16.5228 1 11C1 5.47715 5.47715 1 11 1C16.5228 1 21 5.47715 21 11Z" stroke="#10A300" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="text-xl font-light text-black/80 leading-7 tracking-wide">Accessories</span>
+          </li>
+          <li class="flex items-center gap-5">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+             <path d="M8 11L10 13L14 9M21 11C21 16.5228 16.5228 21 11 21C5.47715 21 1 16.5228 1 11C1 5.47715 5.47715 1 11 1C16.5228 1 21 5.47715 21 11Z" stroke="#10A300" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="text-xl font-light text-black/80 leading-7 tracking-wide">Documents</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+        </div>
+       <!-- Trip Details End -->
+  </div>
+  <!-- left section end -->
+
+  <!-- Right Sidebar Start-->
+      <div class="w-full lg:w-1/3">
+   <div class="sticky top-4 space-y-4">
+
+    <!-- Pricing Card -->
+    <div class="bg-gray-100 p-5 shadow-sm">
+
+      <div class="flex items-center justify-between mb-4">
+        <div class="flex items-center gap-1">
+          <span class="text-yellow-400 text-sm ">★★★★★</span>
+          <a href="#" class="text-[#235CF4] text-md font-bold">49 Reviews</a>
+        </div>
+        <span class="text-[#235CF4] font-bold text-xl">USD $1,290</span>
+      </div>
+
+      <p class="text-base text-gray-700 font-medium mb-3">Starting From</p>
+
+      <!-- Table Header -->
+      <div class="flex justify-between pb-2 mb-1">
+        <span class="text-md font-bold text-gray-900">No. of Pax</span>
+        <span class="text-md font-bold text-gray-900">Price per Pax</span>
+      </div>
+
+      <!-- Pax Rows -->
+      <div class="">
+        <div class="flex justify-between py-2 text-sm text-gray-700"><span>1 Pax</span><span class="font-medium">USD $1390</span></div>
+        <hr>
+        <div class="flex justify-between py-2 text-sm text-gray-700"><span>3-4 Pax</span><span class="font-medium">USD $1270</span></div>
+        <hr>
+        <div class="flex justify-between py-2 text-sm text-gray-700"><span>5-6 Pax</span><span class="font-medium">USD $1230</span></div>
+        <hr>
+        <div class="flex justify-between py-2 text-sm text-gray-700"><span>7-10 Pax</span><span class="font-medium">USD $1230</span></div>
+        <hr>
+        <div class="flex justify-between py-2 text-sm text-gray-700"><span>10+ Pax</span><span class="font-medium">USD $1230</span></div>
+        <hr>
+      </div>
+
+      <!-- Counter -->
+      <p class="text-sm font-bold text-gray-900 mt-4 mb-3">No. of Pax</p>
+      <div class="flex items-center justify-between border border-gray-200 bg-gray-50 mb-4">
+        <button id="pax-minus" class="w-9 h-9 bg-gray-900 text-white text-xl font-bold flex items-center justify-center hover:bg-black transition">-</button>
+        <span id="pax-count" class="text-2xl font-bold text-gray-900 w-10 text-center">1</span>
+        <button id="pax-plus" class="w-9 h-9 bg-gray-900 text-white text-xl font-bold flex items-center justify-center hover:bg-black transition">+</button>
+      </div>
+
+      <!-- Button -->
+      <button class="w-full  bg-gradient-to-r from-[#10A300] to-[#10A300] text-white font-bold py-3 rounded-[5px] hover:bg-green-700 text-base transition">
+        Send Inquiry
+      </button>
+    </div>
+
+    <!-- TripAdvisor Card -->
+    <div class="bg-gray-100 p-5 shadow-sm">
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-7 h-7 rounded-full bg-[#00AC7E] flex items-center justify-center flex-shrink-0 overflow-hidden">
+      <img src="https://www.tripadvisor.com/favicon.ico" alt="Tripadvisor" class="w-7 h-7 object-contain"/>
+    </div>
+        <div>
+          <p class="font-bold text-gray-900 text-base">Tripadvisor Reviews</p>
+          <div class="flex items-center gap-2 mt-1">
+            <span class="text-sm font-semibold text-gray-700">5.0</span>
+             <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M8.46094 1C12.5773 1 15.9219 4.35354 15.9219 8.5C15.9219 12.6465 12.5773 16 8.46094 16C4.34467 15.9999 1 12.6464 1 8.5C1 4.35361 4.34467 1.00011 8.46094 1Z" fill="#F4F4F4" stroke="#00AC7E" stroke-width="2"/>
+                    <circle cx="8.46046" cy="8.50001" r="4.52296" fill="#00AC7E"/>
+                </svg>
+
+                <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                 <path d="M8.46094 1C12.5773 1 15.9219 4.35354 15.9219 8.5C15.9219 12.6465 12.5773 16 8.46094 16C4.34467 15.9999 1 12.6464 1 8.5C1 4.35361 4.34467 1.00011 8.46094 1Z" fill="#F4F4F4" stroke="#00AC7E" stroke-width="2"/>
+                  <circle cx="8.46046" cy="8.50001" r="4.52296" fill="#00AC7E"/>
+                </svg>
+
+                <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                 <path d="M8.46094 1C12.5773 1 15.9219 4.35354 15.9219 8.5C15.9219 12.6465 12.5773 16 8.46094 16C4.34467 15.9999 1 12.6464 1 8.5C1 4.35361 4.34467 1.00011 8.46094 1Z" fill="#F4F4F4" stroke="#00AC7E" stroke-width="2"/>
+                  <circle cx="8.46046" cy="8.50001" r="4.52296" fill="#00AC7E"/>
+                </svg>
+
+                <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                 <path d="M8.46094 1C12.5773 1 15.9219 4.35354 15.9219 8.5C15.9219 12.6465 12.5773 16 8.46094 16C4.34467 15.9999 1 12.6464 1 8.5C1 4.35361 4.34467 1.00011 8.46094 1Z" fill="#F4F4F4" stroke="#00AC7E" stroke-width="2"/>
+                   <circle cx="8.46046" cy="8.50001" r="4.52296" fill="#00AC7E"/>
+                </svg>
+
+                <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                 <path d="M8.46094 1C12.5773 1 15.9219 4.35354 15.9219 8.5C15.9219 12.6465 12.5773 16 8.46094 16C4.34467 15.9999 1 12.6464 1 8.5C1 4.35361 4.34467 1.00011 8.46094 1Z" fill="#F4F4F4" stroke="#00AC7E" stroke-width="2"/>
+                   <circle cx="8.46046" cy="8.50001" r="4.52296" fill="#00AC7E"/>
+                </svg>
+
+            <span class="text-xs text-gray-500">(979 Reviews)</span>
+          </div>
+        </div>
+      </div>
+      <button class="bg-[#10A300] text-white text-sm font-bold px-4 py-2 rounded-sm mb-4 hover:bg-green-700 transition">Write a review</button>
+
+      <div class="border-t border-gray-100 pt-4">
+        <div class="flex items-center justify-between mb-2">
+          <div class="flex items-center gap-2">
+            <div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center">
+              <img src="Images/Everest/suresh.png"/>
+            </div>
+            <span class="font-bold text-sm text-gray-900">Suresh Shrestha</span>
+          </div>
+           <div class="w-7 h-7 rounded-full bg-[#00AC7E] flex items-center justify-center flex-shrink-0 overflow-hidden">
+             <img src="https://www.tripadvisor.com/favicon.ico" alt="Tripadvisor" class="w-7 h-7 object-contain"/>
+           </div>
+        </div>
+      </div>
+        <div class="flex items-center gap-2 mb-2">
+          <span class="text-sm font-semibold text-gray-700">4.6</span>
+           <div class="flex items-center gap-1">
+                 <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M8.46094 1C12.5773 1 15.9219 4.35354 15.9219 8.5C15.9219 12.6465 12.5773 16 8.46094 16C4.34467 15.9999 1 12.6464 1 8.5C1 4.35361 4.34467 1.00011 8.46094 1Z" fill="#F4F4F4" stroke="#00AC7E" stroke-width="2"/>
+                    <circle cx="8.46046" cy="8.50001" r="4.52296" fill="#00AC7E"/>
+                </svg>
+
+                <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                 <path d="M8.46094 1C12.5773 1 15.9219 4.35354 15.9219 8.5C15.9219 12.6465 12.5773 16 8.46094 16C4.34467 15.9999 1 12.6464 1 8.5C1 4.35361 4.34467 1.00011 8.46094 1Z" fill="#F4F4F4" stroke="#00AC7E" stroke-width="2"/>
+                  <circle cx="8.46046" cy="8.50001" r="4.52296" fill="#00AC7E"/>
+                </svg>
+
+                <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                 <path d="M8.46094 1C12.5773 1 15.9219 4.35354 15.9219 8.5C15.9219 12.6465 12.5773 16 8.46094 16C4.34467 15.9999 1 12.6464 1 8.5C1 4.35361 4.34467 1.00011 8.46094 1Z" fill="#F4F4F4" stroke="#00AC7E" stroke-width="2"/>
+                  <circle cx="8.46046" cy="8.50001" r="4.52296" fill="#00AC7E"/>
+                </svg>
+
+                <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                 <path d="M8.46094 1C12.5773 1 15.9219 4.35354 15.9219 8.5C15.9219 12.6465 12.5773 16 8.46094 16C4.34467 15.9999 1 12.6464 1 8.5C1 4.35361 4.34467 1.00011 8.46094 1Z" fill="#F4F4F4" stroke="#00AC7E" stroke-width="2"/>
+                   <circle cx="8.46046" cy="8.50001" r="4.52296" fill="#00AC7E"/>
+                </svg>
+
+               <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+               <ellipse cx="8.46114" cy="8.5" rx="8.46114" ry="8.5" fill="#F4F4F4"/>
+                   <path d="M8.46094 1C12.5773 1 15.9219 4.35354 15.9219 8.5C15.9219 12.6465 12.5773 16 8.46094 16C4.34467 15.9999 1 12.6464 1 8.5C1 4.35361 4.34467 1.00011 8.46094 1Z" stroke="#878787" stroke-opacity="0.65" stroke-width="2"/>
+                   <circle cx="8.46046" cy="8.50001" r="4.52296" fill="#878787" fill-opacity="0.65"/>
+                    </svg>
+                </div>
+        </div>
+        <p class="text-sm text-gray-600 leading-relaxed">The Everest Base Camp Trek is indeed a remarkable journey for those seeking an exceptional adventure while enjoying the utmost comfort.</p>
+        <a href="#" class="text-sm text-gray-500 font-medium mt-2 inline-block">Read More</a>
+      </div>
+    </div>
+
+       </div>
+      </div>
+  <!-- Right Sidebar End -->
+
+      </section>
+    <!-- main section end -->
+   
+    <!-- FAQ Section Start -->
+    <section id="faq" class="bg-[#F6F8F7] py-[72px] sm:py-[72px] overflow-hidden mb-8 sm:mb-4 px-4 sm:px-8">
+      <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-[2px] sm:tracking-[3px] text-center text-black mb-8 sm:mb-12">
+        Frequently Asked Question
+      </h2>
+
+      <div class="max-w-4xl mx-auto space-y-2">
+        <div class="bg-white border border-gray-300/60 rounded-md overflow-hidden">
+          <button class="faq-btn w-full flex items-center justify-between px-5 sm:px-8 py-4 sm:py-5 text-left text-base sm:text-lg font-semibold text-black/80">
+            What permits are required for the Everest Base Camp Trek?
+            <i data-lucide="chevron-down" class="w-8 min-w-8 h-8 p-2 rounded-full bg-gray-300/30 flex-shrink-0"></i>
+          </button>
+          <div class="faq-content max-h-0 overflow-hidden px-5 sm:px-8 text-gray-500 text-sm sm:text-base transition-all duration-300">
+            <p class="mb-6">The Nepal visa rules are complex and can change frequently. It is recommended to check with the Nepal embassy or consulate for the latest information.</p>
+          </div>
+        </div>
+
+        <div class="bg-white border border-gray-300/60 rounded-md overflow-hidden">
+          <button class="faq-btn w-full flex items-center justify-between px-5 sm:px-8 py-4 sm:py-5 text-left text-base sm:text-lg font-semibold text-black/80">
+            What should my travel insurance cover for the trek?
+            <i data-lucide="chevron-down" class="w-8 min-w-8 h-8 p-2 rounded-full bg-gray-300/30 flex-shrink-0"></i>
+          </button>
+          <div class="faq-content max-h-0 overflow-hidden px-5 sm:px-8 text-gray-500 text-sm sm:text-base transition-all duration-300">
+            <p class="mb-6">
+              Your insurance should cover trekking, emergency evacuation, medical expenses, and trip cancellations.</p>
+          </div>
+        </div>
+
+        <div class="bg-white border border-gray-300/60 rounded-md overflow-hidden">
+          <button class="faq-btn w-full flex items-center justify-between px-5 sm:px-8 py-4 sm:py-5 text-left text-base sm:text-lg font-semibold text-black/80">
+            What can I experience during the Everest Base Camp Trek?
+            <i data-lucide="chevron-down" class="w-8 min-w-8 h-8 p-2 rounded-full bg-gray-300/30 flex-shrink-0"></i>
+          </button>
+          <div class="faq-content max-h-0 overflow-hidden px-5 sm:px-8 text-gray-500 text-sm sm:text-base transition-all duration-300">
+            <p class="mb-6">
+              Nepal offers trekking, mountaineering, jungle safaris, rafting, paragliding, cultural tours, and more.
+            </p>
+            
+          </div>
+        </div>
+
+        <div class="bg-white border border-gray-300/60 rounded-md overflow-hidden">
+         <button class="faq-btn w-full flex items-center justify-between px-5 sm:px-8 py-4 sm:py-5 text-left text-base sm:text-lg font-semibold text-black/80">
+            How difficult is the Everest Base Camp Trek?
+            <i data-lucide="chevron-down" class="w-8 min-w-8 h-8 p-2 rounded-full bg-gray-300/30 flex-shrink-0"></i>
+          </button>
+          <div class="faq-content max-h-0 overflow-hidden px-5 sm:px-8 text-gray-500 text-sm sm:text-base transition-all duration-300">
+            <p class="mb-6">
+               A 30-day tourist visa for Nepal typically costs around USD 50.
+            </p>
+           
+          </div>
+        </div>
+
+        <div class="bg-white border border-gray-300/60 rounded-md overflow-hidden">
+          <button class="faq-btn w-full flex items-center justify-between px-5 sm:px-8 py-4 sm:py-5 text-left text-base sm:text-lg font-semibold text-black/80">
+            How long does the Everest Base Camp Trek take?
+            <i data-lucide="chevron-down" class="w-8 min-w-8 h-8 p-2 rounded-full bg-gray-300/30 flex-shrink-0"></i>
+          </button>
+          <div class="faq-content max-h-0 overflow-hidden px-5 sm:px-8 text-gray-500 text-sm sm:text-base transition-all duration-300">
+            <p class="mb-6">
+              Nepal visa costs depend on duration: 15 days, 30 days, and 90 days have different fees.
+            </p>
+          </div>
+        </div>
+
+        <div class="pt-2">
+          <button class="bg-blue-600 hover:bg-blue-700 transition text-white px-6 sm:px-8 py-3 sm:py-4 rounded-md text-sm sm:text-base font-medium tracking-[0.8px] shadow">
+            More FAQs
+          </button>
+        </div>
+      </div>
+    </section>
+    <!-- FAQ Section End -->
+
+    <!-- Clients Review Start -->
+    <span id="testimonials" class="block h-0"></span>
+    <section id="reviews" class="w-full overflow-hidden py-[94px] lg:py-[110px]">
+      <div class="container mx-auto px-4 sm:px-8">
+        <div class="flex flex-col items-center justify-center gap-4 sm:gap-6 text-center mb-4 lg:mb-4">
+          <div class="flex items-center gap-4 sm:gap-5">
+            <span class="w-10 lg:w-12 h-px bg-blue-600 hidden lg:block"></span>
+            <p class="text-xs lang:text-sm font-bold tracking-wider uppercase text-blue-600">Tripadvisor</p>
+            <span class="w-10 lg:w-12 h-px bg-blue-600 hidden lg:block"></span>
+          </div>
+          <h2 class="font-extrabold text-center text-2xl sm:text-4xl md:text-5xl lg:text-6xl mb-8 sm:mb-12">Client Reviews</h2>
+        </div>
+
+      <!-- Review Platforms -->
+      <div class="flex flex-col xl:flex-row mb-8 sm:mb-16 bg-gray-100 p-2 xl:p-4 gap-2">
+
+        <!-- All Reviews -->
+      <div class="w-full lg:flex-1 border border-black bg-white py-3 px-2 flex items-center justify-center gap-2">
+      <span class="text-sm font-bold text-center leading-tight whitespace-nowrap">All Reviews</span>
+      <span class="text-sm sm:text-base font-bold">5.0</span>
+      <span class="text-gray-500 text-sm sm:text-sm">(3)</span>
+      </div>
+
+  <!-- Tripadvisor -->
+  <div class="w-full lg:flex-1 bg-white py-3 px-2 flex items-center justify-center gap-2">
+    <div class="w-5 h-5 rounded-full bg-[#00AC7E] flex items-center justify-center flex-shrink-0 overflow-hidden">
+      <img src="https://www.tripadvisor.com/favicon.ico" alt="Tripadvisor" class="w-5 h-5 object-contain"/>
+    </div>
+    <span class="text-sm sm:text-sm text-center leading-tight">Tripadvisor</span>
+    <span class="text-sm sm:text-base">4.9</span>
+    <span class="text-gray-500 text-sm sm:text-sm">(535)</span>
+  </div>
+
+  <!-- Google -->
+  <div class="w-full lg:flex-1 bg-white py-3 px-2 flex items-center justify-center gap-2">
+    <div class="w-5 h-5 rounded-full border border-gray-200 bg-white flex items-center justify-center flex-shrink-0">
+      <img src="https://www.google.com/favicon.ico" class="w-4 h-4" alt="Google" />
+    </div>
+    <span class="text-sm sm:text-sm text-center leading-tight">Google</span>
+    <span class="text-sm sm:text-base">4.9</span>
+    <span class="text-gray-500 text-sm sm:text-sm">(589)</span>
+  </div>
+
+  <!-- Facebook -->
+  <div class="w-full lg:flex-1 bg-white py-3 px-2 flex items-center justify-center gap-2">
+    <div class="w-5 h-5 rounded-full bg-blue-600 flex items-center justify-center flex-shrink-0">
+      <img src="https://www.facebook.com/favicon.ico" class="w-3 h-3" alt="Facebook" />
+    </div>
+    <span class="text-sm sm:text-sm text-center leading-tight">Facebook</span>
+    <span class="text-sm sm:text-base">4.8</span>
+    <span class="text-gray-500 text-sm sm:text-sm">(32)</span>
+  </div>
+
+  <!-- Trustpilot -->
+  <div class="w-full lg:flex-1 bg-white py-3 px-2 flex items-center justify-center gap-2">
+    <div class="w-5 h-5 rounded-full bg-[#00AC7E] flex items-center justify-center flex-shrink-0">
+      <span class="text-white text-xs leading-none">★</span>
+    </div>
+    <span class="text-sm leading-tight whitespace-nowrap">Trustpilot</span>
+    <span class="text-sm sm:text-base">4.6</span>
+    <span class="text-gray-500 text-sm sm:text-sm">(29)</span>
+       </div>
+      </div>
+
+        <!-- Scrolling Review Cards -->
+        <div class="overflow-hidden w-full">
+          <div class="flex gap-6 sm:gap-8 animate-scroll">
+
+            <!-- Card 1 -->
+            <div class="bg-gray-100 p-6 sm:p-10 flex flex-col justify-between w-[300px] sm:w-[380px] lg:w-[400px] shrink-0">
+              <div class="flex items-start justify-between mb-4 sm:mb-6">
+                <div class="flex items-center gap-1">
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                </div>
+                <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-full border border-gray-200 bg-white flex items-center justify-center flex-shrink-0">
+                  <img src="https://www.google.com/favicon.ico" class="w-4 h-4 sm:w-5 sm:h-5" alt="Google" />
+                </div>
+              </div>
+              <h3 class="text-base sm:text-xl font-bold mb-3 sm:mb-4">Amazing ABC Trek with Chris Experience</h3>
+              <p class="text-black/60 text-xs sm:text-sm leading-6 sm:leading-7 mb-6 sm:mb-8">
+                The Everest Base Camp Luxury Trek is a remarkable journey for those seeking a short yet rewarding adventure with stunning mountain views.
+              </p>
+              <div>
+                <h4 class="text-xs sm:text-sm font-bold mb-1">Chris Hemsworth</h4>
+                <p class="text-xs sm:text-sm text-gray-400">Feb 22, 2026 | Australia</p>
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="bg-gray-100 p-6 sm:p-10 flex flex-col justify-between w-[300px] sm:w-[380px] lg:w-[400px] shrink-0">
+              <div class="flex items-start justify-between mb-4 sm:mb-6">
+                <div class="flex items-center gap-1">
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                </div>
+                <div class="flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 flex-shrink-0">
+                  <span class="text-emerald-400 text-2xl sm:text-3xl leading-none">★</span>
+                </div>
+              </div>
+              <h3 class="text-base sm:text-xl font-bold mb-3 sm:mb-4">Amazing Manaslu Trek Experience</h3>
+              <p class="text-black/60 text-xs sm:text-sm leading-6 sm:leading-7 mb-6 sm:mb-8">
+                The Manaslu Circuit Trek is a remarkable journey for those seeking an off-the-beaten-path adventure combined with raw Himalayan beauty.
+              </p>
+              <div>
+                <h4 class="text-xs sm:text-sm font-bold mb-1">Emily Thomas</h4>
+                <p class="text-xs sm:text-sm text-gray-400">Feb 22, 2026 | USA</p>
+              </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="bg-gray-100 p-6 sm:p-10 flex flex-col justify-between w-[300px] sm:w-[380px] lg:w-[400px] shrink-0">
+              <div class="flex items-start justify-between mb-4 sm:mb-6">
+                <div class="flex items-center gap-1">
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                </div>
+                <div class="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-[#00AC7E] flex items-center justify-center flex-shrink-0 overflow-hidden">
+                  <img src="https://www.tripadvisor.com/favicon.ico" alt="Tripadvisor" class="w-5 h-5 object-contain"/>
+                </div>
+              </div>
+              <h3 class="text-base sm:text-xl font-bold mb-3 sm:mb-4">Amazing Mardi Himal Trek Experience</h3>
+              <p class="text-black/60 text-xs sm:text-sm leading-6 sm:leading-7 mb-6 sm:mb-8">
+                The Mardi Himal Trek is indeed a remarkable journey for those seeking an exceptional adventure while enjoying the utmost comfort.
+              </p>
+              <div>
+                <h4 class="text-xs sm:text-sm font-bold mb-1">Suresh Shrestha</h4>
+                <p class="text-xs sm:text-sm text-gray-400">Feb 22, 2026 | Nepal</p>
+              </div>
+            </div>
+
+            <!-- Duplicate Card 1 -->
+            <div class="bg-gray-100 p-6 sm:p-10 flex flex-col justify-between w-[300px] sm:w-[380px] lg:w-[400px] shrink-0">
+              <div class="flex items-start justify-between mb-4 sm:mb-6">
+                <div class="flex items-center gap-1">
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                </div>
+                <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-full border border-gray-200 bg-white flex items-center justify-center flex-shrink-0">
+                  <img src="https://www.google.com/favicon.ico" class="w-4 h-4 sm:w-5 sm:h-5" alt="Google" />
+                </div>
+              </div>
+              <h3 class="text-base sm:text-xl font-bold mb-3 sm:mb-4">Amazing ABC Trek with Chris Experience</h3>
+              <p class="text-black/60 text-xs sm:text-sm leading-6 sm:leading-7 mb-6 sm:mb-8">
+                The Everest Base Camp Luxury Trek is a remarkable journey for those seeking a short yet rewarding adventure with stunning mountain views.
+              </p>
+              <div>
+                <h4 class="text-xs sm:text-sm font-bold mb-1">Chris Hemsworth</h4>
+                <p class="text-xs sm:text-sm text-gray-400">Feb 22, 2026 | Australia</p>
+              </div>
+            </div>
+
+            <!-- Duplicate Card 2 -->
+            <div class="bg-gray-100 p-6 sm:p-10 flex flex-col justify-between w-[300px] sm:w-[380px] lg:w-[400px] shrink-0">
+              <div class="flex items-start justify-between mb-4 sm:mb-6">
+                <div class="flex items-center gap-1">
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                </div>
+                <div class="flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 flex-shrink-0">
+                  <span class="text-emerald-400 text-2xl sm:text-3xl leading-none">★</span>
+                </div>
+              </div>
+              <h3 class="text-base sm:text-xl font-bold mb-3 sm:mb-4">Amazing Manaslu Trek Experience</h3>
+              <p class="text-black/60 text-xs sm:text-sm leading-6 sm:leading-7 mb-6 sm:mb-8">
+                The Manaslu Circuit Trek is a remarkable journey for those seeking an off-the-beaten-path adventure combined with raw Himalayan beauty.
+              </p>
+              <div>
+                <h4 class="text-xs sm:text-sm font-bold mb-1">Emily Thomas</h4>
+                <p class="text-xs sm:text-sm text-gray-400">Feb 22, 2026 | USA</p>
+              </div>
+            </div>
+
+            <!-- Duplicate Card 3 -->
+            <div class="bg-gray-100 p-6 sm:p-10 flex flex-col justify-between w-[300px] sm:w-[380px] lg:w-[400px] shrink-0">
+              <div class="flex items-start justify-between mb-4 sm:mb-6">
+                <div class="flex items-center gap-1">
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                </div>
+                <div class="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-[#00AC7E] flex items-center justify-center flex-shrink-0 overflow-hidden">
+                  <img src="https://www.tripadvisor.com/favicon.ico" alt="Tripadvisor" class="w-4 h-4 sm:w-5 sm:h-5 object-contain" />
+                </div>
+              </div>
+              <h3 class="text-base sm:text-xl font-bold mb-3 sm:mb-4">Amazing Mardi Himal Trek Experience</h3>
+              <p class="text-black/60 text-xs sm:text-sm leading-6 sm:leading-7 mb-6 sm:mb-8">
+                The Mardi Himal Trek is indeed a remarkable journey for those seeking an exceptional adventure while enjoying the utmost comfort.
+              </p>
+              <div>
+                <h4 class="text-xs sm:text-sm font-bold mb-1">Suresh Shrestha</h4>
+                <p class="text-xs sm:text-sm text-gray-400">Feb 22, 2026 | Nepal</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Clients Review End -->
+
+    <!-- Explore Trek Start -->
+    <section id="best-sellers" class="bg-[#F6F8F7] py-[72px] mb-6 sm:mb-6 px-4 sm:px-8">
+      <div class="container mx-auto">
+        <h2 class="font-extrabold text-center text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-8 sm:mb-12">Explore Peaks</h2>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          <div class="relative bg-white shadow-md overflow-hidden">
+            <img src="Images/Everest/img everest.jpg" class="w-full h-64 sm:h-80 lg:h-[480px] object-cover" alt="" />
+            <span class="absolute top-4 right-4 bg-[#FF5B1C] text-white px-3 py-1.5 rounded-md text-xs sm:text-sm font-medium">Featured</span>
+            <div class="p-4 mb-2">
+              <div class="flex items-center gap-2 mb-3">
+                <div class="flex text-yellow-400 text-sm">★ ★ ★ ★ ★</div>
+                <span class="text-gray-700 font-medium text-xs sm:text-sm">346 Reviews</span>
+              </div>
+              <h2 class="text-base sm:text-xl font-semibold mb-3">Everest Base Camp Trek</h2>
+              <h3 class="text-blue-600 text-base sm:text-xl font-bold">USD $1525</h3>
+            </div>
+          </div>
+
+          <div class="relative bg-white shadow-md overflow-hidden">
+            <img src="Images/Everest/img annapurna.jpg" class="w-full h-64 sm:h-80 lg:h-[480px] object-cover" alt="" />
+            <span class="absolute top-4 right-4 bg-[#10A300] text-white px-3 py-1.5 rounded-md text-xs sm:text-sm font-medium">Best Price</span>
+            <div class="p-4 mb-2">
+              <div class="flex items-center gap-2 mb-3">
+                <div class="flex text-yellow-400 text-sm">★ ★ ★ ★ ★</div>
+                <span class="text-gray-700 font-medium text-xs sm:text-sm">346 Reviews</span>
+              </div>
+              <h2 class="text-base sm:text-xl font-semibold mb-3">Annapurna Base Camp Trek</h2>
+              <h3 class="text-blue-600 text-base sm:text-xl font-bold">USD $1380</h3>
+            </div>
+          </div>
+
+          <div class="relative bg-white shadow-md overflow-hidden">
+            <img src="Images/Everest/EV.jpg" class="w-full h-64 sm:h-80 lg:h-[480px] object-cover" alt="" />
+            <span class="absolute top-4 right-4 bg-[#235CF4] text-white px-3 py-1.5 rounded-md text-xs sm:text-sm font-medium">Best Seller</span>
+            <div class="p-4 mb-2">
+              <div class="flex items-center gap-2 mb-3">
+                <div class="flex text-yellow-400 text-sm">★ ★ ★ ★ ★</div>
+                <span class="text-gray-700 font-medium text-xs sm:text-sm">346 Reviews</span>
+              </div>
+              <h2 class="text-base sm:text-xl font-semibold mb-3">Manslu Circuit Trek</h2>
+              <h3 class="text-blue-600 text-base sm:text-xl font-bold">USD $1090</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Explore Trek End -->
+
+    <!-- Footer Start -->
+    <section class="w-full overflow-hidden">
+      <div class="relative">
+        <div class="w-full bg-cover bg-center relative py-8 lg:py-24 pb-36 lg:pb-24" style="background-image: url('images/everest/overlayeverest.png');">
+          <div class="absolute inset-0 bg-black/10"></div>
+          <div class="relative z-10 flex flex-col items-center justify-center h-full text-center px-4 sm:px-6">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white tracking-[2px] sm:tracking-[4px] uppercase mb-3 sm:mb-5 leading-tight">
+              Ready For Your <br /> Himalayan Adventure
+            </h2>
+            <p class="text-white/85 text-sm sm:text-base max-w-lg leading-4">
+              Experience the majestic peaks and vibrant cultures of Nepal <br />
+              with our award-winning adventure specialists.
+            </p>
+          </div>
+        </div>
+
+        <!-- CTA Buttons overlapping -->
+        <div class=" bg-white shadow-2xl px-4 py-4 lg:py-8 rounded-lg flex flex-col sm:flex-row gap-4 max-w-4xl sm:mx-auto mx-4 items-center justify-center absolute -bottom-[20%] left-[20px] right-[20px] ">
+          
+            <a href="#" class="w-full sm:w-auto bg-black text-white text-xs sm:text-sm font-bold tracking-[2px] sm:tracking-[3px] uppercase px-8 sm:px-12 py-3 sm:py-4 text-center hover:bg-gray-800 transition-colors duration-300">
+              Book Your Trip
+            </a>
+            <a href="tel:+9779851205116" class="w-full sm:w-auto border border-black text-black text-xs sm:text-sm font-bold px-6 sm:px-10 py-3 sm:py-4 flex items-center justify-center gap-2 sm:gap-3 hover:bg-black hover:text-white transition-colors duration-300">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 sm:w-4 sm:h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h2.28a1 1 0 01.95.68l1.06 3.18a1 1 0 01-.23 1.02L7.5 9.4a16.05 16.05 0 006.1 6.1l1.52-1.56a1 1 0 011.02-.23l3.18 1.06a1 1 0 01.68.95V19a2 2 0 01-2 2C8.16 21 3 10.84 3 5z"/>
+              </svg>
+              +977 9851205116
+            </a>
+          
+        </div>
+      </div>
+
+      <footer id="contact" class="bg-[#f2f2f2] pt-24 sm:pt-32 lg:pt-36 pb-0">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-10 mb-10 sm:mb-16 container mx-auto px-4 sm:px-6 py-6">
+
+            <!-- Logo + We Accept -->
+            <div class="flex flex-col gap-4 sm:gap-5 md:gap-6 sm:col-span-2 lg:col-span-1">
+              <img src="Images/Everest/Logo.png" alt="Nepal Wilderness Trekking" class="w-16 sm:w-20 md:w-24 lg:w-32 h-auto object-contain" />
+              <div>
+                <p class="text-sm font-bold text-black mb-3">We Accept</p>
+                <div class="flex items-center gap-2 flex-wrap">
+                  <img src="images/Everest/we accept.png" alt="We Pay" class="h-5 sm:h-6 object-contain rounded-sm" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Quick Information -->
+            <div>
+              <h4 class="text-sm sm:text-base font-bold text-black mb-4 sm:mb-6">Quick Information</h4>
+              <ul class="flex flex-col gap-3 sm:gap-4">
+                <li><a href="#" class="text-xs sm:text-sm text-gray-500 hover:text-black hover:translate-x-1 transition-all duration-200 inline-block">About Us</a></li>
+                <li><a href="#" class="text-xs sm:text-sm text-gray-500 hover:text-black hover:translate-x-1 transition-all duration-200 inline-block">Contact Us</a></li>
+                <li><a href="#" class="text-xs sm:text-sm text-gray-500 hover:text-black hover:translate-x-1 transition-all duration-200 inline-block">Terms & Conditions</a></li>
+                <li><a href="#" class="text-xs sm:text-sm text-gray-500 hover:text-black hover:translate-x-1 transition-all duration-200 inline-block">Privacy Policy</a></li>
+              </ul>
+            </div>
+
+            <!-- Insights -->
+            <div>
+              <h4 class="text-sm sm:text-base font-bold text-black mb-4 sm:mb-6">Insights</h4>
+              <ul class="flex flex-col gap-3 sm:gap-4">
+                <li><a href="#" class="text-xs sm:text-sm text-gray-500 hover:text-black hover:translate-x-1 transition-all duration-200 inline-block">Travel Guide</a></li>
+                <li><a href="#" class="text-xs sm:text-sm text-gray-500 hover:text-black hover:translate-x-1 transition-all duration-200 inline-block">Blog & Insights</a></li>
+              </ul>
+            </div>
+
+            <!-- Destinations -->
+            <div>
+              <h4 class="text-sm sm:text-base font-bold text-black mb-4 sm:mb-6">Destinations</h4>
+              <ul class="flex flex-col gap-3 sm:gap-4">
+                <li><a href="#" class="text-xs sm:text-sm text-gray-500 hover:text-black hover:translate-x-1 transition-all duration-200 inline-block">Trekking in Nepal</a></li>
+                <li><a href="#" class="text-xs sm:text-sm text-gray-500 hover:text-black hover:translate-x-1 transition-all duration-200 inline-block">Peak Climbing</a></li>
+                <li><a href="#" class="text-xs sm:text-sm text-gray-500 hover:text-black hover:translate-x-1 transition-all duration-200 inline-block">Expedition in Nepal</a></li>
+                <li><a href="#" class="text-xs sm:text-sm text-gray-500 hover:text-black hover:translate-x-1 transition-all duration-200 inline-block">Hiking</a></li>
+              </ul>
+            </div>
+
+            <!-- Get In Touch -->
+            <div>
+              <h4 class="text-sm sm:text-base font-bold text-black mb-4 sm:mb-6">Get In Touch</h4>
+              <ul class="flex flex-col gap-4 sm:gap-5">
+                <li class="flex items-start gap-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mt-0.5 text-gray-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                  </svg>
+                  <span class="text-xs sm:text-sm text-gray-500 leading-6">
+                    Nepal Wilderness Trekking <br />
+                    (PVT 2024 Z street thamel, <br />
+                    Kathmandu, Nepal)
+                  </span>
+                </li>
+                <li class="flex items-center gap-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-gray-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                  </svg>
+                  <a href="mailto:info@nepalwildernesstrekking.com" class="text-xs sm:text-sm text-gray-500 hover:text-black transition-colors duration-200 break-all">
+                    info@nepalwildernesstrekking.com
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+
+          <!-- Bottom Footer -->
+           <div class="bg-white">
+          <div class="px-4 sm:px-6 py-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-6 container mx-auto">
+            <div class="flex flex-col gap-1">
+              <p class="text-xs sm:text-sm text-gray-500">
+                ©2024 <a href="#" class="text-blue-500 hover:text-blue-700 hover:underline transition-colors duration-200">Everest Base Camp Hike</a>
+              </p>
+              <p class="text-xs sm:text-sm text-gray-500">
+                <a href="#" class="hover:text-black transition-colors duration-200">Privacy Policy</a>
+                <span class="mx-2 text-gray-400">|</span>
+                <a href="#" class="font-bold text-black hover:underline transition-colors duration-200">Terms & Conditions</a>
+              </p>
+            </div>
+            <div class="flex items-center">
+              <img src="Images/Everest/Affiliations.png" alt="Affiliations" class="h-8 sm:h-12 object-contain" />
+            </div>
+          </div>
+          </div>
+      </footer>
+    </section>
+    <!-- Footer End -->
+     
+<script src="JS/script.js"></script>
+  </body>
+</html>
+
+
+

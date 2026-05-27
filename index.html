@@ -1,0 +1,1430 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet" /> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <title>Everest Base Camp</title>
+  </head>
+  <body>
+    <style>
+      .star-dot {
+        width: 18px;
+        height: 18px;
+        background: #00AC7E;
+        border-radius: 100%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        flex-shrink: 0;
+      }
+      .star-dot::before {
+        content: '';
+        width: 7px;
+        height: 7px;
+        background: #fff;
+        border-radius: 50%;
+        position: absolute;
+      }
+      @keyframes scroll {
+        0%   { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
+      .animate-scroll {
+        display: flex;
+        width: max-content;
+        animation: scroll 10s linear infinite;
+      }
+      .animate-scroll:hover {
+        animation-play-state: paused;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      .sticky-header {
+        border-bottom: 1px solid rgba(226, 232, 240, 0.9);
+      }
+
+      .nav-dropdown {
+        position: relative;
+      }
+
+      .nav-dropdown::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        right: 0;
+        left: 0;
+        height: 14px;
+      }
+
+      .nav-dropdown-trigger,
+      .nav-link {
+        display: inline-flex;
+        min-height: 42px;
+        align-items: center;
+        gap: 0.35rem;
+        border-radius: 999px;
+        padding: 0 0.75rem;
+        color: #0f172a;
+        font-size: 0.875rem;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+        transition:
+          background-color 180ms ease,
+          color 180ms ease,
+          box-shadow 180ms ease;
+      }
+
+      .nav-dropdown-trigger:hover,
+      .nav-dropdown-trigger:focus-visible,
+      .nav-dropdown.open > .nav-dropdown-trigger,
+      .nav-dropdown:focus-within > .nav-dropdown-trigger,
+      .nav-link:hover,
+      .nav-link:focus-visible {
+        background: #eff6ff;
+        color: #2563eb;
+        outline: none;
+      }
+
+      .nav-chevron,
+      .mobile-chevron,
+      .mobile-nested-chevron {
+        transition: transform 180ms ease;
+      }
+
+      .desktop-dropdown {
+        position: absolute;
+        top: calc(100% + 12px);
+        left: 0;
+        z-index: 50;
+        border: 1px solid rgba(226, 232, 240, 0.95);
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.98);
+        box-shadow: 0 22px 60px rgba(15, 23, 42, 0.16);
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(10px);
+        transition:
+          opacity 180ms ease,
+          transform 180ms ease,
+          visibility 180ms ease;
+        visibility: hidden;
+      }
+
+      .desktop-dropdown::after {
+        content: "";
+        position: absolute;
+        top: -14px;
+        right: 0;
+        left: 0;
+        height: 14px;
+      }
+
+      .desktop-dropdown::before {
+        content: "";
+        position: absolute;
+        top: -7px;
+        left: 28px;
+        width: 14px;
+        height: 14px;
+        border-top: 1px solid rgba(226, 232, 240, 0.95);
+        border-left: 1px solid rgba(226, 232, 240, 0.95);
+        background: rgba(255, 255, 255, 0.98);
+        transform: rotate(45deg);
+      }
+
+      .desktop-dropdown.dropdown-center {
+        left: 50%;
+        transform: translate(-50%, 10px);
+      }
+
+      .desktop-dropdown.dropdown-center::before {
+        left: 50%;
+        transform: translateX(-50%) rotate(45deg);
+      }
+
+      .nav-dropdown:hover > .desktop-dropdown,
+      .nav-dropdown:focus-within > .desktop-dropdown,
+      .nav-dropdown.open > .desktop-dropdown {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+        visibility: visible;
+      }
+
+      .nav-dropdown:hover > .desktop-dropdown.dropdown-center,
+      .nav-dropdown:focus-within > .desktop-dropdown.dropdown-center,
+      .nav-dropdown.open > .desktop-dropdown.dropdown-center {
+        transform: translate(-50%, 0);
+      }
+
+      .nav-dropdown:hover > .nav-dropdown-trigger .nav-chevron,
+      .nav-dropdown:focus-within > .nav-dropdown-trigger .nav-chevron,
+      .nav-dropdown.open > .nav-dropdown-trigger .nav-chevron,
+      .mobile-dropdown.open .mobile-chevron,
+      .mobile-nested-dropdown.open .mobile-nested-chevron {
+        transform: rotate(180deg);
+      }
+
+      .desktop-menu-link,
+      .submenu-link,
+      .destination-tour-link {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        border-radius: 12px;
+        padding: 0.7rem 0.75rem;
+        color: #111827;
+        font-size: 0.875rem;
+        font-weight: 700;
+        line-height: 1.25;
+        transition:
+          background-color 180ms ease,
+          color 180ms ease,
+          transform 180ms ease;
+      }
+
+      .desktop-menu-link:hover,
+      .submenu-link:hover,
+      .destination-tour-link:hover,
+      .desktop-menu-link:focus-visible,
+      .submenu-link:focus-visible,
+      .destination-tour-link:focus-visible {
+        background: #eff6ff;
+        color: #2563eb;
+        outline: none;
+        transform: translateX(2px);
+      }
+
+      .desktop-menu-icon {
+        display: inline-flex;
+        width: 2rem;
+        height: 2rem;
+        flex: 0 0 2rem;
+        align-items: center;
+        justify-content: center;
+        border-radius: 999px;
+        background: #dbeafe;
+        color: #2563eb;
+        transition:
+          background-color 180ms ease,
+          color 180ms ease;
+      }
+
+      .desktop-menu-link:hover .desktop-menu-icon,
+      .desktop-menu-link:focus-visible .desktop-menu-icon {
+        background: #2563eb;
+        color: #fff;
+      }
+
+      .destination-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+      }
+
+      .dropdown-section-title {
+        margin: 0 0 0.45rem;
+        padding: 0 0.75rem;
+        color: #64748b;
+        font-size: 0.72rem;
+        font-weight: 800;
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+      }
+
+      .menu-list {
+        display: grid;
+        gap: 0.15rem;
+      }
+
+      .submenu-link {
+        min-height: 38px;
+        font-weight: 600;
+      }
+
+      .destination-tour-link {
+        margin-top: 0.75rem;
+        min-height: 44px;
+        justify-content: space-between;
+        border: 1px solid #dbeafe;
+        background: #f8fbff;
+      }
+
+      .tour-duration {
+        flex: 0 0 auto;
+        border-radius: 999px;
+        background: #f1f5f9;
+        padding: 0.15rem 0.5rem;
+        color: #64748b;
+        font-size: 0.72rem;
+        font-weight: 800;
+      }
+
+      #mobile-menu {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        left: 0;
+        display: flex;
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transform: translateY(-8px);
+        transition:
+          max-height 320ms ease,
+          opacity 220ms ease,
+          transform 220ms ease,
+          visibility 220ms ease;
+        visibility: hidden;
+      }
+
+      #mobile-menu.open {
+        max-height: calc(100vh - 68px);
+        opacity: 1;
+        overflow-y: auto;
+        transform: translateY(0);
+        visibility: visible;
+      }
+
+      .mobile-dropdown-trigger,
+      .mobile-menu-link,
+      .mobile-nested-trigger {
+        min-height: 46px;
+        border-radius: 12px;
+        transition:
+          background-color 180ms ease,
+          color 180ms ease;
+      }
+
+      .mobile-dropdown-trigger:hover,
+      .mobile-menu-link:hover,
+      .mobile-nested-trigger:hover,
+      .mobile-dropdown.open > .mobile-dropdown-trigger,
+      .mobile-nested-dropdown.open > .mobile-nested-trigger {
+        background: #eff6ff;
+        color: #2563eb;
+      }
+
+      .mobile-submenu {
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transform: translateY(-4px);
+        transition:
+          max-height 280ms ease,
+          opacity 200ms ease,
+          transform 200ms ease;
+      }
+
+      .mobile-dropdown.open .mobile-submenu {
+        max-height: 980px;
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .mobile-submenu-inner {
+        display: grid;
+        gap: 0.25rem;
+        padding: 0 0 0.75rem 0.75rem;
+      }
+
+      .mobile-nested-submenu {
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transform: translateY(-4px);
+        transition:
+          max-height 240ms ease,
+          opacity 180ms ease,
+          transform 180ms ease;
+      }
+
+      .mobile-nested-dropdown.open .mobile-nested-submenu {
+        max-height: 430px;
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .hamburger-line {
+        display: block;
+        width: 20px;
+        height: 2px;
+        border-radius: 999px;
+        background: #0f172a;
+        transform-origin: center;
+        transition:
+          transform 180ms ease,
+          opacity 180ms ease;
+      }
+
+      #hamburger.is-open .hamburger-line:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+      }
+
+      #hamburger.is-open .hamburger-line:nth-child(2) {
+        opacity: 0;
+      }
+
+      #hamburger.is-open .hamburger-line:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+      }
+
+      @media (min-width: 1024px) and (max-width: 1180px) {
+        .nav-dropdown-trigger,
+        .nav-link {
+          padding: 0 0.55rem;
+          font-size: 0.8rem;
+        }
+
+        .desktop-contact-number {
+          display: none;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        #mobile-menu {
+          display: none !important;
+        }
+      }
+
+      @media (max-width: 1023px) {
+        .desktop-dropdown {
+          display: none;
+        }
+      }
+    </style>
+
+    <!-- Header -->
+    <header class="sticky-header sticky top-0 z-50 bg-white/95 shadow-sm backdrop-blur">
+      <div class="mx-auto flex max-w-[1440px] items-center justify-between gap-3 px-4 py-3 sm:px-6 lg:px-8">
+
+        <!-- Logo -->
+        <a href="#" class="flex min-w-[96px] flex-shrink-0 items-center" aria-label="Everest Base Camp home">
+          <img src="images/Everest/Logo.png" class="h-auto w-16 object-contain sm:w-20 lg:w-28 xl:w-32" alt="Everest Base Camp" />
+        </a>
+
+        <!-- Desktop Nav -->
+        <nav class="hidden flex-1 items-center justify-center lg:flex" aria-label="Primary navigation">
+          <ul class="flex items-center gap-1 xl:gap-2">
+            <li class="nav-dropdown">
+              <button type="button" class="nav-dropdown-trigger" aria-expanded="false" aria-controls="about-menu">
+                ABOUT US <i data-lucide="chevron-down" class="nav-chevron h-4 w-4"></i>
+              </button>
+              <div id="about-menu" class="desktop-dropdown w-72 p-3">
+                <a href="#about" class="desktop-menu-link">
+                  <span class="desktop-menu-icon"><i data-lucide="users" class="h-4 w-4"></i></span>
+                  <span>Why Travel With Us</span>
+                </a>
+                <a href="#about" class="desktop-menu-link">
+                  <span class="desktop-menu-icon"><i data-lucide="shield-check" class="h-4 w-4"></i></span>
+                  <span>Terms & Conditions</span>
+                </a>
+                <a href="#about" class="desktop-menu-link">
+                  <span class="desktop-menu-icon"><i data-lucide="key-round" class="h-4 w-4"></i></span>
+                  <span>Privacy Policy</span>
+                </a>
+                <a href="#faq" class="desktop-menu-link">
+                  <span class="desktop-menu-icon"><i data-lucide="circle-help" class="h-4 w-4"></i></span>
+                  <span>FAQ</span>
+                </a>
+              </div>
+            </li>
+
+            <li class="nav-dropdown">
+              <button type="button" class="nav-dropdown-trigger" aria-expanded="false" aria-controls="nepal-menu">
+                NEPAL <i data-lucide="chevron-down" class="nav-chevron h-4 w-4"></i>
+              </button>
+              <div id="nepal-menu" class="desktop-dropdown dropdown-center w-[760px] max-w-[calc(100vw-2rem)] p-5">
+                <div class="destination-grid">
+                  <div>
+                    <p class="dropdown-section-title">Trekking Regions</p>
+                    <div class="menu-list">
+                      <a href="#" class="submenu-link">Everest Region</a>
+                      <a href="#" class="submenu-link">Annapurna Region</a>
+                      <a href="#" class="submenu-link">Langtang Region</a>
+                      <a href="#" class="submenu-link">Manaslu Region</a>
+                      <a href="#" class="submenu-link">Kanchanjunga Region</a>
+                      <a href="#" class="submenu-link">Ganesh Himal Region</a>
+                      <a href="#" class="submenu-link">Dhulagiri Region</a>
+                    </div>
+                  </div>
+                  <div>
+                    <p class="dropdown-section-title">Peak Climbing</p>
+                    <div class="menu-list">
+                      <a href="#" class="submenu-link">Yala Peak Climbing</a>
+                      <a href="#" class="submenu-link">Island Peak Climbing with Everest Base Camp</a>
+                      <a href="#" class="submenu-link">Pokalade Peak Climbing</a>
+                      <a href="#" class="submenu-link">Lobuche Peak Climbing</a>
+                      <a href="#" class="submenu-link">Mardi Himal Climbing</a>
+                      <a href="#" class="submenu-link">Chulu West Peak</a>
+                      <a href="#" class="submenu-link">Dhampus Peak Climbing</a>
+                    </div>
+                  </div>
+                </div>
+                <a href="#" class="destination-tour-link">
+                  <span class="flex items-center gap-3">
+                    <span class="desktop-menu-icon"><i data-lucide="map-pinned" class="h-4 w-4"></i></span>
+                    <span>Tours in Nepal</span>
+                  </span>
+                  <i data-lucide="arrow-right" class="h-4 w-4"></i>
+                </a>
+              </div>
+            </li>
+
+            <li class="nav-dropdown">
+              <button type="button" class="nav-dropdown-trigger" aria-expanded="false" aria-controls="day-tours-menu">
+                DAY TOURS <i data-lucide="chevron-down" class="nav-chevron h-4 w-4"></i>
+              </button>
+              <div id="day-tours-menu" class="desktop-dropdown w-80 p-3">
+                <a href="#" class="desktop-menu-link justify-between">
+                  <span>Kathmandu Heritage Tour</span>
+                  <span class="tour-duration">1 Day</span>
+                </a>
+                <a href="#" class="desktop-menu-link justify-between">
+                  <span>Bhaktapur & Patan Tour</span>
+                  <span class="tour-duration">1 Day</span>
+                </a>
+                <a href="#" class="desktop-menu-link justify-between">
+                  <span>Nagarkot Sunrise Hike</span>
+                  <span class="tour-duration">1 Day</span>
+                </a>
+                <a href="#" class="desktop-menu-link justify-between">
+                  <span>Pokhara Sightseeing</span>
+                  <span class="tour-duration">1 Day</span>
+                </a>
+              </div>
+            </li>
+
+            <li><a href="#testimonials" class="nav-link">TESTIMONIALS</a></li>
+            <li><a href="#blog" class="nav-link">BLOG</a></li>
+            <li><a href="#contact" class="nav-link">CONTACT</a></li>
+          </ul>
+        </nav>
+
+        <!-- Desktop Contact -->
+        <div class="hidden items-center gap-2 lg:flex">
+          <a href="#" class="flex h-9 w-9 items-center justify-center rounded-full bg-[#7360F2] transition hover:-translate-y-0.5 hover:shadow-lg" aria-label="Viber">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/viber.svg" class="h-5 w-5 invert" alt="" />
+          </a>
+          <a href="https://wa.me/9779851205116" class="flex h-9 w-9 items-center justify-center rounded-full bg-[#25D366] transition hover:-translate-y-0.5 hover:shadow-lg" aria-label="WhatsApp">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/whatsapp.svg" class="h-5 w-5 invert" alt="" />
+          </a>
+          <a href="tel:+9779851205116" class="desktop-contact-number whitespace-nowrap text-sm font-bold text-slate-900 hover:text-blue-600">+977 9851205116</a>
+        </div>
+
+        <!-- Mobile Hamburger -->
+        <button id="hamburger" class="flex h-10 w-10 flex-col items-center justify-center gap-[5px] rounded-full border border-slate-200 bg-white shadow-sm lg:hidden" aria-label="Toggle menu" aria-controls="mobile-menu" aria-expanded="false">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="flex-col gap-1 border-t border-slate-100 bg-white px-3 pb-4 pt-2 shadow-xl lg:hidden">
+        <div class="mobile-dropdown">
+          <button type="button" class="mobile-dropdown-trigger flex w-full items-center justify-between px-3 text-sm font-bold" aria-expanded="false">
+            ABOUT US <i data-lucide="chevron-down" class="mobile-chevron h-4 w-4"></i>
+          </button>
+          <div class="mobile-submenu">
+            <div class="mobile-submenu-inner">
+              <a href="#about" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-600">Why Travel With Us</a>
+              <a href="#about" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-600">Terms & Conditions</a>
+              <a href="#about" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-600">Privacy Policy</a>
+              <a href="#faq" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-600">FAQ</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="mobile-dropdown">
+          <button type="button" class="mobile-dropdown-trigger flex w-full items-center justify-between px-3 text-sm font-bold" aria-expanded="false">
+            NEPAL <i data-lucide="chevron-down" class="mobile-chevron h-4 w-4"></i>
+          </button>
+          <div class="mobile-submenu">
+            <div class="mobile-submenu-inner">
+              <div class="mobile-nested-dropdown">
+                <button type="button" class="mobile-nested-trigger flex w-full items-center justify-between px-3 text-sm font-bold text-slate-700" aria-expanded="false">
+                  Trekking in Nepal
+                  <i data-lucide="chevron-down" class="mobile-nested-chevron h-4 w-4"></i>
+                </button>
+                <div class="mobile-nested-submenu">
+                  <div class="grid gap-1 pl-3 pt-1">
+                    <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Everest Region</a>
+                    <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Annapurna Region</a>
+                    <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Langtang Region</a>
+                    <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Manaslu Region</a>
+                    <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Kanchanjunga Region</a>
+                    <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Ganesh Himal Region</a>
+                    <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Dhulagiri Region</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mobile-nested-dropdown">
+                <button type="button" class="mobile-nested-trigger flex w-full items-center justify-between px-3 text-sm font-bold text-slate-700" aria-expanded="false">
+                  Peak Climbing
+                  <i data-lucide="chevron-down" class="mobile-nested-chevron h-4 w-4"></i>
+                </button>
+                <div class="mobile-nested-submenu">
+                  <div class="grid gap-1 pl-3 pt-1">
+                    <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Yala Peak Climbing</a>
+                    <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Island Peak Climbing with EBC</a>
+                    <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Pokalade Peak Climbing</a>
+                    <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Lobuche Peak Climbing</a>
+                    <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Mardi Himal Climbing</a>
+                    <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Chulu West Peak</a>
+                    <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Dhampus Peak Climbing</a>
+                  </div>
+                </div>
+              </div>
+
+              <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-bold text-slate-700">Tours in Nepal</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="mobile-dropdown">
+          <button type="button" class="mobile-dropdown-trigger flex w-full items-center justify-between px-3 text-sm font-bold" aria-expanded="false">
+            DAY TOURS <i data-lucide="chevron-down" class="mobile-chevron h-4 w-4"></i>
+          </button>
+          <div class="mobile-submenu">
+            <div class="mobile-submenu-inner">
+              <a href="#contact" class="mobile-menu-link flex items-center justify-between px-3 text-sm font-semibold text-slate-600">Kathmandu Heritage Tour <span class="tour-duration">1 Day</span></a>
+              <a href="#contact" class="mobile-menu-link flex items-center justify-between px-3 text-sm font-semibold text-slate-600">Bhaktapur & Patan Tour <span class="tour-duration">1 Day</span></a>
+              <a href="#contact" class="mobile-menu-link flex items-center justify-between px-3 text-sm font-semibold text-slate-600">Nagarkot Sunrise Hike <span class="tour-duration">1 Day</span></a>
+              <a href="#contact" class="mobile-menu-link flex items-center justify-between px-3 text-sm font-semibold text-slate-600">Pokhara Sightseeing <span class="tour-duration">1 Day</span></a>
+            </div>
+          </div>
+        </div>
+
+        <a href="#testimonials" class="mobile-menu-link flex items-center px-3 text-sm font-bold">TESTIMONIALS</a>
+        <a href="#blog" class="mobile-menu-link flex items-center px-3 text-sm font-bold">BLOG</a>
+        <a href="#contact" class="mobile-menu-link flex items-center px-3 text-sm font-bold">CONTACT</a>
+
+        <div class="mt-2 flex items-center gap-3 border-t border-slate-100 px-3 pt-4">
+          <span class="flex h-9 w-9 items-center justify-center rounded-full bg-[#7360F2]">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/viber.svg" class="h-5 w-5 invert" alt="Viber" />
+          </span>
+          <span class="flex h-9 w-9 items-center justify-center rounded-full bg-[#25D366]">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/whatsapp.svg" class="h-5 w-5 invert" alt="Whatsapp" />
+          </span>
+          <a href="tel:+9779851205116" class="text-sm font-bold text-slate-900">+977 9851205116</a>
+        </div>
+      </div>
+    </header>
+    <!-- Header End -->
+
+    <!-- Banner Start -->
+    <section class="relative h-screen min-h-[500px] w-full overflow-hidden">
+      <img src="Images/Everest/Everest.jpg" class="absolute inset-0 w-full h-full object-cover z-0" alt="Banner"/>
+      <div class="absolute inset-0 bg-black/40 z-10"></div>
+
+      <button class="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 z-30">
+        <i data-lucide="chevron-left" class="stroke-1 opacity-70 hover:opacity-100 sm:w-20 sm:h-20 text-white"></i>
+      </button>
+      <button class="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 z-30">
+        <i data-lucide="chevron-right" class="stroke-1 opacity-70 h-10 hover:opacity-100 sm:w-20 sm:h-20 text-white"></i>
+      </button>
+
+      <div class="absolute inset-0 z-20 flex flex-col items-center justify-center text-center px-4">
+        <h1 class="font-bold text-2xl lg:text-4xl xl:text-6xl text-white leading-tight mb-6">
+          Everest Base Camp
+        </h1>
+        <p class="text-white font-light text-base sm:text-lg md:text-xl opacity-70 max-w-lg mb-6">
+          Explore the Himalayas with 20 years of trusted expertise.
+        </p>
+        <button class="bg-blue-600 hover:bg-blue-700 transition text-white px-4 sm:px-8 lg:py-2 md:py-2 py-1 text-lg sm:text-2xl font-medium shadow-lg rounded mb-6">
+          Explore Now
+        </button>
+        <div class="flex items-center gap-4 sm:gap-6">
+          <div class="flex -space-x-3 sm:-space-x-4">
+            <img src="Images/Everest/f1.jpg" class="w-10 h-10 sm:w-14 sm:h-14 rounded-full border-2 border-white object-cover" alt="" />
+            <img src="Images/Everest/f2.jpg" class="w-10 h-10 sm:w-14 sm:h-14 rounded-full border-2 border-white object-cover" alt="" />
+            <img src="Images/Everest/f3.jpg" class="w-10 h-10 sm:w-14 sm:h-14 rounded-full border-2 border-white object-cover" alt="" />
+          </div>
+          <div class="text-left">
+            <p class="text-white text-base sm:text-xl font-bold">1500+ Happy Clients</p>
+            <p class="text-gray-200 text-xs sm:text-sm font-extralight opacity-70">Experiences that create lifelong memories</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Banner End -->
+
+    <!-- Featured Destinations Start-->
+    <section id="featured-destinations" class="bg-[#F6F8F7] py-[72px] lg:py-[110px] px-4 sm:px-8">
+      <div class="container mx-auto">
+        <div class="flex items-center justify-center gap-2 lg:gap-8 mb-4">
+          <span class="h-px w-10 sm:w-16 bg-blue-600 hidden lg:block"></span>
+          <p class="text-xs lg:text-sm font-bold tracking-wider uppercase text-blue-600">Trending Gateways</p>
+          <span class="h-px w-10 sm:w-16 bg-blue-600 hidden lg:block"></span>
+        </div>
+        <h2 class="font-extrabold text-center text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-8 sm:mb-12">
+          Featured Destinations
+        </h2>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          <!-- Card 1 -->
+          <div class="relative bg-white shadow-md overflow-hidden">
+            <img src="Images/Everest/Mt ABC.jpg" class="w-full h-64 sm:h-80 lg:h-[480px] object-cover" alt="" />
+            <span class="absolute top-4 right-4 bg-orange-500 text-white px-3 py-1.5 rounded-md text-xs sm:text-sm font-medium">★ Featured</span>
+            <div class="p-4 mb-2">
+              <div class="flex items-center gap-2 mb-3">
+                <div class="flex text-yellow-400 text-sm">★ ★ ★ ★ ★</div>
+                <span class="text-gray-700 font-medium text-xs sm:text-sm">5.0</span>
+              </div>
+              <h2 class="text-base sm:text-xl font-bold mb-3">Annapurna Base Camp Trek</h2>
+              <div class="flex items-center justify-between">
+                <h3 class="text-blue-600 text-base sm:text-xl font-bold">USD $1090</h3>
+                <div class="flex items-center gap-2 text-gray-700">
+                  <i data-lucide="calendar" class="w-4 h-4"></i>
+                  <span class="font-medium text-sm">14 Days</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="relative bg-white shadow-md overflow-hidden">
+            <img src="Images/Everest/Mt Manslu.jpg" class="w-full h-64 sm:h-80 lg:h-[480px] object-cover" alt="" />
+            <span class="absolute top-4 right-4 bg-orange-500 text-white px-3 py-1.5 rounded-md text-xs sm:text-sm font-medium">★ Featured</span>
+            <div class="p-4 mb-2">
+              <div class="flex items-center gap-2 mb-3">
+                <div class="flex text-yellow-400 text-sm">★ ★ ★ ★ ★</div>
+                <span class="text-gray-700 font-medium text-xs sm:text-sm">5.0</span>
+              </div>
+              <h2 class="text-base sm:text-xl font-bold mb-3">Manaslu Circuit Trek</h2>
+              <div class="flex items-center justify-between">
+                <h3 class="text-blue-600 text-base sm:text-xl font-bold">USD $1380</h3>
+                <div class="flex items-center gap-2 text-gray-700">
+                  <i data-lucide="calendar" class="w-4 h-4"></i>
+                  <span class="font-medium text-sm">14 Days</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="relative bg-white shadow-md overflow-hidden">
+            <img src="Images/Everest/EV.jpg" class="w-full h-64 sm:h-80 lg:h-[480px] object-cover" alt="" />
+            <span class="absolute top-4 right-4 bg-orange-500 text-white px-3 py-1.5 rounded-md text-xs sm:text-sm font-medium">★ Featured</span>
+            <div class="p-4 mb-2">
+              <div class="flex items-center gap-2 mb-3">
+                <div class="flex text-yellow-400 text-sm">★ ★ ★ ★ ★</div>
+                <span class="text-gray-700 font-medium text-xs sm:text-sm">5.0</span>
+              </div>
+              <h2 class="text-base sm:text-xl font-bold mb-3">Everest Base Camp Trek</h2>
+              <div class="flex items-center justify-between">
+                <h3 class="text-blue-600 text-base sm:text-xl font-bold">USD $1525</h3>
+                <div class="flex items-center gap-2 text-gray-700">
+                  <i data-lucide="calendar" class="w-4 h-4"></i>
+                  <span class="font-medium text-sm">14 Days</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="relative bg-white shadow-md overflow-hidden">
+            <img src="Images/Everest/Mt Langtang.jpg" class="w-full h-64 sm:h-80 lg:h-[480px] object-cover" alt="" />
+            <span class="absolute top-4 right-4 bg-orange-500 text-white px-3 py-1.5 rounded-md text-xs sm:text-sm font-medium">★ Featured</span>
+            <div class="p-4 mb-2">
+              <div class="flex items-center gap-2 mb-3">
+                <div class="flex text-yellow-400 text-sm">★ ★ ★ ★ ★</div>
+                <span class="text-gray-700 font-medium text-xs sm:text-sm">5.0</span>
+              </div>
+              <h2 class="text-base sm:text-xl font-bold mb-3">Langtang Valley Trek</h2>
+              <div class="flex items-center justify-between">
+                <h3 class="text-blue-600 text-base sm:text-xl font-bold">USD $1000</h3>
+                <div class="flex items-center gap-2 text-gray-700">
+                  <i data-lucide="calendar" class="w-4 h-4"></i>
+                  <span class="font-medium text-sm">14 Days</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="relative bg-white shadow-md overflow-hidden">
+            <img src="Images/Everest/Gosaikunda.jpg" class="w-full h-64 sm:h-80 lg:h-[480px] object-cover" alt="" />
+            <span class="absolute top-4 right-4 bg-orange-500 text-white px-3 py-1.5 rounded-md text-xs sm:text-sm font-medium">★ Featured</span>
+            <div class="p-4 mb-2">
+              <div class="flex items-center gap-2 mb-3">
+                <div class="flex text-yellow-400 text-sm">★ ★ ★ ★ ★</div>
+                <span class="text-gray-700 font-medium text-xs sm:text-sm">5.0</span>
+              </div>
+              <h2 class="text-base sm:text-xl font-bold mb-3">Gosaikunda Holy Lake Trek</h2>
+              <div class="flex items-center justify-between">
+                <h3 class="text-blue-600 text-base sm:text-xl font-bold">USD $1280</h3>
+                <div class="flex items-center gap-2 text-gray-700">
+                  <i data-lucide="calendar" class="w-4 h-4"></i>
+                  <span class="font-medium text-sm">14 Days</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 6 -->
+          <div class="relative bg-white shadow-md overflow-hidden">
+            <img src="Images/Everest/Upper Mustang.jpg" class="w-full h-64 sm:h-80 lg:h-[480px] object-cover" alt="" />
+            <span class="absolute top-4 right-4 bg-orange-500 text-white px-3 py-1.5 rounded-md text-xs sm:text-sm font-medium">★ Featured</span>
+            <div class="p-4 mb-2">
+              <div class="flex items-center gap-2 mb-3">
+                <div class="flex text-yellow-400 text-sm">★ ★ ★ ★ ★</div>
+                <span class="text-gray-700 font-medium text-xs sm:text-sm">5.0</span>
+              </div>
+              <h2 class="text-base sm:text-xl font-bold mb-3">Upper Mustang Trek</h2>
+              <div class="flex items-center justify-between">
+                <h3 class="text-blue-600 text-base sm:text-xl font-bold">USD $1200</h3>
+                <div class="flex items-center gap-2 text-gray-700">
+                  <i data-lucide="calendar" class="w-4 h-4"></i>
+                  <span class="font-medium text-sm">14 Days</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Featured Destinations End -->
+
+    <!-- Trust Badge Start -->
+    <section class="bg-white py-12 sm:py-16 px-4 sm:px-8 lg:px-20">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 container mx-auto">
+
+        <div class="flex items-center gap-4 sm:gap-5">
+          <div class="size-12 sm:size-20 min-w-[48px] sm:min-w-12 rounded-full border border-[#235CF4] flex items-center justify-center flex-shrink-0">
+            <img src="Images/Everest/mail.png" alt="" class="w-6 sm:w-10 object-cover">
+          </div>
+          <div>
+            <h3 class="text-base sm:text-md font-bold text-gray-700 mb-1 sm:mb-2">Trusted Reviews</h3>
+            <p class="text-gray-700 opacity-90 text-xs sm:text-sm leading-relaxed">Reviews by travellers who recently returned from their trip.</p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-4 sm:gap-5">
+          <div class="size-12 sm:size-20 min-w-[48px] sm:min-w-12 rounded-full border border-[#235CF4] flex items-center justify-center flex-shrink-0">
+            <img src="Images/Everest/price tag.png" alt="" class="w-6 sm:w-10 object-cover">
+          </div>
+          <div>
+            <h3 class="text-base sm:text-md font-bold text-gray-700 mb-1 sm:mb-2">Best Price Guaranteed</h3>
+            <p class="text-gray-700 opacity-90 text-xs sm:text-sm leading-relaxed">Found a lower price elsewhere? We will match it!</p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-4 sm:gap-5">
+          <div class="size-12 sm:size-20 min-w-[48px] sm:min-w-12 rounded-full border border-[#235CF4] flex items-center justify-center flex-shrink-0">
+            <img src="Images/Everest/wallet.png" alt="" class="w-6 sm:w-10 object-cover">
+          </div>
+          <div>
+            <h3 class="text-base sm:text-md font-bold text-gray-700 mb-1 sm:mb-2">Easy Payment</h3>
+            <p class="text-gray-700 opacity-90 text-xs sm:text-sm leading-relaxed">Pay with a credit card or PayPal. Hassle free booking.</p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-4 sm:gap-5">
+          <div class="size-12 sm:size-20 min-w-[48px] sm:min-w-12 rounded-full border border-[#235CF4] flex items-center justify-center flex-shrink-0">
+            <img src="Images/Everest/headphone.png" alt="" class="w-6 sm:w-10 object-cover">
+          </div>
+          <div>
+            <h3 class="text-base sm:text-md font-bold text-gray-700 mb-1 sm:mb-2">24/7 Support</h3>
+            <p class="text-gray-700 opacity-90 text-xs sm:text-sm leading-relaxed">Get local support 24/7 during the trek.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Trust Badge End -->
+
+    <!-- Adventure Specialist Start -->
+    <section id="about" class="relative w-full overflow-hidden py-12 lg:py-24">
+      <img src="Images/Everest/adventure specialist.png" class="absolute inset-0 z-0 h-full w-full object-cover object-center" alt="Banner" />
+      <div class="absolute inset-0 z-10 bg-black/40"></div>
+      <div class="relative z-20 flex h-full items-center px-4 sm:px-8 lg:px-20">
+        <div class="w-full max-w-[1540px]">
+          <h2 class="text-xl sm:text-2xl lg:text-xl font-medium leading-tight text-white mb-4">
+            Start planning your trek by contacting one of our adventure specialist
+          </h2>
+          <div class=" grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 items-center gap-6 sm:gap-8">
+            <img src="Images/Everest/img1.png" class="w-full h-auto object-cover" alt="trek" />
+            <img src="Images/Everest/img2.png" class="w-full h-auto object-cover" alt="mountain" />
+            <div class="text-left">
+              <h3 class="text-lg sm:text-xl font-bold text-white mb-3 sm:mb-4">Explore the unseen</h3>
+              <p class="text-sm sm:text-base font-extralight text-gray-300 mb-2">Discover breathtaking adventure</p>
+              <button class="mt-4 sm:mt-5 w-full sm:w-auto rounded bg-[#2f63f5] px-8 py-3 sm:py-[15px] text-base sm:text-[21px] font-medium text-white transition hover:bg-[#2556de]">
+                Start Planning
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Adventure Specialist End -->
+
+    <!-- Best Seller Trek Start -->
+    <section id="best-sellers" class="bg-[#F6F8F7] py-[94px] lg:py-[110px] px-4 sm:px-8">
+      <div class="container mx-auto">
+        <div class="flex items-center justify-center gap-4 sm:gap-8 mb-4">
+          <span class="h-px w-10 sm:w-16 bg-blue-600 hidden lg:block"></span>
+          <p class="text-xs lg:text-sm font-bold tracking-wider uppercase text-blue-600">Trending Holidays</p>
+          <span class="h-px w-10 sm:w-16 bg-blue-600 hidden lg:block"></span>
+        </div>
+        <h2 class="font-extrabold text-center text-4xl sm:text-4xl md:text-5xl lg:text-6xl mb-8 sm:mb-12">Best Seller Treks</h2>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          <div class="relative bg-white shadow-md overflow-hidden">
+            <img src="Images/Everest/img everest.jpg" class="w-full h-64 sm:h-80 lg:h-[480px] object-cover" alt="" />
+            <span class="absolute top-4 right-4 bg-[#FF5B1C] text-white px-3 py-1.5 rounded-md text-xs sm:text-sm font-medium">Featured</span>
+            <div class="p-4 mb-2">
+              <div class="flex items-center gap-2 mb-3">
+                <div class="flex text-yellow-400 text-sm">★ ★ ★ ★ ★</div>
+                <span class="text-gray-700 font-medium text-xs sm:text-sm">346 Reviews</span>
+              </div>
+              <h2 class="text-base sm:text-xl font-bold mb-3">Everest Base Camp Trek</h2>
+              <h3 class="text-blue-600 text-base sm:text-xl font-bold">USD $1525</h3>
+            </div>
+          </div>
+
+          <div class="relative bg-white shadow-md overflow-hidden">
+            <img src="Images/Everest/img annapurna.jpg" class="w-full h-64 sm:h-80 lg:h-[480px] object-cover" alt="" />
+            <span class="absolute top-4 right-4 bg-[#10A300] text-white px-3 py-1.5 rounded-md text-xs sm:text-sm font-medium">Best Price</span>
+            <div class="p-4 mb-2">
+              <div class="flex items-center gap-2 mb-3">
+                <div class="flex text-yellow-400 text-sm">★ ★ ★ ★ ★</div>
+                <span class="text-gray-700 font-medium text-xs sm:text-sm">346 Reviews</span>
+              </div>
+              <h2 class="text-base sm:text-xl font-bold mb-3">Annapurna Base Camp Trek</h2>
+              <h3 class="text-blue-600 text-base sm:text-xl font-bold">USD $1380</h3>
+            </div>
+          </div>
+
+          <div class="relative bg-white shadow-md overflow-hidden">
+            <img src="Images/Everest/EV.jpg" class="w-full h-64 sm:h-80 lg:h-[480px] object-cover" alt="" />
+            <span class="absolute top-4 right-4 bg-[#235CF4] text-white px-3 py-1.5 rounded-md text-xs sm:text-sm font-medium">Best Seller</span>
+            <div class="p-4 mb-2">
+              <div class="flex items-center gap-2 mb-3">
+                <div class="flex text-yellow-400 text-sm">★ ★ ★ ★ ★</div>
+                <span class="text-gray-700 font-medium text-xs sm:text-sm">346 Reviews</span>
+              </div>
+              <h2 class="text-base sm:text-xl font-bold mb-3">Manslu Circuit Trek</h2>
+              <h3 class="text-blue-600 text-base sm:text-xl font-bold">USD $1090</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Best Seller Trek End -->
+
+    <!-- Travel Blog Start -->
+   <section id="blog" class="mb-8 sm:mb-6 py-[94px] lg:py-[110px] overflow-hidden px-4 sm:px-8">
+    <div class="container mx-auto">
+    <div class="flex items-center justify-center gap-4 sm:gap-8 mb-4">
+      <span class="h-px w-10 sm:w-16 bg-blue-600 hidden lg:block"></span>
+      <p class="text-xs sm:text-sm font-bold tracking-wider uppercase text-blue-600">Travel Blogs</p>
+      <span class="h-px w-10 sm:w-16 bg-blue-600 hidden lg:block"></span>
+    </div>
+    <h2 class="font-extrabold text-center text-2xl sm:text-4xl md:text-5xl lg:text-6xl mb-8 sm:mb-12">Latest Blog</h2>
+
+    <div class="flex flex-col lg:flex-row gap-8 lg:gap-12">
+
+      <!-- Left Big Card -->
+      <div class="w-full lg:w-1/2 xl:w-[55%] flex-shrink-0">
+        <img src="images/Everest/Himal1.png" class="w-full h-52 sm:h-72 lg:h-[420px] xl:h-[485px] object-cover mb-4" alt="" />
+        <div>
+          <div class="flex items-center gap-2 mb-2">
+            <i data-lucide="clock" class="text-gray-400 w-4 h-4"></i>
+            <p class="text-xs sm:text-sm text-gray-400">Feb 22, 2026</p>
+          </div>
+          <h3 class="text-lg sm:text-2xl font-bold mb-3">Trip to Mardi Himal Trek</h3>
+          <p class="text-xs sm:text-sm text-gray-600 leading-6">
+            The Mardi Himal Trek offers a short and easy-to-moderate journey through lush forests and stunning ridges with close-up Himalayan views.
+          </p>
+        </div>
+      </div>
+
+      <!-- Right Cards -->
+      <div class="flex flex-col gap-6 sm:gap-8 flex-1">
+
+        <!-- Card 1 -->
+        <div class="flex flex-row gap-4 items-start">
+          <img src="images/Everest/Himal2.png" class="w-28 sm:w-40 md:w-44 h-24 sm:h-32 md:h-36 object-cover flex-shrink-0" alt="" />
+          <div class="min-w-0">
+            <div class="flex gap-2 mb-1">
+              <i data-lucide="clock" class="text-gray-400 w-4 h-4 flex-shrink-0"></i>
+              <p class="text-xs sm:text-sm text-gray-400">Feb 22, 2026</p>
+            </div>
+            <h4 class="font-bold text-sm sm:text-base md:text-lg mb-1 sm:mb-2">Trek to Annapurna Region</h4>
+            <p class="text-xs sm:text-sm text-gray-600 leading-5 sm:leading-6">The Annapurna Trek offers a short yet moderate-level journey.</p>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="flex flex-row gap-4 items-start">
+          <img src="images/Everest/Himal3.png" class="w-28 sm:w-40 md:w-44 h-24 sm:h-32 md:h-36 object-cover flex-shrink-0" alt="" />
+          <div class="min-w-0">
+            <div class="flex gap-2 mb-1">
+              <i data-lucide="clock" class="text-gray-400 w-4 h-4 flex-shrink-0"></i>
+              <p class="text-xs sm:text-sm text-gray-400">Feb 22, 2026</p>
+            </div>
+            <h4 class="font-bold text-sm sm:text-base md:text-lg mb-1 sm:mb-2">Trek to Langtang Region</h4>
+            <p class="text-xs sm:text-sm text-gray-600 leading-5 sm:leading-6">The Manaslu Trek offers a remote and challenging journey through the pristine landscapes.</p>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="flex flex-row gap-4 items-start">
+          <img src="images/Everest/Himal4.png" class="w-28 sm:w-40 md:w-44 h-24 sm:h-32 md:h-36 object-cover flex-shrink-0" alt="" />
+          <div class="min-w-0">
+            <div class="flex gap-2 mb-1">
+              <i data-lucide="clock" class="text-gray-400 w-4 h-4 flex-shrink-0"></i>
+              <p class="text-xs sm:text-sm text-gray-400">Feb 22, 2026</p>
+            </div>
+            <h4 class="font-bold text-sm sm:text-base md:text-lg mb-1 sm:mb-2">Trek to Manaslu Region</h4>
+            <p class="text-xs sm:text-sm text-gray-600 leading-5 sm:leading-6">The Manaslu Trek offers a remote and challenging journey through the pristine landscapes.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    </div>
+   </section>
+    <!-- Travel Blog End -->
+
+    <!-- FAQ Section Start -->
+    <section id="faq" class="bg-[#F6F8F7] py-[94px] lg:py-[110px] overflow-hidden px-4 sm:px-8">
+      <div class="flex items-center justify-center gap-4 sm:gap-8 mb-4">
+        <span class="h-px w-10 lg:w-16 bg-blue-600 hidden lg:block"></span>
+        <p class="text-xs sm:text-sm font-bold tracking-wider uppercase text-blue-600">FAQs</p>
+        <span class="h-px w-10 lg:w-16 bg-blue-600 hidden lg:block"></span>
+      </div>
+      <h2 class="font-extrabold text-center text-2xl sm:text-4xl md:text-5xl lg:text-6xl mb-8 sm:mb-12">
+        Frequently Asked Question
+      </h2>
+
+      <div class="max-w-4xl mx-auto space-y-2">
+        <div class="bg-white border border-gray-300/60 rounded-md overflow-hidden">
+          <button class="faq-btn w-full flex items-center justify-between px-5 sm:px-8 py-4 sm:py-5 text-left text-base sm:text-lg font-bold text-black/80">
+            What are the visa rules for Nepal?
+            <i data-lucide="chevron-down" class="w-8 min-w-8 h-8 p-2 rounded-full bg-gray-300/30 flex-shrink-0"></i>
+          </button>
+          <div class="faq-content max-h-0 overflow-hidden px-5 sm:px-8 text-gray-500 text-sm sm:text-base transition-all duration-300">
+            <p class="mb-6">The Nepal visa rules are complex and can change frequently. It is recommended to check with the Nepal embassy or consulate for the latest information.</p>
+          </div>
+        </div>
+
+        <div class="bg-white border border-gray-300/60 rounded-md overflow-hidden">
+          <button class="faq-btn w-full flex items-center justify-between px-5 sm:px-8 py-4 sm:py-5 text-left text-base sm:text-lg font-bold text-black/80">
+            What should my travel insurance cover?
+            <i data-lucide="chevron-down" class="w-8 min-w-8 h-8 p-2 rounded-full bg-gray-300/30 flex-shrink-0"></i>
+          </button>
+          <div class="faq-content max-h-0 overflow-hidden px-5 sm:px-8 text-gray-500 text-sm sm:text-base transition-all duration-300">
+            <p class="mb-6">
+              Your insurance should cover trekking, emergency evacuation, medical expenses, and trip cancellations.</p>
+          </div>
+        </div>
+
+        <div class="bg-white border border-gray-300/60 rounded-md overflow-hidden">
+          <button class="faq-btn w-full flex items-center justify-between px-5 sm:px-8 py-4 sm:py-5 text-left text-base sm:text-lg font-bold text-black/80">
+            What types of tourism activities are there?
+            <i data-lucide="chevron-down" class="w-8 min-w-8 h-8 p-2 rounded-full bg-gray-300/30 flex-shrink-0"></i>
+          </button>
+          <div class="faq-content max-h-0 overflow-hidden px-5 sm:px-8 text-gray-500 text-sm sm:text-base transition-all duration-300">
+            <p class="mb-6">
+              Nepal offers trekking, mountaineering, jungle safaris, rafting, paragliding, cultural tours, and more.
+            </p>
+            
+          </div>
+        </div>
+
+        <div class="bg-white border border-gray-300/60 rounded-md overflow-hidden">
+         <button class="faq-btn w-full flex items-center justify-between px-5 sm:px-8 py-4 sm:py-5 text-left text-base sm:text-lg font-bold text-black/80">
+            How much is a 30 day visa for Nepal?
+            <i data-lucide="chevron-down" class="w-8 min-w-8 h-8 p-2 rounded-full bg-gray-300/30 flex-shrink-0"></i>
+          </button>
+          <div class="faq-content max-h-0 overflow-hidden px-5 sm:px-8 text-gray-500 text-sm sm:text-base transition-all duration-300">
+            <p class="mb-6">
+               A 30-day tourist visa for Nepal typically costs around USD 50.
+            </p>
+           
+          </div>
+        </div>
+
+        <div class="bg-white border border-gray-300/60 rounded-md overflow-hidden">
+          <button class="faq-btn w-full flex items-center justify-between px-5 sm:px-8 py-4 sm:py-5 text-left text-base sm:text-lg font-bold text-black/80">
+            How much is the Nepal visa for?
+            <i data-lucide="chevron-down" class="w-8 min-w-8 h-8 p-2 rounded-full bg-gray-300/30 flex-shrink-0"></i>
+          </button>
+          <div class="faq-content max-h-0 overflow-hidden px-5 sm:px-8 text-gray-500 text-sm sm:text-base transition-all duration-300">
+            <p class="mb-6">
+              Nepal visa costs depend on duration: 15 days, 30 days, and 90 days have different fees.
+            </p>
+          </div>
+        </div>
+
+        <div class="pt-2">
+          <button class="bg-blue-600 hover:bg-blue-700 transition text-white px-6 sm:px-8 py-3 sm:py-4 rounded-md text-sm sm:text-base font-medium tracking-[0.8px] shadow">
+            More FAQs
+          </button>
+        </div>
+      </div>
+    </section>
+    <!-- FAQ Section End -->
+
+    <!-- Clients Review Start -->
+    <section id="testimonials" class="w-full overflow-hidden py-[94px] lg:py-[110px]">
+      <div class="container mx-auto px-4 sm:px-8">
+        <div class="flex flex-col items-center justify-center gap-4 sm:gap-6 text-center mb-4 lg:mb-4">
+          <div class="flex items-center gap-4 sm:gap-5">
+            <span class="w-10 lg:w-12 h-px bg-blue-600 hidden lg:block"></span>
+            <p class="text-xs lang:text-sm font-bold tracking-wider uppercase text-blue-600">Tripadvisor</p>
+            <span class="w-10 lg:w-12 h-px bg-blue-600 hidden lg:block"></span>
+          </div>
+          <h2 class="font-extrabold text-center text-2xl sm:text-4xl md:text-5xl lg:text-6xl mb-8 sm:mb-12">Client Reviews</h2>
+        </div>
+
+      <!-- Review Platforms -->
+      <div class="flex flex-col xl:flex-row mb-8 sm:mb-16 bg-gray-100 p-2 xl:p-4 gap-2">
+
+        <!-- All Reviews -->
+      <div class="w-full lg:flex-1 border border-black bg-white py-3 px-2 flex items-center justify-center gap-2">
+      <span class="text-sm font-bold text-center leading-tight whitespace-nowrap">All Reviews</span>
+      <span class="text-sm sm:text-base font-bold">5.0</span>
+      <span class="text-gray-500 text-sm sm:text-sm">(3)</span>
+      </div>
+
+  <!-- Tripadvisor -->
+  <div class="w-full lg:flex-1 bg-white py-3 px-2 flex items-center justify-center gap-2">
+    <div class="w-5 h-5 rounded-full bg-[#00AC7E] flex items-center justify-center flex-shrink-0 overflow-hidden">
+      <img src="https://www.tripadvisor.com/favicon.ico" alt="Tripadvisor" class="w-5 h-5 object-contain"/>
+    </div>
+    <span class="text-sm sm:text-sm text-center leading-tight">Tripadvisor</span>
+    <span class="text-sm sm:text-base">4.9</span>
+    <span class="text-gray-500 text-sm sm:text-sm">(535)</span>
+  </div>
+
+  <!-- Google -->
+  <div class="w-full lg:flex-1 bg-white py-3 px-2 flex items-center justify-center gap-2">
+    <div class="w-5 h-5 rounded-full border border-gray-200 bg-white flex items-center justify-center flex-shrink-0">
+      <img src="https://www.google.com/favicon.ico" class="w-4 h-4" alt="Google" />
+    </div>
+    <span class="text-sm sm:text-sm text-center leading-tight">Google</span>
+    <span class="text-sm sm:text-base">4.9</span>
+    <span class="text-gray-500 text-sm sm:text-sm">(589)</span>
+  </div>
+
+  <!-- Facebook -->
+  <div class="w-full lg:flex-1 bg-white py-3 px-2 flex items-center justify-center gap-2">
+    <div class="w-5 h-5 rounded-full bg-blue-600 flex items-center justify-center flex-shrink-0">
+      <img src="https://www.facebook.com/favicon.ico" class="w-3 h-3" alt="Facebook" />
+    </div>
+    <span class="text-sm sm:text-sm text-center leading-tight">Facebook</span>
+    <span class="text-sm sm:text-base">4.8</span>
+    <span class="text-gray-500 text-sm sm:text-sm">(32)</span>
+  </div>
+
+  <!-- Trustpilot -->
+  <div class="w-full lg:flex-1 bg-white py-3 px-2 flex items-center justify-center gap-2">
+    <div class="w-5 h-5 rounded-full bg-[#00AC7E] flex items-center justify-center flex-shrink-0">
+      <span class="text-white text-xs leading-none">★</span>
+    </div>
+    <span class="text-sm leading-tight whitespace-nowrap">Trustpilot</span>
+    <span class="text-sm sm:text-base">4.6</span>
+    <span class="text-gray-500 text-sm sm:text-sm">(29)</span>
+       </div>
+      </div>
+
+        <!-- Scrolling Review Cards -->
+        <div class="overflow-hidden w-full">
+          <div class="flex gap-6 sm:gap-8 animate-scroll">
+
+            <!-- Card 1 -->
+            <div class="bg-gray-100 p-6 sm:p-10 flex flex-col justify-between w-[300px] sm:w-[380px] lg:w-[400px] shrink-0">
+              <div class="flex items-start justify-between mb-4 sm:mb-6">
+                <div class="flex items-center gap-1">
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                </div>
+                <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-full border border-gray-200 bg-white flex items-center justify-center flex-shrink-0">
+                  <img src="https://www.google.com/favicon.ico" class="w-4 h-4 sm:w-5 sm:h-5" alt="Google" />
+                </div>
+              </div>
+              <h3 class="text-base sm:text-xl font-bold mb-3 sm:mb-4">Amazing ABC Trek with Chris Experience</h3>
+              <p class="text-black/60 text-xs sm:text-sm leading-6 sm:leading-7 mb-6 sm:mb-8">
+                The Everest Base Camp Luxury Trek is a remarkable journey for those seeking a short yet rewarding adventure with stunning mountain views.
+              </p>
+              <div>
+                <h4 class="text-xs sm:text-sm font-bold mb-1">Chris Hemsworth</h4>
+                <p class="text-xs sm:text-sm text-gray-400">Feb 22, 2026 | Australia</p>
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="bg-gray-100 p-6 sm:p-10 flex flex-col justify-between w-[300px] sm:w-[380px] lg:w-[400px] shrink-0">
+              <div class="flex items-start justify-between mb-4 sm:mb-6">
+                <div class="flex items-center gap-1">
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                </div>
+                <div class="flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 flex-shrink-0">
+                  <span class="text-emerald-400 text-2xl sm:text-3xl leading-none">★</span>
+                </div>
+              </div>
+              <h3 class="text-base sm:text-xl font-bold mb-3 sm:mb-4">Amazing Manaslu Trek Experience</h3>
+              <p class="text-black/60 text-xs sm:text-sm leading-6 sm:leading-7 mb-6 sm:mb-8">
+                The Manaslu Circuit Trek is a remarkable journey for those seeking an off-the-beaten-path adventure combined with raw Himalayan beauty.
+              </p>
+              <div>
+                <h4 class="text-xs sm:text-sm font-bold mb-1">Emily Thomas</h4>
+                <p class="text-xs sm:text-sm text-gray-400">Feb 22, 2026 | USA</p>
+              </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="bg-gray-100 p-6 sm:p-10 flex flex-col justify-between w-[300px] sm:w-[380px] lg:w-[400px] shrink-0">
+              <div class="flex items-start justify-between mb-4 sm:mb-6">
+                <div class="flex items-center gap-1">
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                </div>
+                <div class="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-[#00AC7E] flex items-center justify-center flex-shrink-0 overflow-hidden">
+                  <img src="https://www.tripadvisor.com/favicon.ico" alt="Tripadvisor" class="w-5 h-5 object-contain"/>
+                </div>
+              </div>
+              <h3 class="text-base sm:text-xl font-bold mb-3 sm:mb-4">Amazing Mardi Himal Trek Experience</h3>
+              <p class="text-black/60 text-xs sm:text-sm leading-6 sm:leading-7 mb-6 sm:mb-8">
+                The Mardi Himal Trek is indeed a remarkable journey for those seeking an exceptional adventure while enjoying the utmost comfort.
+              </p>
+              <div>
+                <h4 class="text-xs sm:text-sm font-bold mb-1">Suresh Shrestha</h4>
+                <p class="text-xs sm:text-sm text-gray-400">Feb 22, 2026 | Nepal</p>
+              </div>
+            </div>
+
+            <!-- Duplicate Card 1 -->
+            <div class="bg-gray-100 p-6 sm:p-10 flex flex-col justify-between w-[300px] sm:w-[380px] lg:w-[400px] shrink-0">
+              <div class="flex items-start justify-between mb-4 sm:mb-6">
+                <div class="flex items-center gap-1">
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                </div>
+                <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-full border border-gray-200 bg-white flex items-center justify-center flex-shrink-0">
+                  <img src="https://www.google.com/favicon.ico" class="w-4 h-4 sm:w-5 sm:h-5" alt="Google" />
+                </div>
+              </div>
+              <h3 class="text-base sm:text-xl font-bold mb-3 sm:mb-4">Amazing ABC Trek with Chris Experience</h3>
+              <p class="text-black/60 text-xs sm:text-sm leading-6 sm:leading-7 mb-6 sm:mb-8">
+                The Everest Base Camp Luxury Trek is a remarkable journey for those seeking a short yet rewarding adventure with stunning mountain views.
+              </p>
+              <div>
+                <h4 class="text-xs sm:text-sm font-bold mb-1">Chris Hemsworth</h4>
+                <p class="text-xs sm:text-sm text-gray-400">Feb 22, 2026 | Australia</p>
+              </div>
+            </div>
+
+            <!-- Duplicate Card 2 -->
+            <div class="bg-gray-100 p-6 sm:p-10 flex flex-col justify-between w-[300px] sm:w-[380px] lg:w-[400px] shrink-0">
+              <div class="flex items-start justify-between mb-4 sm:mb-6">
+                <div class="flex items-center gap-1">
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                </div>
+                <div class="flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 flex-shrink-0">
+                  <span class="text-emerald-400 text-2xl sm:text-3xl leading-none">★</span>
+                </div>
+              </div>
+              <h3 class="text-base sm:text-xl font-bold mb-3 sm:mb-4">Amazing Manaslu Trek Experience</h3>
+              <p class="text-black/60 text-xs sm:text-sm leading-6 sm:leading-7 mb-6 sm:mb-8">
+                The Manaslu Circuit Trek is a remarkable journey for those seeking an off-the-beaten-path adventure combined with raw Himalayan beauty.
+              </p>
+              <div>
+                <h4 class="text-xs sm:text-sm font-bold mb-1">Emily Thomas</h4>
+                <p class="text-xs sm:text-sm text-gray-400">Feb 22, 2026 | USA</p>
+              </div>
+            </div>
+
+            <!-- Duplicate Card 3 -->
+            <div class="bg-gray-100 p-6 sm:p-10 flex flex-col justify-between w-[300px] sm:w-[380px] lg:w-[400px] shrink-0">
+              <div class="flex items-start justify-between mb-4 sm:mb-6">
+                <div class="flex items-center gap-1">
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                </div>
+                <div class="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-[#00AC7E] flex items-center justify-center flex-shrink-0 overflow-hidden">
+                  <img src="https://www.tripadvisor.com/favicon.ico" alt="Tripadvisor" class="w-4 h-4 sm:w-5 sm:h-5 object-contain" />
+                </div>
+              </div>
+              <h3 class="text-base sm:text-xl font-bold mb-3 sm:mb-4">Amazing Mardi Himal Trek Experience</h3>
+              <p class="text-black/60 text-xs sm:text-sm leading-6 sm:leading-7 mb-6 sm:mb-8">
+                The Mardi Himal Trek is indeed a remarkable journey for those seeking an exceptional adventure while enjoying the utmost comfort.
+              </p>
+              <div>
+                <h4 class="text-xs sm:text-sm font-bold mb-1">Suresh Shrestha</h4>
+                <p class="text-xs sm:text-sm text-gray-400">Feb 22, 2026 | Nepal</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Clients Review End -->
+
+    <!-- Footer Start -->
+    <section class="w-full overflow-hidden">
+      <div class="relative">
+        <div class="w-full bg-cover bg-center relative py-8 lg:py-24 pb-36 lg:pb-24" style="background-image: url('images/everest/overlayeverest.png');">
+          <div class="absolute inset-0 bg-black/10"></div>
+          <div class="relative z-10 flex flex-col items-center justify-center h-full text-center px-4 sm:px-6">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white tracking-[2px] sm:tracking-[4px] uppercase mb-3 sm:mb-5 leading-tight">
+              Ready For Your <br /> Himalayan Adventure
+            </h2>
+            <p class="text-white/85 text-sm sm:text-base max-w-lg leading-4">
+              Experience the majestic peaks and vibrant cultures of Nepal <br />
+              with our award-winning adventure specialists.
+            </p>
+          </div>
+        </div>
+
+        <!-- CTA Buttons overlapping -->
+        <div class=" bg-white shadow-2xl px-4 py-4 lg:py-8 rounded-lg flex flex-col sm:flex-row gap-4 max-w-4xl sm:mx-auto mx-4 items-center justify-center absolute -bottom-[20%] left-[20px] right-[20px] ">
+          
+            <a href="#" class="w-full sm:w-auto bg-black text-white text-xs sm:text-sm font-bold tracking-[2px] sm:tracking-[3px] uppercase px-8 sm:px-12 py-3 sm:py-4 text-center hover:bg-gray-800 transition-colors duration-300">
+              Book Your Trip
+            </a>
+            <a href="tel:+9779851205116" class="w-full sm:w-auto border border-black text-black text-xs sm:text-sm font-bold px-6 sm:px-10 py-3 sm:py-4 flex items-center justify-center gap-2 sm:gap-3 hover:bg-black hover:text-white transition-colors duration-300">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 sm:w-4 sm:h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h2.28a1 1 0 01.95.68l1.06 3.18a1 1 0 01-.23 1.02L7.5 9.4a16.05 16.05 0 006.1 6.1l1.52-1.56a1 1 0 011.02-.23l3.18 1.06a1 1 0 01.68.95V19a2 2 0 01-2 2C8.16 21 3 10.84 3 5z"/>
+              </svg>
+              +977 9851205116
+            </a>
+          
+        </div>
+      </div>
+
+      <footer id="contact" class="bg-[#f2f2f2] pt-24 sm:pt-32 lg:pt-36 pb-0">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-10 mb-10 sm:mb-16 container mx-auto px-4 sm:px-6 py-6">
+
+            <!-- Logo + We Accept -->
+            <div class="flex flex-col gap-4 sm:gap-5 md:gap-6 sm:col-span-2 lg:col-span-1">
+              <img src="Images/Everest/Logo.png" alt="Nepal Wilderness Trekking" class="w-16 sm:w-20 md:w-24 lg:w-32 h-auto object-contain" />
+              <div>
+                <p class="text-sm font-bold text-black mb-3">We Accept</p>
+                <div class="flex items-center gap-2 flex-wrap">
+                  <img src="images/Everest/we accept.png" alt="We Pay" class="h-5 sm:h-6 object-contain rounded-sm" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Quick Information -->
+            <div>
+              <h4 class="text-sm sm:text-base font-bold text-black mb-4 sm:mb-6">Quick Information</h4>
+              <ul class="flex flex-col gap-3 sm:gap-4">
+                <li><a href="#" class="text-xs sm:text-sm text-gray-500 hover:text-black hover:translate-x-1 transition-all duration-200 inline-block">About Us</a></li>
+                <li><a href="#" class="text-xs sm:text-sm text-gray-500 hover:text-black hover:translate-x-1 transition-all duration-200 inline-block">Contact Us</a></li>
+                <li><a href="#" class="text-xs sm:text-sm text-gray-500 hover:text-black hover:translate-x-1 transition-all duration-200 inline-block">Terms & Conditions</a></li>
+                <li><a href="#" class="text-xs sm:text-sm text-gray-500 hover:text-black hover:translate-x-1 transition-all duration-200 inline-block">Privacy Policy</a></li>
+              </ul>
+            </div>
+
+            <!-- Insights -->
+            <div>
+              <h4 class="text-sm sm:text-base font-bold text-black mb-4 sm:mb-6">Insights</h4>
+              <ul class="flex flex-col gap-3 sm:gap-4">
+                <li><a href="#" class="text-xs sm:text-sm text-gray-500 hover:text-black hover:translate-x-1 transition-all duration-200 inline-block">Travel Guide</a></li>
+                <li><a href="#" class="text-xs sm:text-sm text-gray-500 hover:text-black hover:translate-x-1 transition-all duration-200 inline-block">Blog & Insights</a></li>
+              </ul>
+            </div>
+
+            <!-- Destinations -->
+            <div>
+              <h4 class="text-sm sm:text-base font-bold text-black mb-4 sm:mb-6">Destinations</h4>
+              <ul class="flex flex-col gap-3 sm:gap-4">
+                <li><a href="#" class="text-xs sm:text-sm text-gray-500 hover:text-black hover:translate-x-1 transition-all duration-200 inline-block">Trekking in Nepal</a></li>
+                <li><a href="#" class="text-xs sm:text-sm text-gray-500 hover:text-black hover:translate-x-1 transition-all duration-200 inline-block">Peak Climbing</a></li>
+                <li><a href="#" class="text-xs sm:text-sm text-gray-500 hover:text-black hover:translate-x-1 transition-all duration-200 inline-block">Expedition in Nepal</a></li>
+                <li><a href="#" class="text-xs sm:text-sm text-gray-500 hover:text-black hover:translate-x-1 transition-all duration-200 inline-block">Hiking</a></li>
+              </ul>
+            </div>
+
+            <!-- Get In Touch -->
+            <div>
+              <h4 class="text-sm sm:text-base font-bold text-black mb-4 sm:mb-6">Get In Touch</h4>
+              <ul class="flex flex-col gap-4 sm:gap-5">
+                <li class="flex items-start gap-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mt-0.5 text-gray-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                  </svg>
+                  <span class="text-xs sm:text-sm text-gray-500 leading-6">
+                    Nepal Wilderness Trekking <br />
+                    (PVT 2024 Z street thamel, <br />
+                    Kathmandu, Nepal)
+                  </span>
+                </li>
+                <li class="flex items-center gap-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-gray-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                  </svg>
+                  <a href="mailto:info@nepalwildernesstrekking.com" class="text-xs sm:text-sm text-gray-500 hover:text-black transition-colors duration-200 break-all">
+                    info@nepalwildernesstrekking.com
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+
+          <!-- Bottom Footer -->
+           <div class="bg-white">
+          <div class="px-4 sm:px-6 py-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-6 container mx-auto">
+            <div class="flex flex-col gap-1">
+              <p class="text-xs sm:text-sm text-gray-500">
+                ©2024 <a href="#" class="text-blue-500 hover:text-blue-700 hover:underline transition-colors duration-200">Everest Base Camp Hike</a>
+              </p>
+              <p class="text-xs sm:text-sm text-gray-500">
+                <a href="#" class="hover:text-black transition-colors duration-200">Privacy Policy</a>
+                <span class="mx-2 text-gray-400">|</span>
+                <a href="#" class="font-bold text-black hover:underline transition-colors duration-200">Terms & Conditions</a>
+              </p>
+            </div>
+            <div class="flex items-center">
+              <img src="Images/Everest/Affiliations.png" alt="Affiliations" class="h-8 sm:h-12 object-contain" />
+            </div>
+          </div>
+          </div>
+      </footer>
+    </section>
+    <!-- Footer End -->
+
+<script src="JS/script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+/* Calibri Font Varients Starts */
+@font-face {
+  font-family: "calibri";
+  src: url("../fonts/calibri-font-family/calibri-bold.woff") format("woff"),
+       url("../fonts/calibri-font-family/calibri-regular.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "calibri";
+  src: url("../fonts/calibri-font-family/calibri-regular.woff") format("woff"),
+       url("../fonts/calibri-font-family/calibri-regular.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Calibri Font Varients Ends */
+
+html,
+body {
+  height: 100%;
+  font:
+    20px/1.5 "Calibri", 
+    sans-serif;
+  color: rgba(0, 0, 0, 0.8);
+  background: rgb(252, 252, 252);
+  font-weight: 300;
+  /* letter-spacing: .9px; */
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+  /* font-family: "Inter", sans-serif; */
+  /* font-family: "Calibri" Arial, sans-serif */
+}

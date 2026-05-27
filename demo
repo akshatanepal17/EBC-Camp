@@ -1,0 +1,491 @@
+<!-- Overview Start -->
+    <section class="w-full bg-white py-10">
+ <div class="max-w-[1400px] mx-auto px-4 lg:px-8">
+
+    <!-- GRID -->
+    <div class="grid grid-cols-1 lg:grid-cols-[1fr_420px] gap-10 items-start">
+
+      <!-- LEFT CONTENT -->
+      <div class="space-y-16">
+
+        <!-- OVERVIEW --> 
+        <section>
+          <h2 class="text-3xl font-bold tracking-wide mb-8">
+            Overview
+          </h2>
+
+          <div class="w-full bg-gray-100 p-8 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10">
+
+            <!-- ITEM -->
+            <div class="flex items-start gap-5">
+              <div class="w-10 h-10 rounded-full bg-black flex items-center justify-center shrink-0">
+                <i data-lucide="map-pinned" class="w-5 h-5 text-white"></i>
+              </div>
+
+              <div>
+                <p class="text-sm text-black/60 tracking-wide">
+                  Departure From
+                </p>
+
+                <h4 class="text-base font-bold tracking-wide">
+                  Kathmandu
+                </h4>
+              </div>
+            </div>
+
+            <!-- ITEM -->
+            <div class="flex items-start gap-5">
+              <div class="w-10 h-10 rounded-full bg-black flex items-center justify-center shrink-0">
+                <i data-lucide="mountain" class="w-5 h-5 text-white"></i>
+              </div>
+
+              <div>
+                <p class="text-sm text-black/60 tracking-wide">
+                  Destination
+                </p>
+
+                <h4 class="text-sm font-bold tracking-wide">
+                  Everest Region
+                </h4>
+              </div>
+            </div>
+
+            <!-- ITEM -->
+            <div class="flex items-start gap-5">
+              <div class="w-10 h-10 rounded-full bg-black flex items-center justify-center shrink-0">
+                <i data-lucide="plane" class="w-5 h-5 text-white"></i>
+              </div>
+
+              <div>
+                <p class="text-sm text-black/60 tracking-wide">
+                  Transportation
+                </p>
+
+                <h4 class="text-sm font-bold tracking-wide">
+                  Flight to Lukla to Kathmandu
+                </h4>
+              </div>
+            </div>
+
+            <!-- ITEM -->
+            <div class="flex items-start gap-5">
+              <div class="w-10 h-10 rounded-full bg-black flex items-center justify-center shrink-0">
+                <i data-lucide="ruler" class="w-5 h-5 text-white"></i>
+              </div>
+
+              <div>
+                <p class="text-sm text-black/60 tracking-wide">
+                  Max. Altitude
+                </p>
+
+                <h4 class="text-sm font-bold tracking-wide">
+                  8,848.86 m
+                </h4>
+              </div>
+            </div>
+
+            <!-- ITEM -->
+            <div class="flex items-start gap-5">
+              <div class="w-10 h-10 rounded-full bg-black flex items-center justify-center shrink-0">
+                <i data-lucide="calendar-days" class="w-5 h-5 text-white"></i>
+              </div>
+
+              <div>
+                <p class="text-sm text-black/60 tracking-wide">
+                  Trip Duration
+                </p>
+
+                <h4 class="text-sm font-bold tracking-wide">
+                  14 Days
+                </h4>
+              </div>
+            </div>
+
+            <!-- ITEM -->
+            <div class="flex items-start gap-5">
+              <div class="w-10 h-10 rounded-full bg-black flex items-center justify-center shrink-0">
+                <i data-lucide="gauge" class="w-5 h-5 text-white"></i>
+              </div>
+
+              <div>
+                <p class="text-sm text-black/60 tracking-wide">
+                  Trip Grade
+                </p>
+
+                <h4 class="text-sm font-bold tracking-wide">
+                  Strenuous
+                </h4>
+              </div>
+            </div>
+
+            <!-- ITEM -->
+            <div class="flex items-start gap-5">
+              <div class="w-10 h-10 rounded-full bg-black flex items-center justify-center shrink-0">
+                <i data-lucide="utensils-crossed" class="w-5 h-5 text-white"></i>
+              </div>
+
+              <div>
+                <p class="text-sm text-black/60 tracking-wide">
+                  Meals
+                </p>
+
+                <h4 class="text-sm font-bold tracking-wide">
+                  Breakfast, Lunch, Dinner
+                </h4>
+              </div>
+            </div>
+
+            <!-- ITEM -->
+            <div class="flex items-start gap-5">
+              <div class="w-10 h-10 rounded-full bg-black flex items-center justify-center shrink-0">
+                <i data-lucide="house" class="w-5 h-5 text-white"></i>
+              </div>
+
+              <div>
+                <p class="text-sm text-black/60 tracking-wide">
+                  Accommodation
+                </p>
+
+                <h4 class="text-sm font-bold tracking-wide">
+                  Tea House
+                </h4>
+              </div>
+            </div>
+
+          </div>
+        </section>
+        <!-- Overview End -->
+
+        <!-- EVEREST BASE CAMP Start-->
+        <section class="space-y-8">
+          <h2 class="text-2xl font-bold tracking-wide">
+            Everest Base Camp Trek (14 Days)
+          </h2>
+
+            <p class="text-sm text-black/70">
+              The Everest Base Camp trek is a bucket-list adventure for trekking enthusiasts worldwide. This trek, takes you to the foot of the highest mountain on earth Mt.Everest 8,848.86 meters (29,031.7 feet). Offering an unforgettable combination of cultural immersion, breathtaking landscapes, and physical challenge. The journey to Everest Base Camp, often referred to as EBC, is not just about reaching a destination, but also about experiencing the Sherpa culture, the rugged Himalayan environment, and the camaraderie formed with fellow trekkers along the way.
+            </p>
+
+            <p class="text-sm text-black/70">
+              The EBC hike is ideal for adventure seekers and nature lovers alike. The sense of accomplishment from standing at the base of Mount Everest is incomparable, but the journey itself is full of memorable experiences. From the vibrant streets of Kathmandu, where the adventure begins, to the quiet, meditative moments in the shadow of towering peaks, every step offers a new perspective. Along the way, you will pass through Sherpa villages, visit monasteries, and gaze upon some of the world’s most iconic peaks, such as Ama Dablam 6,812 meters (22,349 feet) , Lhotse 8,516 meters (27,940 feet), and Nuptse 7,861 meters (25,791 feet).
+            </p>
+
+            <p class="text-smtext-black/70">
+              The 12 days Everest Base Camp hike is also a test of endurance and perseverance. While the trail is well-marked and doesn’t require technical climbing skills.  The high altitude and long trekking days can be physically demanding. Proper acclimatization and a steady pace are key to enjoying the journey and avoiding altitude sickness. 
+            </p>
+        </section>
+        <!-- Everest Base Camp End -->
+
+        <!-- HIGHLIGHTS Start-->
+        <section class="space-y-8 pb-20">
+          <h2 class="text-3xl font-bold tracking-wide">
+            Highlights
+          </h2>
+
+          <ul class="space-y-4 text-black/70 text-lg font-light tracking-wide">
+            <li>• Stunning views of Mount Everest, Lhotse, Nuptse, and Ama Dablam</li>
+            <li>• Experience Sherpa culture and Buddhist traditions</li>
+            <li>• Visit Tengboche Monastery</li>
+            <li>• Explore Namche Bazaar</li>
+            <li>• Trek through diverse landscapes</li>
+            <li>• Sunrise view from Kala Patthar</li>
+            <li>• Reach Everest Base Camp</li>
+            <li>• High-altitude trekking above 5,000 meters</li>
+            <li>• Walk inside Sagarmatha National Park</li>
+            <li>• Cross iconic suspension bridges</li>
+            <li>• Spot Himalayan wildlife</li>
+            <li>• A lifetime trekking achievement</li>
+          </ul>
+        </section>
+        <!-- HIGHLIGHTS End -->
+
+      </div>
+
+      <!-- RIGHT SIDEBAR -->
+       <aside class="sticky sticky top-24 self-start">
+
+        <!-- PRICE CARD -->
+        <div class="bg-neutral-100 p-8">
+
+          <!-- REVIEWS -->
+          <div class="flex items-center justify-between mb-6">
+            <div class="flex items-center gap-2">
+              <div class="flex text-amber-500">
+                ★★★★★
+              </div>
+
+              <span class="text-blue-600 text-lg font-medium">
+                49 Reviews
+              </span>
+            </div>
+
+            <h3 class="text-2xl font-bold text-blue-600">
+              USD $1,290
+            </h3>
+          </div>
+
+          <p class="text-xl mb-8">
+            Starting From
+          </p>
+
+          <!-- TABLE -->
+          <div class="space-y-5">
+
+            <div class="flex items-center justify-between pb-4 border-b border-black/10">
+              <span>1 Pax</span>
+              <span>USD $1390</span>
+            </div>
+
+            <div class="flex items-center justify-between pb-4 border-b border-black/10">
+              <span>2 Pax</span>
+              <span>USD $1290</span>
+            </div>
+
+            <div class="flex items-center justify-between pb-4 border-b border-black/10">
+              <span>3-4 Pax</span>
+              <span>USD $1270</span>
+            </div>
+
+            <div class="flex items-center justify-between pb-4 border-b border-black/10">
+              <span>5-6 Pax</span>
+              <span>USD $1230</span>
+            </div>
+
+            <div class="flex items-center justify-between pb-4 border-b border-black/10">
+              <span>7-10 Pax</span>
+              <span>USD $1230</span>
+            </div>
+
+            <div class="flex items-center justify-between pb-4 border-b border-black/10">
+              <span>10+ Pax</span>
+              <span>USD $1230</span>
+            </div>
+
+          </div>
+
+          <!-- PAX -->
+          <div class="mt-10">
+            <h4 class="text-2xl font-semibold mb-5">
+              No. of Pax
+            </h4>
+
+            <div class="flex items-center justify-between bg-white rounded overflow-hidden h-14">
+
+              <button class="bg-black/80 text-white w-14 h-full text-2xl">
+                -
+              </button>
+
+              <span class="text-2xl font-medium">
+                1
+              </span>
+
+              <button class="bg-black/80 text-white w-14 h-full text-2xl">
+                +
+              </button>
+
+            </div>
+          </div>
+
+          <!-- BUTTON -->
+          <button class="w-full h-14 mt-8 rounded bg-green-600 text-white text-lg font-medium hover:bg-green-700 transition">
+            Send Inquiry
+          </button>
+
+        </div>
+
+        <!-- REVIEW CARD -->
+        <div class="bg-neutral-100 p-8 space-y-8">
+
+          <div class="flex items-center gap-5">
+            <img
+              src="https://placehold.co/70x70"
+              class="w-16 h-16 rounded-full"
+              alt=""
+            />
+
+            <div>
+              <h3 class="text-2xl font-semibold tracking-wide">
+                Tripadvisor Reviews
+              </h3>
+
+              <div class="flex items-center gap-3 mt-2">
+                <span class="text-lg">5.0</span>
+
+                <div class="text-green-500">
+                  ★★★★★
+                </div>
+
+                <span class="text-black/50">
+                  (979 Reviews)
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <button class="bg-emerald-400 px-6 py-3 rounded text-sm font-medium">
+            Write a review
+          </button>
+
+          <!-- USER REVIEW -->
+          <div class="bg-white p-6">
+
+            <div class="flex items-center gap-5 mb-5">
+              <img
+                src="https://placehold.co/65x65"
+                class="w-14 h-14 rounded-full"
+                alt=""
+              />
+
+              <div>
+                <h4 class="text-xl font-semibold">
+                  Suresh Shrestha
+                </h4>
+
+                <div class="text-green-500 mt-1">
+                  ★★★★★
+                </div>
+              </div>
+            </div>
+
+            <p class="text-black/70 text-lg leading-8">
+              The Everest Base Camp Trek is indeed a remarkable journey for
+              those seeking an exceptional adventure while enjoying the utmost
+              comfort.
+            </p>
+
+            <button class="mt-5 text-black/50">
+              Read More
+            </button>
+
+          </div>
+
+        </div>
+
+      </aside>
+
+    </div>
+  </div>
+    </section>
+    <!-- Overview End -->
+
+
+
+
+
+    <!-- Availability Section Start -->
+<div id="departures" class="scroll-mt-28">
+  <h2 class="text-2xl font-bold mb-6">Availability</h2>
+
+  <!-- Month Selector -->
+  <div class="bg-white border border-gray-200 rounded-xl px-6 py-4 flex items-center justify-between mb-4">
+    <span class="text-sm font-semibold text-gray-800">Select a trip month</span>
+    <div class="relative">
+      <select class="appearance-none bg-white border border-gray-300 rounded-lg pl-3 pr-9 py-2 text-sm font-medium text-gray-800 cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500 min-w-[130px]">
+        <option>April 2026</option>
+        <option>May 2026</option>
+        <option>June 2026</option>
+      </select>
+      <svg class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Trip Rows -->
+  <div class="flex flex-col gap-3">
+
+    <!-- Row Template (repeat for each departure) -->
+    <div class="bg-white border border-gray-200 rounded-xl px-6 py-4 flex items-center gap-6 transition-all duration-200 hover:border-blue-300 hover:shadow-md hover:-translate-y-px cursor-default">
+      <!-- Departure Date -->
+      <div class="flex items-center gap-3 flex-1">
+        <svg class="w-5 h-5 text-gray-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" stroke-width="1.5"/><path d="M16 2v4M8 2v4M3 10h18" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <div>
+          <p class="text-xs text-gray-500">Departure Date</p>
+          <p class="text-sm font-bold text-gray-900">10 April, 2026</p>
+        </div>
+      </div>
+      <!-- Trip Duration -->
+      <div class="flex items-center gap-3 flex-1">
+        <svg class="w-5 h-5 text-gray-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" stroke-width="1.5"/><path d="M12 7v5l3 3" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <div>
+          <p class="text-xs text-gray-500">Trip Duration</p>
+          <p class="text-sm font-bold text-gray-900">14 Days</p>
+        </div>
+      </div>
+      <!-- Price -->
+      <div class="flex items-center gap-3 flex-1">
+        <svg class="w-5 h-5 text-gray-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2" stroke-width="1.5"/><path d="M2 10h20" stroke-width="1.5"/></svg>
+        <div>
+          <p class="text-xs text-gray-500">Price</p>
+          <p class="text-sm font-bold text-gray-900">USD $1390</p>
+        </div>
+      </div>
+      <!-- Status -->
+      <div class="flex items-center gap-3 flex-1">
+        <svg class="w-5 h-5 text-gray-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" stroke-width="1.5"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <div>
+          <p class="text-xs text-gray-500">Status</p>
+          <p class="text-sm font-bold text-green-600">Available</p>
+        </div>
+      </div>
+      <!-- Book Button -->
+      <button class="bg-blue-600 hover:bg-blue-700 active:scale-95 text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition-all duration-150 shrink-0">
+        Book Now
+      </button>
+    </div>
+
+    <!-- Repeat above row div for 15 April, 20 April, 25 April -->
+
+  </div>
+</div>
+<!-- Availability Section End -->
+
+
+
+
+
+//Subnav
+
+<!-- Subnav Start -->
+     <div id="subnav" class="overflow-x-auto overflow-y-hidden bg-[#E6E7EB] border-b border-[#F0F3F7] scroll-smooth fixed left-0 right-0 top-0 z-40 shadow-sm" aria-hidden="true">
+				<div class="max-w-[1340px] mx-auto">
+					<ul class="flex min-w-max gap-8 py-2 md:py-4 text-sm md:text-[16px] text-slate-700 px-3 md:px-4 justify-start">
+													<li>
+								<a href="#overview" class="nig-single-subnav-link hover:text-blue-600 active">
+									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="eye" aria-hidden="true" class="lucide lucide-eye mr-2 h-5 w-5 shrink-0"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"></path><circle cx="12" cy="12" r="3"></circle></svg>
+									Overview								</a>
+							</li>
+													<li>
+								<a href="#highlights" class="nig-single-subnav-link hover:text-blue-600">
+									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="clipboard-list" aria-hidden="true" class="lucide lucide-clipboard-list mr-2 h-5 w-5 shrink-0"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"></rect><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><path d="M12 11h4"></path><path d="M12 16h4"></path><path d="M8 11h.01"></path><path d="M8 16h.01"></path></svg>
+									Highlights								</a>
+							</li>
+													<li>
+								<a href="#included" class="nig-single-subnav-link hover:text-blue-600">
+									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="circle-check" aria-hidden="true" class="lucide lucide-circle-check mr-2 h-5 w-5 shrink-0"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>
+									Included								</a>
+							</li>
+													<li>
+								<a href="#excluded" class="nig-single-subnav-link hover:text-blue-600">
+									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="calendar-days" aria-hidden="true" class="lucide lucide-calendar-days mr-2 h-5 w-5 shrink-0"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path><path d="M8 14h.01"></path><path d="M12 14h.01"></path><path d="M16 14h.01"></path><path d="M8 18h.01"></path><path d="M12 18h.01"></path><path d="M16 18h.01"></path></svg>
+									Excluded							</a>
+							</li>
+													<li>
+								<a href="#itinerary" class="nig-single-subnav-link hover:text-blue-600">
+									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="map" aria-hidden="true" class="lucide lucide-map mr-2 h-5 w-5 shrink-0"><path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z"></path><path d="M15 5.764v15"></path><path d="M9 3.236v15"></path></svg>
+									Itinerary								</a>
+							</li>
+													<li>
+								<a href="#reviews" class="nig-single-subnav-link hover:text-blue-600">
+									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="circle-help" aria-hidden="true" class="lucide lucide-circle-help mr-2 h-5 w-5 shrink-0"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><path d="M12 17h.01"></path></svg>
+									Reviews								</a>
+							</li>
+													<li>
+								<a href="#tripdetails" class="nig-single-subnav-link hover:text-blue-600">
+									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="message-circle" aria-hidden="true" class="lucide lucide-message-circle mr-2 h-5 w-5 shrink-0"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"></path></svg>
+									Details								</a>
+							</li>
+											</ul>
+				</div>
+			</div>
+     <!-- Subnav End -->
