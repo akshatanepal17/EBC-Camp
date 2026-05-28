@@ -405,399 +405,6 @@
         }
       }
 
-      .home-hero {
-        height: calc(100vh - 80px);
-        min-height: 560px;
-        background: #0f172a;
-      }
-
-      @supports (height: 100svh) {
-        .home-hero {
-          height: calc(100svh - 80px);
-        }
-      }
-
-      .home-slide {
-        position: absolute;
-        inset: 0;
-        opacity: 0;
-        pointer-events: none;
-        transform: scale(1.04);
-        transition:
-          opacity 700ms ease,
-          transform 1400ms ease;
-      }
-
-      .home-slide.is-active {
-        opacity: 1;
-        pointer-events: auto;
-        transform: scale(1);
-        z-index: 1;
-      }
-
-      .home-slide > img {
-        position: absolute;
-        inset: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-
-      .home-slide-shade {
-        position: absolute;
-        inset: 0;
-        background:
-          linear-gradient(90deg, rgba(2, 6, 23, 0.78), rgba(2, 6, 23, 0.48) 48%, rgba(2, 6, 23, 0.24)),
-          rgba(2, 6, 23, 0.22);
-      }
-
-      .home-slide-content {
-        position: relative;
-        z-index: 2;
-        display: flex;
-        height: 100%;
-        max-width: 1280px;
-        align-items: center;
-        margin: 0 auto;
-        padding: 4rem 1rem 5.5rem;
-      }
-
-      .home-hero-copy {
-        max-width: 720px;
-        color: #fff;
-        hyphens: none;
-      }
-
-      .home-hero-kicker {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        border: 1px solid rgba(255, 255, 255, 0.28);
-        border-radius: 999px;
-        background: rgba(255, 255, 255, 0.12);
-        padding: 0.45rem 0.85rem;
-        color: #dbeafe;
-        font-size: 0.78rem;
-        font-weight: 800;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-      }
-
-      .home-hero-title {
-        margin-top: 1.2rem;
-        max-width: 760px;
-        color: #fff;
-        font-size: 2.5rem;
-        font-weight: 800;
-        line-height: 1.02;
-        letter-spacing: 0;
-      }
-
-      .home-hero-text {
-        margin-top: 1rem;
-        max-width: 560px;
-        color: rgba(255, 255, 255, 0.82);
-        font-size: 1rem;
-        line-height: 1.7;
-      }
-
-      .home-hero-actions {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.8rem;
-        margin-top: 1.6rem;
-      }
-
-      .home-hero-primary,
-      .home-hero-secondary {
-        display: inline-flex;
-        min-height: 48px;
-        align-items: center;
-        justify-content: center;
-        gap: 0.55rem;
-        border-radius: 8px;
-        padding: 0.85rem 1.25rem;
-        font-size: 0.95rem;
-        font-weight: 800;
-        transition:
-          background-color 180ms ease,
-          border-color 180ms ease,
-          color 180ms ease,
-          transform 180ms ease;
-      }
-
-      .home-hero-primary {
-        background: #2563eb;
-        color: #fff;
-        box-shadow: 0 16px 32px rgba(37, 99, 235, 0.3);
-      }
-
-      .home-hero-primary:hover,
-      .home-hero-primary:focus-visible {
-        background: #1d4ed8;
-        outline: none;
-        transform: translateY(-2px);
-      }
-
-      .home-hero-secondary {
-        border: 1px solid rgba(255, 255, 255, 0.45);
-        color: #fff;
-      }
-
-      .home-hero-secondary:hover,
-      .home-hero-secondary:focus-visible {
-        border-color: rgba(255, 255, 255, 0.8);
-        background: rgba(255, 255, 255, 0.12);
-        outline: none;
-        transform: translateY(-2px);
-      }
-
-      .home-hero-meta {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: 1rem;
-        margin-top: 1.45rem;
-      }
-
-      .home-client-avatars {
-        display: flex;
-        flex: 0 0 auto;
-        margin-left: 0.75rem;
-      }
-
-      .home-client-avatars img {
-        width: 3rem;
-        height: 3rem;
-        margin-left: -0.75rem;
-        border: 2px solid #fff;
-        border-radius: 999px;
-        object-fit: cover;
-      }
-
-      .home-hero-stat {
-        display: grid;
-        gap: 0.1rem;
-        color: #fff;
-      }
-
-      .home-hero-stat strong {
-        font-size: 1.25rem;
-        line-height: 1.1;
-      }
-
-      .home-hero-stat span {
-        color: rgba(255, 255, 255, 0.72);
-        font-size: 0.86rem;
-      }
-
-      .home-slider-controls {
-        position: absolute;
-        right: 1rem;
-        bottom: 1.25rem;
-        z-index: 6;
-        display: flex;
-        gap: 0.65rem;
-      }
-
-      .home-slider-control {
-        display: inline-flex;
-        width: 46px;
-        height: 46px;
-        align-items: center;
-        justify-content: center;
-        border: 1px solid rgba(255, 255, 255, 0.38);
-        border-radius: 999px;
-        background: rgba(15, 23, 42, 0.34);
-        color: #fff;
-        transition:
-          background-color 180ms ease,
-          border-color 180ms ease,
-          transform 180ms ease;
-      }
-
-      .home-slider-control:hover,
-      .home-slider-control:focus-visible {
-        border-color: rgba(255, 255, 255, 0.85);
-        background: rgba(37, 99, 235, 0.88);
-        outline: none;
-        transform: translateY(-2px);
-      }
-
-      .home-slider-dots {
-        position: absolute;
-        bottom: 1.65rem;
-        left: 50%;
-        z-index: 6;
-        display: flex;
-        gap: 0.55rem;
-        transform: translateX(-50%);
-      }
-
-      .home-slider-dot {
-        display: inline-flex;
-        width: 2rem;
-        height: 1rem;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .home-slider-dot span {
-        display: block;
-        width: 0.55rem;
-        height: 0.55rem;
-        border-radius: 999px;
-        background: rgba(255, 255, 255, 0.58);
-        transition:
-          width 180ms ease,
-          background-color 180ms ease;
-      }
-
-      .home-slider-dot.is-active span {
-        width: 1.75rem;
-        background: #fff;
-      }
-
-      .home-slider-progress {
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        z-index: 6;
-        height: 3px;
-        background: rgba(255, 255, 255, 0.2);
-      }
-
-      .home-slider-progress span {
-        display: block;
-        width: 0;
-        height: 100%;
-        background: #2563eb;
-      }
-
-      @media (min-width: 640px) {
-        .home-slide-content {
-          padding-right: 2rem;
-          padding-left: 2rem;
-        }
-
-        .home-hero-title {
-          font-size: 3.25rem;
-        }
-
-        .home-hero-text {
-          font-size: 1.1rem;
-        }
-      }
-
-      @media (min-width: 1024px) {
-        .home-slide-content {
-          padding-right: 4rem;
-          padding-left: 4rem;
-        }
-
-        .home-hero-title {
-          font-size: 4.25rem;
-        }
-
-        .home-slider-controls {
-          right: 2.5rem;
-          bottom: 2.5rem;
-        }
-
-        .home-slider-dots {
-          bottom: 3rem;
-        }
-      }
-
-      @media (min-width: 1280px) {
-        .home-hero-title {
-          font-size: 4.8rem;
-        }
-      }
-
-      @media (max-width: 639px) {
-        .home-hero {
-          height: calc(100vh - 80px);
-          min-height: 620px;
-        }
-
-        @supports (height: 100svh) {
-          .home-hero {
-            height: calc(100svh - 80px);
-          }
-        }
-
-        .home-slide-shade {
-          background:
-            linear-gradient(180deg, rgba(2, 6, 23, 0.34), rgba(2, 6, 23, 0.72) 44%, rgba(2, 6, 23, 0.82)),
-            rgba(2, 6, 23, 0.24);
-        }
-
-        .home-slide-content {
-          align-items: flex-end;
-          padding: 3.5rem 1rem 5rem;
-        }
-
-        .home-hero-copy {
-          width: 100%;
-          text-align: left;
-        }
-
-        .home-hero-kicker {
-          padding: 0.4rem 0.75rem;
-          font-size: 0.7rem;
-        }
-
-        .home-hero-title {
-          margin-top: 1rem;
-          font-size: 2.2rem;
-        }
-
-        .home-hero-text {
-          margin-top: 0.85rem;
-          font-size: 0.95rem;
-          line-height: 1.65;
-        }
-
-        .home-hero-actions {
-          flex-direction: column;
-          gap: 0.65rem;
-          margin-top: 1.25rem;
-        }
-
-        .home-hero-primary,
-        .home-hero-secondary {
-          width: 100%;
-          min-height: 46px;
-          padding: 0.75rem 1rem;
-        }
-
-        .home-hero-meta {
-          margin-top: 1.1rem;
-        }
-
-        .home-client-avatars img {
-          width: 2.8rem;
-          height: 2.8rem;
-        }
-
-        .home-slider-dots {
-          left: 1rem;
-          bottom: 1.35rem;
-          transform: none;
-        }
-
-        .home-slider-controls {
-          right: 1rem;
-          bottom: 1rem;
-        }
-
-        .home-slider-control {
-          width: 40px;
-          height: 40px;
-        }
-      }
     </style>
 
     <!-- Header -->
@@ -1021,120 +628,117 @@
     <!-- Header End -->
 
     <!-- Banner Start -->
-    <section id="home-banner" class="home-hero relative w-full overflow-hidden" aria-label="Himalayan adventure highlights">
-      <div class="home-slide is-active" data-home-slide aria-hidden="false">
-        <img src="Images/Everest/banner1.jpg" alt="Snowy Himalayan valley near Everest Base Camp" />
-        <div class="home-slide-shade"></div>
-        <div class="home-slide-content">
-          <div class="home-hero-copy">
-            <span class="home-hero-kicker"><i data-lucide="mountain" class="h-4 w-4"></i> Everest Base Camp Trek</span>
-            <h1 class="home-hero-title">Walk Into The Heart Of The Himalayas</h1>
-            <p class="home-hero-text">
-              Guided trekking days, trusted local crew, and mountain logistics shaped for a comfortable Everest Base Camp journey.
+    <section id="home-banner" class="relative h-[calc(100vh_-_80px)] min-h-[620px] w-full overflow-hidden bg-slate-900 supports-[height:100svh]:h-[calc(100svh_-_80px)] sm:min-h-[560px]" aria-label="Himalayan adventure highlights">
+      <div class="absolute inset-0 scale-[1.04] opacity-0 pointer-events-none [transition:opacity_700ms_ease,transform_1400ms_ease] [&.is-active]:z-[1] [&.is-active]:scale-100 [&.is-active]:opacity-100 [&.is-active]:pointer-events-auto is-active" data-home-slide aria-hidden="false">
+        <img src="Images/Everest/Everest.jpg" class="absolute inset-0 h-full w-full object-cover" alt="Everest Base Camp" />
+        <div class="absolute inset-0 z-[1] bg-black/40"></div>
+        <div class="relative z-[2] mx-auto flex h-full max-w-7xl items-end px-4 pb-20 pt-14 sm:items-center sm:px-8 sm:pb-[5.5rem] sm:pt-16 lg:px-16">
+          <div class="w-full max-w-[720px] text-left text-white [hyphens:none]">
+            <h1 class="mt-4 max-w-[760px] text-[1.8rem] font-extrabold leading-[1.02] tracking-normal text-white sm:mt-[1.2rem] sm:text-[3.25rem] lg:text-[4.25rem] xl:text-[2.8rem]">Everest Base Camp</h1>
+            <p class="mt-[0.85rem] max-w-[560px] text-[0.95rem] leading-[1.65] text-white/80 sm:mt-4 sm:text-[1.1rem] sm:leading-[1.7] sm:text-white/[0.82]">
+              Explore the Himalayas with 20 years of trusted expertise
             </p>
-            <div class="home-hero-actions">
-              <a href="#featured-destinations" class="home-hero-primary">
+            <div class="mt-5 flex flex-col gap-[0.65rem] sm:mt-[1.6rem] sm:flex-row sm:flex-wrap sm:gap-[0.8rem]">
+              <a href="#featured-destinations" class="inline-flex min-h-[46px] w-full items-center justify-center gap-[0.55rem] rounded-lg bg-blue-600 px-4 py-3 text-[0.95rem] font-extrabold text-white shadow-[0_16px_32px_rgba(37,99,235,0.3)] [transition:background-color_180ms_ease,border-color_180ms_ease,color_180ms_ease,transform_180ms_ease] hover:-translate-y-0.5 hover:bg-blue-700 focus-visible:-translate-y-0.5 focus-visible:bg-blue-700 focus-visible:outline-none sm:min-h-12 sm:w-auto sm:px-5 sm:py-[0.85rem]">
                 Explore Trips <i data-lucide="arrow-right" class="h-4 w-4"></i>
               </a>
-              <a href="tel:+9779851205116" class="home-hero-secondary">
+              <!-- <a href="tel:+9779851205116" class="inline-flex min-h-[46px] w-full items-center justify-center gap-[0.55rem] rounded-lg border border-white/45 px-4 py-3 text-[0.95rem] font-extrabold text-white [transition:background-color_180ms_ease,border-color_180ms_ease,color_180ms_ease,transform_180ms_ease] hover:-translate-y-0.5 hover:border-white/80 hover:bg-white/10 focus-visible:-translate-y-0.5 focus-visible:border-white/80 focus-visible:bg-white/10 focus-visible:outline-none sm:min-h-12 sm:w-auto sm:px-5 sm:py-[0.85rem]">
                 <i data-lucide="phone-call" class="h-4 w-4"></i> Plan With Expert
-              </a>
+              </a> -->
             </div>
-            <div class="home-hero-meta">
-              <div class="home-client-avatars" aria-label="Happy clients">
-                <img src="Images/Everest/f1.jpg" alt="" />
-                <img src="Images/Everest/f2.jpg" alt="" />
-                <img src="Images/Everest/f3.jpg" alt="" />
+            <div class="mt-[1.1rem] flex flex-wrap items-center gap-4 sm:mt-[1.45rem]">
+              <div class="ml-3 flex flex-none" aria-label="Happy clients">
+                <img src="Images/Everest/f1.jpg" class="-ml-3 h-[2.8rem] w-[2.8rem] rounded-full border-2 border-white object-cover sm:h-12 sm:w-12" alt="" />
+                <img src="Images/Everest/f2.jpg" class="-ml-3 h-[2.8rem] w-[2.8rem] rounded-full border-2 border-white object-cover sm:h-12 sm:w-12" alt="" />
+                <img src="Images/Everest/f3.jpg" class="-ml-3 h-[2.8rem] w-[2.8rem] rounded-full border-2 border-white object-cover sm:h-12 sm:w-12" alt="" />
               </div>
-              <div class="home-hero-stat">
-                <strong>1500+ Happy Clients</strong>
-                <span>Experiences that create lifelong memories</span>
+              <div class="grid gap-[0.1rem] text-left text-white">
+                <strong class="text-white text-base sm:text-xl font-bold">1500+ Happy Clients</strong>
+                <span class="text-gray-200 text-xs sm:text-sm font-extralight opacity-70">Experiences that create lifelong memories</span>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="home-slide" data-home-slide aria-hidden="true">
-        <img src="Images/Everest/banner2.jpg" alt="Helicopter flying above snow-covered Himalayan peaks" />
-        <div class="home-slide-shade"></div>
-        <div class="home-slide-content">
-          <div class="home-hero-copy">
-            <span class="home-hero-kicker"><i data-lucide="plane" class="h-4 w-4"></i> Everest Helicopter Tour</span>
-            <h2 class="home-hero-title">Fly Above The World's Highest Peaks</h2>
-            <p class="home-hero-text">
-              See Everest, Lhotse, Ama Dablam, and the Khumbu ice from an unforgettable aerial route.
+      <div class="absolute inset-0 scale-[1.04] opacity-0 pointer-events-none [transition:opacity_700ms_ease,transform_1400ms_ease] [&.is-active]:z-[1] [&.is-active]:scale-100 [&.is-active]:opacity-100 [&.is-active]:pointer-events-auto" data-home-slide aria-hidden="true">
+        <img src="Images/Everest/banner1.jpg" class="absolute inset-0 h-full w-full object-cover" alt="Everest Base Camp" />
+        <div class="absolute inset-0 z-[1] bg-black/40"></div>
+        <div class="relative z-[2] mx-auto flex h-full max-w-7xl items-end px-4 pb-20 pt-14 sm:items-center sm:px-8 sm:pb-[5.5rem] sm:pt-16 lg:px-16">
+          <div class="w-full max-w-[720px] text-left text-white [hyphens:none]">
+            <h1 class="mt-4 max-w-[760px] text-[1.8rem] font-extrabold leading-[1.02] tracking-normal text-white sm:mt-[1.2rem] sm:text-[3.25rem] lg:text-[4.25rem] xl:text-[2.8rem]">Everest Base Camp</h1>
+            <p class="mt-[0.85rem] max-w-[560px] text-[0.95rem] leading-[1.65] text-white/80 sm:mt-4 sm:text-[1.1rem] sm:leading-[1.7] sm:text-white/[0.82]">
+              Explore the Himalayas with 20 years of trusted expertise
             </p>
-            <div class="home-hero-actions">
-              <a href="#featured-destinations" class="home-hero-primary">
-                Explore Tours <i data-lucide="arrow-right" class="h-4 w-4"></i>
+            <div class="mt-5 flex flex-col gap-[0.65rem] sm:mt-[1.6rem] sm:flex-row sm:flex-wrap sm:gap-[0.8rem]">
+              <a href="#featured-destinations" class="inline-flex min-h-[46px] w-full items-center justify-center gap-[0.55rem] rounded-lg bg-blue-600 px-4 py-3 text-[0.95rem] font-extrabold text-white shadow-[0_16px_32px_rgba(37,99,235,0.3)] [transition:background-color_180ms_ease,border-color_180ms_ease,color_180ms_ease,transform_180ms_ease] hover:-translate-y-0.5 hover:bg-blue-700 focus-visible:-translate-y-0.5 focus-visible:bg-blue-700 focus-visible:outline-none sm:min-h-12 sm:w-auto sm:px-5 sm:py-[0.85rem]">
+                Explore Trips <i data-lucide="arrow-right" class="h-4 w-4"></i>
               </a>
-              <a href="tel:+9779851205116" class="home-hero-secondary">
-                <i data-lucide="phone-call" class="h-4 w-4"></i> Talk To Us
-              </a>
+              <!-- <a href="tel:+9779851205116" class="inline-flex min-h-[46px] w-full items-center justify-center gap-[0.55rem] rounded-lg border border-white/45 px-4 py-3 text-[0.95rem] font-extrabold text-white [transition:background-color_180ms_ease,border-color_180ms_ease,color_180ms_ease,transform_180ms_ease] hover:-translate-y-0.5 hover:border-white/80 hover:bg-white/10 focus-visible:-translate-y-0.5 focus-visible:border-white/80 focus-visible:bg-white/10 focus-visible:outline-none sm:min-h-12 sm:w-auto sm:px-5 sm:py-[0.85rem]">
+                <i data-lucide="phone-call" class="h-4 w-4"></i> Plan With Expert
+              </a> -->
             </div>
-            <div class="home-hero-meta">
-              <div class="home-hero-stat">
-                <strong>20 Years</strong>
-                <span>Trusted Himalayan travel experience</span>
+            <div class="mt-[1.1rem] flex flex-wrap items-center gap-4 sm:mt-[1.45rem]">
+              <div class="ml-3 flex flex-none" aria-label="Happy clients">
+                <img src="Images/Everest/f1.jpg" class="-ml-3 h-[2.8rem] w-[2.8rem] rounded-full border-2 border-white object-cover sm:h-12 sm:w-12" alt="" />
+                <img src="Images/Everest/f2.jpg" class="-ml-3 h-[2.8rem] w-[2.8rem] rounded-full border-2 border-white object-cover sm:h-12 sm:w-12" alt="" />
+                <img src="Images/Everest/f3.jpg" class="-ml-3 h-[2.8rem] w-[2.8rem] rounded-full border-2 border-white object-cover sm:h-12 sm:w-12" alt="" />
               </div>
-              <div class="home-hero-stat">
-                <strong>24/7 Support</strong>
-                <span>From arrival to return</span>
+              <div class="grid gap-[0.1rem] text-left text-white">
+                <strong class="text-white text-base sm:text-xl font-bold">1500+ Happy Clients</strong>
+                <span class="text-gray-200 text-xs sm:text-sm font-extralight opacity-70">Experiences that create lifelong memories</span>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="home-slide" data-home-slide aria-hidden="true">
-        <img src="Images/Everest/banner3.jpg" alt="Climbers crossing a snowy Himalayan ridge at sunrise" />
-        <div class="home-slide-shade"></div>
-        <div class="home-slide-content">
-          <div class="home-hero-copy">
-            <span class="home-hero-kicker"><i data-lucide="flag" class="h-4 w-4"></i> Peak Climbing Nepal</span>
-            <h2 class="home-hero-title">Climb Higher With A Skilled Mountain Team</h2>
-            <p class="home-hero-text">
-              From trekking peaks to classic Himalayan routes, move with careful planning and experienced guides.
+      <div class="absolute inset-0 scale-[1.04] opacity-0 pointer-events-none [transition:opacity_700ms_ease,transform_1400ms_ease] [&.is-active]:z-[1] [&.is-active]:scale-100 [&.is-active]:opacity-100 [&.is-active]:pointer-events-auto" data-home-slide aria-hidden="true">
+        <img src="Images/Everest/ev trek.jpg" class="absolute inset-0 h-full w-full object-cover" alt="Everest Base Camp" />
+        <div class="absolute inset-0 z-[1] bg-black/40"></div>
+        <div class="relative z-[2] mx-auto flex h-full max-w-7xl items-end px-4 pb-20 pt-14 sm:items-center sm:px-8 sm:pb-[5.5rem] sm:pt-16 lg:px-16">
+          <div class="w-full max-w-[720px] text-left text-white [hyphens:none]">
+            <h1 class="mt-4 max-w-[760px] text-[1.8rem] font-extrabold leading-[1.02] tracking-normal text-white sm:mt-[1.2rem] sm:text-[3.25rem] lg:text-[4.25rem] xl:text-[2.8rem]">Everest Base Camp</h1>
+            <p class="mt-[0.85rem] max-w-[560px] text-[0.95rem] leading-[1.65] text-white/80 sm:mt-4 sm:text-[1.1rem] sm:leading-[1.7] sm:text-white/[0.82]">
+              Explore the Himalayas with 20 years of trusted expertise
             </p>
-            <div class="home-hero-actions">
-              <a href="#featured-destinations" class="home-hero-primary">
-                View Adventures <i data-lucide="arrow-right" class="h-4 w-4"></i>
+            <div class="mt-5 flex flex-col gap-[0.65rem] sm:mt-[1.6rem] sm:flex-row sm:flex-wrap sm:gap-[0.8rem]">
+              <a href="#featured-destinations" class="inline-flex min-h-[46px] w-full items-center justify-center gap-[0.55rem] rounded-lg bg-blue-600 px-4 py-3 text-[0.95rem] font-extrabold text-white shadow-[0_16px_32px_rgba(37,99,235,0.3)] [transition:background-color_180ms_ease,border-color_180ms_ease,color_180ms_ease,transform_180ms_ease] hover:-translate-y-0.5 hover:bg-blue-700 focus-visible:-translate-y-0.5 focus-visible:bg-blue-700 focus-visible:outline-none sm:min-h-12 sm:w-auto sm:px-5 sm:py-[0.85rem]">
+                Explore Trips <i data-lucide="arrow-right" class="h-4 w-4"></i>
               </a>
-              <a href="tel:+9779851205116" class="home-hero-secondary">
-                <i data-lucide="phone-call" class="h-4 w-4"></i> Start Planning
-              </a>
+              <!-- <a href="tel:+9779851205116" class="inline-flex min-h-[46px] w-full items-center justify-center gap-[0.55rem] rounded-lg border border-white/45 px-4 py-3 text-[0.95rem] font-extrabold text-white [transition:background-color_180ms_ease,border-color_180ms_ease,color_180ms_ease,transform_180ms_ease] hover:-translate-y-0.5 hover:border-white/80 hover:bg-white/10 focus-visible:-translate-y-0.5 focus-visible:border-white/80 focus-visible:bg-white/10 focus-visible:outline-none sm:min-h-12 sm:w-auto sm:px-5 sm:py-[0.85rem]">
+                <i data-lucide="phone-call" class="h-4 w-4"></i> Plan With Expert
+              </a> -->
             </div>
-            <div class="home-hero-meta">
-              <div class="home-hero-stat">
-                <strong>Local Guides</strong>
-                <span>Licensed, experienced, and safety-focused</span>
+            <div class="mt-[1.1rem] flex flex-wrap items-center gap-4 sm:mt-[1.45rem]">
+              <div class="ml-3 flex flex-none" aria-label="Happy clients">
+                <img src="Images/Everest/f1.jpg" class="-ml-3 h-[2.8rem] w-[2.8rem] rounded-full border-2 border-white object-cover sm:h-12 sm:w-12" alt="" />
+                <img src="Images/Everest/f2.jpg" class="-ml-3 h-[2.8rem] w-[2.8rem] rounded-full border-2 border-white object-cover sm:h-12 sm:w-12" alt="" />
+                <img src="Images/Everest/f3.jpg" class="-ml-3 h-[2.8rem] w-[2.8rem] rounded-full border-2 border-white object-cover sm:h-12 sm:w-12" alt="" />
               </div>
-              <div class="home-hero-stat">
-                <strong>Best Seasons</strong>
-                <span>Spring and autumn departures</span>
+              <div class="grid gap-[0.1rem] text-left text-white">
+                <strong class="text-white text-base sm:text-xl font-bold">1500+ Happy Clients</strong>
+                <span class="text-gray-200 text-xs sm:text-sm font-extralight opacity-70">Experiences that create lifelong memories</span>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="home-slider-controls" aria-label="Banner controls">
-        <button type="button" class="home-slider-control" data-home-prev aria-label="Previous slide">
+      <div class="absolute bottom-4 right-4 z-[6] flex gap-[0.65rem] sm:bottom-5 lg:bottom-10 lg:right-10" aria-label="Banner controls">
+        <button type="button" class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/40 bg-slate-900/35 text-white [transition:background-color_180ms_ease,border-color_180ms_ease,transform_180ms_ease] hover:-translate-y-0.5 hover:border-white/85 hover:bg-blue-600/90 focus-visible:-translate-y-0.5 focus-visible:border-white/85 focus-visible:bg-blue-600/90 focus-visible:outline-none sm:h-[46px] sm:w-[46px]" data-home-prev aria-label="Previous slide">
           <i data-lucide="chevron-left" class="h-5 w-5"></i>
         </button>
-        <button type="button" class="home-slider-control" data-home-next aria-label="Next slide">
+        <button type="button" class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/40 bg-slate-900/35 text-white [transition:background-color_180ms_ease,border-color_180ms_ease,transform_180ms_ease] hover:-translate-y-0.5 hover:border-white/85 hover:bg-blue-600/90 focus-visible:-translate-y-0.5 focus-visible:border-white/85 focus-visible:bg-blue-600/90 focus-visible:outline-none sm:h-[46px] sm:w-[46px]" data-home-next aria-label="Next slide">
           <i data-lucide="chevron-right" class="h-5 w-5"></i>
         </button>
       </div>
 
-      <div class="home-slider-dots" role="tablist" aria-label="Banner slides">
-        <button type="button" class="home-slider-dot is-active" data-home-slide-to="0" aria-label="Show Everest Base Camp slide" aria-current="true"><span></span></button>
-        <button type="button" class="home-slider-dot" data-home-slide-to="1" aria-label="Show helicopter tour slide" aria-current="false"><span></span></button>
-        <button type="button" class="home-slider-dot" data-home-slide-to="2" aria-label="Show peak climbing slide" aria-current="false"><span></span></button>
+      <div class="absolute bottom-[1.35rem] left-4 z-[6] flex sm:bottom-[1.65rem] sm:left-1/2 sm:-translate-x-1/2 lg:bottom-12" role="tablist" aria-label="Banner slides">
+        <button type="button" class="inline-flex h-4 w-8 items-center justify-center [&.is-active_span]:w-7 [&.is-active_span]:bg-white is-active" data-home-slide-to="0" aria-label="Show Everest Base Camp slide" aria-current="true"><span class="block h-[0.55rem] w-[0.55rem] rounded-full bg-white/60 transition-[width,background-color] duration-[180ms]"></span></button>
+        <button type="button" class="inline-flex h-4 w-8 items-center justify-center [&.is-active_span]:w-7 [&.is-active_span]:bg-white" data-home-slide-to="1" aria-label="Show helicopter tour slide" aria-current="false"><span class="block h-[0.55rem] w-[0.55rem] rounded-full bg-white/60 transition-[width,background-color] duration-[180ms]"></span></button>
+        <button type="button" class="inline-flex h-4 w-8 items-center justify-center [&.is-active_span]:w-7 [&.is-active_span]:bg-white" data-home-slide-to="2" aria-label="Show peak climbing slide" aria-current="false"><span class="block h-[0.55rem] w-[0.55rem] rounded-full bg-white/60 transition-[width,background-color] duration-[180ms]"></span></button>
       </div>
-
-      <div class="home-slider-progress" aria-hidden="true"><span></span></div>
     </section>
     <!-- Banner End -->
 
