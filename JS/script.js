@@ -315,14 +315,16 @@
         });
       })();
 
-      // FAQ accordion and append-only loader
+      // FAQ accordion and expandable loader
       (function () {
         const faqList = document.getElementById('faq-list');
         const faqTemplate = document.getElementById('faq-item-template');
         const loadMoreButton = document.getElementById('faq-load-more');
         const loadMoreWrapper = document.getElementById('faq-load-more-wrapper');
+        const backButton = document.getElementById('faq-back');
+        const backWrapper = document.getElementById('faq-back-wrapper');
         const status = document.getElementById('faq-load-more-status');
-        if (!faqList || !faqTemplate || !loadMoreButton || !loadMoreWrapper) return;
+        if (!faqList || !faqTemplate || !loadMoreButton || !loadMoreWrapper || !backButton || !backWrapper) return;
 
         const BATCH_SIZE = 10;
         const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -476,6 +478,7 @@
 
           loadMoreWrapper.before(fragment);
           loadedCount += addedItems.length;
+          backWrapper.hidden = false;
           prepareAllFaqs();
           window.lucide?.createIcons();
 
@@ -493,6 +496,23 @@
               block: 'start',
             });
           }, prefersReducedMotion ? 0 : 100);
+        });
+
+        backButton.addEventListener('click', () => {
+          closeAllFaqs();
+          faqList.querySelectorAll('.faq-added-item').forEach(item => item.remove());
+          loadedCount = 0;
+          loadMoreWrapper.hidden = false;
+          backWrapper.hidden = true;
+
+          if (status) {
+            status.textContent = 'Additional FAQs hidden. Showing the initial FAQs.';
+          }
+
+          document.getElementById('faq')?.scrollIntoView({
+            behavior: prefersReducedMotion ? 'auto' : 'smooth',
+            block: 'start',
+          });
         });
 
         prepareAllFaqs();
