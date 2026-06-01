@@ -92,7 +92,7 @@
         display: none;
       }
 
-      .google-review-card > div:first-child > div:last-child {
+      /* .google-review-card > div:first-child > div:last-child {
         display: flex;
         width: 2.25rem;
         height: 2.25rem;
@@ -107,7 +107,7 @@
       .google-review-card > div:first-child > div:last-child img {
         width: 1.25rem;
         height: 1.25rem;
-      }
+      } */
 
       .google-stars {
         display: flex;
@@ -642,17 +642,6 @@
         </nav>
 
         <div class="flex items-center gap-2">
-          <!-- Desktop Contact -->
-          <div class="hidden items-center gap-2 lg:flex">
-            <a href="#" class="flex h-7 w-7 items-center justify-center rounded bg-[#7360F2] transition hover:-translate-y-0.5 hover:shadow-lg" aria-label="Viber">
-              <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/viber.svg" class="h-5 w-5 invert" alt="" />
-            </a>
-            <a href="https://wa.me/9779851205116" class="flex h-7 w-7 items-center justify-center rounded bg-[#25D366] transition hover:-translate-y-0.5 hover:shadow-lg" aria-label="WhatsApp">
-              <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/whatsapp.svg" class="h-5 w-5 invert" alt="" />
-            </a>
-            <a href="tel:+9779851205116" class="desktop-contact-number whitespace-nowrap text-sm font-bold text-slate-900 hover:text-blue-600">+977 9851205116</a>
-          </div>
-
           <!-- Compact Header Search -->
           <div class="header-search relative">
             <button type="button" class="header-search-trigger flex h-6 w-6 sm:h-8 sm:w-8 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-900 transition duration-200 hover:border-blue-200 hover:bg-blue-50 hover:text-blue-600 hover:shadow-[0_8px_20px_rgba(37,99,235,0.12)] focus-visible:border-blue-200 focus-visible:bg-blue-50 focus-visible:text-blue-600 focus-visible:outline-none focus-visible:shadow-[0_8px_20px_rgba(37,99,235,0.12)]" aria-label="Open search" aria-controls="header-search-panel" aria-expanded="false">
@@ -663,7 +652,18 @@
               <input id="header-search-input" class="header-search-input w-full rounded-[10px] border border-slate-200 px-3 py-2.5 text-sm text-slate-900 outline-none transition duration-200 focus:border-blue-300 focus:shadow-[0_0_0_3px_rgba(147,197,253,0.28)]" type="search" name="q" placeholder="Search..." autocomplete="off" />
             </div>
           </div>
-
+          
+          <!-- Desktop Contact -->
+          <div class="hidden items-center gap-2 lg:flex">
+            <a href="#" class="flex h-7 w-7 items-center justify-center rounded bg-[#7360F2] transition hover:-translate-y-0.5 hover:shadow-lg" aria-label="Viber">
+              <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/viber.svg" class="h-5 w-5 invert" alt="" />
+            </a>
+            <a href="https://wa.me/9779851205116" class="flex h-7 w-7 items-center justify-center rounded bg-[#25D366] transition hover:-translate-y-0.5 hover:shadow-lg" aria-label="WhatsApp">
+              <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/whatsapp.svg" class="h-5 w-5 invert" alt="" />
+            </a>
+            <a href="tel:+9779851205116" class="desktop-contact-number whitespace-nowrap text-sm font-bold text-slate-900 hover:text-blue-600">+977 9851205116</a>
+          </div>
+          
           <!-- Mobile Hamburger -->
           <button id="hamburger" class="flex h-6 w-6 sm:h-8 sm:w-8 flex-col items-center justify-center gap-[5px] rounded-full border border-slate-200 bg-white shadow-sm lg:hidden" aria-label="Toggle menu" aria-controls="mobile-menu" aria-expanded="false">
             <span class="hamburger-line"></span>
@@ -1355,7 +1355,7 @@
         </div>
 
         <!-- Google Rating Summary -->
-        <div class="mx-auto mb-8 flex max-w-3xl flex-col items-center justify-between gap-5 rounded border border-slate-200 bg-white px-5 py-5 shadow-[0_14px_34px_rgba(15,23,42,0.06)] sm:mb-12 sm:flex-row sm:px-7">
+        <!-- <div class="mx-auto mb-8 flex max-w-3xl flex-col items-center justify-between gap-5 rounded border border-slate-200 bg-white px-5 py-5 shadow-[0_14px_34px_rgba(15,23,42,0.06)] sm:mb-12 sm:flex-row sm:px-7">
           <div class="flex items-center gap-4">
             <div class="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white shadow-sm">
               <img src="https://www.google.com/favicon.ico" class="h-6 w-6" alt="Google" />
@@ -1378,7 +1378,19 @@
               <p class="mt-1 text-xs font-medium text-slate-500">Excellent on Google</p>
             </div>
           </div>
-        </div>
+        </div> -->
+<!-- 
+        <div class="flex items-center justify-between gap-4 sm:justify-end">
+            <p id="testimonialStatus" class="text-xs font-bold text-slate-500" aria-live="polite"></p>
+            <div class="flex items-center gap-2">
+              <button id="prevBtn" type="button" class="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-900 shadow-sm transition duration-200 hover:border-blue-600 hover:bg-blue-600 hover:text-white focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-blue-200 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-slate-200 disabled:hover:bg-white disabled:hover:text-slate-900" aria-label="Previous testimonial" aria-controls="testimonialSlider">
+                <i data-lucide="chevron-left" class="h-5 w-5" aria-hidden="true"></i>
+              </button>
+              <button id="nextBtn" type="button" class="flex h-11 w-11 items-center justify-center rounded-full bg-blue-600 text-white shadow-[0_10px_24px_rgba(37,99,235,0.24)] transition duration-200 hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-blue-200 disabled:cursor-not-allowed disabled:opacity-40" aria-label="Next testimonial" aria-controls="testimonialSlider">
+                <i data-lucide="chevron-right" class="h-5 w-5" aria-hidden="true"></i>
+              </button>
+            </div>
+          </div> -->
 
         <!-- Scrolling Review Cards -->
         <div class="google-review-marquee w-full" role="region" aria-label="Google customer reviews">
@@ -1394,8 +1406,8 @@
                   <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
                   <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
                 </div>
-                <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-full border border-gray-200 bg-white flex items-center justify-center flex-shrink-0">
-                  <img src="https://www.google.com/favicon.ico" class="w-4 h-4 sm:w-5 sm:h-5" alt="Google" />
+                <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center flex-shrink-0 overflow-hidden">
+                  <img src="Images/Everest/suresh.png" class="rounded-full object-contain" alt="" />
                 </div>
               </div>
               <h3 class="text-base sm:text-xl font-bold mb-3 sm:mb-4">Amazing ABC Trek with Chris Experience</h3>
@@ -1418,8 +1430,8 @@
                   <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
                   <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
                 </div>
-                <div class="flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 flex-shrink-0">
-                  <img src="https://www.google.com/favicon.ico" class="w-4 h-4 sm:w-5 sm:h-5" alt="Google" />
+               <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center flex-shrink-0 overflow-hidden">
+                  <img src="Images/Everest/bear grylls.jpg" class="rounded-full object-contain" alt="" />
                 </div>
               </div>
               <h3 class="text-base sm:text-xl font-bold mb-3 sm:mb-4">Amazing Manaslu Trek Experience</h3>
@@ -1427,7 +1439,7 @@
                 The Manaslu Circuit Trek is a remarkable journey for those seeking an off-the-beaten-path adventure combined with raw Himalayan beauty.
               </p>
               <div>
-                <h4 class="text-xs sm:text-sm font-bold mb-1">Emily Thomas</h4>
+                <h4 class="text-xs sm:text-sm font-bold mb-1">Bear Grylls</h4>
                 <p class="text-xs sm:text-sm text-gray-400">Feb 22, 2026 | USA</p>
               </div>
             </div>
@@ -1442,8 +1454,8 @@
                   <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
                   <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
                 </div>
-                <div class="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-[#00AC7E] flex items-center justify-center flex-shrink-0 overflow-hidden">
-                  <img src="https://www.google.com/favicon.ico" class="w-4 h-4 sm:w-5 sm:h-5" alt="Google" />
+               <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center flex-shrink-0 overflow-hidden">
+                  <img src="Images/Everest/chris.jpg" class="rounded-full object-contain" alt="" />
                 </div>
               </div>
               <h3 class="text-base sm:text-xl font-bold mb-3 sm:mb-4">Amazing Mardi Himal Trek Experience</h3>
@@ -1451,7 +1463,7 @@
                 The Mardi Himal Trek is indeed a remarkable journey for those seeking an exceptional adventure while enjoying the utmost comfort.
               </p>
               <div>
-                <h4 class="text-xs sm:text-sm font-bold mb-1">Suresh Shrestha</h4>
+                <h4 class="text-xs sm:text-sm font-bold mb-1">Chris Hemsworth</h4>
                 <p class="text-xs sm:text-sm text-gray-400">Feb 22, 2026 | Nepal</p>
               </div>
             </div>
@@ -1466,8 +1478,8 @@
                   <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
                   <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
                 </div>
-                <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-full border border-gray-200 bg-white flex items-center justify-center flex-shrink-0">
-                  <img src="https://www.google.com/favicon.ico" class="w-4 h-4 sm:w-5 sm:h-5" alt="Google" />
+                <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center flex-shrink-0 overflow-hidden">
+                  <img src="Images/Everest/suresh.png" class="w-full h-full rounded-full object-contain scale-125" alt="" />
                 </div>
               </div>
               <h3 class="text-base sm:text-xl font-bold mb-3 sm:mb-4">Amazing ABC Trek with Chris Experience</h3>
@@ -1475,7 +1487,7 @@
                 The Everest Base Camp Luxury Trek is a remarkable journey for those seeking a short yet rewarding adventure with stunning mountain views.
               </p>
               <div>
-                <h4 class="text-xs sm:text-sm font-bold mb-1">Chris Hemsworth</h4>
+                <h4 class="text-xs sm:text-sm font-bold mb-1">Suresh Shrestha</h4>
                 <p class="text-xs sm:text-sm text-gray-400">Feb 22, 2026 | Australia</p>
               </div>
             </div>
@@ -1489,9 +1501,9 @@
                   <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
                   <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
                   <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
-                </div>
-                <div class="flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 flex-shrink-0">
-                  <img src="https://www.google.com/favicon.ico" class="w-4 h-4 sm:w-5 sm:h-5" alt="Google" />
+                </div>  
+               <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center flex-shrink-0 overflow-hidden">
+                  <img src="Images/Everest/bear grylls.jpg" class="w-full h-full rounded-full object-contain scale-125" alt="" />
                 </div>
               </div>
               <h3 class="text-base sm:text-xl font-bold mb-3 sm:mb-4">Amazing Manaslu Trek Experience</h3>
@@ -1499,7 +1511,7 @@
                 The Manaslu Circuit Trek is a remarkable journey for those seeking an off-the-beaten-path adventure combined with raw Himalayan beauty.
               </p>
               <div>
-                <h4 class="text-xs sm:text-sm font-bold mb-1">Emily Thomas</h4>
+                <h4 class="text-xs sm:text-sm font-bold mb-1">Bear Grylls</h4>
                 <p class="text-xs sm:text-sm text-gray-400">Feb 22, 2026 | USA</p>
               </div>
             </div>
@@ -1514,8 +1526,8 @@
                   <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
                   <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
                 </div>
-                <div class="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-[#00AC7E] flex items-center justify-center flex-shrink-0 overflow-hidden">
-                  <img src="https://www.google.com/favicon.ico" class="w-4 h-4 sm:w-5 sm:h-5" alt="Google" />
+                <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center flex-shrink-0 overflow-hidden">
+                  <img src="Images/Everest/chris.jpg" class="w-full h-full rounded-full object-contain scale-125" alt="" />
                 </div>
               </div>
               <h3 class="text-base sm:text-xl font-bold mb-3 sm:mb-4">Amazing Mardi Himal Trek Experience</h3>
