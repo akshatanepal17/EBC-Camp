@@ -171,6 +171,30 @@
         const desktopNavLinks = Array.from(header.querySelectorAll('nav .nav-link'));
         const hamburger = document.getElementById('hamburger');
         const mobileMenu = document.getElementById('mobile-menu');
+        const search = header.querySelector('.header-search');
+        const searchToggle = search?.querySelector('.header-search-trigger');
+        const searchPanel = search?.querySelector('.header-search-panel');
+        const searchInput = search?.querySelector('.header-search-input');
+
+        const setSearchState = open => {
+          search?.classList.toggle('open', open);
+          searchToggle?.setAttribute('aria-expanded', String(open));
+          searchToggle?.setAttribute('aria-label', open ? 'Close search' : 'Open search');
+          searchPanel?.classList.toggle('invisible', !open);
+          searchPanel?.classList.toggle('pointer-events-none', !open);
+          searchPanel?.classList.toggle('opacity-0', !open);
+          searchPanel?.classList.toggle('-translate-y-1.5', !open);
+          searchPanel?.classList.toggle('visible', open);
+          searchPanel?.classList.toggle('pointer-events-auto', open);
+          searchPanel?.classList.toggle('opacity-100', open);
+          searchPanel?.classList.toggle('translate-y-0', open);
+
+          if (open) {
+            window.setTimeout(() => searchInput?.focus(), 0);
+          }
+        };
+
+        const closeSearch = () => setSearchState(false);
 
         const getPrimaryTrigger = dropdown =>
           Array.from(dropdown.children).find(child => child.classList.contains('nav-dropdown-trigger'));
@@ -192,11 +216,17 @@
           if (!button) return;
 
           dropdown.addEventListener('mouseenter', () => {
-            if (window.innerWidth >= 1024) closeDesktopDropdowns(dropdown);
+            if (window.innerWidth >= 1024) {
+              closeSearch();
+              closeDesktopDropdowns(dropdown);
+            }
           });
 
           dropdown.addEventListener('focusin', () => {
-            if (window.innerWidth >= 1024) closeDesktopDropdowns(dropdown);
+            if (window.innerWidth >= 1024) {
+              closeSearch();
+              closeDesktopDropdowns(dropdown);
+            }
           });
 
           button.addEventListener('click', event => {
@@ -211,9 +241,18 @@
         });
 
         desktopNavLinks.forEach(link => {
-          link.addEventListener('mouseenter', () => closeDesktopDropdowns());
-          link.addEventListener('focusin', () => closeDesktopDropdowns());
-          link.addEventListener('click', () => closeDesktopDropdowns());
+          link.addEventListener('mouseenter', () => {
+            closeSearch();
+            closeDesktopDropdowns();
+          });
+          link.addEventListener('focusin', () => {
+            closeSearch();
+            closeDesktopDropdowns();
+          });
+          link.addEventListener('click', () => {
+            closeSearch();
+            closeDesktopDropdowns();
+          });
         });
 
         const setMobileNestedState = (dropdown, open) => {
@@ -245,9 +284,19 @@
           closeMobileDropdowns();
         };
 
+        searchToggle?.addEventListener('click', () => {
+          const willOpen = !search?.classList.contains('open');
+          closeDesktopDropdowns();
+          closeMobileMenu();
+          setSearchState(willOpen);
+        });
+
         document.addEventListener('click', event => {
           if (!event.target.closest('.nav-dropdown')) {
             closeDesktopDropdowns();
+          }
+          if (!event.target.closest('.header-search')) {
+            closeSearch();
           }
         });
 
@@ -255,10 +304,12 @@
           if (event.key !== 'Escape') return;
           closeDesktopDropdowns();
           closeMobileMenu();
+          closeSearch();
         });
 
         if (hamburger && mobileMenu) {
           hamburger.addEventListener('click', () => {
+            closeSearch();
             const willOpen = !mobileMenu.classList.contains('open');
             mobileMenu.classList.toggle('open', willOpen);
             hamburger.classList.toggle('is-open', willOpen);
