@@ -35,15 +35,119 @@
       }
       @keyframes scroll {
         0%   { transform: translateX(0); }
-        100% { transform: translateX(-50%); }
+        100% { transform: translateX(calc(-50% - (var(--review-gap) / 2))); }
       }
       .animate-scroll {
         display: flex;
         width: max-content;
-        animation: scroll 10s linear infinite;
+        animation: scroll 30s linear infinite;
+        will-change: transform;
       }
-      .animate-scroll:hover {
+      .animate-scroll:hover,
+      .animate-scroll:focus-within {
         animation-play-state: paused;
+      }
+
+      .google-review-track {
+        --review-gap: 1.5rem;
+        gap: var(--review-gap);
+      }
+
+      .google-review-marquee {
+        overflow: hidden;
+        -webkit-mask-image: linear-gradient(to right, transparent, #000 4%, #000 96%, transparent);
+        mask-image: linear-gradient(to right, transparent, #000 4%, #000 96%, transparent);
+      }
+
+      .google-review-card {
+        display: flex;
+        width: min(82vw, 400px);
+        min-height: 280px;
+        flex-shrink: 0;
+        flex-direction: column;
+        justify-content: space-between;
+        border: 1px solid rgba(226, 232, 240, 0.9);
+        border-radius: 18px;
+        background: #fff;
+        padding: 1.5rem;
+        box-shadow: 0 14px 34px rgba(15, 23, 42, 0.06);
+        transition:
+          border-color 240ms ease,
+          box-shadow 240ms ease,
+          transform 240ms ease;
+      }
+
+      .google-review-card:hover {
+        border-color: rgba(66, 133, 244, 0.38);
+        box-shadow: 0 20px 42px rgba(66, 133, 244, 0.12);
+        transform: translateY(-4px);
+      }
+
+      .google-review-card .gap-1 > span {
+        background: #fbbc04;
+        clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 94%, 50% 72%, 21% 94%, 32% 57%, 2% 35%, 39% 35%);
+      }
+
+      .google-review-card .gap-1 > span::before {
+        display: none;
+      }
+
+      .google-review-card > div:first-child > div:last-child {
+        display: flex;
+        width: 2.25rem;
+        height: 2.25rem;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #e2e8f0;
+        border-radius: 999px;
+        background: #fff;
+        box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08);
+      }
+
+      .google-review-card > div:first-child > div:last-child img {
+        width: 1.25rem;
+        height: 1.25rem;
+      }
+
+      .google-stars {
+        display: flex;
+        align-items: center;
+        gap: 0.2rem;
+      }
+
+      .google-star {
+        width: 1rem;
+        height: 1rem;
+        fill: #fbbc04;
+        color: #fbbc04;
+      }
+
+      @media (min-width: 640px) {
+        .google-review-track {
+          --review-gap: 2rem;
+        }
+
+        .google-review-card {
+          min-height: 310px;
+          padding: 2rem;
+        }
+
+        .google-star {
+          width: 1.125rem;
+          height: 1.125rem;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .google-review-marquee {
+          overflow-x: auto;
+          -webkit-mask-image: none;
+          mask-image: none;
+        }
+
+        .animate-scroll {
+          animation: none;
+        }
       }
 
       html {
@@ -1218,74 +1322,52 @@
     <!-- FAQ Section End -->
 
     <!-- Clients Review Start -->
-    <section id="testimonials" class="relative px-3 py-14 sm:px-8 lg:py-24w-full overflow-hidden py-[94px] lg:py-[110px]">
-      <div class="container mx-auto px-4 sm:px-8">
-        <div class="flex flex-col items-center justify-center gap-4 sm:gap-6 text-center mb-4 lg:mb-4">
+    <section id="testimonials" class="relative overflow-hidden bg-slate-50 px-3 py-[94px] sm:px-8 lg:py-[110px]">
+      <div aria-hidden="true" class="absolute -left-24 top-28 h-64 w-64 rounded-full bg-yellow-100/60 blur-3xl"></div>
+      <div aria-hidden="true" class="absolute -right-20 bottom-12 h-64 w-64 rounded-full bg-yellow-100/60 blur-3xl"></div>
+
+      <div class="container relative mx-auto px-4 sm:px-8">
+        <div class="mb-8 flex flex-col items-center justify-center text-center sm:mb-12">
           <div class="flex items-center gap-4 sm:gap-5">
             <span class="w-10 lg:w-12 h-px bg-blue-600 hidden lg:block"></span>
-            <p class="text-xs lang:text-sm font-bold tracking-wider uppercase text-blue-600">Tripadvisor</p>
+            <p class="text-xs font-bold uppercase tracking-[0.2em] text-blue-600 sm:text-sm">Google Reviews</p>
             <span class="w-10 lg:w-12 h-px bg-blue-600 hidden lg:block"></span>
           </div>
-          <h2 class="font-extrabold text-center text-2xl sm:text-4xl md:text-5xl lg:text-6xl mb-8 sm:mb-12">Client Reviews</h2>
+          <h2 class="mt-4 text-center text-2xl font-extrabold text-slate-950 sm:text-4xl md:text-5xl lg:text-6xl">Clients Review</h2>
         </div>
 
-      <!-- Review Platforms -->
-      <div class="flex flex-col xl:flex-row mb-8 sm:mb-16 bg-gray-100 p-2 xl:p-4 gap-2">
-
-        <!-- All Reviews -->
-      <div class="w-full lg:flex-1 border border-black bg-white py-3 px-2 flex items-center justify-center gap-2">
-      <span class="text-sm font-bold text-center leading-tight whitespace-nowrap">All Reviews</span>
-      <span class="text-sm sm:text-base font-bold">5.0</span>
-      <span class="text-gray-500 text-sm sm:text-sm">(3)</span>
-      </div>
-
-  <!-- Tripadvisor -->
-  <div class="w-full lg:flex-1 bg-white py-3 px-2 flex items-center justify-center gap-2">
-    <div class="w-5 h-5 rounded-full bg-[#00AC7E] flex items-center justify-center flex-shrink-0 overflow-hidden">
-      <img src="https://www.tripadvisor.com/favicon.ico" alt="Tripadvisor" class="w-5 h-5 object-contain"/>
-    </div>
-    <span class="text-sm sm:text-sm text-center leading-tight">Tripadvisor</span>
-    <span class="text-sm sm:text-base">4.9</span>
-    <span class="text-gray-500 text-sm sm:text-sm">(535)</span>
-  </div>
-
-  <!-- Google -->
-  <div class="w-full lg:flex-1 bg-white py-3 px-2 flex items-center justify-center gap-2">
-    <div class="w-5 h-5 rounded-full border border-gray-200 bg-white flex items-center justify-center flex-shrink-0">
-      <img src="https://www.google.com/favicon.ico" class="w-4 h-4" alt="Google" />
-    </div>
-    <span class="text-sm sm:text-sm text-center leading-tight">Google</span>
-    <span class="text-sm sm:text-base">4.9</span>
-    <span class="text-gray-500 text-sm sm:text-sm">(589)</span>
-  </div>
-
-  <!-- Facebook -->
-  <div class="w-full lg:flex-1 bg-white py-3 px-2 flex items-center justify-center gap-2">
-    <div class="w-5 h-5 rounded-full bg-blue-600 flex items-center justify-center flex-shrink-0">
-      <img src="https://www.facebook.com/favicon.ico" class="w-3 h-3" alt="Facebook" />
-    </div>
-    <span class="text-sm sm:text-sm text-center leading-tight">Facebook</span>
-    <span class="text-sm sm:text-base">4.8</span>
-    <span class="text-gray-500 text-sm sm:text-sm">(32)</span>
-  </div>
-
-  <!-- Trustpilot -->
-  <div class="w-full lg:flex-1 bg-white py-3 px-2 flex items-center justify-center gap-2">
-    <div class="w-5 h-5 rounded-full bg-[#00AC7E] flex items-center justify-center flex-shrink-0">
-      <span class="text-white text-xs leading-none">★</span>
-    </div>
-    <span class="text-sm leading-tight whitespace-nowrap">Trustpilot</span>
-    <span class="text-sm sm:text-base">4.6</span>
-    <span class="text-gray-500 text-sm sm:text-sm">(29)</span>
-       </div>
-      </div>
+        <!-- Google Rating Summary -->
+        <div class="mx-auto mb-8 flex max-w-3xl flex-col items-center justify-between gap-5 rounded border border-slate-200 bg-white px-5 py-5 shadow-[0_14px_34px_rgba(15,23,42,0.06)] sm:mb-12 sm:flex-row sm:px-7">
+          <div class="flex items-center gap-4">
+            <div class="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white shadow-sm">
+              <img src="https://www.google.com/favicon.ico" class="h-6 w-6" alt="Google" />
+            </div>
+            <div>
+              <p class="text-sm font-bold text-slate-950 sm:text-base">Google Reviews</p>
+              <p class="text-xs text-slate-500 sm:text-sm">Based on 589 customer reviews</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-3xl font-extrabold text-slate-950">4.9</span>
+            <div>
+              <div class="google-stars" aria-label="4.9 out of 5 stars">
+                <i data-lucide="star" class="google-star" aria-hidden="true"></i>
+                <i data-lucide="star" class="google-star" aria-hidden="true"></i>
+                <i data-lucide="star" class="google-star" aria-hidden="true"></i>
+                <i data-lucide="star" class="google-star" aria-hidden="true"></i>
+                <i data-lucide="star" class="google-star" aria-hidden="true"></i>
+              </div>
+              <p class="mt-1 text-xs font-medium text-slate-500">Excellent on Google</p>
+            </div>
+          </div>
+        </div>
 
         <!-- Scrolling Review Cards -->
-        <div class="overflow-hidden w-full">
-          <div class="flex gap-6 sm:gap-8 animate-scroll">
+        <div class="google-review-marquee w-full" role="region" aria-label="Google customer reviews">
+          <div class="google-review-track animate-scroll py-2">
 
             <!-- Card 1 -->
-            <div class="bg-gray-100 p-6 sm:p-10 flex flex-col justify-between w-[300px] sm:w-[380px] lg:w-[400px] shrink-0">
+            <div class="google-review-card bg-gray-100 p-6 sm:p-10 flex flex-col justify-between w-[300px] sm:w-[380px] lg:w-[400px] shrink-0">
               <div class="flex items-start justify-between mb-4 sm:mb-6">
                 <div class="flex items-center gap-1">
                   <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
@@ -1309,7 +1391,7 @@
             </div>
 
             <!-- Card 2 -->
-            <div class="bg-gray-100 p-6 sm:p-10 flex flex-col justify-between w-[300px] sm:w-[380px] lg:w-[400px] shrink-0">
+            <div class="google-review-card bg-gray-100 p-6 sm:p-10 flex flex-col justify-between w-[300px] sm:w-[380px] lg:w-[400px] shrink-0">
               <div class="flex items-start justify-between mb-4 sm:mb-6">
                 <div class="flex items-center gap-1">
                   <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
@@ -1319,7 +1401,7 @@
                   <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
                 </div>
                 <div class="flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 flex-shrink-0">
-                  <span class="text-emerald-400 text-2xl sm:text-3xl leading-none">★</span>
+                  <img src="https://www.google.com/favicon.ico" class="w-4 h-4 sm:w-5 sm:h-5" alt="Google" />
                 </div>
               </div>
               <h3 class="text-base sm:text-xl font-bold mb-3 sm:mb-4">Amazing Manaslu Trek Experience</h3>
@@ -1333,7 +1415,7 @@
             </div>
 
             <!-- Card 3 -->
-            <div class="bg-gray-100 p-6 sm:p-10 flex flex-col justify-between w-[300px] sm:w-[380px] lg:w-[400px] shrink-0">
+            <div class="google-review-card bg-gray-100 p-6 sm:p-10 flex flex-col justify-between w-[300px] sm:w-[380px] lg:w-[400px] shrink-0">
               <div class="flex items-start justify-between mb-4 sm:mb-6">
                 <div class="flex items-center gap-1">
                   <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
@@ -1343,7 +1425,7 @@
                   <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
                 </div>
                 <div class="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-[#00AC7E] flex items-center justify-center flex-shrink-0 overflow-hidden">
-                  <img src="https://www.tripadvisor.com/favicon.ico" alt="Tripadvisor" class="w-5 h-5 object-contain"/>
+                  <img src="https://www.google.com/favicon.ico" class="w-4 h-4 sm:w-5 sm:h-5" alt="Google" />
                 </div>
               </div>
               <h3 class="text-base sm:text-xl font-bold mb-3 sm:mb-4">Amazing Mardi Himal Trek Experience</h3>
@@ -1357,7 +1439,7 @@
             </div>
 
             <!-- Duplicate Card 1 -->
-            <div class="bg-gray-100 p-6 sm:p-10 flex flex-col justify-between w-[300px] sm:w-[380px] lg:w-[400px] shrink-0">
+            <div class="google-review-card bg-gray-100 p-6 sm:p-10 flex flex-col justify-between w-[300px] sm:w-[380px] lg:w-[400px] shrink-0" aria-hidden="true">
               <div class="flex items-start justify-between mb-4 sm:mb-6">
                 <div class="flex items-center gap-1">
                   <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
@@ -1381,7 +1463,7 @@
             </div>
 
             <!-- Duplicate Card 2 -->
-            <div class="bg-gray-100 p-6 sm:p-10 flex flex-col justify-between w-[300px] sm:w-[380px] lg:w-[400px] shrink-0">
+            <div class="google-review-card bg-gray-100 p-6 sm:p-10 flex flex-col justify-between w-[300px] sm:w-[380px] lg:w-[400px] shrink-0" aria-hidden="true">
               <div class="flex items-start justify-between mb-4 sm:mb-6">
                 <div class="flex items-center gap-1">
                   <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
@@ -1391,7 +1473,7 @@
                   <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
                 </div>
                 <div class="flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 flex-shrink-0">
-                  <span class="text-emerald-400 text-2xl sm:text-3xl leading-none">★</span>
+                  <img src="https://www.google.com/favicon.ico" class="w-4 h-4 sm:w-5 sm:h-5" alt="Google" />
                 </div>
               </div>
               <h3 class="text-base sm:text-xl font-bold mb-3 sm:mb-4">Amazing Manaslu Trek Experience</h3>
@@ -1405,7 +1487,7 @@
             </div>
 
             <!-- Duplicate Card 3 -->
-            <div class="bg-gray-100 p-6 sm:p-10 flex flex-col justify-between w-[300px] sm:w-[380px] lg:w-[400px] shrink-0">
+            <div class="google-review-card bg-gray-100 p-6 sm:p-10 flex flex-col justify-between w-[300px] sm:w-[380px] lg:w-[400px] shrink-0" aria-hidden="true">
               <div class="flex items-start justify-between mb-4 sm:mb-6">
                 <div class="flex items-center gap-1">
                   <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
@@ -1415,7 +1497,7 @@
                   <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
                 </div>
                 <div class="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-[#00AC7E] flex items-center justify-center flex-shrink-0 overflow-hidden">
-                  <img src="https://www.tripadvisor.com/favicon.ico" alt="Tripadvisor" class="w-4 h-4 sm:w-5 sm:h-5 object-contain" />
+                  <img src="https://www.google.com/favicon.ico" class="w-4 h-4 sm:w-5 sm:h-5" alt="Google" />
                 </div>
               </div>
               <h3 class="text-base sm:text-xl font-bold mb-3 sm:mb-4">Amazing Mardi Himal Trek Experience</h3>
