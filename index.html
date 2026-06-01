@@ -381,6 +381,29 @@
         transform: translateY(-7px) rotate(-45deg);
       }
 
+      @keyframes faq-reveal {
+        from {
+          opacity: 0;
+          transform: translateY(18px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .faq-added-item {
+        animation: faq-reveal 480ms ease-out both;
+        scroll-margin-top: 6rem;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .faq-added-item {
+          animation: none;
+        }
+      }
+
       @media (min-width: 1024px) and (max-width: 1180px) {
         .nav-dropdown-trigger,
         .nav-link {
@@ -1112,7 +1135,7 @@
         Frequently Asked Question
       </h2>
 
-      <div class="max-w-4xl mx-auto space-y-2">
+      <div id="faq-list" class="max-w-4xl mx-auto space-y-2">
         <div class="bg-white border border-gray-300/60 rounded-md overflow-hidden">
           <button class="faq-btn w-full flex items-center justify-between px-5 sm:px-8 py-4 sm:py-5 text-left text-base sm:text-lg font-bold text-black/80">
             What are the visa rules for Nepal?
@@ -1172,11 +1195,24 @@
           </div>
         </div>
 
-        <div class="pt-2">
-          <button class="bg-blue-600 hover:bg-blue-700 transition text-white px-6 sm:px-8 py-3 sm:py-4 rounded-md text-sm sm:text-base font-medium tracking-[0.8px] shadow">
+        <template id="faq-item-template">
+          <div class="faq-added-item bg-white border border-gray-300/60 rounded-md overflow-hidden">
+            <button type="button" class="faq-btn w-full flex items-center justify-between px-5 sm:px-8 py-4 sm:py-5 text-left text-base sm:text-lg font-bold text-black/80">
+              <span class="faq-question"></span>
+              <i data-lucide="chevron-down" class="w-8 min-w-8 h-8 p-2 rounded-full bg-gray-300/30 flex-shrink-0"></i>
+            </button>
+            <div class="faq-content max-h-0 overflow-hidden px-5 sm:px-8 text-gray-500 text-sm sm:text-base transition-all duration-300">
+              <p class="faq-answer mb-6"></p>
+            </div>
+          </div>
+        </template>
+
+        <div id="faq-load-more-wrapper" class="pt-2">
+          <button id="faq-load-more" type="button" class="bg-blue-600 hover:bg-blue-700 transition text-white px-6 sm:px-8 py-3 sm:py-4 rounded-md text-sm sm:text-base font-medium tracking-[0.8px] shadow" aria-controls="faq-list" aria-describedby="faq-load-more-status">
             More FAQs
           </button>
         </div>
+        <p id="faq-load-more-status" class="sr-only" aria-live="polite"></p>
       </div>
     </section>
     <!-- FAQ Section End -->

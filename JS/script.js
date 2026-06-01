@@ -315,21 +315,188 @@
         });
       })();
 
-      // FAQ accordion
-      document.querySelectorAll('.faq-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-          const content = btn.nextElementSibling;
-          const isOpen = content.style.maxHeight && content.style.maxHeight !== '0px';
-          document.querySelectorAll('.faq-content').forEach(c => {
-            c.style.maxHeight = '0px';
-            c.style.paddingBottom = '0';
+      // FAQ accordion and append-only loader
+      (function () {
+        const faqList = document.getElementById('faq-list');
+        const faqTemplate = document.getElementById('faq-item-template');
+        const loadMoreButton = document.getElementById('faq-load-more');
+        const loadMoreWrapper = document.getElementById('faq-load-more-wrapper');
+        const status = document.getElementById('faq-load-more-status');
+        if (!faqList || !faqTemplate || !loadMoreButton || !loadMoreWrapper) return;
+
+        const BATCH_SIZE = 10;
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        let loadedCount = 0;
+
+        const additionalFaqs = [
+          {
+            question: 'When is the best time to trek in Nepal?',
+            answer: 'Spring and autumn are popular trekking seasons because they generally offer clearer views and more stable conditions. The best time still depends on your chosen route.',
+          },
+          {
+            question: 'How difficult is the Everest Base Camp trek?',
+            answer: 'The trek is physically demanding because of the altitude and multiple walking days, but it does not require technical climbing skills. Good preparation and a steady pace are important.',
+          },
+          {
+            question: 'Do I need previous trekking experience?',
+            answer: 'Previous trekking experience is helpful but not essential for many routes. Regular walking, hill training, and an honest assessment of your fitness will help you prepare.',
+          },
+          {
+            question: 'What trekking permits do I need?',
+            answer: 'Permit requirements depend on your destination and route. Confirm the current requirements before departure so the correct documents can be arranged for your trek.',
+          },
+          {
+            question: 'What should I pack for a Himalayan trek?',
+            answer: 'Pack layered clothing, comfortable broken-in boots, rain protection, sun protection, a warm sleeping bag, reusable water bottles, and your personal essentials.',
+          },
+          {
+            question: 'Is drinking water available on the trail?',
+            answer: 'Water is available in villages and teahouses. Use a refillable bottle and follow your guide\'s advice for boiling, filtering, or treating water before drinking.',
+          },
+          {
+            question: 'What accommodation is available during a trek?',
+            answer: 'Popular trekking routes usually have locally run teahouses. Rooms are generally simple and comfortable, while facilities become more basic at higher elevations.',
+          },
+          {
+            question: 'Can I charge my phone and use Wi-Fi?',
+            answer: 'Many teahouses offer charging and internet access for an additional fee, but service can be limited in remote areas. Carrying a power bank is recommended.',
+          },
+          {
+            question: 'Should I hire a guide or porter?',
+            answer: 'A guide provides local knowledge and logistical support, while a porter can reduce the weight you carry. Both can make a high-altitude trek more comfortable.',
+          },
+          {
+            question: 'How do I reduce the risk of altitude sickness?',
+            answer: 'Ascend gradually, use acclimatization days, stay hydrated, avoid rushing, and tell your guide immediately if you feel unwell. Never ignore worsening symptoms.',
+          },
+          {
+            question: 'How far do trekkers usually walk each day?',
+            answer: 'Daily walking distance varies by route, altitude, and acclimatization needs. Most itineraries balance steady progress with enough time to rest and enjoy the trail.',
+          },
+          {
+            question: 'Are vegetarian meals available during a trek?',
+            answer: 'Vegetarian meals are widely available on popular routes. Tell your trekking team about dietary preferences or allergies before departure so they can guide your meal choices.',
+          },
+          {
+            question: 'Should I carry cash while trekking?',
+            answer: 'Yes. ATMs and card payments are unreliable outside major towns. Carry enough Nepali rupees for snacks, drinks, showers, charging, Wi-Fi, and tips.',
+          },
+          {
+            question: 'Can flights to Lukla be delayed?',
+            answer: 'Yes. Mountain weather can delay or cancel flights. Keep buffer days in your itinerary and avoid tight international connections immediately after the trek.',
+          },
+          {
+            question: 'Can my trekking itinerary be customized?',
+            answer: 'Yes. Your itinerary can be adjusted around your available time, fitness level, preferred pace, acclimatization needs, and the places you want to visit.',
+          },
+          {
+            question: 'How should I train before my trek?',
+            answer: 'Build endurance with regular walks, hills or stairs, and longer weekend hikes. Add strength training and gradually practice carrying your daypack.',
+          },
+          {
+            question: 'Are hot showers available on the trail?',
+            answer: 'Many teahouses offer hot showers for an additional fee. Availability becomes less reliable at higher elevations, so carry basic personal hygiene supplies.',
+          },
+          {
+            question: 'Can I rent trekking equipment in Kathmandu?',
+            answer: 'Many trekking items can be rented or purchased in Kathmandu. Bring personal-fit essentials such as well-tested boots when possible and inspect rental gear carefully.',
+          },
+          {
+            question: 'Can I store extra luggage in Kathmandu?',
+            answer: 'Usually, yes. Travelers commonly leave non-trekking luggage securely at their hotel or with their trekking operator while they are on the trail.',
+          },
+          {
+            question: 'Is tipping expected after a trek?',
+            answer: 'Tipping is customary when you are happy with the service. The amount is personal and can reflect the trek length, group size, and support provided.',
+          },
+        ];
+
+        const closeAllFaqs = () => {
+          faqList.querySelectorAll('.faq-content').forEach(content => {
+            content.style.maxHeight = '0px';
+            content.style.paddingBottom = '0';
+            content.setAttribute('aria-hidden', 'true');
           });
+
+          faqList.querySelectorAll('.faq-btn').forEach(button => {
+            button.setAttribute('aria-expanded', 'false');
+          });
+        };
+
+        const prepareFaq = (button, index) => {
+          const content = button.nextElementSibling;
+          if (!content) return;
+
+          const id = String(index + 1).padStart(2, '0');
+          button.type = 'button';
+          button.id = `faq-question-${id}`;
+          button.setAttribute('aria-controls', `faq-answer-${id}`);
+          button.setAttribute('aria-expanded', 'false');
+          content.id = `faq-answer-${id}`;
+          content.setAttribute('role', 'region');
+          content.setAttribute('aria-labelledby', button.id);
+          content.setAttribute('aria-hidden', 'true');
+        };
+
+        const prepareAllFaqs = () => {
+          faqList.querySelectorAll('.faq-btn').forEach(prepareFaq);
+        };
+
+        faqList.addEventListener('click', event => {
+          const button = event.target.closest('.faq-btn');
+          if (!button || !faqList.contains(button)) return;
+
+          const content = button.nextElementSibling;
+          if (!content) return;
+
+          const isOpen = button.getAttribute('aria-expanded') === 'true';
+          closeAllFaqs();
+
           if (!isOpen) {
+            button.setAttribute('aria-expanded', 'true');
+            content.setAttribute('aria-hidden', 'false');
             content.style.maxHeight = content.scrollHeight + 'px';
             content.style.paddingBottom = '20px';
           }
         });
-      });
+
+        loadMoreButton.addEventListener('click', () => {
+          const nextFaqs = additionalFaqs.slice(loadedCount, loadedCount + BATCH_SIZE);
+          const fragment = document.createDocumentFragment();
+          const addedItems = [];
+
+          nextFaqs.forEach((faq, index) => {
+            const item = faqTemplate.content.firstElementChild.cloneNode(true);
+            item.querySelector('.faq-question').textContent = faq.question;
+            item.querySelector('.faq-answer').textContent = faq.answer;
+            item.style.animationDelay = prefersReducedMotion ? '0ms' : `${index * 45}ms`;
+            fragment.appendChild(item);
+            addedItems.push(item);
+          });
+
+          loadMoreWrapper.before(fragment);
+          loadedCount += addedItems.length;
+          prepareAllFaqs();
+          window.lucide?.createIcons();
+
+          if (status) {
+            status.textContent = `${addedItems.length} additional FAQs displayed.`;
+          }
+
+          if (loadedCount >= additionalFaqs.length) {
+            loadMoreWrapper.hidden = true;
+          }
+
+          window.setTimeout(() => {
+            addedItems[0]?.scrollIntoView({
+              behavior: prefersReducedMotion ? 'auto' : 'smooth',
+              block: 'start',
+            });
+          }, prefersReducedMotion ? 0 : 100);
+        });
+
+        prepareAllFaqs();
+      })();
 
 
     // Legacy nested desktop dropdowns used by trekdetails.html
