@@ -175,6 +175,345 @@
         const searchToggle = search?.querySelector('.header-search-trigger');
         const searchPanel = search?.querySelector('.header-search-panel');
         const searchInput = search?.querySelector('.header-search-input');
+        const searchSuggestions = [
+          { title: 'Everest Base Camp Trek', category: 'Trek', href: 'trekdetails.html' },
+          { title: 'Annapurna Base Camp Trek', category: 'Trek', href: 'index.html#featured-destinations' },
+          { title: 'Manaslu Circuit Trek', category: 'Trek', href: 'index.html#featured-destinations' },
+          { title: 'Langtang Valley Trek', category: 'Trek', href: 'index.html#featured-destinations' },
+          { title: 'Gosaikunda Holy Lake Trek', category: 'Trek', href: 'index.html#featured-destinations' },
+          { title: 'Upper Mustang Trek', category: 'Trek', href: 'index.html#featured-destinations' },
+          { title: 'Everest Region', category: 'Trekking Region', href: 'index.html#featured-destinations' },
+          { title: 'Annapurna Region', category: 'Trekking Region', href: 'index.html#featured-destinations' },
+          { title: 'Langtang Region', category: 'Trekking Region', href: 'index.html#featured-destinations' },
+          { title: 'Manaslu Region', category: 'Trekking Region', href: 'index.html#featured-destinations' },
+          { title: 'Kanchanjunga Region', category: 'Trekking Region', href: 'index.html#featured-destinations' },
+          { title: 'Ganesh Himal Region', category: 'Trekking Region', href: 'index.html#featured-destinations' },
+          { title: 'Dhulagiri Region', category: 'Trekking Region', href: 'index.html#featured-destinations' },
+          { title: 'Yala Peak Climbing', category: 'Peak Climbing', href: 'index.html#featured-destinations' },
+          { title: 'Island Peak Climbing with Everest Base Camp', category: 'Peak Climbing', href: 'trekdetails.html' },
+          { title: 'Pokalade Peak Climbing', category: 'Peak Climbing', href: 'index.html#featured-destinations' },
+          { title: 'Lobuche Peak Climbing', category: 'Peak Climbing', href: 'index.html#featured-destinations' },
+          { title: 'Mardi Himal Climbing', category: 'Peak Climbing', href: 'index.html#featured-destinations' },
+          { title: 'Chulu West Peak', category: 'Peak Climbing', href: 'index.html#featured-destinations' },
+          { title: 'Dhampus Peak Climbing', category: 'Peak Climbing', href: 'index.html#featured-destinations' },
+          { title: 'Kathmandu Heritage Tour', category: 'Day Tour', href: 'index.html#contact' },
+          { title: 'Bhaktapur & Patan Tour', category: 'Day Tour', href: 'index.html#contact' },
+          { title: 'Nagarkot Sunrise Hike', category: 'Day Tour', href: 'index.html#contact' },
+          { title: 'Pokhara Sightseeing', category: 'Day Tour', href: 'index.html#contact' },
+        ].map(item => ({
+          ...item,
+          normalizedSearchText: `${item.title} ${item.category}`.toLocaleLowerCase(),
+        }));
+
+        let suggestionList = null;
+        let visibleSuggestions = [];
+        let activeSuggestionIndex = -1;
+        let lastRenderedQuery = null;
+
+        const setSuggestionVisibility = visible => {
+          suggestionList?.classList.toggle('is-visible', visible);
+          suggestionList?.setAttribute('aria-hidden', String(!visible));
+          searchInput?.setAttribute('aria-expanded', String(visible));
+
+          if (!visible) {
+            activeSuggestionIndex = -1;
+            searchInput?.removeAttribute('aria-activedescendant');
+          }
+        };
+
+        const setActiveSuggestion = index => {
+          if (!suggestionList || !visibleSuggestions.length) return;
+
+          activeSuggestionIndex = (index + visibleSuggestions.length) % visibleSuggestions.length;
+          suggestionList.querySelectorAll('[role="option"]').forEach((option, optionIndex) => {
+            const isActive = optionIndex === activeSuggestionIndex;
+            option.classList.toggle('is-active', isActive);
+            option.setAttribute('aria-selected', String(isActive));
+
+            if (isActive) {
+              searchInput?.setAttribute('aria-activedescendant', option.id);
+              option.scrollIntoView({ block: 'nearest' });
+            }
+          });
+        };
+
+        const createHighlightedText = (title, query) => {
+          const fragment = document.createDocumentFragment();
+          const normalizedTitle = title.toLocaleLowerCase();
+          let cursor = 0;
+          let matchIndex = normalizedTitle.indexOf(query, cursor);
+
+          while (matchIndex !== -1) {
+            fragment.append(document.createTextNode(title.slice(cursor, matchIndex)));
+
+            const mark = document.createElement('mark');
+            mark.textContent = title.slice(matchIndex, matchIndex + query.length);
+            fragment.append(mark);
+
+            cursor = matchIndex + query.length;
+            matchIndex = normalizedTitle.indexOf(query, cursor);
+          }
+
+          fragment.append(document.createTextNode(title.slice(cursor)));
+          return fragment;
+        };
+
+        const renderSearchSuggestions = () => {
+          if (!suggestionList || !searchInput) return;
+
+          const query = searchInput.value.trim().toLocaleLowerCase();
+
+          if (!query) {
+            if (lastRenderedQuery !== '') suggestionList.replaceChildren();
+            visibleSuggestions = [];
+            lastRenderedQuery = '';
+            setSuggestionVisibility(false);
+            return;
+          }
+
+          if (query !== lastRenderedQuery) {
+            visibleSuggestions = searchSuggestions
+              .filter(item => item.normalizedSearchText.includes(query))
+              .slice(0, 8);
+
+            const fragment = document.createDocumentFragment();
+
+            if (!visibleSuggestions.length) {
+              const emptyState = document.createElement('p');
+              emptyState.className = 'header-search-empty';
+              emptyState.textContent = 'No results found';
+              fragment.append(emptyState);
+            } else {
+              visibleSuggestions.forEach((item, index) => {
+                const link = document.createElement('a');
+                link.id = `header-search-option-${index}`;
+                link.className = 'header-search-suggestion';
+                link.href = item.href;
+                link.setAttribute('role', 'option');
+                link.setAttribute('aria-selected', 'false');
+
+                const dot = document.createElement('span');
+                dot.className = 'header-search-suggestion-dot';
+                dot.setAttribute('aria-hidden', 'true');
+
+                const content = document.createElement('span');
+                content.className = 'header-search-suggestion-content';
+
+                const title = document.createElement('span');
+                title.className = 'header-search-suggestion-title';
+                title.append(createHighlightedText(item.title, query));
+
+                const category = document.createElement('span');
+                category.className = 'header-search-suggestion-category';
+                category.append(createHighlightedText(item.category, query));
+
+                const arrow = document.createElement('span');
+                arrow.className = 'header-search-suggestion-arrow';
+                arrow.setAttribute('aria-hidden', 'true');
+                arrow.textContent = '>';
+
+                content.append(title, category);
+                link.append(dot, content, arrow);
+                link.addEventListener('mouseenter', () => setActiveSuggestion(index));
+                link.addEventListener('focus', () => setActiveSuggestion(index));
+                link.addEventListener('pointerdown', event => event.preventDefault());
+                link.addEventListener('click', () => setSearchState(false));
+                fragment.append(link);
+              });
+            }
+
+            suggestionList.replaceChildren(fragment);
+            activeSuggestionIndex = -1;
+            searchInput.removeAttribute('aria-activedescendant');
+            lastRenderedQuery = query;
+          }
+
+          setSuggestionVisibility(document.activeElement === searchInput);
+        };
+
+        if (searchPanel && searchInput) {
+          if (!document.getElementById('header-search-suggestion-styles')) {
+            const suggestionStyles = document.createElement('style');
+            suggestionStyles.id = 'header-search-suggestion-styles';
+            suggestionStyles.textContent = `
+              .header-search-suggestions {
+                max-height: 0;
+                margin-top: 0;
+                overflow: hidden;
+                border: 1px solid transparent;
+                border-radius: 12px;
+                background: #fff;
+                box-shadow: 0 0 0 rgba(15, 23, 42, 0);
+                opacity: 0;
+                transform: translateY(-6px);
+                transition: max-height 220ms ease, margin-top 180ms ease, opacity 180ms ease, transform 180ms ease, visibility 180ms ease;
+                visibility: hidden;
+              }
+
+              .header-search-suggestions.is-visible {
+                max-height: min(56vh, 348px);
+                margin-top: 8px;
+                overflow-y: auto;
+                border-color: rgba(226, 232, 240, 0.95);
+                box-shadow: 0 16px 34px rgba(15, 23, 42, 0.12);
+                opacity: 1;
+                transform: translateY(0);
+                visibility: visible;
+              }
+
+              .header-search-suggestion {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                margin: 4px;
+                border-radius: 9px;
+                padding: 10px;
+                color: #0f172a;
+                text-decoration: none;
+                transition: background-color 160ms ease, color 160ms ease, transform 160ms ease;
+              }
+
+              .header-search-suggestion:hover,
+              .header-search-suggestion:focus-visible,
+              .header-search-suggestion.is-active {
+                background: #eff6ff;
+                color: #1d4ed8;
+                outline: none;
+                transform: translateX(2px);
+              }
+
+              .header-search-suggestion-dot {
+                width: 8px;
+                height: 8px;
+                flex: 0 0 8px;
+                border-radius: 999px;
+                background: #60a5fa;
+                box-shadow: 0 0 0 4px rgba(219, 234, 254, 0.8);
+              }
+
+              .header-search-suggestion-content {
+                display: grid;
+                min-width: 0;
+                gap: 2px;
+              }
+
+              .header-search-suggestion-title {
+                overflow: hidden;
+                color: inherit;
+                font-size: 13px;
+                font-weight: 700;
+                line-height: 1.25;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+              }
+
+              .header-search-suggestion-title mark {
+                border-radius: 3px;
+                background: #fef08a;
+                color: #0f172a;
+                padding: 0 1px;
+              }
+
+              .header-search-suggestion-category mark {
+                border-radius: 3px;
+                background: #fef08a;
+                color: #475569;
+                padding: 0 1px;
+              }
+
+              .header-search-suggestion-category {
+                color: #64748b;
+                font-size: 10px;
+                font-weight: 800;
+                letter-spacing: 0.11em;
+                line-height: 1.2;
+                text-transform: uppercase;
+              }
+
+              .header-search-suggestion-arrow {
+                margin-left: auto;
+                color: #94a3b8;
+                font-size: 14px;
+                font-weight: 800;
+              }
+
+              .header-search-empty {
+                margin: 4px;
+                border-radius: 9px;
+                background: #f8fafc;
+                padding: 14px 12px;
+                color: #64748b;
+                font-size: 13px;
+                font-weight: 700;
+                text-align: center;
+              }
+
+              @media (max-width: 639px) {
+                .header-search-suggestions.is-visible {
+                  max-height: min(52vh, 320px);
+                }
+
+                .header-search-suggestion {
+                  padding: 11px 10px;
+                }
+              }
+
+              @media (prefers-reduced-motion: reduce) {
+                .header-search-suggestions,
+                .header-search-suggestion {
+                  transition: none;
+                }
+              }
+            `;
+            document.head.append(suggestionStyles);
+          }
+
+          suggestionList = document.createElement('div');
+          suggestionList.id = 'header-search-suggestions';
+          suggestionList.className = 'header-search-suggestions';
+          suggestionList.setAttribute('role', 'listbox');
+          suggestionList.setAttribute('aria-label', 'Search suggestions');
+          suggestionList.setAttribute('aria-hidden', 'true');
+          searchPanel.append(suggestionList);
+
+          searchInput.setAttribute('role', 'combobox');
+          searchInput.setAttribute('aria-autocomplete', 'list');
+          searchInput.setAttribute('aria-controls', suggestionList.id);
+          searchInput.setAttribute('aria-expanded', 'false');
+          searchInput.addEventListener('input', renderSearchSuggestions);
+          searchInput.addEventListener('focus', renderSearchSuggestions);
+          searchInput.addEventListener('blur', () => setSuggestionVisibility(false));
+          searchPanel.addEventListener('focusout', event => {
+            if (event.relatedTarget && searchPanel.contains(event.relatedTarget)) return;
+
+            window.setTimeout(() => {
+              if (!searchPanel.contains(document.activeElement)) {
+                setSuggestionVisibility(false);
+              }
+            }, 0);
+          });
+          document.addEventListener('focusin', event => {
+            if (!searchPanel.contains(event.target)) {
+              setSuggestionVisibility(false);
+            }
+          });
+          searchInput.addEventListener('keydown', event => {
+            if (event.key === 'ArrowDown' && visibleSuggestions.length) {
+              event.preventDefault();
+              setActiveSuggestion(activeSuggestionIndex + 1);
+            } else if (event.key === 'ArrowUp' && visibleSuggestions.length) {
+              event.preventDefault();
+              setActiveSuggestion(activeSuggestionIndex - 1);
+            } else if (event.key === 'Enter' && activeSuggestionIndex >= 0) {
+              event.preventDefault();
+              window.location.href = visibleSuggestions[activeSuggestionIndex].href;
+            } else if (event.key === 'Escape') {
+              setSuggestionVisibility(false);
+            } else if (event.key === 'Tab') {
+              setSuggestionVisibility(false);
+            }
+          });
+        }
 
         const setSearchState = open => {
           search?.classList.toggle('open', open);
@@ -191,6 +530,8 @@
 
           if (open) {
             window.setTimeout(() => searchInput?.focus(), 0);
+          } else {
+            setSuggestionVisibility(false);
           }
         };
 
@@ -289,6 +630,12 @@
           closeDesktopDropdowns();
           closeMobileMenu();
           setSearchState(willOpen);
+        });
+
+        document.addEventListener('pointerdown', event => {
+          if (!event.target.closest('.header-search')) {
+            setSuggestionVisibility(false);
+          }
         });
 
         document.addEventListener('click', event => {
