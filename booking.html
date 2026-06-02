@@ -636,15 +636,15 @@
      
       <div class="mx-auto max-w-6xl">
         <div class="absolute top-0 -z-10 h-1/2 bg-gray-100">
-          <h1 class="mt-4 inset-x-24 text-2xl font-bold leading-tight tracking-tight text-slate-950 sm:text-4xl mb-6">
+          <h1 class="mt-6 inset-x-24 text-xl font-bold leading-tight tracking-tight text-slate-950 sm:text-3xl mb-6">
            Begin Your Everest Base Camp Journey
           </h1>
         </div>
 
         <div class="grid grid-cols-1 items-start gap-6 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.25fr)] lg:gap-8">
           <!-- Trip Summary -->
-          <aside class="min-w-0 space-y-5">
-            <article class="group relative min-h-[365px] overflow-hidden bg-slate-950 shadow-md sm:min-h-[430px]">
+          <div class="min-w-0 space-y-5">
+            <div class="group relative min-h-[365px] overflow-hidden bg-slate-950 shadow-md sm:min-h-[430px]">
               <img src="Images/Everest/Everest.jpg" alt="Snow-covered peaks on the Everest Base Camp trek" class="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-105" />
               <div class="absolute inset-0 bg-gradient-to-b from-slate-950/25 via-slate-950/20 to-[#03243d]/95"></div>
 
@@ -670,7 +670,7 @@
                   </span>
                 </div>
               </div>
-            </article>
+            </div>
 
             <div class="grid grid-cols-2 gap-3 border border-slate-200/80 bg-white p-4 shadow-md sm:grid-cols-4 lg:grid-cols-2">
               <div class="rounded-xl bg-sky-50 p-3">
@@ -694,7 +694,7 @@
                 <p class="mt-1 text-xs font-bold text-slate-800">WhatsApp Direct</p>
               </div>
             </div>
-          </aside>
+          </div>
 
           <!-- Booking Form -->
           <section class="min-w-0 space-y-5">
@@ -716,7 +716,7 @@
                     <span class="mb-1.5 block text-[11px] font-bold uppercase tracking-[0.13em] text-slate-600">Full Name</span>
                     <span class="relative block">
                       <i data-lucide="user-round" class="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400"></i>
-                      <input type="text" name="name" autocomplete="name" required placeholder="Your full name" class="w-full rounded-xl border border-slate-200 bg-slate-50 py-3 pl-10 pr-3 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-gray-100 focus:bg-white focus:ring-4 focus:ring-gray-200" />
+                      <input type="text" name="name" autocomplete="name" placeholder="Your full name" class="w-full rounded-xl border border-slate-200 bg-slate-50 py-3 pl-10 pr-3 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-gray-100 focus:bg-white focus:ring-4 focus:ring-gray-200" />
                     </span>
                   </label>
 
@@ -724,7 +724,7 @@
                     <span class="mb-1.5 block text-[11px] font-bold uppercase tracking-[0.13em] text-slate-600">Email Address</span>
                     <span class="relative block">
                       <i data-lucide="mail" class="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400"></i>
-                      <input type="email" name="email" autocomplete="email" required placeholder="you@example.com" class="w-full rounded-xl border border-slate-200 bg-slate-50 py-3 pl-10 pr-3 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-gray-100 focus:bg-white focus:ring-4 focus:ring-gray-200" />
+                      <input type="email" name="email" autocomplete="email" placeholder="you@example.com" class="w-full rounded-xl border border-slate-200 bg-slate-50 py-3 pl-10 pr-3 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-gray-100 focus:bg-white focus:ring-4 focus:ring-gray-200" />
                     </span>
                   </label>
 
@@ -732,7 +732,7 @@
                     <span class="mb-1.5 block text-[11px] font-bold uppercase tracking-[0.13em] text-slate-600">Phone Number</span>
                     <span class="relative block">
                       <i data-lucide="phone" class="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400"></i>
-                      <input type="tel" name="phone" autocomplete="tel" inputmode="tel" required placeholder="+1 234 567 890" class="w-full rounded-xl border border-slate-200 bg-slate-50 py-3 pl-10 pr-3 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-gray-100 focus:bg-white focus:ring-4 focus:ring-gray-200" />
+                      <input type="tel" name="phone" autocomplete="tel" inputmode="tel" placeholder="+1 234 567 890" class="w-full rounded-xl border border-slate-200 bg-slate-50 py-3 pl-10 pr-3 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-gray-100 focus:bg-white focus:ring-4 focus:ring-gray-200" />
                     </span>
                   </label>
 
@@ -740,7 +740,7 @@
                     <span class="mb-1.5 block text-[11px] font-bold uppercase tracking-[0.13em] text-slate-600">Number of Travelers</span>
                     <span class="relative block">
                       <i data-lucide="users-round" class="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400"></i>
-                      <select name="travelers" required class="w-full appearance-none rounded-xl border border-slate-200 bg-slate-50 py-3 pl-10 pr-9 text-sm text-slate-900 outline-none transition focus:border-gray-100 focus:bg-white focus:ring-4 focus:ring-gray-200">
+                      <select name="travelers" class="w-full appearance-none rounded-xl border border-slate-200 bg-slate-50 py-3 pl-10 pr-9 text-sm text-slate-900 outline-none transition focus:border-gray-100 focus:bg-white focus:ring-4 focus:ring-gray-200">
                         <option value="" disabled selected>Select travelers</option>
                         <option value="1 Traveler">1 Traveler</option>
                         <option value="2 Travelers">2 Travelers</option>
@@ -762,7 +762,7 @@
                   <span class="mb-1.5 block text-[11px] font-bold uppercase tracking-[0.13em] text-slate-600">Preferred Travel Date</span>
                   <span class="relative block">
                     <i data-lucide="calendar" class="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400"></i>
-                    <input id="travel-date" type="date" name="travelDate" required class="w-full rounded-xl border border-slate-200 bg-slate-50 py-3 pl-10 pr-3 text-sm text-slate-900 outline-none transition focus:border-gray-100 focus:bg-white focus:ring-4 focus:ring-gray-200" />
+                    <input id="travel-date" type="date" name="travelDate" class="w-full rounded-xl border border-slate-200 bg-slate-50 py-3 pl-10 pr-3 text-sm text-slate-900 outline-none transition focus:border-gray-100 focus:bg-white focus:ring-4 focus:ring-gray-200" />
                   </span>
                 </label>
 
@@ -784,7 +784,7 @@
     </section>
      <!-- Booking Ends -->
 
-    <!-- Footer Start -->
+     <!-- Footer Start -->
     <section class="w-full overflow-hidden">
       <div class="relative">
         <div class="w-full bg-cover bg-center relative py-8 lg:py-24 pb-36 lg:pb-24" style="background-image: url('images/everest/overlayeverest.png');">
@@ -803,14 +803,14 @@
         <!-- CTA Buttons overlapping -->
         <div class=" bg-white shadow-2xl px-4 py-4 lg:py-8 rounded-lg flex flex-col sm:flex-row gap-4 max-w-4xl sm:mx-auto mx-4 items-center justify-center absolute -bottom-[20%] left-[20px] right-[20px] ">
           
-            <a href="#trip-booking" class="w-full sm:w-auto bg-black text-white text-xs sm:text-sm font-bold tracking-[2px] sm:tracking-[3px] uppercase px-8 sm:px-12 py-3 sm:py-4 text-center hover:bg-gray-800 transition-colors duration-300">
+            <a href="https://wa.me/9779851205116?text=Hello%2C%20I%20would%20like%20to%20book%20a%20trip.%0A%0ATrip%20Name%3A%20Everest%20Base%20Camp%20Trek%0A%0APlease%20provide%20me%20with%20the%20booking%20details%20and%20next%20steps." target="_blank" rel="noopener noreferrer" data-whatsapp-booking data-trip-name="Everest Base Camp Trek" class="w-full sm:w-auto bg-black text-white text-xs sm:text-sm font-bold tracking-[2px] sm:tracking-[3px] uppercase px-8 sm:px-12 py-3 sm:py-4 text-center hover:bg-gray-800 transition-colors duration-300">
               Book Your Trip
             </a>
-            <a href="tel:+9779851205116" class="w-full sm:w-auto border border-black text-black text-xs sm:text-sm font-bold px-6 sm:px-10 py-3 sm:py-4 flex items-center justify-center gap-2 sm:gap-3 hover:bg-black hover:text-white transition-colors duration-300">
+            <a href="tel:+977 9848532201" class="w-full sm:w-auto border border-black text-black text-xs sm:text-sm font-bold px-6 sm:px-10 py-3 sm:py-4 flex items-center justify-center gap-2 sm:gap-3 hover:bg-black hover:text-white transition-colors duration-300">
               <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 sm:w-4 sm:h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h2.28a1 1 0 01.95.68l1.06 3.18a1 1 0 01-.23 1.02L7.5 9.4a16.05 16.05 0 006.1 6.1l1.52-1.56a1 1 0 011.02-.23l3.18 1.06a1 1 0 01.68.95V19a2 2 0 01-2 2C8.16 21 3 10.84 3 5z"/>
               </svg>
-              +977 9851205116
+              +977 9848532201
             </a>
           
         </div>

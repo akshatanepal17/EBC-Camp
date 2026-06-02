@@ -572,20 +572,11 @@
       // WhatsApp trip booking form
       (function () {
         const bookingForm = document.getElementById('trip-booking-form');
-        if (!bookingForm) return;
-
-        const travelDateInput = bookingForm.querySelector('#travel-date');
-        const whatsappNumber = '9779851205116';
-        const today = new Date();
-        const localToday = new Date(today.getTime() - today.getTimezoneOffset() * 60000)
-          .toISOString()
-          .split('T')[0];
-
-        if (travelDateInput) {
-          travelDateInput.min = localToday;
-        }
+        const whatsappNumber = '9848532201';
 
         const formatTravelDate = value => {
+          if (!value) return '';
+
           const date = new Date(`${value}T00:00:00`);
 
           return date.toLocaleDateString('en-US', {
@@ -594,6 +585,56 @@
             day: 'numeric',
           });
         };
+
+        const buildWhatsAppUrl = details => {
+          const bookingDetails = [
+            ['Trip Name', details.tripName],
+            ['Travel Date', formatTravelDate(details.travelDate)],
+            ['Number of Travelers', details.travelers],
+            ['Name', details.name],
+            ['Email', details.email],
+            ['Phone', details.phone],
+            ['Message', details.message],
+          ]
+            .filter(([, value]) => value)
+            .map(([label, value]) => `${label}: ${value}`);
+
+          const whatsappMessage = [
+            'Hello, I would like to book a trip.',
+            '',
+            ...bookingDetails,
+            '',
+            'Please provide me with the booking details and next steps.',
+          ].join('\n');
+
+          return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+        };
+
+        document.querySelectorAll('[data-whatsapp-booking]').forEach(link => {
+          link.addEventListener('click', () => {
+            const sourceFormSelector = link.dataset.bookingForm;
+            const sourceForm = sourceFormSelector ? document.querySelector(sourceFormSelector) : null;
+            const formData = sourceForm ? new FormData(sourceForm) : null;
+
+            link.href = buildWhatsAppUrl({
+              tripName: link.dataset.tripName,
+              travelDate: formData?.get('travelDate'),
+              travelers: formData?.get('travelers'),
+            });
+          });
+        });
+
+        if (!bookingForm) return;
+
+        const travelDateInput = bookingForm.querySelector('#travel-date');
+        const today = new Date();
+        const localToday = new Date(today.getTime() - today.getTimezoneOffset() * 60000)
+          .toISOString()
+          .split('T')[0];
+
+        if (travelDateInput) {
+          travelDateInput.min = localToday;
+        }
 
         bookingForm.addEventListener('submit', event => {
           event.preventDefault();
@@ -604,30 +645,16 @@
           }
 
           const formData = new FormData(bookingForm);
-          const name = formData.get('name').trim();
-          const email = formData.get('email').trim();
-          const phone = formData.get('phone').trim();
-          const travelers = formData.get('travelers');
-          const travelDate = formatTravelDate(formData.get('travelDate'));
-          const message = formData.get('message').trim() || 'No additional requests.';
 
-          const whatsappMessage = [
-            'Hello Nepal Wilderness Trekking team,',
-            '',
-            'I would like to book the *Everest Base Camp Trek*.',
-            '',
-            '*Booking Details*',
-            `*Name:* ${name}`,
-            `*Email:* ${email}`,
-            `*Phone:* ${phone}`,
-            `*Number of Travelers:* ${travelers}`,
-            `*Preferred Travel Date:* ${travelDate}`,
-            `*Message:* ${message}`,
-            '',
-            'Please share the next steps for my trip.',
-          ].join('\n');
-
-          window.location.href = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+          window.location.href = buildWhatsAppUrl({
+            tripName: 'Everest Base Camp Trek',
+            travelDate: formData.get('travelDate'),
+            travelers: formData.get('travelers'),
+            name: formData.get('name').trim(),
+            email: formData.get('email').trim(),
+            phone: formData.get('phone').trim(),
+            message: formData.get('message').trim(),
+          });
         });
       })();
 
