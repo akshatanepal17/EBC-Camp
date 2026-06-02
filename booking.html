@@ -1,0 +1,916 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet" /> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <title>Everest Base Camp</title>
+  </head>
+  <body>
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+
+      .sticky-header {
+        border-bottom: 1px solid rgba(226, 232, 240, 0.9);
+      }
+
+      .nav-dropdown {
+        position: relative;
+      }
+
+      .nav-dropdown::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        right: 0;
+        left: 0;
+        height: 14px;
+      }
+
+      .nav-dropdown-trigger,
+      .nav-link {
+        display: inline-flex;
+        min-height: 42px;
+        align-items: center;
+        gap: 0.35rem;
+        border-radius: 999px;
+        padding: 0 0.75rem;
+        color: #0f172a;
+        font-size: 0.875rem;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+        transition:
+          background-color 180ms ease,
+          color 180ms ease,
+          box-shadow 180ms ease;
+      }
+
+      .nav-dropdown-trigger:hover,
+      .nav-dropdown-trigger:focus-visible,
+      .nav-dropdown.open > .nav-dropdown-trigger,
+      .nav-dropdown:focus-within > .nav-dropdown-trigger,
+      .nav-link:hover,
+      .nav-link:focus-visible {
+        background: #eff6ff;
+        color: #2563eb;
+        outline: none;
+      }
+
+      .nav-chevron,
+      .mobile-chevron,
+      .mobile-nested-chevron {
+        transition: transform 180ms ease;
+      }
+
+      .desktop-dropdown {
+        position: absolute;
+        top: calc(100% + 12px);
+        left: 0;
+        z-index: 50;
+        border: 1px solid rgba(226, 232, 240, 0.95);
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.98);
+        box-shadow: 0 22px 60px rgba(15, 23, 42, 0.16);
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(10px);
+        transition:
+          opacity 180ms ease,
+          transform 180ms ease,
+          visibility 180ms ease;
+        visibility: hidden;
+      }
+
+      .desktop-dropdown::after {
+        content: "";
+        position: absolute;
+        top: -14px;
+        right: 0;
+        left: 0;
+        height: 14px;
+      }
+
+      .desktop-dropdown::before {
+        content: "";
+        position: absolute;
+        top: -7px;
+        left: 28px;
+        width: 14px;
+        height: 14px;
+        border-top: 1px solid rgba(226, 232, 240, 0.95);
+        border-left: 1px solid rgba(226, 232, 240, 0.95);
+        background: rgba(255, 255, 255, 0.98);
+        transform: rotate(45deg);
+      }
+
+      .desktop-dropdown.dropdown-center {
+        left: 50%;
+        transform: translate(-50%, 10px);
+      }
+
+      .desktop-dropdown.dropdown-center::before {
+        left: 50%;
+        transform: translateX(-50%) rotate(45deg);
+      }
+
+      .nav-dropdown:hover > .desktop-dropdown,
+      .nav-dropdown:focus-within > .desktop-dropdown,
+      .nav-dropdown.open > .desktop-dropdown {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+        visibility: visible;
+      }
+
+      .nav-dropdown:hover > .desktop-dropdown.dropdown-center,
+      .nav-dropdown:focus-within > .desktop-dropdown.dropdown-center,
+      .nav-dropdown.open > .desktop-dropdown.dropdown-center {
+        transform: translate(-50%, 0);
+      }
+
+      .nav-dropdown:hover > .nav-dropdown-trigger .nav-chevron,
+      .nav-dropdown:focus-within > .nav-dropdown-trigger .nav-chevron,
+      .nav-dropdown.open > .nav-dropdown-trigger .nav-chevron,
+      .mobile-dropdown.open .mobile-chevron,
+      .mobile-nested-dropdown.open .mobile-nested-chevron {
+        transform: rotate(180deg);
+      }
+
+      .desktop-menu-link,
+      .submenu-link,
+      .destination-tour-link {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        border-radius: 12px;
+        padding: 0.7rem 0.75rem;
+        color: #111827;
+        font-size: 0.875rem;
+        font-weight: 700;
+        line-height: 1.25;
+        transition:
+          background-color 180ms ease,
+          color 180ms ease,
+          transform 180ms ease;
+      }
+
+      .desktop-menu-link:hover,
+      .submenu-link:hover,
+      .destination-tour-link:hover,
+      .desktop-menu-link:focus-visible,
+      .submenu-link:focus-visible,
+      .destination-tour-link:focus-visible {
+        background: #eff6ff;
+        color: #2563eb;
+        outline: none;
+        transform: translateX(2px);
+      }
+
+      .desktop-menu-icon {
+        display: inline-flex;
+        width: 2rem;
+        height: 2rem;
+        flex: 0 0 2rem;
+        align-items: center;
+        justify-content: center;
+        border-radius: 999px;
+        background: #dbeafe;
+        color: #2563eb;
+        transition:
+          background-color 180ms ease,
+          color 180ms ease;
+      }
+
+      .desktop-menu-link:hover .desktop-menu-icon,
+      .desktop-menu-link:focus-visible .desktop-menu-icon {
+        background: #2563eb;
+        color: #fff;
+      }
+
+      .destination-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+      }
+
+      .dropdown-section-title {
+        margin: 0 0 0.45rem;
+        padding: 0 0.75rem;
+        color: #64748b;
+        font-size: 0.72rem;
+        font-weight: 800;
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+      }
+
+      .menu-list {
+        display: grid;
+        gap: 0.15rem;
+      }
+
+      .submenu-link {
+        min-height: 38px;
+        font-weight: 600;
+      }
+
+      .destination-tour-link {
+        margin-top: 0.75rem;
+        min-height: 44px;
+        justify-content: space-between;
+        border: 1px solid #dbeafe;
+        background: #f8fbff;
+      }
+
+      .tour-duration {
+        flex: 0 0 auto;
+        border-radius: 999px;
+        background: #f1f5f9;
+        padding: 0.15rem 0.5rem;
+        color: #64748b;
+        font-size: 0.72rem;
+        font-weight: 800;
+      }
+
+      #mobile-menu {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        left: 0;
+        display: flex;
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transform: translateY(-8px);
+        transition:
+          max-height 320ms ease,
+          opacity 220ms ease,
+          transform 220ms ease,
+          visibility 220ms ease;
+        visibility: hidden;
+      }
+
+      #mobile-menu.open {
+        max-height: calc(100vh - 68px);
+        opacity: 1;
+        overflow-y: auto;
+        transform: translateY(0);
+        visibility: visible;
+      }
+
+      .mobile-dropdown-trigger,
+      .mobile-menu-link,
+      .mobile-nested-trigger {
+        min-height: 46px;
+        border-radius: 12px;
+        transition:
+          background-color 180ms ease,
+          color 180ms ease;
+      }
+
+      .mobile-dropdown-trigger:hover,
+      .mobile-menu-link:hover,
+      .mobile-nested-trigger:hover,
+      .mobile-dropdown.open > .mobile-dropdown-trigger,
+      .mobile-nested-dropdown.open > .mobile-nested-trigger {
+        background: #eff6ff;
+        color: #2563eb;
+      }
+
+      .mobile-submenu {
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transform: translateY(-4px);
+        transition:
+          max-height 280ms ease,
+          opacity 200ms ease,
+          transform 200ms ease;
+      }
+
+      .mobile-dropdown.open .mobile-submenu {
+        max-height: 980px;
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .mobile-submenu-inner {
+        display: grid;
+        gap: 0.25rem;
+        padding: 0 0 0.75rem 0.75rem;
+      }
+
+      .mobile-nested-submenu {
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transform: translateY(-4px);
+        transition:
+          max-height 240ms ease,
+          opacity 180ms ease,
+          transform 180ms ease;
+      }
+
+      .mobile-nested-dropdown.open .mobile-nested-submenu {
+        max-height: 430px;
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .hamburger-line {
+        display: block;
+        width: 20px;
+        height: 2px;
+        border-radius: 999px;
+        background: #0f172a;
+        transform-origin: center;
+        transition:
+          transform 180ms ease,
+          opacity 180ms ease;
+      }
+
+      #hamburger.is-open .hamburger-line:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+      }
+
+      #hamburger.is-open .hamburger-line:nth-child(2) {
+        opacity: 0;
+      }
+
+      #hamburger.is-open .hamburger-line:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+      }
+
+      @keyframes faq-reveal {
+        from {
+          opacity: 0;
+          transform: translateY(18px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .faq-added-item {
+        animation: faq-reveal 480ms ease-out both;
+        scroll-margin-top: 6rem;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .faq-added-item {
+          animation: none;
+        }
+      }
+
+      @media (min-width: 1024px) and (max-width: 1180px) {
+        .nav-dropdown-trigger,
+        .nav-link {
+          padding: 0 0.55rem;
+          font-size: 0.8rem;
+        }
+
+        .desktop-contact-number {
+          display: none;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        #mobile-menu {
+          display: none !important;
+        }
+      }
+
+      @media (max-width: 1023px) {
+        .desktop-dropdown {
+          display: none;
+        }
+      }
+
+    </style>
+
+    <!-- Header -->
+    <header class="sticky-header sticky top-0 z-50 bg-white/95 shadow-sm backdrop-blur">
+      <div class="mx-auto flex max-w-[1440px] items-center justify-between gap-3 px-4 py-3 sm:px-6 lg:px-8">
+
+        <!-- Logo -->
+        <a href="#" class="flex min-w-[96px] flex-shrink-0 items-center" aria-label="Everest Base Camp home">
+          <img src="images/Everest/Logo.png" class="h-auto w-16 object-contain sm:w-20 lg:w-28 xl:w-32" alt="Everest Base Camp" />
+        </a>
+
+        <!-- Desktop Nav -->
+        <nav class="hidden flex-1 items-center justify-center lg:flex" aria-label="Primary navigation">
+          <ul class="flex items-center">
+            <li class="nav-dropdown">
+              <button type="button" class="nav-dropdown-trigger" aria-expanded="false" aria-controls="about-menu">
+                ABOUT US <i data-lucide="chevron-down" class="nav-chevron h-4 w-4"></i>
+              </button>
+              <div id="about-menu" class="desktop-dropdown w-72 p-3">
+                <a href="#about" class="desktop-menu-link">
+                  <span class="desktop-menu-icon"><i data-lucide="users" class="h-4 w-4"></i></span>
+                  <span>Why Travel With Us</span>
+                </a>
+                <a href="#about" class="desktop-menu-link">
+                  <span class="desktop-menu-icon"><i data-lucide="shield-check" class="h-4 w-4"></i></span>
+                  <span>Terms & Conditions</span>
+                </a>
+                <a href="#about" class="desktop-menu-link">
+                  <span class="desktop-menu-icon"><i data-lucide="key-round" class="h-4 w-4"></i></span>
+                  <span>Privacy Policy</span>
+                </a>
+                <a href="#faq" class="desktop-menu-link">
+                  <span class="desktop-menu-icon"><i data-lucide="circle-help" class="h-4 w-4"></i></span>
+                  <span>FAQ</span>
+                </a>
+              </div>
+            </li>
+
+            <li class="nav-dropdown">
+              <button type="button" class="nav-dropdown-trigger" aria-expanded="false" aria-controls="nepal-menu">
+                NEPAL <i data-lucide="chevron-down" class="nav-chevron h-4 w-4"></i>
+              </button>
+              <div id="nepal-menu" class="desktop-dropdown dropdown-center w-[760px] max-w-[calc(100vw-2rem)] p-5">
+                <div class="destination-grid">
+                  <div>
+                    <p class="dropdown-section-title">Trekking Regions</p>
+                    <div class="menu-list">
+                      <a href="#" class="submenu-link">Everest Region</a>
+                      <a href="#" class="submenu-link">Annapurna Region</a>
+                      <a href="#" class="submenu-link">Langtang Region</a>
+                      <a href="#" class="submenu-link">Manaslu Region</a>
+                      <a href="#" class="submenu-link">Kanchanjunga Region</a>
+                      <a href="#" class="submenu-link">Ganesh Himal Region</a>
+                      <a href="#" class="submenu-link">Dhulagiri Region</a>
+                    </div>
+                  </div>
+                  <div>
+                    <p class="dropdown-section-title">Peak Climbing</p>
+                    <div class="menu-list">
+                      <a href="#" class="submenu-link">Yala Peak Climbing</a>
+                      <a href="#" class="submenu-link">Island Peak Climbing with Everest Base Camp</a>
+                      <a href="#" class="submenu-link">Pokalade Peak Climbing</a>
+                      <a href="#" class="submenu-link">Lobuche Peak Climbing</a>
+                      <a href="#" class="submenu-link">Mardi Himal Climbing</a>
+                      <a href="#" class="submenu-link">Chulu West Peak</a>
+                      <a href="#" class="submenu-link">Dhampus Peak Climbing</a>
+                    </div>
+                  </div>
+                </div>
+                <a href="#" class="destination-tour-link">
+                  <span class="flex items-center gap-3">
+                    <span class="desktop-menu-icon"><i data-lucide="map-pinned" class="h-4 w-4"></i></span>
+                    <span>Tours in Nepal</span>
+                  </span>
+                  <i data-lucide="arrow-right" class="h-4 w-4"></i>
+                </a>
+              </div>
+            </li>
+
+            <li class="nav-dropdown">
+              <button type="button" class="nav-dropdown-trigger" aria-expanded="false" aria-controls="day-tours-menu">
+                DAY TOURS <i data-lucide="chevron-down" class="nav-chevron h-4 w-4"></i>
+              </button>
+              <div id="day-tours-menu" class="desktop-dropdown w-80 p-3">
+                <a href="#" class="desktop-menu-link justify-between">
+                  <span>Kathmandu Heritage Tour</span>
+                  <span class="tour-duration">1 Day</span>
+                </a>
+                <a href="#" class="desktop-menu-link justify-between">
+                  <span>Bhaktapur & Patan Tour</span>
+                  <span class="tour-duration">1 Day</span>
+                </a>
+                <a href="#" class="desktop-menu-link justify-between">
+                  <span>Nagarkot Sunrise Hike</span>
+                  <span class="tour-duration">1 Day</span>
+                </a>
+                <a href="#" class="desktop-menu-link justify-between">
+                  <span>Pokhara Sightseeing</span>
+                  <span class="tour-duration">1 Day</span>
+                </a>
+              </div>
+            </li>
+
+            <li><a href="#testimonials" class="nav-link">TESTIMONIALS</a></li>
+            <li><a href="#blog" class="nav-link">BLOG</a></li>
+            <li><a href="#contact" class="nav-link">CONTACT</a></li>
+          </ul>
+        </nav>
+
+        <div class="flex items-center gap-2">
+          <!-- Compact Header Search -->
+          <div class="header-search relative">
+            <button type="button" class="header-search-trigger flex h-6 w-6 sm:h-8 sm:w-8 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-900 transition duration-200 hover:border-blue-200 hover:bg-blue-50 hover:text-blue-600 hover:shadow-[0_8px_20px_rgba(37,99,235,0.12)] focus-visible:border-blue-200 focus-visible:bg-blue-50 focus-visible:text-blue-600 focus-visible:outline-none focus-visible:shadow-[0_8px_20px_rgba(37,99,235,0.12)]" aria-label="Open search" aria-controls="header-search-panel" aria-expanded="false">
+              <i data-lucide="search" class="h-4 w-4"></i>
+            </button>
+            <div id="header-search-panel" class="header-search-panel invisible pointer-events-none absolute -right-12 top-[calc(100%+0.75rem)] z-[60] w-[calc(100vw-2rem)] max-w-xs -translate-y-1.5 rounded-[14px] border border-slate-200/95 bg-white/95 p-2 opacity-0 shadow-[0_18px_45px_rgba(15,23,42,0.16)] transition duration-200 lg:right-0">
+              <label for="header-search-input" class="sr-only">Search</label>
+              <input id="header-search-input" class="header-search-input w-full rounded-[10px] border border-slate-200 px-3 py-2.5 text-sm text-slate-900 outline-none transition duration-200 focus:border-blue-300 focus:shadow-[0_0_0_3px_rgba(147,197,253,0.28)]" type="search" name="q" placeholder="Search..." autocomplete="off" />
+            </div>
+          </div>
+          
+          <!-- Desktop Contact -->
+          <div class="hidden items-center gap-2 lg:flex">
+            <a href="#" class="flex h-7 w-7 items-center justify-center rounded bg-[#7360F2] transition hover:-translate-y-0.5 hover:shadow-lg" aria-label="Viber">
+              <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/viber.svg" class="h-5 w-5 invert" alt="" />
+            </a>
+            <a href="https://wa.me/9779851205116" class="flex h-7 w-7 items-center justify-center rounded bg-[#25D366] transition hover:-translate-y-0.5 hover:shadow-lg" aria-label="WhatsApp">
+              <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/whatsapp.svg" class="h-5 w-5 invert" alt="" />
+            </a>
+            <a href="tel:+9779851205116" class="desktop-contact-number whitespace-nowrap text-sm font-bold text-slate-900 hover:text-blue-600">+977 9851205116</a>
+          </div>
+          
+          <!-- Mobile Hamburger -->
+          <button id="hamburger" class="flex h-6 w-6 sm:h-8 sm:w-8 flex-col items-center justify-center gap-[5px] rounded-full border border-slate-200 bg-white shadow-sm lg:hidden" aria-label="Toggle menu" aria-controls="mobile-menu" aria-expanded="false">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="flex-col gap-1 border-t border-slate-100 bg-white px-3 pb-4 pt-2 shadow-xl lg:hidden">
+        <div class="mobile-dropdown">
+          <button type="button" class="mobile-dropdown-trigger flex w-full items-center justify-between px-3 text-sm font-bold" aria-expanded="false">
+            ABOUT US <i data-lucide="chevron-down" class="mobile-chevron h-4 w-4"></i>
+          </button>
+          <div class="mobile-submenu">
+            <div class="mobile-submenu-inner">
+              <a href="#about" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-600">Why Travel With Us</a>
+              <a href="#about" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-600">Terms & Conditions</a>
+              <a href="#about" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-600">Privacy Policy</a>
+              <a href="#faq" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-600">FAQ</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="mobile-dropdown">
+          <button type="button" class="mobile-dropdown-trigger flex w-full items-center justify-between px-3 text-sm font-bold" aria-expanded="false">
+            NEPAL <i data-lucide="chevron-down" class="mobile-chevron h-4 w-4"></i>
+          </button>
+          <div class="mobile-submenu">
+            <div class="mobile-submenu-inner">
+              <div class="mobile-nested-dropdown">
+                <button type="button" class="mobile-nested-trigger flex w-full items-center justify-between px-3 text-sm font-bold text-slate-700" aria-expanded="false">
+                  Trekking in Nepal
+                  <i data-lucide="chevron-down" class="mobile-nested-chevron h-4 w-4"></i>
+                </button>
+                <div class="mobile-nested-submenu">
+                  <div class="grid gap-1 pl-3 pt-1">
+                    <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Everest Region</a>
+                    <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Annapurna Region</a>
+                    <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Langtang Region</a>
+                    <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Manaslu Region</a>
+                    <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Kanchanjunga Region</a>
+                    <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Ganesh Himal Region</a>
+                    <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Dhulagiri Region</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mobile-nested-dropdown">
+                <button type="button" class="mobile-nested-trigger flex w-full items-center justify-between px-3 text-sm font-bold text-slate-700" aria-expanded="false">
+                  Peak Climbing
+                  <i data-lucide="chevron-down" class="mobile-nested-chevron h-4 w-4"></i>
+                </button>
+                <div class="mobile-nested-submenu">
+                  <div class="grid gap-1 pl-3 pt-1">
+                    <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Yala Peak Climbing</a>
+                    <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Island Peak Climbing with EBC</a>
+                    <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Pokalade Peak Climbing</a>
+                    <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Lobuche Peak Climbing</a>
+                    <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Mardi Himal Climbing</a>
+                    <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Chulu West Peak</a>
+                    <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Dhampus Peak Climbing</a>
+                  </div>
+                </div>
+              </div>
+
+              <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-bold text-slate-700">Tours in Nepal</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="mobile-dropdown">
+          <button type="button" class="mobile-dropdown-trigger flex w-full items-center justify-between px-3 text-sm font-bold" aria-expanded="false">
+            DAY TOURS <i data-lucide="chevron-down" class="mobile-chevron h-4 w-4"></i>
+          </button>
+          <div class="mobile-submenu">
+            <div class="mobile-submenu-inner">
+              <a href="#contact" class="mobile-menu-link flex items-center justify-between px-3 text-sm font-semibold text-slate-600">Kathmandu Heritage Tour <span class="tour-duration">1 Day</span></a>
+              <a href="#contact" class="mobile-menu-link flex items-center justify-between px-3 text-sm font-semibold text-slate-600">Bhaktapur & Patan Tour <span class="tour-duration">1 Day</span></a>
+              <a href="#contact" class="mobile-menu-link flex items-center justify-between px-3 text-sm font-semibold text-slate-600">Nagarkot Sunrise Hike <span class="tour-duration">1 Day</span></a>
+              <a href="#contact" class="mobile-menu-link flex items-center justify-between px-3 text-sm font-semibold text-slate-600">Pokhara Sightseeing <span class="tour-duration">1 Day</span></a>
+            </div>
+          </div>
+        </div>
+
+        <a href="#testimonials" class="mobile-menu-link flex items-center px-3 text-sm font-bold">TESTIMONIALS</a>
+        <a href="#blog" class="mobile-menu-link flex items-center px-3 text-sm font-bold">BLOG</a>
+        <a href="#contact" class="mobile-menu-link flex items-center px-3 text-sm font-bold">CONTACT</a>
+
+        <div class="mt-2 flex items-center gap-3 border-t border-slate-100 px-3 pt-4">
+          <span class="flex h-9 w-9 items-center justify-center rounded-full bg-[#7360F2]">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/viber.svg" class="h-5 w-5 invert" alt="Viber" />
+          </span>
+          <span class="flex h-9 w-9 items-center justify-center rounded-full bg-[#25D366]">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/whatsapp.svg" class="h-5 w-5 invert" alt="Whatsapp" />
+          </span>
+          <a href="tel:+9779851205116" class="text-sm font-bold text-slate-900">+977 9851205116</a>
+        </div>
+      </div>
+    </header>
+    <!-- Header End -->
+
+    <!-- Booking Starts -->
+    <section id="trip-booking" class="relative isolate overflow-hidden bg-[#f2f2f2] px-4 py-10 sm:px-6 sm:py-14 lg:px-8 lg:py-20">
+     
+      <div class="mx-auto max-w-6xl">
+        <div class="absolute top-0 -z-10 h-1/2 bg-gray-100">
+          <h1 class="mt-4 inset-x-24 text-2xl font-bold leading-tight tracking-tight text-slate-950 sm:text-4xl mb-6">
+           Begin Your Everest Base Camp Journey
+          </h1>
+        </div>
+
+        <div class="grid grid-cols-1 items-start gap-6 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.25fr)] lg:gap-8">
+          <!-- Trip Summary -->
+          <aside class="min-w-0 space-y-5">
+            <article class="group relative min-h-[365px] overflow-hidden bg-slate-950 shadow-md sm:min-h-[430px]">
+              <img src="Images/Everest/Everest.jpg" alt="Snow-covered peaks on the Everest Base Camp trek" class="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-105" />
+              <div class="absolute inset-0 bg-gradient-to-b from-slate-950/25 via-slate-950/20 to-[#03243d]/95"></div>
+
+              <div class="absolute inset-x-0 top-0 right-0 items-center justify-between p-5 sm:p-6">
+                <span class="rounded border border-white/20 bg-white/10 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.16em] text-white backdrop-blur">Nepal</span>
+              </div>
+
+              <div class="absolute inset-x-0 bottom-0 p-5 sm:p-7 mb-2">
+                <h2 class="text-2xl font-bold leading-tight text-white sm:text-3xl mb-3">Everest Base Camp Trek</h2>
+                <p class="max-w-sm text-sm leading-5 text-white/75 mb-5">Walk through the heart of the Everest region to the foot of the world's highest peak.</p>
+                <div class="flex flex-wrap gap-2 hidden sm:block">
+                  <span class="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1.5 text-xs font-bold text-white backdrop-blur">
+                    <i data-lucide="calendar-days" class="h-3.5 w-3.5 text-emerald-300"></i>
+                    14 Days
+                  </span>
+                  <span class="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1.5 text-xs font-bold text-white backdrop-blur">
+                    <i data-lucide="map-pin" class="h-3.5 w-3.5 text-emerald-300"></i>
+                    5,364m
+                  </span>
+                  <span class="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1.5 text-xs font-bold text-white backdrop-blur">
+                    <i data-lucide="activity" class="h-3.5 w-3.5 text-emerald-300"></i>
+                    Challenging
+                  </span>
+                </div>
+              </div>
+            </article>
+
+            <div class="grid grid-cols-2 gap-3 border border-slate-200/80 bg-white p-4 shadow-md sm:grid-cols-4 lg:grid-cols-2">
+              <div class="rounded-xl bg-sky-50 p-3">
+                <i data-lucide="map-pinned" class="h-5 w-5 text-sky-700"></i>
+                <p class="mt-2 text-[10px] font-bold uppercase tracking-[0.14em] text-slate-400">Destination</p>
+                <p class="mt-1 text-xs font-bold text-slate-800">Everest Region</p>
+              </div>
+              <div class="rounded-xl bg-sky-50 p-3">
+                <i data-lucide="plane" class="h-5 w-5 text-sky-700"></i>
+                <p class="mt-2 text-[10px] font-bold uppercase tracking-[0.14em] text-slate-400">Departure</p>
+                <p class="mt-1 text-xs font-bold text-slate-800">Kathmandu</p>
+              </div>
+              <div class="rounded-xl bg-sky-50 p-3">
+                <i data-lucide="shield-check" class="h-5 w-5 text-sky-700"></i>
+                <p class="mt-2 text-[10px] font-bold uppercase tracking-[0.14em] text-slate-400">Planning</p>
+                <p class="mt-1 text-xs font-bold text-slate-800">Expert Guidance</p>
+              </div>
+              <div class="rounded-xl bg-sky-50 p-3">
+                <i data-lucide="messages-square" class="h-5 w-5 text-sky-700"></i>
+                <p class="mt-2 text-[10px] font-bold uppercase tracking-[0.14em] text-slate-400">Support</p>
+                <p class="mt-1 text-xs font-bold text-slate-800">WhatsApp Direct</p>
+              </div>
+            </div>
+          </aside>
+
+          <!-- Booking Form -->
+          <section class="min-w-0 space-y-5">
+            <div class="overflow-hidden border border-slate-200/80 bg-white shadow-md">
+              <div class="border-b border-slate-100 bg-gradient-to-r from-[#f8fffd] to-white px-5 py-5 sm:px-7 sm:py-6">
+                <div class="flex items-start gap-3">
+                  <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gray-100 text-black">
+                    <i data-lucide="send" class="h-[18px] w-[18px]"></i>
+                  </span>
+                  <div>
+                    <h2 class="text-xl font-bold tracking-tight text-slate-950 sm:text-2xl">Secure Your Expedition</h2>
+                  </div>
+                </div>
+              </div>
+
+              <form id="trip-booking-form" class="space-y-4 px-5 py-5 sm:px-7 sm:py-6">
+                <div class="grid gap-4 sm:grid-cols-2">
+                  <label class="block">
+                    <span class="mb-1.5 block text-[11px] font-bold uppercase tracking-[0.13em] text-slate-600">Full Name</span>
+                    <span class="relative block">
+                      <i data-lucide="user-round" class="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400"></i>
+                      <input type="text" name="name" autocomplete="name" required placeholder="Your full name" class="w-full rounded-xl border border-slate-200 bg-slate-50 py-3 pl-10 pr-3 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-gray-100 focus:bg-white focus:ring-4 focus:ring-gray-200" />
+                    </span>
+                  </label>
+
+                  <label class="block">
+                    <span class="mb-1.5 block text-[11px] font-bold uppercase tracking-[0.13em] text-slate-600">Email Address</span>
+                    <span class="relative block">
+                      <i data-lucide="mail" class="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400"></i>
+                      <input type="email" name="email" autocomplete="email" required placeholder="you@example.com" class="w-full rounded-xl border border-slate-200 bg-slate-50 py-3 pl-10 pr-3 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-gray-100 focus:bg-white focus:ring-4 focus:ring-gray-200" />
+                    </span>
+                  </label>
+
+                  <label class="block">
+                    <span class="mb-1.5 block text-[11px] font-bold uppercase tracking-[0.13em] text-slate-600">Phone Number</span>
+                    <span class="relative block">
+                      <i data-lucide="phone" class="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400"></i>
+                      <input type="tel" name="phone" autocomplete="tel" inputmode="tel" required placeholder="+1 234 567 890" class="w-full rounded-xl border border-slate-200 bg-slate-50 py-3 pl-10 pr-3 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-gray-100 focus:bg-white focus:ring-4 focus:ring-gray-200" />
+                    </span>
+                  </label>
+
+                  <label class="block">
+                    <span class="mb-1.5 block text-[11px] font-bold uppercase tracking-[0.13em] text-slate-600">Number of Travelers</span>
+                    <span class="relative block">
+                      <i data-lucide="users-round" class="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400"></i>
+                      <select name="travelers" required class="w-full appearance-none rounded-xl border border-slate-200 bg-slate-50 py-3 pl-10 pr-9 text-sm text-slate-900 outline-none transition focus:border-gray-100 focus:bg-white focus:ring-4 focus:ring-gray-200">
+                        <option value="" disabled selected>Select travelers</option>
+                        <option value="1 Traveler">1 Traveler</option>
+                        <option value="2 Travelers">2 Travelers</option>
+                        <option value="3 Travelers">3 Travelers</option>
+                        <option value="4 Travelers">4 Travelers</option>
+                        <option value="5 Travelers">5 Travelers</option>
+                        <option value="6 Travelers">6 Travelers</option>
+                        <option value="7 Travelers">7 Travelers</option>
+                        <option value="8 Travelers">8 Travelers</option>
+                        <option value="9 Travelers">9 Travelers</option>
+                        <option value="10+ Travelers">10+ Travelers</option>
+                      </select>
+                      <i data-lucide="chevron-down" class="pointer-events-none absolute right-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400"></i>
+                    </span>
+                  </label>
+                </div>
+
+                <label class="block">
+                  <span class="mb-1.5 block text-[11px] font-bold uppercase tracking-[0.13em] text-slate-600">Preferred Travel Date</span>
+                  <span class="relative block">
+                    <i data-lucide="calendar" class="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400"></i>
+                    <input id="travel-date" type="date" name="travelDate" required class="w-full rounded-xl border border-slate-200 bg-slate-50 py-3 pl-10 pr-3 text-sm text-slate-900 outline-none transition focus:border-gray-100 focus:bg-white focus:ring-4 focus:ring-gray-200" />
+                  </span>
+                </label>
+
+                <label class="block">
+                  <span class="mb-1.5 block text-[11px] font-bold uppercase tracking-[0.13em] text-slate-600">Message <span class="font-normal normal-case tracking-normal text-slate-400">(optional)</span></span>
+                  <textarea name="message" rows="4" placeholder="Tell us about dietary needs, equipment rental, arrival plans, or any questions..." class="w-full resize-y rounded-xl border border-slate-200 bg-slate-50 px-3.5 py-3 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-gray-100 focus:bg-white focus:ring-4 focus:ring-gray-200"></textarea>
+                </label>
+
+                <button type="submit" class="group flex w-full items-center justify-center gap-2.5 rounded-xl bg-green-500 px-4 py-3 text-sm font-bold uppercase tracking-[0.08em] text-white shadow-[0_12px_24px_rgba(32,184,90,0.26)] transition duration-200 hover:bg-[#159847] hover:shadow-[0_16px_30px_rgba(32,184,90,0.32)] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-gray-200">
+                  Book Now
+                  <i data-lucide="arrow-right" class="h-4 w-4 transition group-hover:translate-x-1"></i>
+                </button>
+              </form>
+
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+     <!-- Booking Ends -->
+
+    <!-- Footer Start -->
+    <section class="w-full overflow-hidden">
+      <div class="relative">
+        <div class="w-full bg-cover bg-center relative py-8 lg:py-24 pb-36 lg:pb-24" style="background-image: url('images/everest/overlayeverest.png');">
+          <div class="absolute inset-0 bg-black/10"></div>
+          <div class="relative z-10 flex flex-col items-center justify-center h-full text-center px-4 sm:px-6">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white tracking-[2px] sm:tracking-[4px] uppercase mb-3 sm:mb-5 leading-tight">
+              Ready For Your <br /> Himalayan Adventure
+            </h2>
+            <p class="text-white/85 text-sm sm:text-base max-w-lg leading-4">
+              Experience the majestic peaks and vibrant cultures of Nepal <br />
+              with our award-winning adventure specialists.
+            </p>
+          </div>
+        </div>
+
+        <!-- CTA Buttons overlapping -->
+        <div class=" bg-white shadow-2xl px-4 py-4 lg:py-8 rounded-lg flex flex-col sm:flex-row gap-4 max-w-4xl sm:mx-auto mx-4 items-center justify-center absolute -bottom-[20%] left-[20px] right-[20px] ">
+          
+            <a href="#trip-booking" class="w-full sm:w-auto bg-black text-white text-xs sm:text-sm font-bold tracking-[2px] sm:tracking-[3px] uppercase px-8 sm:px-12 py-3 sm:py-4 text-center hover:bg-gray-800 transition-colors duration-300">
+              Book Your Trip
+            </a>
+            <a href="tel:+9779851205116" class="w-full sm:w-auto border border-black text-black text-xs sm:text-sm font-bold px-6 sm:px-10 py-3 sm:py-4 flex items-center justify-center gap-2 sm:gap-3 hover:bg-black hover:text-white transition-colors duration-300">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 sm:w-4 sm:h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h2.28a1 1 0 01.95.68l1.06 3.18a1 1 0 01-.23 1.02L7.5 9.4a16.05 16.05 0 006.1 6.1l1.52-1.56a1 1 0 011.02-.23l3.18 1.06a1 1 0 01.68.95V19a2 2 0 01-2 2C8.16 21 3 10.84 3 5z"/>
+              </svg>
+              +977 9851205116
+            </a>
+          
+        </div>
+      </div>
+
+      <footer id="contact" class="bg-[#f2f2f2] pt-24 sm:pt-32 lg:pt-36 pb-0">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-10 mb-10 sm:mb-16 container mx-auto px-4 sm:px-6 py-6">
+
+            <!-- Logo + We Accept -->
+            <div class="flex flex-col gap-4 sm:gap-5 md:gap-6 sm:col-span-2 lg:col-span-1">
+              <img src="Images/Everest/Logo.png" alt="Nepal Wilderness Trekking" class="w-16 sm:w-20 md:w-24 lg:w-32 h-auto object-contain" />
+              <div>
+                <p class="text-sm font-bold text-black mb-3">We Accept</p>
+                <div class="flex items-center gap-2 flex-wrap">
+                  <img src="images/Everest/we accept.png" alt="We Pay" class="h-5 sm:h-6 object-contain rounded-sm" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Quick Information -->
+            <div>
+              <h4 class="text-sm sm:text-base font-bold text-black mb-4 sm:mb-6">Quick Information</h4>
+              <ul class="flex flex-col gap-3 sm:gap-4">
+                <li><a href="#" class="text-xs sm:text-sm text-gray-500 hover:text-black hover:translate-x-1 transition-all duration-200 inline-block">About Us</a></li>
+                <li><a href="#" class="text-xs sm:text-sm text-gray-500 hover:text-black hover:translate-x-1 transition-all duration-200 inline-block">Contact Us</a></li>
+                <li><a href="#" class="text-xs sm:text-sm text-gray-500 hover:text-black hover:translate-x-1 transition-all duration-200 inline-block">Terms & Conditions</a></li>
+                <li><a href="#" class="text-xs sm:text-sm text-gray-500 hover:text-black hover:translate-x-1 transition-all duration-200 inline-block">Privacy Policy</a></li>
+              </ul>
+            </div>
+
+            <!-- Insights -->
+            <div>
+              <h4 class="text-sm sm:text-base font-bold text-black mb-4 sm:mb-6">Insights</h4>
+              <ul class="flex flex-col gap-3 sm:gap-4">
+                <li><a href="#" class="text-xs sm:text-sm text-gray-500 hover:text-black hover:translate-x-1 transition-all duration-200 inline-block">Travel Guide</a></li>
+                <li><a href="#" class="text-xs sm:text-sm text-gray-500 hover:text-black hover:translate-x-1 transition-all duration-200 inline-block">Blog & Insights</a></li>
+              </ul>
+            </div>
+
+            <!-- Destinations -->
+            <div>
+              <h4 class="text-sm sm:text-base font-bold text-black mb-4 sm:mb-6">Destinations</h4>
+              <ul class="flex flex-col gap-3 sm:gap-4">
+                <li><a href="#" class="text-xs sm:text-sm text-gray-500 hover:text-black hover:translate-x-1 transition-all duration-200 inline-block">Trekking in Nepal</a></li>
+                <li><a href="#" class="text-xs sm:text-sm text-gray-500 hover:text-black hover:translate-x-1 transition-all duration-200 inline-block">Peak Climbing</a></li>
+                <li><a href="#" class="text-xs sm:text-sm text-gray-500 hover:text-black hover:translate-x-1 transition-all duration-200 inline-block">Expedition in Nepal</a></li>
+                <li><a href="#" class="text-xs sm:text-sm text-gray-500 hover:text-black hover:translate-x-1 transition-all duration-200 inline-block">Hiking</a></li>
+              </ul>
+            </div>
+
+            <!-- Get In Touch -->
+            <div>
+              <h4 class="text-sm sm:text-base font-bold text-black mb-4 sm:mb-6">Get In Touch</h4>
+              <ul class="flex flex-col gap-4 sm:gap-5">
+                <li class="flex items-start gap-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mt-0.5 text-gray-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                  </svg>
+                  <span class="text-xs sm:text-sm text-gray-500 leading-6">
+                    Nepal Wilderness Trekking <br />
+                    (PVT 2024 Z street thamel, <br />
+                    Kathmandu, Nepal)
+                  </span>
+                </li>
+                <li class="flex items-center gap-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-gray-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">v
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                  </svg>
+                  <a href="mailto:info@nepalwildernesstrekking.com" class="text-xs sm:text-sm text-gray-500 hover:text-black transition-colors duration-200 break-all">
+                    info@nepalwildernesstrekking.com
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+
+          <!-- Bottom Footer -->
+           <div class="bg-white">
+          <div class="px-4 sm:px-6 py-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-6 container mx-auto">
+            <div class="flex flex-col gap-1">
+              <p class="text-xs sm:text-sm text-gray-500">
+                ©2024 <a href="#" class="text-blue-500 hover:text-blue-700 hover:underline transition-colors duration-200">Everest Base Camp Hike</a>
+              </p>
+              <p class="text-xs sm:text-sm text-gray-500">
+                <a href="#" class="hover:text-black transition-colors duration-200">Privacy Policy</a>
+                <span class="mx-2 text-gray-400">|</span>
+                <a href="#" class="font-bold text-black hover:underline transition-colors duration-200">Terms & Conditions</a>
+              </p>
+            </div>
+            <div class="flex items-center">
+              <img src="Images/Everest/Affiliations.png" alt="Affiliations" class="h-8 sm:h-12 object-contain" />
+            </div>
+          </div>
+          </div>
+      </footer>
+    </section>
+    <!-- Footer End -->
+
+<script src="JS/script.js"></script>
+  </body>
+</html>

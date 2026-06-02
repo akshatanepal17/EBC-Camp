@@ -569,6 +569,68 @@
         prepareAllFaqs();
       })();
 
+      // WhatsApp trip booking form
+      (function () {
+        const bookingForm = document.getElementById('trip-booking-form');
+        if (!bookingForm) return;
+
+        const travelDateInput = bookingForm.querySelector('#travel-date');
+        const whatsappNumber = '9779851205116';
+        const today = new Date();
+        const localToday = new Date(today.getTime() - today.getTimezoneOffset() * 60000)
+          .toISOString()
+          .split('T')[0];
+
+        if (travelDateInput) {
+          travelDateInput.min = localToday;
+        }
+
+        const formatTravelDate = value => {
+          const date = new Date(`${value}T00:00:00`);
+
+          return date.toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+          });
+        };
+
+        bookingForm.addEventListener('submit', event => {
+          event.preventDefault();
+
+          if (!bookingForm.checkValidity()) {
+            bookingForm.reportValidity();
+            return;
+          }
+
+          const formData = new FormData(bookingForm);
+          const name = formData.get('name').trim();
+          const email = formData.get('email').trim();
+          const phone = formData.get('phone').trim();
+          const travelers = formData.get('travelers');
+          const travelDate = formatTravelDate(formData.get('travelDate'));
+          const message = formData.get('message').trim() || 'No additional requests.';
+
+          const whatsappMessage = [
+            'Hello Nepal Wilderness Trekking team,',
+            '',
+            'I would like to book the *Everest Base Camp Trek*.',
+            '',
+            '*Booking Details*',
+            `*Name:* ${name}`,
+            `*Email:* ${email}`,
+            `*Phone:* ${phone}`,
+            `*Number of Travelers:* ${travelers}`,
+            `*Preferred Travel Date:* ${travelDate}`,
+            `*Message:* ${message}`,
+            '',
+            'Please share the next steps for my trip.',
+          ].join('\n');
+
+          window.location.href = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+        });
+      })();
+
 
     // Legacy nested desktop dropdowns used by trekdetails.html
     const setupLegacyNestedDropdown = (triggerSelector, menuId) => {
