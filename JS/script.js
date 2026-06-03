@@ -1029,7 +1029,8 @@
       // trekkingdetails
       // banner section
 (function () {
-  const AUTOPLAY_DURATION = 2000; // ms per slide
+  const AUTOPLAY_DURATION = 4500;
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
   const slider      = document.getElementById('hero-slider');
   if (!slider) return;
@@ -1043,52 +1044,77 @@
 
   if (!slides.length || !thumbs.length || !progressBar) return;
 
-  let current    = 0;
-  let autoplayTimer   = null;
-  let progressTimer   = null;
+  const slideActiveClasses = ['z-[2]', 'scale-100', 'opacity-100'];
+  const slideInactiveClasses = ['z-0', 'scale-105', 'opacity-0', 'pointer-events-none'];
+  const thumbActiveClasses = [
+    'active',
+    'border-white',
+    'opacity-100',
+    'shadow-[0_18px_45px_rgba(15,23,42,0.40)]',
+    'ring-2',
+    'ring-white/70',
+  ];
+  const thumbInactiveClasses = [
+    'border-white/25',
+    'opacity-70',
+    'shadow-none',
+    'ring-0',
+    'ring-transparent',
+  ];
+
+  let current = slides.findIndex(slide => slide.classList.contains('active'));
+  if (current < 0) current = 0;
+
+  let autoplayTimer = null;
+
+  function swapClasses(element, addClasses, removeClasses) {
+    element.classList.remove(...removeClasses);
+    element.classList.add(...addClasses);
+  }
+
+  function setSlideState(slide, isActive) {
+    slide.classList.toggle('active', isActive);
+    swapClasses(
+      slide,
+      isActive ? slideActiveClasses : slideInactiveClasses,
+      isActive ? slideInactiveClasses : slideActiveClasses
+    );
+    slide.setAttribute('aria-hidden', String(!isActive));
+  }
+
+  function setThumbState(thumb, isActive) {
+    swapClasses(
+      thumb,
+      isActive ? thumbActiveClasses : thumbInactiveClasses,
+      isActive ? thumbInactiveClasses : thumbActiveClasses
+    );
+    thumb.setAttribute('aria-selected', String(isActive));
+  }
+
+  function updateControls() {
+    slides.forEach((slide, index) => setSlideState(slide, index === current));
+    thumbs.forEach((thumb, index) => setThumbState(thumb, index === current));
+    if (counter) counter.textContent = `${current + 1} / ${slides.length}`;
+  }
 
   /* ── Core transition ─────────────────────────────────── */
-  function goTo(n) {
-    const prev = current;
-    current = (n + slides.length) % slides.length;
+  function goTo(index) {
+    const next = (index + slides.length) % slides.length;
+    if (next === current) return;
 
-    if (prev === current) return;
-
-    const direction = n >= prev ? 'exit-left' : 'exit-right';
-
-    // Outgoing slide
-    slides[prev].classList.remove('active');
-    slides[prev].classList.add(direction);
-    thumbs[prev].classList.remove('active');
-    thumbs[prev].setAttribute('aria-selected', 'false');
-
-    // Clean up exit class after transition ends
-    slides[prev].addEventListener('transitionend', () => {
-      slides[prev].classList.remove('exit-left', 'exit-right');
-    }, { once: true });
-
-    // Incoming slide
-    slides[current].classList.add('active');
-    thumbs[current].classList.add('active');
-    thumbs[current].setAttribute('aria-selected', 'true');
-
-    // Update counter
-    if (counter) counter.textContent = (current + 1) + ' / ' + slides.length;
-
-    // Restart progress bar
+    current = next;
+    updateControls();
     restartProgress();
   }
 
   /* ── Progress bar ────────────────────────────────────── */
   function restartProgress() {
-    // Reset
     progressBar.style.transition = 'none';
     progressBar.style.width = '0%';
 
-    // Force reflow so the reset is visible before animating
-    progressBar.getBoundingClientRect();
+    if (reduceMotion.matches) return;
 
-    // Animate to 100% over AUTOPLAY_DURATION
+    progressBar.getBoundingClientRect();
     progressBar.style.transition = `width ${AUTOPLAY_DURATION}ms linear`;
     progressBar.style.width = '100%';
   }
@@ -1096,138 +1122,266 @@
   /* ── Autoplay ────────────────────────────────────────── */
   function startAutoplay() {
     stopAutoplay();
-    autoplayTimer = setInterval(() => goTo(current + 1), AUTOPLAY_DURATION);
     restartProgress();
+    if (reduceMotion.matches) return;
+    autoplayTimer = setInterval(() => goTo(current + 1), AUTOPLAY_DURATION);
   }
 
   function stopAutoplay() {
     clearInterval(autoplayTimer);
-    clearTimeout(progressTimer);
+    autoplayTimer = null;
     progressBar.style.transition = 'none';
-    progressBar.style.width = '0%';
+  }
+
+  function moveSlide(step) {
+    goTo(current + step);
+    startAutoplay();
   }
 
   /* ── Event listeners ─────────────────────────────────── */
-  arrowLeft?.addEventListener('click', () => { goTo(current - 1); startAutoplay(); });
-  arrowRight?.addEventListener('click', () => { goTo(current + 1); startAutoplay(); });
+  arrowLeft?.addEventListener('click', () => moveSlide(-1));
+  arrowRight?.addEventListener('click', () => moveSlide(1));
 
   thumbs.forEach((thumb, i) => {
     thumb.addEventListener('click', () => { goTo(i); startAutoplay(); });
     // Keyboard accessibility
     thumb.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); goTo(i); startAutoplay(); }
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        goTo(i);
+        startAutoplay();
+      }
     });
   });
 
   // Pause on hover/focus, resume on leave
   slider.addEventListener('mouseenter', stopAutoplay);
   slider.addEventListener('mouseleave', startAutoplay);
-  slider.addEventListener('focusin',    stopAutoplay);
-  slider.addEventListener('focusout',   startAutoplay);
+  slider.addEventListener('focusin', stopAutoplay);
+  slider.addEventListener('focusout', () => {
+    window.setTimeout(() => {
+      if (!slider.contains(document.activeElement)) startAutoplay();
+    }, 0);
+  });
 
   // Keyboard arrow navigation on the section itself
   slider.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowLeft')  { goTo(current - 1); startAutoplay(); }
-    if (e.key === 'ArrowRight') { goTo(current + 1); startAutoplay(); }
+    if (e.key === 'ArrowLeft') moveSlide(-1);
+    if (e.key === 'ArrowRight') moveSlide(1);
   });
 
   /* ── Init ────────────────────────────────────────────── */
+  updateControls();
   startAutoplay();
 })();
 
 //sub navigation
 (function () {
   const subnav = document.getElementById('subnav');
-  const placeholder = document.getElementById('subnav-placeholder');
-  const banner = document.getElementById('hero-slider');
+  if (!subnav) return;
 
-  if (!subnav || !placeholder || !banner) return;
+  const header  = document.querySelector('.sticky-header');
+  const scroller = subnav.querySelector('.subnav-scroll');
+  const links   = Array.from(subnav.querySelectorAll('.nig-single-subnav-link[href^="#"]'));
+  const sections = links
+    .map(link => document.getElementById(link.getAttribute('href').slice(1)))
+    .filter(Boolean);
 
-  /* ---- measure & store subnav height ---- */
+  if (!links.length || !sections.length) return;
+
+  const navVisibleClasses = ['visible', 'pointer-events-auto', 'translate-y-0', 'opacity-100'];
+  const navHiddenClasses = ['invisible', 'pointer-events-none', '-translate-y-3', 'opacity-0'];
+  const linkActiveClasses = [
+    'border-slate-900/10',
+    'bg-slate-900',
+    'text-white',
+    'shadow-[0_10px_24px_rgba(15,23,42,0.18)]',
+    'hover:bg-slate-900',
+    'hover:text-white',
+  ];
+  const linkInactiveClasses = [
+    'border-transparent',
+    'text-slate-600',
+    'hover:border-blue-600/20',
+    'hover:bg-blue-600/10',
+    'hover:text-slate-900',
+  ];
+  const iconActiveClasses = ['text-blue-200'];
+  const iconInactiveClasses = ['text-blue-600'];
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  let activeId = '';
+  let latestScrollY = window.scrollY;
+  let ticking = false;
+  let subnavVisible = false;
+  let sectionObserver = null;
+
+  function swapClasses(element, addClasses, removeClasses) {
+    element.classList.remove(...removeClasses);
+    element.classList.add(...addClasses);
+  }
+
+  function getHeaderHeight() {
+    return header ? header.offsetHeight : 0;
+  }
+
   function getSubnavHeight() {
-    return subnav.offsetHeight;
+    return subnav.offsetHeight || 64;
   }
 
-  function updateCSSVars() {
-    document.documentElement.style.setProperty('--subnav-height', getSubnavHeight() + 'px');
+  function setMetrics() {
+    const headerHeight = getHeaderHeight();
+    const subnavHeight = getSubnavHeight();
+    const scrollMargin = headerHeight + subnavHeight + 24;
+
+    document.documentElement.style.setProperty('--header-height', headerHeight + 'px');
+    document.documentElement.style.setProperty('--subnav-height', subnavHeight + 'px');
+    sections.forEach(section => {
+      section.style.scrollMarginTop = scrollMargin + 'px';
+    });
   }
-  updateCSSVars();
-  window.addEventListener('resize', updateCSSVars);
 
-  /* ---- sticky logic ---- */
-  function onScroll() {
-    const bannerBottom = banner.getBoundingClientRect().bottom;
+  function getTopOffset(includeSubnav = subnavVisible) {
+    return getHeaderHeight() + (includeSubnav ? getSubnavHeight() : 0);
+  }
 
-    if (bannerBottom <= 0) {
-      // Banner has scrolled out — make subnav sticky
-      if (!subnav.classList.contains('is-sticky')) {
-        placeholder.style.height = getSubnavHeight() + 'px';
-        subnav.classList.add('is-sticky');
+  function centerActiveLink(link) {
+    if (!scroller) return;
+    const linkRect    = link.getBoundingClientRect();
+    const scrollerRect = scroller.getBoundingClientRect();
+    const isClipped   = linkRect.left < scrollerRect.left ||
+                        linkRect.right > scrollerRect.right;
+    if (!isClipped && window.innerWidth >= 768) return;
+    scroller.scrollTo({
+      left: scroller.scrollLeft + linkRect.left - scrollerRect.left -
+            ((scrollerRect.width - linkRect.width) / 2),
+      behavior: reduceMotion.matches ? 'auto' : 'smooth',
+    });
+  }
+
+  function setActiveLink(sectionId) {
+    if (!sectionId || sectionId === activeId) return;
+    activeId = sectionId;
+    links.forEach((link, index) => {
+      const isActive = link.getAttribute('href') === '#' + sectionId;
+      const icon = link.querySelector('.subnav-icon');
+
+      link.classList.toggle('active', isActive);
+      swapClasses(
+        link,
+        isActive ? linkActiveClasses : linkInactiveClasses,
+        isActive ? linkInactiveClasses : linkActiveClasses
+      );
+
+      if (icon) {
+        swapClasses(
+          icon,
+          isActive ? iconActiveClasses : iconInactiveClasses,
+          isActive ? iconInactiveClasses : iconActiveClasses
+        );
       }
-    } else {
-      // Banner still visible — subnav stays in normal flow
-      if (subnav.classList.contains('is-sticky')) {
-        subnav.classList.remove('is-sticky');
-        placeholder.style.height = '0px';
+
+      if (isActive) {
+        link.setAttribute('aria-current', 'location');
+        subnav.style.setProperty(
+          '--subnav-progress',
+          ((index + 1) / links.length * 100) + '%'
+        );
+        centerActiveLink(link);
+      } else {
+        link.removeAttribute('aria-current');
       }
+    });
+  }
+
+  function updateReveal() {
+    const shouldShow = latestScrollY > 8;
+    if (shouldShow !== subnavVisible) {
+      swapClasses(
+        subnav,
+        shouldShow ? navVisibleClasses : navHiddenClasses,
+        shouldShow ? navHiddenClasses : navVisibleClasses
+      );
+      subnavVisible = shouldShow;
     }
+    subnav.setAttribute('aria-hidden', String(!shouldShow));
   }
 
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll(); // run once on load
+  function updateActiveFromScroll() {
+    const marker = latestScrollY + getTopOffset() + 36;
+    let currentSection = sections[0];
+    sections.forEach(section => {
+      if (section.offsetTop <= marker) currentSection = section;
+    });
+    setActiveLink(currentSection.id);
+  }
 
-  /* ---- smooth scroll on link click ---- */
-  const links = subnav.querySelectorAll('a[href^="#"]');
+  function refreshSectionObserver() {
+    if (!('IntersectionObserver' in window)) return;
+    if (sectionObserver) sectionObserver.disconnect();
 
-  links.forEach((link) => {
-    link.addEventListener('click', function (e) {
-      const targetId = this.getAttribute('href').slice(1);
-      const target = document.getElementById(targetId);
+    const topMargin = getTopOffset(true) + 24;
+    sectionObserver = new IntersectionObserver((entries) => {
+      const visibleEntries = entries
+        .filter(entry => entry.isIntersecting)
+        .sort((a, b) => {
+          const aDistance = Math.abs(a.boundingClientRect.top - topMargin);
+          const bDistance = Math.abs(b.boundingClientRect.top - topMargin);
+          return aDistance - bDistance;
+        });
+
+      if (visibleEntries[0]) setActiveLink(visibleEntries[0].target.id);
+    }, {
+      rootMargin: '-' + topMargin + 'px 0px -55% 0px',
+      threshold: [0, 0.2, 0.45, 0.7],
+    });
+
+    sections.forEach(section => sectionObserver.observe(section));
+  }
+
+  /* ✅ FIX: ticking=true BEFORE requestAnimationFrame */
+  function updateOnScroll() {
+    latestScrollY = window.scrollY;
+    if (ticking) return;
+    ticking = true;                          // ← moved up
+    window.requestAnimationFrame(function () {
+      updateReveal();
+      updateActiveFromScroll();
+      ticking = false;
+    });
+  }
+
+  links.forEach(link => {
+    link.addEventListener('click', function (event) {
+      const target = document.getElementById(
+        link.getAttribute('href').slice(1)
+      );
       if (!target) return;
-
-      e.preventDefault();
-
-      const offset = subnav.classList.contains('is-sticky') ? getSubnavHeight() + 16 : 16;
-      const targetTop = target.getBoundingClientRect().top + window.scrollY - offset;
-
-      window.scrollTo({ top: targetTop, behavior: 'smooth' });
-
-      links.forEach((l) => {
-        l.classList.remove('active');
-        l.setAttribute('aria-current', 'false');
+      event.preventDefault();
+      swapClasses(subnav, navVisibleClasses, navHiddenClasses);
+      subnavVisible = true;
+      subnav.setAttribute('aria-hidden', 'false');
+      setMetrics();
+      window.scrollTo({
+        top: target.getBoundingClientRect().top +
+             window.scrollY - getTopOffset(true) - 24,
+        behavior: reduceMotion.matches ? 'auto' : 'smooth',
       });
-      this.classList.add('active');
-      this.setAttribute('aria-current', 'true');
+      setActiveLink(target.id);
+      history.replaceState(null, '', link.getAttribute('href'));
     });
   });
 
-  /* ---- active link highlight on scroll ---- */
-  const sectionIds = [...links].map((l) => l.getAttribute('href').slice(1));
+  setMetrics();
+  refreshSectionObserver();
+  setActiveLink(sections[0].id);
+  updateOnScroll();   // run once immediately on load
 
-  const sectionObserver = new IntersectionObserver(
-    (entries) => {
-      const visible = entries
-        .filter((e) => e.isIntersecting)
-        .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
-
-      if (visible.length > 0) {
-        const activeId = visible[0].target.id;
-        links.forEach((link) => {
-          const isActive = link.getAttribute('href') === '#' + activeId;
-          link.classList.toggle('active', isActive);
-          link.setAttribute('aria-current', isActive ? 'true' : 'false');
-        });
-      }
-    },
-    {
-      rootMargin: '-10% 0px -75% 0px',
-      threshold: 0,
-    }
-  );
-
-  sectionIds.forEach((id) => {
-    const el = document.getElementById(id);
-    if (el) sectionObserver.observe(el);
+  window.addEventListener('scroll', updateOnScroll, { passive: true });
+  window.addEventListener('resize', function () {
+    setMetrics();
+    refreshSectionObserver();
+    updateOnScroll();
   });
 })();
 
