@@ -729,6 +729,71 @@
       }
     }
 
+    .itinerary-content {
+      max-height: 0;
+    }
+
+    .itinerary-card.is-open .itinerary-chevron {
+      background: #2563eb;
+      border-color: #2563eb;
+      color: #fff;
+      transform: rotate(180deg);
+    }
+
+    .itinerary-meta {
+      display: flex;
+      min-width: 0;
+      align-items: flex-start;
+      gap: 0.75rem;
+      border-left: 2px solid rgba(37, 99, 235, 0.18);
+      padding-left: 0.85rem;
+    }
+
+    .itinerary-meta svg {
+      margin-top: 0.15rem;
+      width: 1rem;
+      height: 1rem;
+      flex-shrink: 0;
+      color: #2563eb;
+    }
+
+    .itinerary-meta span {
+      display: grid;
+      min-width: 0;
+      gap: 0.2rem;
+      color: #475569;
+      font-size: 0.85rem;
+      line-height: 1.35;
+    }
+
+    .itinerary-meta strong {
+      color: #0f172a;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .itinerary-chip {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      background: #f1f5f9;
+      padding: 0.42rem 0.72rem;
+      color: #334155;
+      font-size: 0.75rem;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .itinerary-content,
+      .itinerary-card,
+      .itinerary-chevron {
+        transition: none !important;
+      }
+    }
+
   </style>
 
   <!-- Header -->
@@ -1584,127 +1649,245 @@
         <!-- Services Section End -->
 
         <!-- Itinerary Section Start-->
-        <section id="itinerary" class="px-0 sm:px-4 lg:px-8 space-y-8">
-          <h2 class="text-2xl font-bold mb-4">Itinerary</h2>
-          <div class="overflow-hidden text-sm">
-
-            <div class="flex items-center justify-between px-4 py-3 border shadow-md border-gray-100 mb-2">
-              <div class="flex items-center gap-4">
-                <span class="text-black font-bold w-7">01</span>
-                <span class="font-bold">Arrival in Kathmandu</span>
+        <section id="itinerary" class="px-0 sm:px-4 lg:px-8">
+          <div class="mb-7 flex flex-col gap-3 sm:mb-8">
+            <p class="text-xs font-extrabold uppercase tracking-[0.18em] text-blue-600">Day by day trek plan</p>
+            <div class="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+              <div>
+                <h2 class="text-2xl font-extrabold tracking-tight text-slate-950 sm:text-3xl">Itinerary</h2>
+                <p class="mt-2 max-w-2xl text-sm leading-6 text-slate-600 sm:text-base">
+                  Follow a carefully paced Everest Base Camp route with acclimatization days, Sherpa villages, and high mountain viewpoints.
+                </p>
               </div>
-              <span
-                class="text-xs font-bold border border-black rounded px-2.5 py-1 text-black whitespace-nowrap hover:bg-gray-200">1,400m</span>
+              <span class="inline-flex w-fit items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-4 py-2 text-xs font-extrabold uppercase tracking-[0.12em] text-emerald-700">
+                <i data-lucide="mountain" class="h-4 w-4" aria-hidden="true"></i>
+                13 Days
+              </span>
             </div>
+          </div>
 
-            <div class="flex items-center justify-between px-4 py-3 border shadow-md border-gray-100 mb-2">
-              <div class="flex items-center gap-4">
-                <span class="text-black font-bold w-7">02</span>
-                <span class="font-bold">Flight to Lukla and Trek to Phakding</span>
+          <div class="relative space-y-4 before:absolute before:bottom-6 before:left-6 before:top-6 before:w-px before:bg-gradient-to-b before:from-blue-200 before:via-emerald-200 before:to-transparent sm:before:left-7">
+
+            <article class="itinerary-card is-open group relative overflow-hidden rounded-lg border border-blue-200 bg-white shadow-[0_18px_42px_rgba(37,99,235,0.10)] transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-300 hover:shadow-[0_24px_52px_rgba(37,99,235,0.14)]" data-itinerary-card>
+              <button type="button" class="itinerary-trigger flex w-full items-start gap-4 px-4 py-4 text-left sm:gap-5 sm:px-5 sm:py-5" aria-expanded="true" aria-controls="itinerary-day-01" data-itinerary-toggle>
+                <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-slate-950 text-sm font-extrabold text-white shadow-[0_14px_30px_rgba(15,23,42,0.18)] ring-4 ring-white sm:h-14 sm:w-14">01</span>
+                <span class="min-w-0 flex-1">
+                  <span class="mb-2 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+                    <span class="text-base font-extrabold text-slate-950 sm:text-lg">Arrival in Kathmandu</span>
+                    <span class="inline-flex w-fit items-center gap-1.5 rounded-full bg-blue-50 px-3 py-1.5 text-xs font-extrabold text-blue-700 ring-1 ring-blue-100">
+                      <i data-lucide="trending-up" class="h-3.5 w-3.5" aria-hidden="true"></i>
+                      1,400m
+                    </span>
+                  </span>
+                  <span class="block text-sm leading-6 text-slate-500">Meet the team, settle into the city, and prepare your trekking gear.</span>
+                </span>
+                <span class="itinerary-chevron mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 transition duration-300 group-hover:border-blue-200 group-hover:text-blue-600">
+                  <i data-lucide="chevron-down" class="h-4 w-4" aria-hidden="true"></i>
+                </span>
+              </button>
+              <div id="itinerary-day-01" class="itinerary-content overflow-hidden transition-[max-height] duration-500 ease-in-out" role="region" aria-hidden="false">
+                <div class="grid gap-5 border-t border-slate-100 px-4 pb-5 pt-4 sm:px-5 lg:grid-cols-[minmax(0,1fr)_220px]">
+                  <div>
+                    <div class="grid gap-3 sm:grid-cols-2">
+                      <div class="itinerary-meta"><i data-lucide="map-pin" aria-hidden="true"></i><span><strong>Location</strong>Kathmandu</span></div>
+                      <div class="itinerary-meta"><i data-lucide="bed" aria-hidden="true"></i><span><strong>Accommodation</strong>Hotel in Kathmandu</span></div>
+                      <div class="itinerary-meta"><i data-lucide="utensils" aria-hidden="true"></i><span><strong>Meals</strong>Welcome dinner</span></div>
+                      <div class="itinerary-meta"><i data-lucide="clock" aria-hidden="true"></i><span><strong>Duration</strong>Arrival day</span></div>
+                    </div>
+                    <p class="mt-4 text-sm leading-7 text-slate-600">Arrive in Kathmandu and transfer to your hotel. Your guide reviews the route, checks essential gear, and introduces the rhythm of the days ahead.</p>
+                    <div class="mt-4 flex flex-wrap gap-2">
+                      <span class="itinerary-chip">Airport transfer</span>
+                      <span class="itinerary-chip">Trip briefing</span>
+                      <span class="itinerary-chip">Gear check</span>
+                    </div>
+                  </div>
+                  <img src="Images/Everest/Everest Home Page.jpg" alt="Kathmandu arrival before Everest Base Camp trek" class="h-44 w-full rounded-md object-cover shadow-sm sm:h-52 lg:h-56">
+                </div>
               </div>
-              <span
-                class="text-xs font-bold border border-black rounded px-2.5 py-1 text-black whitespace-nowrap hover:bg-gray-200">2,610m</span>
-            </div>
+            </article>
 
-            <div class="flex items-center justify-between px-4 py-3 border shadow-md border-gray-100 mb-2">
-              <div class="flex items-center gap-4">
-                <span class="text-black font-bold w-7">03</span>
-                <span class="font-bold">Phakding to Namche Bazaar</span>
+            <article class="itinerary-card group relative overflow-hidden rounded-lg border border-slate-200 bg-white shadow-[0_14px_34px_rgba(15,23,42,0.06)] transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-300 hover:shadow-[0_24px_52px_rgba(37,99,235,0.14)]" data-itinerary-card>
+              <button type="button" class="itinerary-trigger flex w-full items-start gap-4 px-4 py-4 text-left sm:gap-5 sm:px-5 sm:py-5" aria-expanded="false" aria-controls="itinerary-day-02" data-itinerary-toggle>
+                <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-slate-950 text-sm font-extrabold text-white shadow-[0_14px_30px_rgba(15,23,42,0.18)] ring-4 ring-white sm:h-14 sm:w-14">02</span>
+                <span class="min-w-0 flex-1">
+                  <span class="mb-2 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+                    <span class="text-base font-extrabold text-slate-950 sm:text-lg">Flight to Lukla and Trek to Phakding</span>
+                    <span class="inline-flex w-fit items-center gap-1.5 rounded-full bg-blue-50 px-3 py-1.5 text-xs font-extrabold text-blue-700 ring-1 ring-blue-100"><i data-lucide="trending-up" class="h-3.5 w-3.5" aria-hidden="true"></i>2,610m</span>
+                  </span>
+                  <span class="block text-sm leading-6 text-slate-500">A dramatic mountain flight leads into the first easy trail walk.</span>
+                </span>
+                <span class="itinerary-chevron mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 transition duration-300 group-hover:border-blue-200 group-hover:text-blue-600"><i data-lucide="chevron-down" class="h-4 w-4" aria-hidden="true"></i></span>
+              </button>
+              <div id="itinerary-day-02" class="itinerary-content overflow-hidden transition-[max-height] duration-500 ease-in-out" role="region" aria-hidden="true">
+                <div class="grid gap-5 border-t border-slate-100 px-4 pb-5 pt-4 sm:px-5 lg:grid-cols-[minmax(0,1fr)_220px]">
+                  <div>
+                    <div class="grid gap-3 sm:grid-cols-2">
+                      <div class="itinerary-meta"><i data-lucide="map-pin" aria-hidden="true"></i><span><strong>Location</strong>Lukla to Phakding</span></div>
+                      <div class="itinerary-meta"><i data-lucide="bed" aria-hidden="true"></i><span><strong>Accommodation</strong>Tea house</span></div>
+                      <div class="itinerary-meta"><i data-lucide="utensils" aria-hidden="true"></i><span><strong>Meals</strong>Breakfast, lunch, dinner</span></div>
+                      <div class="itinerary-meta"><i data-lucide="clock" aria-hidden="true"></i><span><strong>Duration</strong>3 to 4 hours trek</span></div>
+                    </div>
+                    <p class="mt-4 text-sm leading-7 text-slate-600">Fly into Lukla and begin on a gentle trail beside the Dudh Koshi, crossing small villages, mani walls, and forested river bends.</p>
+                    <div class="mt-4 flex flex-wrap gap-2"><span class="itinerary-chip">Mountain flight</span><span class="itinerary-chip">Dudh Koshi trail</span><span class="itinerary-chip">Sherpa villages</span></div>
+                  </div>
+                  <img src="images/Everest/Trek Banner1.png" alt="Trail between Lukla and Phakding" class="h-44 w-full rounded-md object-cover shadow-sm sm:h-52 lg:h-56">
+                </div>
               </div>
-              <span
-                class="text-xs font-bold border border-black rounded px-2.5 py-1 text-black whitespace-nowrap hover:bg-gray-200">3,440m</span>
-            </div>
+            </article>
 
-            <div class="flex items-center justify-between px-4 py-3 border shadow-md border-gray-100 mb-2">
-              <div class="flex items-center gap-4">
-                <span class="text-black font-bold w-7">04</span>
-                <span class="font-bold">Acclimatization Day at Namche Bazaar</span>
+            <article class="itinerary-card group relative overflow-hidden rounded-lg border border-slate-200 bg-white shadow-[0_14px_34px_rgba(15,23,42,0.06)] transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-300 hover:shadow-[0_24px_52px_rgba(37,99,235,0.14)]" data-itinerary-card>
+              <button type="button" class="itinerary-trigger flex w-full items-start gap-4 px-4 py-4 text-left sm:gap-5 sm:px-5 sm:py-5" aria-expanded="false" aria-controls="itinerary-day-03" data-itinerary-toggle>
+                <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-slate-950 text-sm font-extrabold text-white shadow-[0_14px_30px_rgba(15,23,42,0.18)] ring-4 ring-white sm:h-14 sm:w-14">03</span>
+                <span class="min-w-0 flex-1"><span class="mb-2 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between"><span class="text-base font-extrabold text-slate-950 sm:text-lg">Phakding to Namche Bazaar</span><span class="inline-flex w-fit items-center gap-1.5 rounded-full bg-blue-50 px-3 py-1.5 text-xs font-extrabold text-blue-700 ring-1 ring-blue-100"><i data-lucide="trending-up" class="h-3.5 w-3.5" aria-hidden="true"></i>3,440m</span></span><span class="block text-sm leading-6 text-slate-500">Enter Sagarmatha National Park and climb toward the Khumbu capital.</span></span>
+                <span class="itinerary-chevron mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 transition duration-300 group-hover:border-blue-200 group-hover:text-blue-600"><i data-lucide="chevron-down" class="h-4 w-4" aria-hidden="true"></i></span>
+              </button>
+              <div id="itinerary-day-03" class="itinerary-content overflow-hidden transition-[max-height] duration-500 ease-in-out" role="region" aria-hidden="true">
+                <div class="grid gap-5 border-t border-slate-100 px-4 pb-5 pt-4 sm:px-5 lg:grid-cols-[minmax(0,1fr)_220px]">
+                  <div><div class="grid gap-3 sm:grid-cols-2"><div class="itinerary-meta"><i data-lucide="map-pin" aria-hidden="true"></i><span><strong>Location</strong>Phakding to Namche</span></div><div class="itinerary-meta"><i data-lucide="bed" aria-hidden="true"></i><span><strong>Accommodation</strong>Tea house</span></div><div class="itinerary-meta"><i data-lucide="utensils" aria-hidden="true"></i><span><strong>Meals</strong>Breakfast, lunch, dinner</span></div><div class="itinerary-meta"><i data-lucide="clock" aria-hidden="true"></i><span><strong>Duration</strong>5 to 6 hours trek</span></div></div><p class="mt-4 text-sm leading-7 text-slate-600">Cross high suspension bridges and climb through pine forest toward Namche Bazaar, with the first clear glimpses of Everest on a good day.</p><div class="mt-4 flex flex-wrap gap-2"><span class="itinerary-chip">Sagarmatha permit gate</span><span class="itinerary-chip">Hillary Bridge</span><span class="itinerary-chip">First Everest view</span></div></div>
+                  <img src="Images/Everest/ev trek.jpg" alt="Everest trek trail near Namche Bazaar" class="h-44 w-full rounded-md object-cover shadow-sm sm:h-52 lg:h-56">
+                </div>
               </div>
-              <span
-                class="text-xs font-bold border border-black rounded px-2.5 py-1 text-black whitespace-nowrap hover:bg-gray-200">3,440m</span>
-            </div>
+            </article>
 
-            <div class="flex items-center justify-between px-4 py-3 border shadow-md border-gray-100 mb-2">
-              <div class="flex items-center gap-4">
-                <span class="text-black font-bold w-7">05</span>
-                <span class="font-bold">Namche Bazaar to Tengboche</span>
+            <article class="itinerary-card group relative overflow-hidden rounded-lg border border-slate-200 bg-white shadow-[0_14px_34px_rgba(15,23,42,0.06)] transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-300 hover:shadow-[0_24px_52px_rgba(37,99,235,0.14)]" data-itinerary-card>
+              <button type="button" class="itinerary-trigger flex w-full items-start gap-4 px-4 py-4 text-left sm:gap-5 sm:px-5 sm:py-5" aria-expanded="false" aria-controls="itinerary-day-04" data-itinerary-toggle>
+                <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-slate-950 text-sm font-extrabold text-white shadow-[0_14px_30px_rgba(15,23,42,0.18)] ring-4 ring-white sm:h-14 sm:w-14">04</span>
+                <span class="min-w-0 flex-1"><span class="mb-2 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between"><span class="text-base font-extrabold text-slate-950 sm:text-lg">Acclimatization Day at Namche Bazaar</span><span class="inline-flex w-fit items-center gap-1.5 rounded-full bg-emerald-50 px-3 py-1.5 text-xs font-extrabold text-emerald-700 ring-1 ring-emerald-100"><i data-lucide="activity" class="h-3.5 w-3.5" aria-hidden="true"></i>3,440m</span></span><span class="block text-sm leading-6 text-slate-500">A strategic rest day with a short hike and panoramic viewpoints.</span></span>
+                <span class="itinerary-chevron mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 transition duration-300 group-hover:border-blue-200 group-hover:text-blue-600"><i data-lucide="chevron-down" class="h-4 w-4" aria-hidden="true"></i></span>
+              </button>
+              <div id="itinerary-day-04" class="itinerary-content overflow-hidden transition-[max-height] duration-500 ease-in-out" role="region" aria-hidden="true">
+                <div class="grid gap-5 border-t border-slate-100 px-4 pb-5 pt-4 sm:px-5 lg:grid-cols-[minmax(0,1fr)_220px]">
+                  <div><div class="grid gap-3 sm:grid-cols-2"><div class="itinerary-meta"><i data-lucide="map-pin" aria-hidden="true"></i><span><strong>Location</strong>Namche Bazaar</span></div><div class="itinerary-meta"><i data-lucide="bed" aria-hidden="true"></i><span><strong>Accommodation</strong>Tea house</span></div><div class="itinerary-meta"><i data-lucide="utensils" aria-hidden="true"></i><span><strong>Meals</strong>Breakfast, lunch, dinner</span></div><div class="itinerary-meta"><i data-lucide="clock" aria-hidden="true"></i><span><strong>Duration</strong>2 to 4 hours hike</span></div></div><p class="mt-4 text-sm leading-7 text-slate-600">Hike high and sleep low with an acclimatization walk to Everest View Hotel or nearby ridges, then explore Namche's bakeries and markets.</p><div class="mt-4 flex flex-wrap gap-2"><span class="itinerary-chip">Acclimatization hike</span><span class="itinerary-chip">Everest View Hotel</span><span class="itinerary-chip">Sherpa culture</span></div></div>
+                  <img src="Images/Everest/Everest 1.jpg" alt="Namche acclimatization views" class="h-44 w-full rounded-md object-cover shadow-sm sm:h-52 lg:h-56">
+                </div>
               </div>
-              <span
-                class="text-xs font-black border border-black rounded px-2.5 py-1 text-black whitespace-nowrap hover:bg-gray-200">3,860m</span>
-            </div>
+            </article>
 
-            <div class="flex items-center justify-between px-4 py-3 border shadow-md border-gray-100 mb-2">
-              <div class="flex items-center gap-4">
-                <span class="text-black font-bold w-7">06</span>
-                <span class="font-bold">Trek from Tengboche to Dingboche</span>
+            <article class="itinerary-card group relative overflow-hidden rounded-lg border border-slate-200 bg-white shadow-[0_14px_34px_rgba(15,23,42,0.06)] transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-300 hover:shadow-[0_24px_52px_rgba(37,99,235,0.14)]" data-itinerary-card>
+              <button type="button" class="itinerary-trigger flex w-full items-start gap-4 px-4 py-4 text-left sm:gap-5 sm:px-5 sm:py-5" aria-expanded="false" aria-controls="itinerary-day-05" data-itinerary-toggle>
+                <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-slate-950 text-sm font-extrabold text-white shadow-[0_14px_30px_rgba(15,23,42,0.18)] ring-4 ring-white sm:h-14 sm:w-14">05</span>
+                <span class="min-w-0 flex-1"><span class="mb-2 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between"><span class="text-base font-extrabold text-slate-950 sm:text-lg">Namche Bazaar to Tengboche</span><span class="inline-flex w-fit items-center gap-1.5 rounded-full bg-blue-50 px-3 py-1.5 text-xs font-extrabold text-blue-700 ring-1 ring-blue-100"><i data-lucide="trending-up" class="h-3.5 w-3.5" aria-hidden="true"></i>3,860m</span></span><span class="block text-sm leading-6 text-slate-500">Traverse scenic ridges to the spiritual heart of the Khumbu.</span></span>
+                <span class="itinerary-chevron mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 transition duration-300 group-hover:border-blue-200 group-hover:text-blue-600"><i data-lucide="chevron-down" class="h-4 w-4" aria-hidden="true"></i></span>
+              </button>
+              <div id="itinerary-day-05" class="itinerary-content overflow-hidden transition-[max-height] duration-500 ease-in-out" role="region" aria-hidden="true">
+                <div class="grid gap-5 border-t border-slate-100 px-4 pb-5 pt-4 sm:px-5 lg:grid-cols-[minmax(0,1fr)_220px]">
+                  <div><div class="grid gap-3 sm:grid-cols-2"><div class="itinerary-meta"><i data-lucide="map-pin" aria-hidden="true"></i><span><strong>Location</strong>Namche to Tengboche</span></div><div class="itinerary-meta"><i data-lucide="bed" aria-hidden="true"></i><span><strong>Accommodation</strong>Tea house</span></div><div class="itinerary-meta"><i data-lucide="utensils" aria-hidden="true"></i><span><strong>Meals</strong>Breakfast, lunch, dinner</span></div><div class="itinerary-meta"><i data-lucide="clock" aria-hidden="true"></i><span><strong>Duration</strong>5 to 6 hours trek</span></div></div><p class="mt-4 text-sm leading-7 text-slate-600">Walk with views of Ama Dablam and Everest before climbing through rhododendron forest to Tengboche Monastery.</p><div class="mt-4 flex flex-wrap gap-2"><span class="itinerary-chip">Tengboche Monastery</span><span class="itinerary-chip">Ama Dablam views</span><span class="itinerary-chip">Rhododendron forest</span></div></div>
+                  <img src="Images/Everest/ev snowy landscape.jpg" alt="Himalayan mountain scenery near Tengboche" class="h-44 w-full rounded-md object-cover shadow-sm sm:h-52 lg:h-56">
+                </div>
               </div>
-              <span
-                class="text-xs font-bold border border-black rounded px-2.5 py-1 text-black whitespace-nowrap hover:bg-gray-200">4,410m</span>
-            </div>
+            </article>
 
-            <div class="flex items-center justify-between px-4 py-3 border shadow-md border-gray-100 mb-2">
-              <div class="flex items-center gap-4">
-                <span class="text-black font-bold w-7">07</span>
-                <span class="font-bold"> Acclimatization Day at Dingboche</span>
+            <article class="itinerary-card group relative overflow-hidden rounded-lg border border-slate-200 bg-white shadow-[0_14px_34px_rgba(15,23,42,0.06)] transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-300 hover:shadow-[0_24px_52px_rgba(37,99,235,0.14)]" data-itinerary-card>
+              <button type="button" class="itinerary-trigger flex w-full items-start gap-4 px-4 py-4 text-left sm:gap-5 sm:px-5 sm:py-5" aria-expanded="false" aria-controls="itinerary-day-06" data-itinerary-toggle>
+                <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-slate-950 text-sm font-extrabold text-white shadow-[0_14px_30px_rgba(15,23,42,0.18)] ring-4 ring-white sm:h-14 sm:w-14">06</span>
+                <span class="min-w-0 flex-1"><span class="mb-2 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between"><span class="text-base font-extrabold text-slate-950 sm:text-lg">Trek from Tengboche to Dingboche</span><span class="inline-flex w-fit items-center gap-1.5 rounded-full bg-blue-50 px-3 py-1.5 text-xs font-extrabold text-blue-700 ring-1 ring-blue-100"><i data-lucide="trending-up" class="h-3.5 w-3.5" aria-hidden="true"></i>4,410m</span></span><span class="block text-sm leading-6 text-slate-500">Move above the tree line into broader alpine landscapes.</span></span>
+                <span class="itinerary-chevron mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 transition duration-300 group-hover:border-blue-200 group-hover:text-blue-600"><i data-lucide="chevron-down" class="h-4 w-4" aria-hidden="true"></i></span>
+              </button>
+              <div id="itinerary-day-06" class="itinerary-content overflow-hidden transition-[max-height] duration-500 ease-in-out" role="region" aria-hidden="true">
+                <div class="grid gap-5 border-t border-slate-100 px-4 pb-5 pt-4 sm:px-5 lg:grid-cols-[minmax(0,1fr)_220px]">
+                  <div><div class="grid gap-3 sm:grid-cols-2"><div class="itinerary-meta"><i data-lucide="map-pin" aria-hidden="true"></i><span><strong>Location</strong>Tengboche to Dingboche</span></div><div class="itinerary-meta"><i data-lucide="bed" aria-hidden="true"></i><span><strong>Accommodation</strong>Tea house</span></div><div class="itinerary-meta"><i data-lucide="utensils" aria-hidden="true"></i><span><strong>Meals</strong>Breakfast, lunch, dinner</span></div><div class="itinerary-meta"><i data-lucide="clock" aria-hidden="true"></i><span><strong>Duration</strong>5 to 6 hours trek</span></div></div><p class="mt-4 text-sm leading-7 text-slate-600">Descend briefly to Deboche, cross the Imja Khola, and climb gradually toward Dingboche with sweeping views of Lhotse and Island Peak.</p><div class="mt-4 flex flex-wrap gap-2"><span class="itinerary-chip">Imja Valley</span><span class="itinerary-chip">High alpine trail</span><span class="itinerary-chip">Lhotse views</span></div></div>
+                  <img src="images/Everest/Trek Banner2.png" alt="High alpine trail to Dingboche" class="h-44 w-full rounded-md object-cover shadow-sm sm:h-52 lg:h-56">
+                </div>
               </div>
-              <span
-                class="text-xs font-bold border border-black rounded px-2.5 py-1 text-black whitespace-nowrap hover:bg-gray-200">4,410m</span>
-            </div>
+            </article>
 
-            <div class="flex items-center justify-between px-4 py-3 border shadow-md border-gray-100 mb-2">
-              <div class="flex items-center gap-4">
-                <span class="text-black font-bold w-7">08</span>
-                <span class="font-bold">Dingboche to Lobuche</span>
+            <article class="itinerary-card group relative overflow-hidden rounded-lg border border-slate-200 bg-white shadow-[0_14px_34px_rgba(15,23,42,0.06)] transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-300 hover:shadow-[0_24px_52px_rgba(37,99,235,0.14)]" data-itinerary-card>
+              <button type="button" class="itinerary-trigger flex w-full items-start gap-4 px-4 py-4 text-left sm:gap-5 sm:px-5 sm:py-5" aria-expanded="false" aria-controls="itinerary-day-07" data-itinerary-toggle>
+                <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-slate-950 text-sm font-extrabold text-white shadow-[0_14px_30px_rgba(15,23,42,0.18)] ring-4 ring-white sm:h-14 sm:w-14">07</span>
+                <span class="min-w-0 flex-1"><span class="mb-2 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between"><span class="text-base font-extrabold text-slate-950 sm:text-lg">Acclimatization Day at Dingboche</span><span class="inline-flex w-fit items-center gap-1.5 rounded-full bg-emerald-50 px-3 py-1.5 text-xs font-extrabold text-emerald-700 ring-1 ring-emerald-100"><i data-lucide="activity" class="h-3.5 w-3.5" aria-hidden="true"></i>4,410m</span></span><span class="block text-sm leading-6 text-slate-500">Rest, hydrate, and hike above Dingboche for better adaptation.</span></span>
+                <span class="itinerary-chevron mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 transition duration-300 group-hover:border-blue-200 group-hover:text-blue-600"><i data-lucide="chevron-down" class="h-4 w-4" aria-hidden="true"></i></span>
+              </button>
+              <div id="itinerary-day-07" class="itinerary-content overflow-hidden transition-[max-height] duration-500 ease-in-out" role="region" aria-hidden="true">
+                <div class="grid gap-5 border-t border-slate-100 px-4 pb-5 pt-4 sm:px-5 lg:grid-cols-[minmax(0,1fr)_220px]">
+                  <div><div class="grid gap-3 sm:grid-cols-2"><div class="itinerary-meta"><i data-lucide="map-pin" aria-hidden="true"></i><span><strong>Location</strong>Dingboche</span></div><div class="itinerary-meta"><i data-lucide="bed" aria-hidden="true"></i><span><strong>Accommodation</strong>Tea house</span></div><div class="itinerary-meta"><i data-lucide="utensils" aria-hidden="true"></i><span><strong>Meals</strong>Breakfast, lunch, dinner</span></div><div class="itinerary-meta"><i data-lucide="clock" aria-hidden="true"></i><span><strong>Duration</strong>2 to 4 hours hike</span></div></div><p class="mt-4 text-sm leading-7 text-slate-600">A relaxed acclimatization day supports safe altitude gain. Optional hikes above the village open views toward Makalu, Ama Dablam, and the Imja Valley.</p><div class="mt-4 flex flex-wrap gap-2"><span class="itinerary-chip">Nangkartshang viewpoint</span><span class="itinerary-chip">Altitude adaptation</span><span class="itinerary-chip">Valley views</span></div></div>
+                  <img src="Images/Everest/hiking.jpg" alt="Acclimatization hike above Dingboche" class="h-44 w-full rounded-md object-cover shadow-sm sm:h-52 lg:h-56">
+                </div>
               </div>
-              <span
-                class="text-xs font-bold border border-black rounded px-2.5 py-1 text-black whitespace-nowrap hover:bg-gray-200">4,940m</span>
-            </div>
+            </article>
 
-            <div class="flex items-center justify-between px-4 py-3 border shadow-md border-gray-100 mb-2">
-              <div class="flex items-center gap-4">
-                <span class="text-black font-bold w-7">09</span>
-                <span class="font-bold">Lobuche to Gorak Shep (5,170m) and Everest Base Camp (5,364m)</span>
+            <article class="itinerary-card group relative overflow-hidden rounded-lg border border-slate-200 bg-white shadow-[0_14px_34px_rgba(15,23,42,0.06)] transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-300 hover:shadow-[0_24px_52px_rgba(37,99,235,0.14)]" data-itinerary-card>
+              <button type="button" class="itinerary-trigger flex w-full items-start gap-4 px-4 py-4 text-left sm:gap-5 sm:px-5 sm:py-5" aria-expanded="false" aria-controls="itinerary-day-08" data-itinerary-toggle>
+                <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-slate-950 text-sm font-extrabold text-white shadow-[0_14px_30px_rgba(15,23,42,0.18)] ring-4 ring-white sm:h-14 sm:w-14">08</span>
+                <span class="min-w-0 flex-1"><span class="mb-2 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between"><span class="text-base font-extrabold text-slate-950 sm:text-lg">Dingboche to Lobuche</span><span class="inline-flex w-fit items-center gap-1.5 rounded-full bg-blue-50 px-3 py-1.5 text-xs font-extrabold text-blue-700 ring-1 ring-blue-100"><i data-lucide="trending-up" class="h-3.5 w-3.5" aria-hidden="true"></i>4,940m</span></span><span class="block text-sm leading-6 text-slate-500">A solemn, scenic day through the moraine and memorial landscape.</span></span>
+                <span class="itinerary-chevron mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 transition duration-300 group-hover:border-blue-200 group-hover:text-blue-600"><i data-lucide="chevron-down" class="h-4 w-4" aria-hidden="true"></i></span>
+              </button>
+              <div id="itinerary-day-08" class="itinerary-content overflow-hidden transition-[max-height] duration-500 ease-in-out" role="region" aria-hidden="true">
+                <div class="grid gap-5 border-t border-slate-100 px-4 pb-5 pt-4 sm:px-5 lg:grid-cols-[minmax(0,1fr)_220px]">
+                  <div><div class="grid gap-3 sm:grid-cols-2"><div class="itinerary-meta"><i data-lucide="map-pin" aria-hidden="true"></i><span><strong>Location</strong>Dingboche to Lobuche</span></div><div class="itinerary-meta"><i data-lucide="bed" aria-hidden="true"></i><span><strong>Accommodation</strong>Tea house</span></div><div class="itinerary-meta"><i data-lucide="utensils" aria-hidden="true"></i><span><strong>Meals</strong>Breakfast, lunch, dinner</span></div><div class="itinerary-meta"><i data-lucide="clock" aria-hidden="true"></i><span><strong>Duration</strong>5 to 6 hours trek</span></div></div><p class="mt-4 text-sm leading-7 text-slate-600">Climb gently past Dughla and the climbers' memorials, then follow glacial terrain toward Lobuche below Nuptse's rugged wall.</p><div class="mt-4 flex flex-wrap gap-2"><span class="itinerary-chip">Dughla Pass</span><span class="itinerary-chip">Memorial ridge</span><span class="itinerary-chip">Glacial valley</span></div></div>
+                  <img src="Images/Everest/gray rocks.jpg" alt="Rocky trail toward Lobuche" class="h-44 w-full rounded-md object-cover shadow-sm sm:h-52 lg:h-56">
+                </div>
               </div>
-              <span
-                class="text-xs font-bold border border-black rounded px-2.5 py-1 text-black whitespace-nowrap hover:bg-gray-200">5,364m</span>
-            </div>
+            </article>
 
-            <div class="flex items-center justify-between px-4 py-3 border shadow-md border-gray-100 mb-2">
-              <div class="flex items-center gap-4">
-                <span class="text-black font-bold w-7">10</span>
-                <span class="font-bold">Hike to Kala Patthar (5,545m) and Return to Pheriche (4,240m)</span>
+            <article class="itinerary-card group relative overflow-hidden rounded-lg border border-slate-200 bg-white shadow-[0_14px_34px_rgba(15,23,42,0.06)] transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-300 hover:shadow-[0_24px_52px_rgba(37,99,235,0.14)]" data-itinerary-card>
+              <button type="button" class="itinerary-trigger flex w-full items-start gap-4 px-4 py-4 text-left sm:gap-5 sm:px-5 sm:py-5" aria-expanded="false" aria-controls="itinerary-day-09" data-itinerary-toggle>
+                <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-slate-950 text-sm font-extrabold text-white shadow-[0_14px_30px_rgba(15,23,42,0.18)] ring-4 ring-white sm:h-14 sm:w-14">09</span>
+                <span class="min-w-0 flex-1"><span class="mb-2 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between"><span class="text-base font-extrabold text-slate-950 sm:text-lg">Lobuche to Gorak Shep and Everest Base Camp</span><span class="inline-flex w-fit items-center gap-1.5 rounded-full bg-amber-50 px-3 py-1.5 text-xs font-extrabold text-amber-700 ring-1 ring-amber-100"><i data-lucide="flag" class="h-3.5 w-3.5" aria-hidden="true"></i>5,364m</span></span><span class="block text-sm leading-6 text-slate-500">Reach the iconic base of the world's highest mountain.</span></span>
+                <span class="itinerary-chevron mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 transition duration-300 group-hover:border-blue-200 group-hover:text-blue-600"><i data-lucide="chevron-down" class="h-4 w-4" aria-hidden="true"></i></span>
+              </button>
+              <div id="itinerary-day-09" class="itinerary-content overflow-hidden transition-[max-height] duration-500 ease-in-out" role="region" aria-hidden="true">
+                <div class="grid gap-5 border-t border-slate-100 px-4 pb-5 pt-4 sm:px-5 lg:grid-cols-[minmax(0,1fr)_220px]">
+                  <div><div class="grid gap-3 sm:grid-cols-2"><div class="itinerary-meta"><i data-lucide="map-pin" aria-hidden="true"></i><span><strong>Location</strong>Lobuche, Gorak Shep, EBC</span></div><div class="itinerary-meta"><i data-lucide="bed" aria-hidden="true"></i><span><strong>Accommodation</strong>Tea house at Gorak Shep</span></div><div class="itinerary-meta"><i data-lucide="utensils" aria-hidden="true"></i><span><strong>Meals</strong>Breakfast, lunch, dinner</span></div><div class="itinerary-meta"><i data-lucide="clock" aria-hidden="true"></i><span><strong>Duration</strong>7 to 8 hours trek</span></div></div><p class="mt-4 text-sm leading-7 text-slate-600">Walk through moraine to Gorak Shep, then continue to Everest Base Camp for prayer flags, Khumbu Icefall views, and the trip's signature achievement.</p><div class="mt-4 flex flex-wrap gap-2"><span class="itinerary-chip">Everest Base Camp</span><span class="itinerary-chip">Khumbu Icefall</span><span class="itinerary-chip">Glacial moraine</span></div></div>
+                  <img src="Images/Everest/EBC Camp.jpg" alt="Everest Base Camp trek destination" class="h-44 w-full rounded-md object-cover shadow-sm sm:h-52 lg:h-56">
+                </div>
               </div>
-              <span
-                class="text-xs font-bold border border-black rounded px-2.5 py-1 text-black whitespace-nowrap hover:bg-gray-200">5,545m</span>
-            </div>
+            </article>
 
-            <div class="flex items-center justify-between px-4 py-3 border shadow-md border-gray-100 mb-2">
-              <div class="flex items-center gap-4">
-                <span class="text-black font-bold w-7">11</span>
-                <span class="font-bold">Pheriche to Namche Bazaar</span>
+            <article class="itinerary-card group relative overflow-hidden rounded-lg border border-slate-200 bg-white shadow-[0_14px_34px_rgba(15,23,42,0.06)] transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-300 hover:shadow-[0_24px_52px_rgba(37,99,235,0.14)]" data-itinerary-card>
+              <button type="button" class="itinerary-trigger flex w-full items-start gap-4 px-4 py-4 text-left sm:gap-5 sm:px-5 sm:py-5" aria-expanded="false" aria-controls="itinerary-day-10" data-itinerary-toggle>
+                <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-slate-950 text-sm font-extrabold text-white shadow-[0_14px_30px_rgba(15,23,42,0.18)] ring-4 ring-white sm:h-14 sm:w-14">10</span>
+                <span class="min-w-0 flex-1"><span class="mb-2 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between"><span class="text-base font-extrabold text-slate-950 sm:text-lg">Kala Patthar Sunrise and Return to Pheriche</span><span class="inline-flex w-fit items-center gap-1.5 rounded-full bg-amber-50 px-3 py-1.5 text-xs font-extrabold text-amber-700 ring-1 ring-amber-100"><i data-lucide="sunrise" class="h-3.5 w-3.5" aria-hidden="true"></i>5,545m</span></span><span class="block text-sm leading-6 text-slate-500">The highest viewpoint day, followed by a careful descent.</span></span>
+                <span class="itinerary-chevron mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 transition duration-300 group-hover:border-blue-200 group-hover:text-blue-600"><i data-lucide="chevron-down" class="h-4 w-4" aria-hidden="true"></i></span>
+              </button>
+              <div id="itinerary-day-10" class="itinerary-content overflow-hidden transition-[max-height] duration-500 ease-in-out" role="region" aria-hidden="true">
+                <div class="grid gap-5 border-t border-slate-100 px-4 pb-5 pt-4 sm:px-5 lg:grid-cols-[minmax(0,1fr)_220px]">
+                  <div><div class="grid gap-3 sm:grid-cols-2"><div class="itinerary-meta"><i data-lucide="map-pin" aria-hidden="true"></i><span><strong>Location</strong>Gorak Shep to Pheriche</span></div><div class="itinerary-meta"><i data-lucide="bed" aria-hidden="true"></i><span><strong>Accommodation</strong>Tea house</span></div><div class="itinerary-meta"><i data-lucide="utensils" aria-hidden="true"></i><span><strong>Meals</strong>Breakfast, lunch, dinner</span></div><div class="itinerary-meta"><i data-lucide="clock" aria-hidden="true"></i><span><strong>Duration</strong>7 to 8 hours trek</span></div></div><p class="mt-4 text-sm leading-7 text-slate-600">Start early for Kala Patthar's close Everest panorama, then descend through Gorak Shep and Lobuche to the calmer air of Pheriche.</p><div class="mt-4 flex flex-wrap gap-2"><span class="itinerary-chip">Kala Patthar</span><span class="itinerary-chip">Everest panorama</span><span class="itinerary-chip">Descent to Pheriche</span></div></div>
+                  <img src="Images/Everest/Everest World's Edge.jpg" alt="Everest panorama from Kala Patthar" class="h-44 w-full rounded-md object-cover shadow-sm sm:h-52 lg:h-56">
+                </div>
               </div>
-              <span
-                class="text-xs font-bold border border-black rounded px-2.5 py-1 text-black whitespace-nowrap hover:bg-gray-200">5,545m</span>
-            </div>
+            </article>
 
-            <div class="flex items-center justify-between px-4 py-3 border shadow-md border-gray-100 mb-2">
-              <div class="flex items-center gap-4">
-                <span class="text-black font-bold w-7">12</span>
-                <span class="font-bold">Namche Bazaar to Lukla</span>
+            <article class="itinerary-card group relative overflow-hidden rounded-lg border border-slate-200 bg-white shadow-[0_14px_34px_rgba(15,23,42,0.06)] transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-300 hover:shadow-[0_24px_52px_rgba(37,99,235,0.14)]" data-itinerary-card>
+              <button type="button" class="itinerary-trigger flex w-full items-start gap-4 px-4 py-4 text-left sm:gap-5 sm:px-5 sm:py-5" aria-expanded="false" aria-controls="itinerary-day-11" data-itinerary-toggle>
+                <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-slate-950 text-sm font-extrabold text-white shadow-[0_14px_30px_rgba(15,23,42,0.18)] ring-4 ring-white sm:h-14 sm:w-14">11</span>
+                <span class="min-w-0 flex-1"><span class="mb-2 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between"><span class="text-base font-extrabold text-slate-950 sm:text-lg">Pheriche to Namche Bazaar</span><span class="inline-flex w-fit items-center gap-1.5 rounded-full bg-blue-50 px-3 py-1.5 text-xs font-extrabold text-blue-700 ring-1 ring-blue-100"><i data-lucide="trending-down" class="h-3.5 w-3.5" aria-hidden="true"></i>3,440m</span></span><span class="block text-sm leading-6 text-slate-500">Retrace the trail to warmer villages and familiar ridges.</span></span>
+                <span class="itinerary-chevron mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 transition duration-300 group-hover:border-blue-200 group-hover:text-blue-600"><i data-lucide="chevron-down" class="h-4 w-4" aria-hidden="true"></i></span>
+              </button>
+              <div id="itinerary-day-11" class="itinerary-content overflow-hidden transition-[max-height] duration-500 ease-in-out" role="region" aria-hidden="true">
+                <div class="grid gap-5 border-t border-slate-100 px-4 pb-5 pt-4 sm:px-5 lg:grid-cols-[minmax(0,1fr)_220px]">
+                  <div><div class="grid gap-3 sm:grid-cols-2"><div class="itinerary-meta"><i data-lucide="map-pin" aria-hidden="true"></i><span><strong>Location</strong>Pheriche to Namche</span></div><div class="itinerary-meta"><i data-lucide="bed" aria-hidden="true"></i><span><strong>Accommodation</strong>Tea house</span></div><div class="itinerary-meta"><i data-lucide="utensils" aria-hidden="true"></i><span><strong>Meals</strong>Breakfast, lunch, dinner</span></div><div class="itinerary-meta"><i data-lucide="clock" aria-hidden="true"></i><span><strong>Duration</strong>6 to 7 hours trek</span></div></div><p class="mt-4 text-sm leading-7 text-slate-600">Descend past Pangboche and Tengboche, enjoying thicker air and a more relaxed pace back toward Namche Bazaar.</p><div class="mt-4 flex flex-wrap gap-2"><span class="itinerary-chip">Pangboche village</span><span class="itinerary-chip">Forest trail</span><span class="itinerary-chip">Return to Namche</span></div></div>
+                  <img src="Images/Everest/ebc tea house.jpg" alt="Tea house trail returning to Namche" class="h-44 w-full rounded-md object-cover shadow-sm sm:h-52 lg:h-56">
+                </div>
               </div>
-              <span
-                class="text-xs font-bold border border-black rounded px-2.5 py-1 text-black whitespace-nowrap hover:bg-gray-200">2,860m</span>
-            </div>
+            </article>
 
-            <div class="flex items-center justify-between px-4 py-3 border shadow-md border-gray-100 mb-2">
-              <div class="flex items-center gap-4">
-                <span class="text-black font-bold w-7">13</span>
-                <span class="font-bold">Flight to Kathmandu</span>
+            <article class="itinerary-card group relative overflow-hidden rounded-lg border border-slate-200 bg-white shadow-[0_14px_34px_rgba(15,23,42,0.06)] transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-300 hover:shadow-[0_24px_52px_rgba(37,99,235,0.14)]" data-itinerary-card>
+              <button type="button" class="itinerary-trigger flex w-full items-start gap-4 px-4 py-4 text-left sm:gap-5 sm:px-5 sm:py-5" aria-expanded="false" aria-controls="itinerary-day-12" data-itinerary-toggle>
+                <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-slate-950 text-sm font-extrabold text-white shadow-[0_14px_30px_rgba(15,23,42,0.18)] ring-4 ring-white sm:h-14 sm:w-14">12</span>
+                <span class="min-w-0 flex-1"><span class="mb-2 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between"><span class="text-base font-extrabold text-slate-950 sm:text-lg">Namche Bazaar to Lukla</span><span class="inline-flex w-fit items-center gap-1.5 rounded-full bg-blue-50 px-3 py-1.5 text-xs font-extrabold text-blue-700 ring-1 ring-blue-100"><i data-lucide="trending-down" class="h-3.5 w-3.5" aria-hidden="true"></i>2,860m</span></span><span class="block text-sm leading-6 text-slate-500">A final full trekking day along the Dudh Koshi valley.</span></span>
+                <span class="itinerary-chevron mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 transition duration-300 group-hover:border-blue-200 group-hover:text-blue-600"><i data-lucide="chevron-down" class="h-4 w-4" aria-hidden="true"></i></span>
+              </button>
+              <div id="itinerary-day-12" class="itinerary-content overflow-hidden transition-[max-height] duration-500 ease-in-out" role="region" aria-hidden="true">
+                <div class="grid gap-5 border-t border-slate-100 px-4 pb-5 pt-4 sm:px-5 lg:grid-cols-[minmax(0,1fr)_220px]">
+                  <div><div class="grid gap-3 sm:grid-cols-2"><div class="itinerary-meta"><i data-lucide="map-pin" aria-hidden="true"></i><span><strong>Location</strong>Namche to Lukla</span></div><div class="itinerary-meta"><i data-lucide="bed" aria-hidden="true"></i><span><strong>Accommodation</strong>Tea house</span></div><div class="itinerary-meta"><i data-lucide="utensils" aria-hidden="true"></i><span><strong>Meals</strong>Breakfast, lunch, dinner</span></div><div class="itinerary-meta"><i data-lucide="clock" aria-hidden="true"></i><span><strong>Duration</strong>6 to 7 hours trek</span></div></div><p class="mt-4 text-sm leading-7 text-slate-600">Cross familiar suspension bridges and villages on the way back to Lukla, where the trekking portion ends with a final evening in the mountains.</p><div class="mt-4 flex flex-wrap gap-2"><span class="itinerary-chip">Suspension bridges</span><span class="itinerary-chip">Final trail day</span><span class="itinerary-chip">Lukla celebration</span></div></div>
+                  <img src="Images/Everest/Everest Camp.jpg" alt="Final Everest trail day toward Lukla" class="h-44 w-full rounded-md object-cover shadow-sm sm:h-52 lg:h-56">
+                </div>
               </div>
-              <span
-                class="text-xs font-bold border border-black rounded px-2.5 py-1 text-black whitespace-nowrap hover:bg-gray-200">3,440m</span>
-            </div>
+            </article>
 
+            <article class="itinerary-card group relative overflow-hidden rounded-lg border border-slate-200 bg-white shadow-[0_14px_34px_rgba(15,23,42,0.06)] transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-300 hover:shadow-[0_24px_52px_rgba(37,99,235,0.14)]" data-itinerary-card>
+              <button type="button" class="itinerary-trigger flex w-full items-start gap-4 px-4 py-4 text-left sm:gap-5 sm:px-5 sm:py-5" aria-expanded="false" aria-controls="itinerary-day-13" data-itinerary-toggle>
+                <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-slate-950 text-sm font-extrabold text-white shadow-[0_14px_30px_rgba(15,23,42,0.18)] ring-4 ring-white sm:h-14 sm:w-14">13</span>
+                <span class="min-w-0 flex-1"><span class="mb-2 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between"><span class="text-base font-extrabold text-slate-950 sm:text-lg">Flight to Kathmandu</span><span class="inline-flex w-fit items-center gap-1.5 rounded-full bg-blue-50 px-3 py-1.5 text-xs font-extrabold text-blue-700 ring-1 ring-blue-100"><i data-lucide="plane" class="h-3.5 w-3.5" aria-hidden="true"></i>1,400m</span></span><span class="block text-sm leading-6 text-slate-500">Return to the capital with time to rest, shower, and celebrate.</span></span>
+                <span class="itinerary-chevron mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 transition duration-300 group-hover:border-blue-200 group-hover:text-blue-600"><i data-lucide="chevron-down" class="h-4 w-4" aria-hidden="true"></i></span>
+              </button>
+              <div id="itinerary-day-13" class="itinerary-content overflow-hidden transition-[max-height] duration-500 ease-in-out" role="region" aria-hidden="true">
+                <div class="grid gap-5 border-t border-slate-100 px-4 pb-5 pt-4 sm:px-5 lg:grid-cols-[minmax(0,1fr)_220px]">
+                  <div><div class="grid gap-3 sm:grid-cols-2"><div class="itinerary-meta"><i data-lucide="map-pin" aria-hidden="true"></i><span><strong>Location</strong>Lukla to Kathmandu</span></div><div class="itinerary-meta"><i data-lucide="bed" aria-hidden="true"></i><span><strong>Accommodation</strong>Hotel in Kathmandu</span></div><div class="itinerary-meta"><i data-lucide="utensils" aria-hidden="true"></i><span><strong>Meals</strong>Breakfast</span></div><div class="itinerary-meta"><i data-lucide="clock" aria-hidden="true"></i><span><strong>Duration</strong>Morning flight</span></div></div><p class="mt-4 text-sm leading-7 text-slate-600">Take the scenic flight back to Kathmandu. The afternoon is open for recovery, extra sightseeing, or a celebratory dinner in Thamel.</p><div class="mt-4 flex flex-wrap gap-2"><span class="itinerary-chip">Scenic flight</span><span class="itinerary-chip">Kathmandu hotel</span><span class="itinerary-chip">Celebration evening</span></div></div>
+                  <img src="Images/Everest/EV.jpg" alt="Return from Everest region to Kathmandu" class="h-44 w-full rounded-md object-cover shadow-sm sm:h-52 lg:h-56">
+                </div>
+              </div>
+            </article>
           </div>
         </section>
         <!-- Itinerary Section End -->

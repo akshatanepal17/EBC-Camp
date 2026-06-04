@@ -713,6 +713,78 @@ if (window.lucide) {
   });
 })();
 
+// Itinerary timeline accordion
+(function () {
+  const itinerary = document.getElementById('itinerary');
+  if (!itinerary) return;
+
+  const cards = Array.from(itinerary.querySelectorAll('[data-itinerary-card]'));
+  if (!cards.length) return;
+
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  function setCardState(card, isOpen) {
+    const trigger = card.querySelector('[data-itinerary-toggle]');
+    const content = trigger ? document.getElementById(trigger.getAttribute('aria-controls')) : null;
+
+    if (!trigger || !content) return;
+
+    card.classList.toggle('is-open', isOpen);
+    trigger.setAttribute('aria-expanded', String(isOpen));
+    content.setAttribute('aria-hidden', String(!isOpen));
+    content.style.maxHeight = isOpen ? content.scrollHeight + 'px' : '0px';
+  }
+
+  function closeOtherCards(activeCard) {
+    cards.forEach(card => {
+      if (card !== activeCard) setCardState(card, false);
+    });
+  }
+
+  cards.forEach((card, index) => {
+    const trigger = card.querySelector('[data-itinerary-toggle]');
+    const content = trigger ? document.getElementById(trigger.getAttribute('aria-controls')) : null;
+
+    if (!trigger || !content) return;
+
+    const isInitiallyOpen = card.classList.contains('is-open') || index === 0;
+    setCardState(card, isInitiallyOpen);
+
+    trigger.addEventListener('click', () => {
+      const isOpen = trigger.getAttribute('aria-expanded') === 'true';
+      closeOtherCards(card);
+      setCardState(card, !isOpen);
+    });
+
+    content.querySelectorAll('img').forEach(image => {
+      image.addEventListener('load', () => {
+        if (trigger.getAttribute('aria-expanded') === 'true') {
+          setCardState(card, true);
+        }
+      });
+    });
+  });
+
+  window.addEventListener('resize', () => {
+    cards.forEach(card => {
+      const trigger = card.querySelector('[data-itinerary-toggle]');
+      if (trigger?.getAttribute('aria-expanded') === 'true') {
+        setCardState(card, true);
+      }
+    });
+  });
+
+  if (reduceMotion.matches) {
+    cards.forEach(card => {
+      const trigger = card.querySelector('[data-itinerary-toggle]');
+      const content = trigger ? document.getElementById(trigger.getAttribute('aria-controls')) : null;
+      if (content && trigger?.getAttribute('aria-expanded') === 'true') {
+        content.style.maxHeight = 'none';
+      }
+    });
+  }
+})();
+
 // FAQ accordion and expandable loader
 (function () {
   const faqList = document.getElementById('faq-list');
