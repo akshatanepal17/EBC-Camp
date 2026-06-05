@@ -1254,7 +1254,7 @@
 
       <div id="faq-list" class="max-w-4xl mx-auto space-y-2">
         <div class="bg-white border border-gray-300/60 rounded-md overflow-hidden">
-          <button class="faq-btn w-full flex items-center justify-between px-5 sm:px-8 py-4 sm:py-5 text-left text-base sm:text-lg font-bold text-black/80">
+          <button class="faq-btn w-full flex items-center justify-between px-5 sm:px-8 py-4 sm:py-5 text-left text-base sm:text-lg font-bold text-black/80 [hyphens:none]">
             What are the visa rules for Nepal?
             <i data-lucide="chevron-down" class="w-8 min-w-8 h-8 p-2 rounded-full bg-gray-300/30 flex-shrink-0"></i>
           </button>
@@ -1264,7 +1264,7 @@
         </div>
 
         <div class="bg-white border border-gray-300/60 rounded-md overflow-hidden">
-          <button class="faq-btn w-full flex items-center justify-between px-5 sm:px-8 py-4 sm:py-5 text-left text-base sm:text-lg font-bold text-black/80">
+          <button class="faq-btn w-full flex items-center justify-between px-5 sm:px-8 py-4 sm:py-5 text-left text-base sm:text-lg font-bold text-black/80 [hyphens:none]">
             What should my travel insurance cover?
             <i data-lucide="chevron-down" class="w-8 min-w-8 h-8 p-2 rounded-full bg-gray-300/30 flex-shrink-0"></i>
           </button>
@@ -1275,7 +1275,7 @@
         </div>
 
         <div class="bg-white border border-gray-300/60 rounded-md overflow-hidden">
-          <button class="faq-btn w-full flex items-center justify-between px-5 sm:px-8 py-4 sm:py-5 text-left text-base sm:text-lg font-bold text-black/80">
+          <button class="faq-btn w-full flex items-center justify-between px-5 sm:px-8 py-4 sm:py-5 text-left text-base sm:text-lg font-bold text-black/80 [hyphens:none]">
             What types of tourism activities are there?
             <i data-lucide="chevron-down" class="w-8 min-w-8 h-8 p-2 rounded-full bg-gray-300/30 flex-shrink-0"></i>
           </button>
@@ -1288,7 +1288,7 @@
         </div>
 
         <div class="bg-white border border-gray-300/60 rounded-md overflow-hidden">
-         <button class="faq-btn w-full flex items-center justify-between px-5 sm:px-8 py-4 sm:py-5 text-left text-base sm:text-lg font-bold text-black/80">
+         <button class="faq-btn w-full flex items-center justify-between px-5 sm:px-8 py-4 sm:py-5 text-left text-base sm:text-lg font-bold text-black/80 [hyphens:none]">
             How much is a 30 day visa for Nepal?
             <i data-lucide="chevron-down" class="w-8 min-w-8 h-8 p-2 rounded-full bg-gray-300/30 flex-shrink-0"></i>
           </button>
@@ -1301,7 +1301,7 @@
         </div>
 
         <div class="bg-white border border-gray-300/60 rounded-md overflow-hidden">
-          <button class="faq-btn w-full flex items-center justify-between px-5 sm:px-8 py-4 sm:py-5 text-left text-base sm:text-lg font-bold text-black/80">
+          <button class="faq-btn w-full flex items-center justify-between px-5 sm:px-8 py-4 sm:py-5 text-left text-base sm:text-lg font-bold text-black/80 [hyphens:none]">
             How much is the Nepal visa for?
             <i data-lucide="chevron-down" class="w-8 min-w-8 h-8 p-2 rounded-full bg-gray-300/30 flex-shrink-0"></i>
           </button>
@@ -1314,7 +1314,7 @@
 
         <template id="faq-item-template">
           <div class="faq-added-item bg-white border border-gray-300/60 rounded-md overflow-hidden">
-            <button type="button" class="faq-btn w-full flex items-center justify-between px-5 sm:px-8 py-4 sm:py-5 text-left text-base sm:text-lg font-bold text-black/80">
+            <button type="button" class="faq-btn w-full flex items-center justify-between px-5 sm:px-8 py-4 sm:py-5 text-left text-base sm:text-lg font-bold text-black/80 [hyphens:none]">
               <span class="faq-question"></span>
               <i data-lucide="chevron-down" class="w-8 min-w-8 h-8 p-2 rounded-full bg-gray-300/30 flex-shrink-0"></i>
             </button>
@@ -1324,15 +1324,17 @@
           </div>
         </template>
 
-        <div id="faq-load-more-wrapper" class="pt-2">
-          <button id="faq-load-more" type="button" class="bg-blue-600 hover:bg-blue-700 transition text-white px-6 sm:px-8 py-2 sm:py-4 rounded-md text-sm sm:text-base font-medium tracking-[0.8px] shadow" aria-controls="faq-list" aria-describedby="faq-load-more-status">
-            More FAQs
-          </button>
-        </div>
-        <div id="faq-back-wrapper" class="pt-2" hidden>
-          <button id="faq-back" type="button" class="bg-blue-600 hover:bg-blue-700 transition text-white px-6 sm:px-8 py-2 sm:py-4 rounded-md text-sm sm:text-base font-medium tracking-[0.8px] shadow" aria-controls="faq-list" aria-describedby="faq-load-more-status">
-            Back
-          </button>
+        <div id="faq-controls" class="flex flex-wrap items-center gap-2 pt-3 sm:gap-3">
+          <div id="faq-load-more-wrapper">
+            <button id="faq-load-more" type="button" class="inline-flex min-w-[96px] items-center justify-center rounded-md bg-blue-600 px-4 py-2 text-xs font-semibold tracking-[0.4px] text-white shadow-sm transition hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-blue-100 sm:min-w-[108px] sm:px-5 sm:py-2.5 sm:text-sm" aria-controls="faq-list" aria-describedby="faq-load-more-status">
+              More FAQs
+            </button>
+          </div>
+          <div id="faq-back-wrapper" hidden>
+            <button id="faq-back" type="button" class="inline-flex min-w-[80px] items-center justify-center rounded-md bg-blue-600 px-4 py-2 text-xs font-semibold tracking-[0.4px] text-white shadow-sm transition hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-blue-100 sm:min-w-[92px] sm:px-5 sm:py-2.5 sm:text-sm" aria-controls="faq-list" aria-describedby="faq-load-more-status">
+              Back
+            </button>
+          </div>
         </div>
         <p id="faq-load-more-status" class="sr-only" aria-live="polite"></p>
       </div>
