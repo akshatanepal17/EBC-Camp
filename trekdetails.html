@@ -1957,219 +1957,216 @@
         <!-- Altitude End -->
 
        <!-- Departure Section Start -->
-      <div id="departures" class="rounded-xl bg-slate-50 p-3 ring-1 ring-slate-200 sm:p-5 lg:p-6">
-        <div class="mb-5 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-          <h2 class="text-xl font-bold tracking-wide text-gray-950 sm:text-2xl">Availability</h2>
+      <div id="departures" class="availability-section">
+        <h2 class="availability-heading">Availability</h2>
 
-          <label class="flex w-full flex-col gap-2 sm:w-auto" for="trip-month">
-            <span class="text-xs font-bold uppercase text-gray-500">Select a trip month</span>
-            <span class="relative block">
-              <select id="trip-month" class="w-full min-w-[160px] appearance-none rounded-lg border border-slate-300 bg-white py-3 pl-4 pr-10 text-sm font-bold text-gray-900 shadow-sm transition duration-200 cursor-pointer hover:border-blue-300 focus:border-blue-600 focus:outline-none focus:ring-4 focus:ring-blue-100 sm:w-[190px]">
+        <div class="availability-panel">
+          <div class="availability-toolbar">
+            <label class="availability-month-label" for="trip-month">Select a trip month</label>
+
+            <span class="availability-select-wrap">
+              <select id="trip-month" class="availability-select">
                 <option>April 2026</option>
                 <option>May 2026</option>
                 <option>June 2026</option>
               </select>
-              <i data-lucide="chevron-down" class="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-500"></i>
+              <i data-lucide="chevron-down" class="availability-select-icon"></i>
             </span>
-          </label>
-        </div>
+          </div>
 
-        <div class="hidden grid-cols-[1.35fr_0.9fr_0.9fr_0.9fr_140px] gap-6 px-5 pb-3 text-[11px] font-bold uppercase tracking-[0.12em] text-slate-500 lg:grid">
-          <span>Departure Date</span>
-          <span>Duration</span>
-          <span>Price</span>
-          <span>Status</span>
-          <span class="text-center">Action</span>
-        </div>
+          <div class="hidden grid-cols-[1.35fr_0.9fr_0.9fr_0.9fr_140px] gap-6 px-5 pb-3 text-sm font-bold uppercase tracking-[0.12em] text-slate-500 lg:grid">
+            <span>Departure Date</span>
+            <span>Duration</span>
+            <span>Price</span>
+            <span>Status</span>
+            <span class="text-center">Action</span>
+          </div>
 
-        <div class="space-y-4">
-          <article class="group grid grid-cols-1 gap-3 rounded-xl border border-slate-200 bg-white p-4 shadow-[0_12px_30px_rgba(15,23,42,0.06)] transition-all duration-200 hover:-translate-y-0.5 hover:border-blue-200 hover:shadow-[0_18px_42px_rgba(37,99,235,0.12)] sm:grid-cols-2 sm:gap-4 sm:p-5 lg:grid-cols-[1.35fr_0.9fr_0.9fr_0.9fr_140px] lg:items-center lg:gap-6">
-            <div class="flex min-w-0 items-center gap-3 rounded-lg bg-slate-50/90 p-3.5 ring-1 ring-slate-100 transition-colors duration-200 group-hover:bg-blue-50/70 group-hover:ring-blue-100 lg:bg-transparent lg:p-0 lg:ring-0 lg:group-hover:bg-transparent lg:group-hover:ring-0">
+          <div class="space-y-4">
+            <article class="group grid grid-cols-1 gap-2 p-4 shadow-[0_12px_30px_rgba(15,23,42,0.06)] transition-all duration-200 hover:-translate-y-0.5 hover:border-blue-200 hover:shadow-[0_18px_42px_rgba(37,99,235,0.12)] sm:grid-cols-2 sm:gap-4 sm:p-5 lg:grid-cols-[1.35fr_0.9fr_0.9fr_0.9fr_140px] lg:items-center lg:gap-6">
+            <div class="flex min-w-0 items-center gap-3 p-3.5 transition-colors duration-200 group-hover:bg-blue-50/70 group-hover:ring-blue-100 lg:bg-transparent lg:p-0 lg:ring-0 lg:group-hover:bg-transparent lg:group-hover:ring-0">
               <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-white text-gray-900 ring-1 ring-gray-200 transition-colors duration-200 group-hover:bg-blue-50 group-hover:text-blue-700">
-                <i data-lucide="calendar-days" class="h-4 w-4"></i>
+                <i data-lucide="calendar" class="h-4 w-4"></i>
               </span>
               <div class="min-w-0">
                 <p class="text-[11px] font-bold uppercase text-gray-500 lg:hidden">Departure Date</p>
-                <p class="text-sm font-bold text-gray-950 sm:text-base">10 April, 2026</p>
+                <p class="text-sm font-bold text-gray-950 sm:text-sm">10 April, 2026</p>
               </div>
             </div>
 
-            <div class="flex min-w-0 items-center gap-3 rounded-lg bg-slate-50/90 p-3.5 ring-1 ring-slate-100 transition-colors duration-200 group-hover:bg-blue-50/70 group-hover:ring-blue-100 lg:bg-transparent lg:p-0 lg:ring-0 lg:group-hover:bg-transparent lg:group-hover:ring-0">
+            <div class="flex min-w-0 items-center gap-2 p-3.5 transition-colors duration-200 group-hover:bg-blue-50/70 group-hover:ring-blue-100 lg:bg-transparent lg:p-0 lg:ring-0 lg:group-hover:bg-transparent lg:group-hover:ring-0">
               <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-white text-gray-900 ring-1 ring-gray-200 transition-colors duration-200 group-hover:bg-blue-50 group-hover:text-blue-700">
                 <i data-lucide="clock" class="h-4 w-4"></i>
               </span>
               <div class="min-w-0">
                 <p class="text-[11px] font-bold uppercase text-gray-500 lg:hidden">Trip Duration</p>
-                <p class="text-sm font-bold text-gray-950 sm:text-base">14 Days</p>
+                <p class="text-xs font-bold text-gray-950 sm:text-sm">14 Days</p>
               </div>
             </div>
 
-            <div class="flex min-w-0 items-center gap-3 rounded-lg bg-slate-50/90 p-3.5 ring-1 ring-slate-100 transition-colors duration-200 group-hover:bg-blue-50/70 group-hover:ring-blue-100 lg:bg-transparent lg:p-0 lg:ring-0 lg:group-hover:bg-transparent lg:group-hover:ring-0">
+            <div class="flex min-w-0 items-center gap-2 p-3.5 transition-colors duration-200 group-hover:bg-blue-50/70 group-hover:ring-blue-100 lg:bg-transparent lg:p-0 lg:ring-0 lg:group-hover:bg-transparent lg:group-hover:ring-0">
               <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-white text-gray-900 ring-1 ring-gray-200 transition-colors duration-200 group-hover:bg-blue-50 group-hover:text-blue-700">
                 <i data-lucide="wallet" class="h-4 w-4"></i>
               </span>
               <div class="min-w-0">
                 <p class="text-[11px] font-bold uppercase text-gray-500 lg:hidden">Price</p>
-                <p class="text-sm font-bold text-gray-950 sm:text-base">USD $1390</p>
+                <p class="text-sm font-bold text-gray-950 sm:text-sm">USD $1390</p>
               </div>
             </div>
 
-            <div class="flex min-w-0 items-center gap-3 rounded-lg bg-slate-50/90 p-3.5 ring-1 ring-slate-100 transition-colors duration-200 group-hover:bg-blue-50/70 group-hover:ring-blue-100 lg:bg-transparent lg:p-0 lg:ring-0 lg:group-hover:bg-transparent lg:group-hover:ring-0">
+            <div class="flex min-w-0 items-center gap-1 p-3.5 transition-colors duration-200 group-hover:bg-blue-50/70 group-hover:ring-blue-100 lg:bg-transparent lg:p-0 lg:ring-0 lg:group-hover:bg-transparent lg:group-hover:ring-0">
               <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-white text-gray-900 ring-1 ring-gray-200 transition-colors duration-200 group-hover:bg-blue-50 group-hover:text-blue-700">
-                <i data-lucide="users" class="h-4 w-4"></i>
+                <i data-lucide="user" class="h-4 w-4"></i>
               </span>
               <div class="min-w-0">
                 <p class="text-[11px] font-bold uppercase text-gray-500 lg:hidden">Status</p>
-                <p class="inline-flex w-fit items-center rounded-full bg-emerald-100 px-3 py-1.5 text-xs font-bold text-emerald-700 ring-1 ring-emerald-200">Available</p>
+                <p class="inline-flex w-fit items-center px-3 py-1.5 text-xs font-bold text-emerald-700">Available</p>
               </div>
             </div>
 
-            <button type="button" class="flex w-full items-center justify-center gap-2 rounded bg-gray-950 px-5 py-3.5 text-sm font-bold text-white shadow-[0_12px_24px_rgba(15,23,42,0.18)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-blue-600 hover:shadow-[0_16px_30px_rgba(37,99,235,0.22)] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-blue-100 active:translate-y-0 active:scale-[0.98] sm:col-span-2 lg:col-span-1 lg:w-full lg:whitespace-nowrap">
+            <button type="button" class="flex w-full items-center justify-center gap-2 rounded bg-blue-500 px-5 py-3.5 text-sm font-bold text-white shadow-[0_12px_24px_rgba(15,23,42,0.18)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-blue-600 hover:shadow-[0_16px_30px_rgba(37,99,235,0.22)] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-blue-100 active:translate-y-0 active:scale-[0.98] sm:col-span-2 lg:col-span-1 lg:w-full lg:whitespace-nowrap">
               Book Now
             </button>
           </article>
 
-          <article class="group grid grid-cols-1 gap-3 rounded-xl border border-slate-200 bg-white p-4 shadow-[0_12px_30px_rgba(15,23,42,0.06)] transition-all duration-200 hover:-translate-y-0.5 hover:border-blue-200 hover:shadow-[0_18px_42px_rgba(37,99,235,0.12)] sm:grid-cols-2 sm:gap-4 sm:p-5 lg:grid-cols-[1.35fr_0.9fr_0.9fr_0.9fr_140px] lg:items-center lg:gap-6">
-            <div class="flex min-w-0 items-center gap-3 rounded-lg bg-slate-50/90 p-3.5 ring-1 ring-slate-100 transition-colors duration-200 group-hover:bg-blue-50/70 group-hover:ring-blue-100 lg:bg-transparent lg:p-0 lg:ring-0 lg:group-hover:bg-transparent lg:group-hover:ring-0">
+            <article class="group grid grid-cols-1 gap-2 p-4 shadow-[0_12px_30px_rgba(15,23,42,0.06)] transition-all duration-200 hover:-translate-y-0.5 hover:border-blue-200 hover:shadow-[0_18px_42px_rgba(37,99,235,0.12)] sm:grid-cols-2 sm:gap-4 sm:p-5 lg:grid-cols-[1.35fr_0.9fr_0.9fr_0.9fr_140px] lg:items-center lg:gap-6">
+            <div class="flex min-w-0 items-center gap-3 p-3.5 transition-colors duration-200 group-hover:bg-blue-50/70 group-hover:ring-blue-100 lg:bg-transparent lg:p-0 lg:ring-0 lg:group-hover:bg-transparent lg:group-hover:ring-0">
               <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-white text-gray-900 ring-1 ring-gray-200 transition-colors duration-200 group-hover:bg-blue-50 group-hover:text-blue-700">
-                <i data-lucide="calendar-days" class="h-4 w-4"></i>
+                <i data-lucide="calendar" class="h-4 w-4"></i>
               </span>
               <div class="min-w-0">
                 <p class="text-[11px] font-bold uppercase text-gray-500 lg:hidden">Departure Date</p>
-                <p class="text-sm font-bold text-gray-950 sm:text-base">15 April, 2026</p>
+                <p class="text-sm font-bold text-gray-950 sm:text-sm">15 April, 2026</p>
               </div>
             </div>
 
-            <div class="flex min-w-0 items-center gap-3 rounded-lg bg-slate-50/90 p-3.5 ring-1 ring-slate-100 transition-colors duration-200 group-hover:bg-blue-50/70 group-hover:ring-blue-100 lg:bg-transparent lg:p-0 lg:ring-0 lg:group-hover:bg-transparent lg:group-hover:ring-0">
+            <div class="flex min-w-0 items-center gap-2 p-3.5 transition-colors duration-200 group-hover:bg-blue-50/70 group-hover:ring-blue-100 lg:bg-transparent lg:p-0 lg:ring-0 lg:group-hover:bg-transparent lg:group-hover:ring-0">
               <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-white text-gray-900 ring-1 ring-gray-200 transition-colors duration-200 group-hover:bg-blue-50 group-hover:text-blue-700">
                 <i data-lucide="clock" class="h-4 w-4"></i>
               </span>
               <div class="min-w-0">
                 <p class="text-[11px] font-bold uppercase text-gray-500 lg:hidden">Trip Duration</p>
-                <p class="text-sm font-bold text-gray-950 sm:text-base">14 Days</p>
+                <p class="text-xs font-bold text-gray-950 sm:text-sm">14 Days</p>
               </div>
             </div>
 
-            <div class="flex min-w-0 items-center gap-3 rounded-lg bg-slate-50/90 p-3.5 ring-1 ring-slate-100 transition-colors duration-200 group-hover:bg-blue-50/70 group-hover:ring-blue-100 lg:bg-transparent lg:p-0 lg:ring-0 lg:group-hover:bg-transparent lg:group-hover:ring-0">
+            <div class="flex min-w-0 items-center gap-2 p-3.5 transition-colors duration-200 group-hover:bg-blue-50/70 group-hover:ring-blue-100 lg:bg-transparent lg:p-0 lg:ring-0 lg:group-hover:bg-transparent lg:group-hover:ring-0">
               <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-white text-gray-900 ring-1 ring-gray-200 transition-colors duration-200 group-hover:bg-blue-50 group-hover:text-blue-700">
                 <i data-lucide="wallet" class="h-4 w-4"></i>
               </span>
               <div class="min-w-0">
                 <p class="text-[11px] font-bold uppercase text-gray-500 lg:hidden">Price</p>
-                <p class="text-sm font-bold text-gray-950 sm:text-base">USD $1390</p>
+                <p class="text-sm font-bold text-gray-950 sm:text-sm">USD $1390</p>
               </div>
             </div>
 
-            <div class="flex min-w-0 items-center gap-3 rounded-lg bg-slate-50/90 p-3.5 ring-1 ring-slate-100 transition-colors duration-200 group-hover:bg-blue-50/70 group-hover:ring-blue-100 lg:bg-transparent lg:p-0 lg:ring-0 lg:group-hover:bg-transparent lg:group-hover:ring-0">
+            <div class="flex min-w-0 items-center gap-1 p-3.5 transition-colors duration-200 group-hover:bg-blue-50/70 group-hover:ring-blue-100 lg:bg-transparent lg:p-0 lg:ring-0 lg:group-hover:bg-transparent lg:group-hover:ring-0">
               <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-white text-gray-900 ring-1 ring-gray-200 transition-colors duration-200 group-hover:bg-blue-50 group-hover:text-blue-700">
-                <i data-lucide="users" class="h-4 w-4"></i>
+                <i data-lucide="user" class="h-4 w-4"></i>
               </span>
               <div class="min-w-0">
                 <p class="text-[11px] font-bold uppercase text-gray-500 lg:hidden">Status</p>
-                <p class="inline-flex w-fit items-center rounded-full bg-emerald-100 px-3 py-1.5 text-xs font-bold text-emerald-700 ring-1 ring-emerald-200">Available</p>
+                <p class="inline-flex w-fit items-center px-3 py-1.5 text-xs font-bold text-emerald-700">Available</p>
               </div>
             </div>
 
-            <button type="button" class="flex w-full items-center justify-center gap-2 rounded-lg bg-gray-950 px-5 py-3.5 text-sm font-bold text-white shadow-[0_12px_24px_rgba(15,23,42,0.18)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-blue-600 hover:shadow-[0_16px_30px_rgba(37,99,235,0.22)] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-blue-100 active:translate-y-0 active:scale-[0.98] sm:col-span-2 lg:col-span-1 lg:w-full lg:whitespace-nowrap">
+            <button type="button" class="flex w-full items-center justify-center gap-2 rounded bg-blue-500 px-5 py-3.5 text-sm font-bold text-white shadow-[0_12px_24px_rgba(15,23,42,0.18)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-blue-600 hover:shadow-[0_16px_30px_rgba(37,99,235,0.22)] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-blue-100 active:translate-y-0 active:scale-[0.98] sm:col-span-2 lg:col-span-1 lg:w-full lg:whitespace-nowrap">
               Book Now
-              <i data-lucide="arrow-right" class="h-4 w-4"></i>
             </button>
           </article>
 
-          <article class="group grid grid-cols-1 gap-3 rounded-xl border border-slate-200 bg-white p-4 shadow-[0_12px_30px_rgba(15,23,42,0.06)] transition-all duration-200 hover:-translate-y-0.5 hover:border-blue-200 hover:shadow-[0_18px_42px_rgba(37,99,235,0.12)] sm:grid-cols-2 sm:gap-4 sm:p-5 lg:grid-cols-[1.35fr_0.9fr_0.9fr_0.9fr_140px] lg:items-center lg:gap-6">
-            <div class="flex min-w-0 items-center gap-3 rounded-lg bg-slate-50/90 p-3.5 ring-1 ring-slate-100 transition-colors duration-200 group-hover:bg-blue-50/70 group-hover:ring-blue-100 lg:bg-transparent lg:p-0 lg:ring-0 lg:group-hover:bg-transparent lg:group-hover:ring-0">
+            <article class="group grid grid-cols-1 gap-2 p-4 shadow-[0_12px_30px_rgba(15,23,42,0.06)] transition-all duration-200 hover:-translate-y-0.5 hover:border-blue-200 hover:shadow-[0_18px_42px_rgba(37,99,235,0.12)] sm:grid-cols-2 sm:gap-4 sm:p-5 lg:grid-cols-[1.35fr_0.9fr_0.9fr_0.9fr_140px] lg:items-center lg:gap-6">
+            <div class="flex min-w-0 items-center gap-3 p-3.5 transition-colors duration-200 group-hover:bg-blue-50/70 group-hover:ring-blue-100 lg:bg-transparent lg:p-0 lg:ring-0 lg:group-hover:bg-transparent lg:group-hover:ring-0">
               <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-white text-gray-900 ring-1 ring-gray-200 transition-colors duration-200 group-hover:bg-blue-50 group-hover:text-blue-700">
-                <i data-lucide="calendar-days" class="h-4 w-4"></i>
+                <i data-lucide="calendar" class="h-4 w-4"></i>
               </span>
               <div class="min-w-0">
                 <p class="text-[11px] font-bold uppercase text-gray-500 lg:hidden">Departure Date</p>
-                <p class="text-sm font-bold text-gray-950 sm:text-base">20 April, 2026</p>
+                <p class="text-sm font-bold text-gray-950 sm:text-sm">20 April, 2026</p>
               </div>
             </div>
 
-            <div class="flex min-w-0 items-center gap-3 rounded-lg bg-slate-50/90 p-3.5 ring-1 ring-slate-100 transition-colors duration-200 group-hover:bg-blue-50/70 group-hover:ring-blue-100 lg:bg-transparent lg:p-0 lg:ring-0 lg:group-hover:bg-transparent lg:group-hover:ring-0">
+            <div class="flex min-w-0 items-center gap-2 p-3.5 transition-colors duration-200 group-hover:bg-blue-50/70 group-hover:ring-blue-100 lg:bg-transparent lg:p-0 lg:ring-0 lg:group-hover:bg-transparent lg:group-hover:ring-0">
               <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-white text-gray-900 ring-1 ring-gray-200 transition-colors duration-200 group-hover:bg-blue-50 group-hover:text-blue-700">
                 <i data-lucide="clock" class="h-4 w-4"></i>
               </span>
               <div class="min-w-0">
                 <p class="text-[11px] font-bold uppercase text-gray-500 lg:hidden">Trip Duration</p>
-                <p class="text-sm font-bold text-gray-950 sm:text-base">14 Days</p>
+                <p class="text-xs font-bold text-gray-950 sm:text-sm">14 Days</p>
               </div>
             </div>
 
-            <div class="flex min-w-0 items-center gap-3 rounded-lg bg-slate-50/90 p-3.5 ring-1 ring-slate-100 transition-colors duration-200 group-hover:bg-blue-50/70 group-hover:ring-blue-100 lg:bg-transparent lg:p-0 lg:ring-0 lg:group-hover:bg-transparent lg:group-hover:ring-0">
+            <div class="flex min-w-0 items-center gap-2 p-3.5 transition-colors duration-200 group-hover:bg-blue-50/70 group-hover:ring-blue-100 lg:bg-transparent lg:p-0 lg:ring-0 lg:group-hover:bg-transparent lg:group-hover:ring-0">
               <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-white text-gray-900 ring-1 ring-gray-200 transition-colors duration-200 group-hover:bg-blue-50 group-hover:text-blue-700">
                 <i data-lucide="wallet" class="h-4 w-4"></i>
               </span>
               <div class="min-w-0">
                 <p class="text-[11px] font-bold uppercase text-gray-500 lg:hidden">Price</p>
-                <p class="text-sm font-bold text-gray-950 sm:text-base">USD $1390</p>
+                <p class="text-sm font-bold text-gray-950 sm:text-sm">USD $1390</p>
               </div>
             </div>
 
-            <div class="flex min-w-0 items-center gap-3 rounded-lg bg-slate-50/90 p-3.5 ring-1 ring-slate-100 transition-colors duration-200 group-hover:bg-blue-50/70 group-hover:ring-blue-100 lg:bg-transparent lg:p-0 lg:ring-0 lg:group-hover:bg-transparent lg:group-hover:ring-0">
+            <div class="flex min-w-0 items-center gap-1 p-3.5 transition-colors duration-200 group-hover:bg-blue-50/70 group-hover:ring-blue-100 lg:bg-transparent lg:p-0 lg:ring-0 lg:group-hover:bg-transparent lg:group-hover:ring-0">
               <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-white text-gray-900 ring-1 ring-gray-200 transition-colors duration-200 group-hover:bg-blue-50 group-hover:text-blue-700">
-                <i data-lucide="users" class="h-4 w-4"></i>
+                <i data-lucide="user" class="h-4 w-4"></i>
               </span>
               <div class="min-w-0">
                 <p class="text-[11px] font-bold uppercase text-gray-500 lg:hidden">Status</p>
-                <p class="inline-flex w-fit items-center rounded-full bg-emerald-100 px-3 py-1.5 text-xs font-bold text-emerald-700 ring-1 ring-emerald-200">Available</p>
+                <p class="inline-flex w-fit items-center px-3 py-1.5 text-xs font-bold text-emerald-700">Available</p>
               </div>
             </div>
 
-            <button type="button" class="flex w-full items-center justify-center gap-2 rounded-lg bg-gray-950 px-5 py-3.5 text-sm font-bold text-white shadow-[0_12px_24px_rgba(15,23,42,0.18)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-blue-600 hover:shadow-[0_16px_30px_rgba(37,99,235,0.22)] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-blue-100 active:translate-y-0 active:scale-[0.98] sm:col-span-2 lg:col-span-1 lg:w-full lg:whitespace-nowrap">
+            <button type="button" class="flex w-full items-center justify-center gap-2 rounded bg-blue-500 px-5 py-3.5 text-sm font-bold text-white shadow-[0_12px_24px_rgba(15,23,42,0.18)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-blue-600 hover:shadow-[0_16px_30px_rgba(37,99,235,0.22)] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-blue-100 active:translate-y-0 active:scale-[0.98] sm:col-span-2 lg:col-span-1 lg:w-full lg:whitespace-nowrap">
               Book Now
-              <i data-lucide="arrow-right" class="h-4 w-4"></i>
             </button>
           </article>
-
-          <article class="group grid grid-cols-1 gap-3 rounded-xl border border-slate-200 bg-white p-4 shadow-[0_12px_30px_rgba(15,23,42,0.06)] transition-all duration-200 hover:-translate-y-0.5 hover:border-blue-200 hover:shadow-[0_18px_42px_rgba(37,99,235,0.12)] sm:grid-cols-2 sm:gap-4 sm:p-5 lg:grid-cols-[1.35fr_0.9fr_0.9fr_0.9fr_140px] lg:items-center lg:gap-6">
-            <div class="flex min-w-0 items-center gap-3 rounded-lg bg-slate-50/90 p-3.5 ring-1 ring-slate-100 transition-colors duration-200 group-hover:bg-blue-50/70 group-hover:ring-blue-100 lg:bg-transparent lg:p-0 lg:ring-0 lg:group-hover:bg-transparent lg:group-hover:ring-0">
+            <article class="group grid grid-cols-1 gap-2 p-4 shadow-[0_12px_30px_rgba(15,23,42,0.06)] transition-all duration-200 hover:-translate-y-0.5 hover:border-blue-200 hover:shadow-[0_18px_42px_rgba(37,99,235,0.12)] sm:grid-cols-2 sm:gap-4 sm:p-5 lg:grid-cols-[1.35fr_0.9fr_0.9fr_0.9fr_140px] lg:items-center lg:gap-6">
+            <div class="flex min-w-0 items-center gap-3 p-3.5 transition-colors duration-200 group-hover:bg-blue-50/70 group-hover:ring-blue-100 lg:bg-transparent lg:p-0 lg:ring-0 lg:group-hover:bg-transparent lg:group-hover:ring-0">
               <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-white text-gray-900 ring-1 ring-gray-200 transition-colors duration-200 group-hover:bg-blue-50 group-hover:text-blue-700">
-                <i data-lucide="calendar-days" class="h-4 w-4"></i>
+                <i data-lucide="calendar" class="h-4 w-4"></i>
               </span>
               <div class="min-w-0">
                 <p class="text-[11px] font-bold uppercase text-gray-500 lg:hidden">Departure Date</p>
-                <p class="text-sm font-bold text-gray-950 sm:text-base">25 April, 2026</p>
+                <p class="text-sm font-bold text-gray-950 sm:text-sm">25 April, 2026</p>
               </div>
             </div>
 
-            <div class="flex min-w-0 items-center gap-3 rounded-lg bg-slate-50/90 p-3.5 ring-1 ring-slate-100 transition-colors duration-200 group-hover:bg-blue-50/70 group-hover:ring-blue-100 lg:bg-transparent lg:p-0 lg:ring-0 lg:group-hover:bg-transparent lg:group-hover:ring-0">
+            <div class="flex min-w-0 items-center gap-2 p-3.5 transition-colors duration-200 group-hover:bg-blue-50/70 group-hover:ring-blue-100 lg:bg-transparent lg:p-0 lg:ring-0 lg:group-hover:bg-transparent lg:group-hover:ring-0">
               <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-white text-gray-900 ring-1 ring-gray-200 transition-colors duration-200 group-hover:bg-blue-50 group-hover:text-blue-700">
                 <i data-lucide="clock" class="h-4 w-4"></i>
               </span>
               <div class="min-w-0">
                 <p class="text-[11px] font-bold uppercase text-gray-500 lg:hidden">Trip Duration</p>
-                <p class="text-sm font-bold text-gray-950 sm:text-base">14 Days</p>
+                <p class="text-xs font-bold text-gray-950 sm:text-sm">14 Days</p>
               </div>
             </div>
 
-            <div class="flex min-w-0 items-center gap-3 rounded-lg bg-slate-50/90 p-3.5 ring-1 ring-slate-100 transition-colors duration-200 group-hover:bg-blue-50/70 group-hover:ring-blue-100 lg:bg-transparent lg:p-0 lg:ring-0 lg:group-hover:bg-transparent lg:group-hover:ring-0">
+            <div class="flex min-w-0 items-center gap-2 p-3.5 transition-colors duration-200 group-hover:bg-blue-50/70 group-hover:ring-blue-100 lg:bg-transparent lg:p-0 lg:ring-0 lg:group-hover:bg-transparent lg:group-hover:ring-0">
               <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-white text-gray-900 ring-1 ring-gray-200 transition-colors duration-200 group-hover:bg-blue-50 group-hover:text-blue-700">
                 <i data-lucide="wallet" class="h-4 w-4"></i>
               </span>
               <div class="min-w-0">
                 <p class="text-[11px] font-bold uppercase text-gray-500 lg:hidden">Price</p>
-                <p class="text-sm font-bold text-gray-950 sm:text-base">USD $1390</p>
+                <p class="text-sm font-bold text-gray-950 sm:text-sm">USD $1390</p>
               </div>
             </div>
 
-            <div class="flex min-w-0 items-center gap-3 rounded-lg bg-slate-50/90 p-3.5 ring-1 ring-slate-100 transition-colors duration-200 group-hover:bg-blue-50/70 group-hover:ring-blue-100 lg:bg-transparent lg:p-0 lg:ring-0 lg:group-hover:bg-transparent lg:group-hover:ring-0">
+            <div class="flex min-w-0 items-center gap-1 p-3.5 transition-colors duration-200 group-hover:bg-blue-50/70 group-hover:ring-blue-100 lg:bg-transparent lg:p-0 lg:ring-0 lg:group-hover:bg-transparent lg:group-hover:ring-0">
               <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-white text-gray-900 ring-1 ring-gray-200 transition-colors duration-200 group-hover:bg-blue-50 group-hover:text-blue-700">
-                <i data-lucide="users" class="h-4 w-4"></i>
+                <i data-lucide="user" class="h-4 w-4"></i>
               </span>
               <div class="min-w-0">
                 <p class="text-[11px] font-bold uppercase text-gray-500 lg:hidden">Status</p>
-                <p class="inline-flex w-fit items-center rounded-full bg-emerald-100 px-3 py-1.5 text-xs font-bold text-emerald-700 ring-1 ring-emerald-200">Available</p>
+                <p class="inline-flex w-fit items-center px-3 py-1.5 text-xs font-bold text-emerald-700">Available</p>
               </div>
             </div>
 
-            <button type="button" class="flex w-full items-center justify-center gap-2 rounded-lg bg-gray-950 px-5 py-3.5 text-sm font-bold text-white shadow-[0_12px_24px_rgba(15,23,42,0.18)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-blue-600 hover:shadow-[0_16px_30px_rgba(37,99,235,0.22)] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-blue-100 active:translate-y-0 active:scale-[0.98] sm:col-span-2 lg:col-span-1 lg:w-full lg:whitespace-nowrap">
+            <button type="button" class="flex w-full items-center justify-center gap-2 rounded bg-blue-500 px-5 py-3.5 text-sm font-bold text-white shadow-[0_12px_24px_rgba(15,23,42,0.18)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-blue-600 hover:shadow-[0_16px_30px_rgba(37,99,235,0.22)] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-blue-100 active:translate-y-0 active:scale-[0.98] sm:col-span-2 lg:col-span-1 lg:w-full lg:whitespace-nowrap">
               Book Now
-              <i data-lucide="arrow-right" class="h-4 w-4"></i>
             </button>
           </article>
         </div>
+      </div>
       </div>
       <!-- Departure Section End -->
 
@@ -2177,13 +2174,13 @@
         <div id="trip-details" class="px-0 sm:px-4 lg:px-8">
           <h2 class="mb-4 text-xl font-bold tracking-wide text-gray-950 sm:mb-5 sm:text-2xl">Trip Details</h2>
 
-          <div class="rounded-lg bg-slate-50 p-3 ring-1 ring-slate-200 sm:p-5 lg:p-6">
+          <div class="bg-gray-50 p-3 ring-1 ring-gray-200 sm:p-5 lg:p-6">
             <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
 
               <!-- Essential Trip Information -->
-              <div class="group rounded-lg bg-white p-4 shadow-sm ring-1 ring-slate-200 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md sm:p-5">
+              <div class="group bg-white p-4 shadow-sm ring-1 ring-slate-200 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md sm:p-5">
                 <div class="mb-4 flex min-w-0 items-center gap-3 sm:mb-5 sm:gap-4">
-                  <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-md bg-gray-950 text-white shadow-sm transition-colors duration-200 group-hover:bg-blue-600">
+                  <div class="flex h-11 w-11 shrink-0 items-center justify-center bg-gray-950 text-white shadow-sm transition-colors duration-200 group-hover:bg-blue-600">
                     <svg width="22" height="27" viewBox="0 0 22 27" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path
                         d="M7.25 13.4985L9.75 15.998L14.75 10.9989M21 14.7483C21 20.9972 16.625 24.1217 11.425 25.9339C11.1527 26.0261 10.8569 26.0217 10.5875 25.9214C5.375 24.1217 1 20.9972 1 14.7483V5.99972C1 5.66826 1.1317 5.35037 1.36612 5.11599C1.60054 4.88161 1.91848 4.74993 2.25 4.74993C4.75 4.74993 7.875 3.25018 10.05 1.3505C10.3148 1.12429 10.6517 1 11 1C11.3483 1 11.6852 1.12429 11.95 1.3505C14.1375 3.26268 17.25 4.74993 19.75 4.74993C20.0815 4.74993 20.3995 4.88161 20.6339 5.11599C20.8683 5.35037 21 5.66826 21 5.99972V14.7483Z"
@@ -2233,9 +2230,9 @@
               </div>
 
               <!-- Packing Essentials -->
-              <div class="group rounded-lg bg-white p-4 shadow-sm ring-1 ring-slate-200 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md sm:p-5">
+              <div class="group bg-white p-4 shadow-sm ring-1 ring-slate-200 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md sm:p-5">
                 <div class="mb-4 flex min-w-0 items-center gap-3 sm:mb-5 sm:gap-4">
-                  <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-md bg-gray-950 text-white shadow-sm transition-colors duration-200 group-hover:bg-blue-600">
+                  <div class="flex h-11 w-11 shrink-0 items-center justify-center bg-gray-950 text-white shadow-sm transition-colors duration-200 group-hover:bg-blue-600">
                     <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path
                         d="M25 20.2H5.8C5.16348 20.2 4.55303 19.9471 4.10294 19.4971C3.65286 19.047 3.4 18.4365 3.4 17.8V7C3.4 6.36348 3.14714 5.75303 2.69706 5.30294C2.24697 4.85286 1.63652 4.6 1 4.6M19 15.4V3.4C19 2.76348 18.7471 2.15303 18.2971 1.70294C17.847 1.25286 17.2365 1 16.6 1H15.4C14.7635 1 14.153 1.25286 13.7029 1.70294C13.2529 2.15303 13 2.76348 13 3.4V15.4M9.4 5.8H22.6C23.2627 5.8 23.8 6.33726 23.8 7V14.2C23.8 14.8627 23.2627 15.4 22.6 15.4H9.4C8.73726 15.4 8.2 14.8627 8.2 14.2V7C8.2 6.33726 8.73726 5.8 9.4 5.8ZM22.6 22.6C22.6 23.9255 21.5255 25 20.2 25C18.8745 25 17.8 23.9255 17.8 22.6C17.8 21.2745 18.8745 20.2 20.2 20.2C21.5255 20.2 22.6 21.2745 22.6 22.6ZM11.8 22.6C11.8 23.9255 10.7255 25 9.4 25C8.07452 25 7 23.9255 7 22.6C7 21.2745 8.07452 20.2 9.4 20.2C10.7255 20.2 11.8 21.2745 11.8 22.6Z"

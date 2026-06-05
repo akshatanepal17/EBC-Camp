@@ -35,3 +35,231 @@ body {
   /* font-family: "Inter", sans-serif; */
   /* font-family: "Calibri" Arial, sans-serif */
 }
+
+/* Availability Section Starts */
+.availability-section {
+  margin-bottom: 56px;
+  padding: 0;
+}
+
+.availability-heading {
+  margin-bottom: 20px;
+  color: #202124;
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: 0;
+}
+
+.availability-panel {
+  background: #f5f7f6;
+  padding: 25px 24px 22px;
+}
+
+.availability-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 30px;
+}
+
+.availability-month-label {
+  color: #232323;
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.availability-select-wrap {
+  position: relative;
+  display: block;
+  width: 116px;
+  flex: 0 0 auto;
+}
+
+.availability-select {
+  width: 100%;
+  height: 30px;
+  appearance: none;
+  border: 1px solid #81868d;
+  border-radius: 4px;
+  background: #ffffff;
+  color: #424242;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1;
+  padding: 0 30px 0 13px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.availability-select:hover,
+.availability-select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+  outline: none;
+}
+
+.availability-select-icon {
+  position: absolute;
+  right: 9px;
+  top: 50%;
+  width: 14px;
+  height: 14px;
+  color: #6b7280;
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+
+.availability-section .space-y-4 > :not([hidden]) ~ :not([hidden]) {
+  margin-top: 12px !important;
+}
+
+.availability-section .space-y-4 article {
+  grid-template-columns: minmax(0, 1fr) !important;
+  gap: 14px !important;
+  align-items: center;
+  border: 0 !important;
+  border-radius: 0;
+  background: #ffffff;
+  box-shadow: none !important;
+  padding: 16px;
+  transform: none !important;
+}
+
+.availability-section .space-y-4 article:hover {
+  border: 0 !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+.availability-section .space-y-4 article > div {
+  gap: 11px !important;
+  padding: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.availability-section .space-y-4 article > div > span:first-child {
+  width: 18px !important;
+  height: 18px !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  color: #2c2c2c !important;
+  box-shadow: none !important;
+}
+
+.availability-section .space-y-4 article svg {
+  width: 17px;
+  height: 17px;
+  stroke-width: 2.4;
+}
+
+.availability-section .space-y-4 article p:first-child {
+  display: block !important;
+  color: #868b91 !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0 !important;
+  line-height: 1.15;
+  text-transform: none !important;
+}
+
+.availability-section .space-y-4 article p:last-child {
+  display: block !important;
+  width: auto !important;
+  padding: 0 !important;
+  color: #2a2a2a !important;
+  font-size: 15px !important;
+  font-weight: 800 !important;
+  line-height: 1.2;
+}
+
+.availability-section .space-y-4 article > div:nth-of-type(4) p:last-child {
+  color: #20bf2e !important;
+}
+
+.availability-section .space-y-4 article > button {
+  min-height: 34px;
+  border-radius: 4px;
+  background: #2563f6 !important;
+  box-shadow: none !important;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1;
+  padding: 0 22px !important;
+}
+
+.availability-section .space-y-4 article > button:hover,
+.availability-section .space-y-4 article > button:focus-visible {
+  background: #1d4ed8 !important;
+  box-shadow: 0 8px 18px rgba(37, 99, 235, 0.18) !important;
+  transform: none !important;
+}
+
+@media (min-width: 640px) {
+  .availability-section {
+    padding: 0 16px;
+  }
+
+  .availability-panel {
+    padding: 26px 27px 23px;
+  }
+
+  .availability-section .space-y-4 article {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .availability-section .space-y-4 article > button {
+    grid-column: span 2 / span 2 !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .availability-section {
+    margin-bottom: 72px;
+    padding: 0 32px;
+  }
+
+  .availability-panel {
+    padding: 26px 27px 22px;
+  }
+
+  .availability-section .space-y-4 article {
+    grid-template-columns: minmax(128px, 1.15fr) minmax(96px, 0.8fr) minmax(104px, 0.86fr) minmax(82px, 0.68fr) minmax(104px, 0.76fr) !important;
+    gap: 16px !important;
+    min-height: 66px;
+    padding: 12px 16px;
+  }
+
+  .availability-section .space-y-4 article > button {
+    grid-column: auto !important;
+    width: 100%;
+    min-height: 30px;
+    padding: 0 14px !important;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 639px) {
+  .availability-heading {
+    font-size: 22px;
+  }
+
+  .availability-panel {
+    padding: 20px 16px;
+  }
+
+  .availability-toolbar {
+    align-items: flex-start;
+    flex-direction: column;
+    margin-bottom: 22px;
+  }
+
+  .availability-select-wrap {
+    width: 100%;
+  }
+}
+/* Availability Section Ends */
