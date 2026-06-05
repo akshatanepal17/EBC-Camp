@@ -789,12 +789,13 @@ if (window.lucide) {
 (function () {
   const faqList = document.getElementById('faq-list');
   const faqTemplate = document.getElementById('faq-item-template');
+  const faqControls = document.getElementById('faq-controls');
   const loadMoreButton = document.getElementById('faq-load-more');
   const loadMoreWrapper = document.getElementById('faq-load-more-wrapper');
   const backButton = document.getElementById('faq-back');
   const backWrapper = document.getElementById('faq-back-wrapper');
   const status = document.getElementById('faq-load-more-status');
-  if (!faqList || !faqTemplate || !loadMoreButton || !loadMoreWrapper || !backButton || !backWrapper) return;
+  if (!faqList || !faqTemplate || !faqControls || !loadMoreButton || !loadMoreWrapper || !backButton || !backWrapper) return;
 
   const BATCH_SIZE = 10;
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -802,84 +803,84 @@ if (window.lucide) {
 
   const additionalFaqs = [
     {
-      question: 'When is the best time to trek in Nepal?',
-      answer: 'Spring and autumn are popular trekking seasons because they generally offer clearer views and more stable conditions. The best time still depends on your chosen route.',
+      question: 'How many days does the Everest Base Camp trek take?',
+      answer: 'The standard itinerary here is 14 days, including trekking days and acclimatization. Extra buffer days are helpful because Lukla flights can be affected by weather.',
     },
     {
-      question: 'How difficult is the Everest Base Camp trek?',
-      answer: 'The trek is physically demanding because of the altitude and multiple walking days, but it does not require technical climbing skills. Good preparation and a steady pace are important.',
+      question: 'Do I need previous trekking experience for EBC?',
+      answer: 'Previous trekking helps but is not required. You should be comfortable walking 5 to 7 hours on uneven trails and training before arrival.',
     },
     {
-      question: 'Do I need previous trekking experience?',
-      answer: 'Previous trekking experience is helpful but not essential for many routes. Regular walking, hill training, and an honest assessment of your fitness will help you prepare.',
+      question: 'What permits are required for Everest Base Camp?',
+      answer: 'Trekkers usually need the Sagarmatha National Park permit and Khumbu Pasang Lhamu Rural Municipality permit. Your trekking team can arrange them before the route begins.',
     },
     {
-      question: 'What trekking permits do I need?',
-      answer: 'Permit requirements depend on your destination and route. Confirm the current requirements before departure so the correct documents can be arranged for your trek.',
+      question: 'Where do trekkers sleep on the EBC trail?',
+      answer: 'Most nights are in local teahouses with simple twin rooms. Facilities become more basic as elevation increases.',
     },
     {
-      question: 'What should I pack for a Himalayan trek?',
-      answer: 'Pack layered clothing, comfortable broken-in boots, rain protection, sun protection, a warm sleeping bag, reusable water bottles, and your personal essentials.',
+      question: 'What food is available during the trek?',
+      answer: 'Teahouses serve dal bhat, noodles, soups, rice, pasta, potatoes, eggs, tea, and other simple meals. Warm, balanced meals are best at altitude.',
     },
     {
       question: 'Is drinking water available on the trail?',
-      answer: 'Water is available in villages and teahouses. Use a refillable bottle and follow your guide\'s advice for boiling, filtering, or treating water before drinking.',
+      answer: 'Drinking water is available at teahouses. Use boiled, filtered, or treated water and carry a refillable bottle.',
     },
     {
-      question: 'What accommodation is available during a trek?',
-      answer: 'Popular trekking routes usually have locally run teahouses. Rooms are generally simple and comfortable, while facilities become more basic at higher elevations.',
+      question: 'How can I reduce altitude sickness risk?',
+      answer: 'Ascend slowly, drink enough water, eat well, avoid alcohol, follow acclimatization days, and tell your guide as soon as symptoms appear.',
     },
     {
-      question: 'Can I charge my phone and use Wi-Fi?',
-      answer: 'Many teahouses offer charging and internet access for an additional fee, but service can be limited in remote areas. Carrying a power bank is recommended.',
+      question: 'Can I charge my phone or use Wi-Fi?',
+      answer: 'Many teahouses offer charging and Wi-Fi for a fee, but speed and reliability drop at higher elevations. Carry a power bank.',
     },
     {
-      question: 'Should I hire a guide or porter?',
-      answer: 'A guide provides local knowledge and logistical support, while a porter can reduce the weight you carry. Both can make a high-altitude trek more comfortable.',
+      question: 'What should I pack for Everest Base Camp?',
+      answer: 'Bring layered clothing, a warm down jacket, rain shell, gloves, hat, sunglasses, sunscreen, broken-in boots, sleeping bag, and personal medicine.',
     },
     {
-      question: 'How do I reduce the risk of altitude sickness?',
-      answer: 'Ascend gradually, use acclimatization days, stay hydrated, avoid rushing, and tell your guide immediately if you feel unwell. Never ignore worsening symptoms.',
+      question: 'Do I need a guide or porter?',
+      answer: 'A guide helps with safety, routing, acclimatization, and local logistics. A porter reduces your load and makes long trekking days more manageable.',
     },
     {
-      question: 'How far do trekkers usually walk each day?',
-      answer: 'Daily walking distance varies by route, altitude, and acclimatization needs. Most itineraries balance steady progress with enough time to rest and enjoy the trail.',
+      question: 'How cold does it get on the EBC trek?',
+      answer: 'Temperatures vary by season and altitude. Nights above Namche can be cold, especially near Lobuche and Gorak Shep, so warm layers are essential.',
     },
     {
-      question: 'Are vegetarian meals available during a trek?',
-      answer: 'Vegetarian meals are widely available on popular routes. Tell your trekking team about dietary preferences or allergies before departure so they can guide your meal choices.',
+      question: 'Are hot showers available?',
+      answer: 'Hot showers are available at many teahouses for an extra fee, but availability becomes limited at higher altitude.',
     },
     {
-      question: 'Should I carry cash while trekking?',
-      answer: 'Yes. ATMs and card payments are unreliable outside major towns. Carry enough Nepali rupees for snacks, drinks, showers, charging, Wi-Fi, and tips.',
+      question: 'Is Kala Patthar included in the trek?',
+      answer: 'Most 14-day itineraries include Kala Patthar for sunrise or mountain views, weather and health permitting.',
     },
     {
-      question: 'Can flights to Lukla be delayed?',
-      answer: 'Yes. Mountain weather can delay or cancel flights. Keep buffer days in your itinerary and avoid tight international connections immediately after the trek.',
+      question: 'How much cash should I carry?',
+      answer: 'Carry Nepali rupees for drinks, snacks, showers, charging, Wi-Fi, tips, and personal purchases because cards and ATMs are unreliable on the trail.',
     },
     {
-      question: 'Can my trekking itinerary be customized?',
-      answer: 'Yes. Your itinerary can be adjusted around your available time, fitness level, preferred pace, acclimatization needs, and the places you want to visit.',
+      question: 'What happens if I feel sick on the trail?',
+      answer: 'Tell your guide immediately. Depending on symptoms, you may rest, descend, seek local medical help, or use emergency evacuation through insurance.',
     },
     {
-      question: 'How should I train before my trek?',
-      answer: 'Build endurance with regular walks, hills or stairs, and longer weekend hikes. Add strength training and gradually practice carrying your daypack.',
+      question: 'Can vegetarians eat well on the route?',
+      answer: 'Yes. Vegetarian meals are widely available and often recommended at altitude because they are fresh, simple, and easy to digest.',
     },
     {
-      question: 'Are hot showers available on the trail?',
-      answer: 'Many teahouses offer hot showers for an additional fee. Availability becomes less reliable at higher elevations, so carry basic personal hygiene supplies.',
+      question: 'How much can a porter carry?',
+      answer: 'Porter loads are usually limited, often around 20 to 25 kg shared between two trekkers. Keep your duffel light and practical.',
     },
     {
-      question: 'Can I rent trekking equipment in Kathmandu?',
-      answer: 'Many trekking items can be rented or purchased in Kathmandu. Bring personal-fit essentials such as well-tested boots when possible and inspect rental gear carefully.',
+      question: 'Is travel through Manthali required in peak season?',
+      answer: 'During busy trekking seasons, Lukla flights may operate from Manthali instead of Kathmandu depending on airline and airport arrangements.',
     },
     {
-      question: 'Can I store extra luggage in Kathmandu?',
-      answer: 'Usually, yes. Travelers commonly leave non-trekking luggage securely at their hotel or with their trekking operator while they are on the trail.',
+      question: 'Can the Everest Base Camp itinerary be customized?',
+      answer: 'Yes. It can be adjusted for your pace, acclimatization needs, group size, travel dates, and available buffer days.',
     },
     {
-      question: 'Is tipping expected after a trek?',
-      answer: 'Tipping is customary when you are happy with the service. The amount is personal and can reflect the trek length, group size, and support provided.',
+      question: 'What training helps before the trek?',
+      answer: 'Build endurance with regular walking, stairs, hills, and weekend hikes. Add leg strength and practice carrying a daypack.',
     },
   ];
 
@@ -946,7 +947,7 @@ if (window.lucide) {
       addedItems.push(item);
     });
 
-    loadMoreWrapper.before(fragment);
+    faqControls.before(fragment);
     loadedCount += addedItems.length;
     backWrapper.hidden = false;
     prepareAllFaqs();
