@@ -989,6 +989,173 @@ if (window.lucide) {
   prepareAllFaqs();
 })();
 
+// Trip cost calculator
+(function () {
+  const calculator = document.getElementById('trip-cost-calculator');
+  if (!calculator) return;
+
+  const bookingForm = document.getElementById('trip-booking-form');
+  const travelersInput = calculator.querySelector('[data-cost-travelers]');
+  const packageSelect = calculator.querySelector('[data-cost-package]');
+  const seasonSelect = calculator.querySelector('[data-cost-season]');
+  const nightsInput = calculator.querySelector('[data-cost-nights]');
+  const addOns = Array.from(calculator.querySelectorAll('[data-cost-addon]'));
+  const proceedButton = calculator.querySelector('[data-cost-book-button]');
+  const travelersError = calculator.querySelector('[data-cost-travelers-error]');
+  const nightsError = calculator.querySelector('[data-cost-nights-error]');
+
+  const output = {
+    packageLabel: calculator.querySelector('[data-cost-package-label]'),
+    total: calculator.querySelector('[data-cost-total]'),
+    status: calculator.querySelector('[data-cost-status]'),
+    perPerson: calculator.querySelector('[data-cost-per-person]'),
+    base: calculator.querySelector('[data-cost-base]'),
+    addOns: calculator.querySelector('[data-cost-addons]'),
+    discount: calculator.querySelector('[data-cost-discount]'),
+    deposit: calculator.querySelector('[data-cost-deposit]'),
+    addOnsText: calculator.querySelector('[data-cost-addons-text]'),
+  };
+
+  const bookingFields = {
+    travelers: bookingForm?.querySelector('[name="travelers"]'),
+    package: bookingForm?.querySelector('#selected-trip-package'),
+    total: bookingForm?.querySelector('#estimated-trip-cost'),
+    addOns: bookingForm?.querySelector('#selected-cost-addons'),
+  };
+
+  const money = new Intl.NumberFormat('en-US', {
+    currency: 'USD',
+    maximumFractionDigits: 0,
+    style: 'currency',
+  });
+
+  const getSelectedOption = select => select?.selectedOptions?.[0] || null;
+
+  const readBoundedNumber = (input, errorElement) => {
+    const value = Number(input?.value);
+    const min = Number(input?.min || 0);
+    const max = Number(input?.max || Number.MAX_SAFE_INTEGER);
+    const valid = Number.isFinite(value) && value >= min && value <= max;
+    const fallback = Math.min(max, Math.max(min, Number.isFinite(value) ? value : min));
+
+    input?.setAttribute('aria-invalid', String(!valid));
+    input?.classList.toggle('border-rose-300', !valid);
+    input?.classList.toggle('bg-rose-50', !valid);
+    errorElement?.classList.toggle('hidden', valid);
+
+    return { valid, value: valid ? value : fallback };
+  };
+
+  const syncBookingForm = estimate => {
+    if (!bookingForm) return;
+
+    const travelerValue = estimate.travelers >= 10
+      ? '10+ Travelers'
+      : `${estimate.travelers} Traveler${estimate.travelers === 1 ? '' : 's'}`;
+
+    if (bookingFields.travelers) {
+      bookingFields.travelers.value = travelerValue;
+    }
+
+    if (bookingFields.package) {
+      bookingFields.package.value = `${estimate.packageLabel} - ${money.format(estimate.packagePrice)} per traveler`;
+    }
+
+    if (bookingFields.total) {
+      bookingFields.total.value = money.format(estimate.total);
+    }
+
+    if (bookingFields.addOns) {
+      bookingFields.addOns.value = estimate.addOnLabels.length
+        ? estimate.addOnLabels.join(', ')
+        : 'No add-ons selected';
+    }
+  };
+
+  const updateEstimate = () => {
+    const travelersState = readBoundedNumber(travelersInput, travelersError);
+    const nightsState = readBoundedNumber(nightsInput, nightsError);
+    const isValid = travelersState.valid && nightsState.valid;
+
+    const travelers = Math.round(travelersState.value);
+    const nights = Math.round(nightsState.value);
+    const selectedPackage = getSelectedOption(packageSelect);
+    const selectedSeason = getSelectedOption(seasonSelect);
+    const packagePrice = Number(selectedPackage?.dataset.price || 0);
+    const packageLabel = selectedPackage?.dataset.label || 'Selected Trek';
+    const seasonAdjustment = Number(seasonSelect?.value || 0);
+    const seasonLabel = selectedSeason?.dataset.label || 'Selected Season';
+    const nightPrice = Number(nightsInput?.dataset.nightPrice || 0);
+
+    const baseTotal = packagePrice * travelers;
+    const seasonTotal = seasonAdjustment * travelers;
+    const hotelTotal = nights * nightPrice * travelers;
+    const addOnLabels = [];
+    const addOnTotal = addOns.reduce((sum, addOn) => {
+      if (!addOn.checked) return sum;
+
+      const price = Number(addOn.dataset.price || 0);
+      const amount = addOn.dataset.mode === 'group' ? price : price * travelers;
+      addOnLabels.push(addOn.dataset.label || addOn.parentElement?.textContent.trim() || 'Add-on');
+
+      return sum + amount;
+    }, 0);
+
+    if (nights > 0) {
+      addOnLabels.push(`${nights} extra hotel night${nights === 1 ? '' : 's'}`);
+    }
+
+    const groupDiscount = travelers >= 8 ? travelers * 125 : travelers >= 5 ? travelers * 75 : 0;
+    const total = Math.max(0, baseTotal + seasonTotal + hotelTotal + addOnTotal - groupDiscount);
+    const deposit = total * 0.2;
+
+    output.packageLabel && (output.packageLabel.textContent = packageLabel);
+    output.total && (output.total.textContent = money.format(total));
+    output.status && (output.status.textContent = `${seasonLabel} estimate for ${travelers} traveler${travelers === 1 ? '' : 's'}.`);
+    output.perPerson && (output.perPerson.textContent = money.format(packagePrice + seasonAdjustment));
+    output.base && (output.base.textContent = money.format(baseTotal + seasonTotal));
+    output.addOns && (output.addOns.textContent = money.format(addOnTotal + hotelTotal));
+    output.discount && (output.discount.textContent = groupDiscount ? `-${money.format(groupDiscount)}` : money.format(0));
+    output.deposit && (output.deposit.textContent = money.format(deposit));
+    output.addOnsText && (output.addOnsText.textContent = addOnLabels.length ? addOnLabels.join(', ') : 'No add-ons selected.');
+
+    if (proceedButton) {
+      proceedButton.disabled = !isValid;
+    }
+
+    syncBookingForm({
+      addOnLabels,
+      packageLabel,
+      packagePrice,
+      total,
+      travelers,
+    });
+  };
+
+  [...calculator.querySelectorAll('input, select')].forEach(control => {
+    control.addEventListener('input', updateEstimate);
+    control.addEventListener('change', updateEstimate);
+  });
+
+  proceedButton?.addEventListener('click', () => {
+    updateEstimate();
+
+    if (proceedButton.disabled || !bookingForm) return;
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    bookingForm.scrollIntoView({
+      behavior: prefersReducedMotion ? 'auto' : 'smooth',
+      block: 'start',
+    });
+
+    window.setTimeout(() => {
+      bookingForm.querySelector('[name="name"]')?.focus({ preventScroll: true });
+    }, prefersReducedMotion ? 0 : 450);
+  });
+
+  updateEstimate();
+})();
+
 // WhatsApp trip booking form
 (function () {
   const bookingForm = document.getElementById('trip-booking-form');
@@ -1009,6 +1176,9 @@ if (window.lucide) {
   const buildWhatsAppUrl = details => {
     const bookingDetails = [
       ['Trip Name', details.tripName],
+      ['Trek Package', details.tripPackage],
+      ['Estimated Cost', details.estimatedCost],
+      ['Selected Add-ons', details.costAddons],
       ['Travel Date', formatTravelDate(details.travelDate)],
       ['Number of Travelers', details.travelers],
       ['Name', details.name],
@@ -1033,11 +1203,14 @@ if (window.lucide) {
   document.querySelectorAll('[data-whatsapp-booking]').forEach(link => {
     link.addEventListener('click', () => {
       const sourceFormSelector = link.dataset.bookingForm;
-      const sourceForm = sourceFormSelector ? document.querySelector(sourceFormSelector) : null;
+      const sourceForm = sourceFormSelector ? document.querySelector(sourceFormSelector) : bookingForm;
       const formData = sourceForm ? new FormData(sourceForm) : null;
 
       link.href = buildWhatsAppUrl({
         tripName: link.dataset.tripName,
+        tripPackage: formData?.get('tripPackage'),
+        estimatedCost: formData?.get('estimatedCost'),
+        costAddons: formData?.get('costAddons'),
         travelDate: formData?.get('travelDate'),
         travelers: formData?.get('travelers'),
       });
@@ -1068,6 +1241,9 @@ if (window.lucide) {
 
     window.location.href = buildWhatsAppUrl({
       tripName: 'Everest Base Camp Trek',
+      tripPackage: formData.get('tripPackage'),
+      estimatedCost: formData.get('estimatedCost'),
+      costAddons: formData.get('costAddons'),
       travelDate: formData.get('travelDate'),
       travelers: formData.get('travelers'),
       name: formData.get('name').trim(),
