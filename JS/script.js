@@ -1672,7 +1672,7 @@ setupLegacyNestedDropdown('.peak-menu-trigger', 'peak-menu');
   window.addEventListener('resize', onResize);
 })();
 
-// pax counter
+//pax counter 
 const paxPlus = document.getElementById('pax-plus');
 const paxMinus = document.getElementById('pax-minus');
 const paxCount = document.getElementById('pax-count');
@@ -1738,6 +1738,7 @@ if (paxPlus && paxMinus && paxCount) {
     }
   });
 }
+
 
 // (function () {
 //   const subnav = document.getElementById('subnav');
@@ -2000,5 +2001,20 @@ if (paxPlus && paxMinus && paxCount) {
 //   init();
 // })();
 
+
+
+
+
+// pax counter
+// const paxPlus = document.getElementById('pax-plus');
+// const paxMinus = document.getElementById('pax-minus');
+// const paxCount = document.getElementById('pax-count');
+// const priceperpax = document.getElementById('priceperpax');
+
+// if (paxPlus && paxMinus && paxCount) {
+//   let pax = 1;
+//   paxPlus.addEventListener('click', () => { pax++; paxCount.textContent = pax; });
+//   paxMinus.addEventListener('click', () => { if (pax > 1) { pax--; paxCount.textContent = pax; } });
+// }
 
 
