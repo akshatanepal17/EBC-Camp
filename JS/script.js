@@ -1672,6 +1672,72 @@ setupLegacyNestedDropdown('.peak-menu-trigger', 'peak-menu');
   window.addEventListener('resize', onResize);
 })();
 
+// pax counter
+const paxPlus = document.getElementById('pax-plus');
+const paxMinus = document.getElementById('pax-minus');
+const paxCount = document.getElementById('pax-count');
+const pricePerPaxEl = document.getElementById('price-per-pax');
+const summaryPaxCount = document.getElementById('summary-pax-count');
+const totalPriceEl = document.getElementById('total-price');
+
+// Pricing tiers: { minPax, maxPax, price }
+const pricingTiers = [
+  { min: 1,  max: 1,  price: 1390, tierId: "1"  },
+  { min: 2,  max: 2,  price: 1320, tierId: "2"  },
+  { min: 3,  max: 4,  price: 1270, tierId: "3"  },
+  { min: 5,  max: 6,  price: 1230, tierId: "5"  },
+  { min: 7,  max: 10, price: 1200, tierId: "7"  },
+  { min: 11, max: Infinity, price: 1150, tierId: "11" },
+];
+
+function getPriceForPax(pax) {
+  return pricingTiers.find(tier => pax >= tier.min && pax <= tier.max);
+}
+
+function formatUSD(amount) {
+  return 'USD $' + amount.toLocaleString();
+}
+
+function updatePricing(pax) {
+  const tier = getPriceForPax(pax);
+  const pricePerPerson = tier.price;
+  const total = pricePerPerson * pax;
+
+  // Update summary box
+  pricePerPaxEl.textContent = formatUSD(pricePerPerson);
+  summaryPaxCount.textContent = pax;
+  totalPriceEl.textContent = formatUSD(total);
+
+  // Highlight active tier row
+  document.querySelectorAll('.pax-tier').forEach(row => {
+    const isActive = row.dataset.tier === tier.tierId;
+    row.classList.toggle('bg-blue-50', isActive);
+    row.classList.toggle('text-blue-700', isActive);
+    row.classList.toggle('font-semibold', isActive);
+    row.classList.toggle('rounded', isActive);
+    row.classList.toggle('px-2', isActive);
+    row.classList.toggle('text-gray-700', !isActive);
+  });
+}
+
+if (paxPlus && paxMinus && paxCount) {
+  let pax = 1;
+  updatePricing(pax); // Initialize on load
+
+  paxPlus.addEventListener('click', () => {
+    pax++;
+    paxCount.textContent = pax;
+    updatePricing(pax);
+  });
+
+  paxMinus.addEventListener('click', () => {
+    if (pax > 1) {
+      pax--;
+      paxCount.textContent = pax;
+      updatePricing(pax);
+    }
+  });
+}
 
 // (function () {
 //   const subnav = document.getElementById('subnav');
@@ -1934,19 +2000,5 @@ setupLegacyNestedDropdown('.peak-menu-trigger', 'peak-menu');
 //   init();
 // })();
 
-
-
-
-
-// pax counter
-const paxPlus = document.getElementById('pax-plus');
-const paxMinus = document.getElementById('pax-minus');
-const paxCount = document.getElementById('pax-count');
-
-if (paxPlus && paxMinus && paxCount) {
-  let pax = 1;
-  paxPlus.addEventListener('click', () => { pax++; paxCount.textContent = pax; });
-  paxMinus.addEventListener('click', () => { if (pax > 1) { pax--; paxCount.textContent = pax; } });
-}
 
 
