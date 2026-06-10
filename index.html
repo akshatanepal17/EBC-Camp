@@ -533,44 +533,45 @@
       }
 
     </style>
+<!-- Header -->
+  <header class="sticky-header sticky top-0 z-50 bg-white/95 shadow-sm backdrop-blur">
+    <div
+      class="mx-auto flex box-border w-full items-center justify-between gap-3 px-0 py-3 sm:w-full sm:max-w-[1440px] px-6 lg:px-8">
 
-    <!-- Header -->
-    <header class="sticky-header sticky top-0 z-50 bg-white/95 shadow-sm backdrop-blur">
-      <div class="mx-auto flex max-w-[1440px] items-center justify-between gap-3 px-4 py-3 sm:px-6 lg:px-8">
+      <!-- Logo -->
+      <a href="#" class="flex min-w-[96px] flex-shrink-0 items-center" aria-label="Everest Base Camp home">
+        <img src="images/Everest/Logo.png" class="h-auto w-16 object-contain sm:w-20 lg:w-28 xl:w-32"
+          alt="Everest Base Camp" />
+      </a>
 
-        <!-- Logo -->
-        <a href="#" class="flex min-w-[96px] flex-shrink-0 items-center" aria-label="Everest Base Camp home">
-          <img src="images/Everest/Logo.png" class="h-auto w-16 object-contain sm:w-20 lg:w-28 xl:w-32" alt="Everest Base Camp" />
-        </a>
+      <!-- Desktop Nav -->
+      <nav class="hidden flex-1 items-center justify-center lg:flex" aria-label="Primary navigation">
+        <ul class="flex items-center">
+          <li class="nav-dropdown">
+            <button type="button" class="nav-dropdown-trigger" aria-expanded="false" aria-controls="about-menu">
+              ABOUT US <i data-lucide="chevron-down" class="nav-chevron h-4 w-4"></i>
+            </button>
+            <div id="about-menu" class="desktop-dropdown w-72 p-3">
+              <a href="#about" class="desktop-menu-link">
+                <span class="desktop-menu-icon"><i data-lucide="users" class="h-4 w-4"></i></span>
+                <span>Why Travel With Us</span>
+              </a>
+              <a href="#about" class="desktop-menu-link">
+                <span class="desktop-menu-icon"><i data-lucide="shield-check" class="h-4 w-4"></i></span>
+                <span>Terms & Conditions</span>
+              </a>
+              <a href="#about" class="desktop-menu-link">
+                <span class="desktop-menu-icon"><i data-lucide="key-round" class="h-4 w-4"></i></span>
+                <span>Privacy Policy</span>
+              </a>
+              <a href="#faq" class="desktop-menu-link">
+                <span class="desktop-menu-icon"><i data-lucide="circle-help" class="h-4 w-4"></i></span>
+                <span>FAQ</span>
+              </a>
+            </div>
+          </li>
 
-        <!-- Desktop Nav -->
-        <nav class="hidden flex-1 items-center justify-center lg:flex" aria-label="Primary navigation">
-          <ul class="flex items-center">
-            <li class="nav-dropdown">
-              <button type="button" class="nav-dropdown-trigger" aria-expanded="false" aria-controls="about-menu">
-                ABOUT US <i data-lucide="chevron-down" class="nav-chevron h-4 w-4"></i>
-              </button>
-              <div id="about-menu" class="desktop-dropdown w-72 p-3">
-                <a href="#about" class="desktop-menu-link">
-                  <span class="desktop-menu-icon"><i data-lucide="users" class="h-4 w-4"></i></span>
-                  <span>Why Travel With Us</span>
-                </a>
-                <a href="#about" class="desktop-menu-link">
-                  <span class="desktop-menu-icon"><i data-lucide="shield-check" class="h-4 w-4"></i></span>
-                  <span>Terms & Conditions</span>
-                </a>
-                <a href="#about" class="desktop-menu-link">
-                  <span class="desktop-menu-icon"><i data-lucide="key-round" class="h-4 w-4"></i></span>
-                  <span>Privacy Policy</span>
-                </a>
-                <a href="#faq" class="desktop-menu-link">
-                  <span class="desktop-menu-icon"><i data-lucide="circle-help" class="h-4 w-4"></i></span>
-                  <span>FAQ</span>
-                </a>
-              </div>
-            </li>
-
-            <li class="nav-dropdown">
+            <!-- <li class="nav-dropdown">
               <button type="button" class="nav-dropdown-trigger" aria-expanded="false" aria-controls="nepal-menu">
                 NEPAL <i data-lucide="chevron-down" class="nav-chevron h-4 w-4"></i>
               </button>
@@ -609,163 +610,438 @@
                   <i data-lucide="arrow-right" class="h-4 w-4"></i>
                 </a>
               </div>
-            </li>
-
+            </li> -->
+          
             <li class="nav-dropdown">
-              <button type="button" class="nav-dropdown-trigger" aria-expanded="false" aria-controls="day-tours-menu">
-                DAY TOURS <i data-lucide="chevron-down" class="nav-chevron h-4 w-4"></i>
-              </button>
-              <div id="day-tours-menu" class="desktop-dropdown w-80 p-3">
-                <a href="#" class="desktop-menu-link justify-between">
-                  <span>Kathmandu Heritage Tour</span>
-                  <span class="tour-duration">1 Day</span>
-                </a>
-                <a href="#" class="desktop-menu-link justify-between">
-                  <span>Bhaktapur & Patan Tour</span>
-                  <span class="tour-duration">1 Day</span>
-                </a>
-                <a href="#" class="desktop-menu-link justify-between">
-                  <span>Nagarkot Sunrise Hike</span>
-                  <span class="tour-duration">1 Day</span>
-                </a>
-                <a href="#" class="desktop-menu-link justify-between">
-                  <span>Pokhara Sightseeing</span>
-                  <span class="tour-duration">1 Day</span>
-                </a>
-              </div>
-            </li>
-
-            <li><a href="#testimonials" class="nav-link">TESTIMONIALS</a></li>
-            <li><a href="#blog" class="nav-link">BLOG</a></li>
-            <li><a href="#contact" class="nav-link">CONTACT</a></li>
-          </ul>
-        </nav>
-
-        <div class="flex items-center gap-2">
-          <!-- Compact Header Search -->
-          <div class="header-search relative">
-            <button type="button" class="header-search-trigger flex h-6 w-6 sm:h-8 sm:w-8 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-900 transition duration-200 hover:border-blue-200 hover:bg-blue-50 hover:text-blue-600 hover:shadow-[0_8px_20px_rgba(37,99,235,0.12)] focus-visible:border-blue-200 focus-visible:bg-blue-50 focus-visible:text-blue-600 focus-visible:outline-none focus-visible:shadow-[0_8px_20px_rgba(37,99,235,0.12)]" aria-label="Open search" aria-controls="header-search-panel" aria-expanded="false">
-              <i data-lucide="search" class="h-4 w-4"></i>
+            <button type="button" class="nav-dropdown-trigger" aria-expanded="false" aria-controls="nepal-menu">
+              NEPAL <i data-lucide="chevron-down" class="nav-chevron h-4 w-4"></i>
             </button>
-            <div id="header-search-panel" class="header-search-panel invisible pointer-events-none absolute -right-12 top-[calc(100%+0.75rem)] z-[60] w-[calc(100vw-2rem)] max-w-xs -translate-y-1.5 rounded-[14px] border border-slate-200/95 bg-white/95 p-2 opacity-0 shadow-[0_18px_45px_rgba(15,23,42,0.16)] transition duration-200 lg:right-0">
-              <label for="header-search-input" class="sr-only">Search</label>
-              <input id="header-search-input" class="header-search-input w-full rounded-[10px] border border-slate-200 px-3 py-2.5 text-sm text-slate-900 outline-none transition duration-200 focus:border-blue-300 focus:shadow-[0_0_0_3px_rgba(147,197,253,0.28)]" type="search" name="q" placeholder="Search..." autocomplete="off" />
+            <div id="nepal-menu" class="desktop-dropdown dropdown-center w-[760px] max-w-[calc(100vw-2rem)] p-5">
+              <div class="destination-grid">
+                <div>
+                  <p class="dropdown-section-title">Trekking Regions</p>
+                  <div class="menu-list">
+                    <div class="submenu-dropdown">
+                      <a href="#" class="submenu-link">
+                        Everest Region
+                        <i data-lucide="chevron-right" class="h-4 w-4"></i>
+                      </a>
+
+                      <div class="submenu-child">
+                        <a href="#" class="submenu-link">Everest Base Camp Trek</a>
+                        <a href="#" class="submenu-link">Gokyo Lake Trek</a>
+                        <a href="#" class="submenu-link">Three Passes Trek</a>
+                        <a href="#" class="submenu-link">Everest Panorama Trek</a>
+                        <a href="#" class="submenu-link">Everest View Trek</a>
+                      </div>
+                    </div>
+
+                    <div class="submenu-dropdown">
+                      <a href="#" class="submenu-link">
+                        Annapurna Region
+                        <i data-lucide="chevron-right" class="h-4 w-4"></i>
+                      </a>
+                      <div class="submenu-child">
+                        <a href="#" class="submenu-link">Annapurna Base Camp Hike</a>
+                        <a href="#" class="submenu-link">Short Annapurna Circuit Trek</a>
+                        <a href="#" class="submenu-link">Mardi Himal Trek</a>
+                        <a href="#" class="submenu-link">Ghorepani Poon Hill Trek</a>
+                        <a href="#" class="submenu-link">Kapuche Lake Trek</a>
+                        <a href="#" class="submenu-link">Khokhe Danda Trek</a>
+                    </div>
+                  </div>
+
+                  <div class="submenu-dropdown">
+                    <a href="#" class="submenu-link">
+                      Langtang Region
+                      <i data-lucide="chevron-right" class="h-4 w-4"></i>
+                    </a>
+                    <div class="submenu-child">
+                      <a href="#" class="submenu-link">Langtang Valley Trek</a>
+                      <a href="#" class="submenu-link">Gosaikunda Lake Trek</a>
+                      <a href="#" class="submenu-link">Short Nagthali Taruche Trek</a>
+                      <a href="#" class="submenu-link">Langtang Gosaikunda Helambu Trek</a>
+                    </div>
+                  </div>
+
+                  
+                  <div class="submenu-dropdown">
+                    <a href="#" class="submenu-link">
+                      Manaslu Region
+                      <i data-lucide="chevron-right" class="h-4 w-4"></i>
+                    </a>
+                    <div class="submenu-child">
+                      <a href="#" class="submenu-link">Manslu Base Camp Trek</a>
+                      <a href="#" class="submenu-link">Tsum Valley Trek</a>
+                      <a href="#" class="submenu-link">Manslu Circuit Trek</a>
+                    </div>
+                  </div>
+
+                  <div class="submenu-dropdown">
+                    <a href="#" class="submenu-link">
+                     Kanchanjunga Region
+                      <i data-lucide="chevron-right" class="h-4 w-4"></i>
+                    </a>
+                    <div class="submenu-child">
+                      <a href="#" class="submenu-link">Kanchanjunga Base Camp Trek</a>
+                    </div>
+                  </div>
+
+                  <div class="submenu-dropdown">
+                    <a href="#" class="submenu-link">
+                      Ganesh Himal Region
+                      <i data-lucide="chevron-right" class="h-4 w-4"></i>
+                    </a>
+                    <div class="submenu-child">
+                      <a href="#" class="submenu-link">Ruby Valley</a>
+                      <a href="#" class="submenu-link">Ganesh Himal Base Camp Trek</a>
+                    </div>
+                  </div>
+
+                  <div class="submenu-dropdown">
+                    <a href="#" class="submenu-link">
+                      Dhualagiri Region
+                      <i data-lucide="chevron-right" class="h-4 w-4"></i>
+                    </a>
+                    <div class="submenu-child">
+                      <a href="#" class="submenu-link">Dhaulagiri Base Camp Trek</a>
+                    </div>
+                   </div>
+                 </div>
+               </div>
+
+               <!-- <div>
+                  <p class="dropdown-section-title">Peak Climbing</p>
+                  <div class="menu-list">
+                    <a href="#" class="submenu-link">Yala Peak Climbing</a>
+                    <a href="#" class="submenu-link">Island Peak Climbing with Everest Base Camp</a>
+                    <a href="#" class="submenu-link">Pokalade Peak Climbing</a>
+                    <a href="#" class="submenu-link">Lobuche Peak Climbing</a>
+                    <a href="#" class="submenu-link">Mardi Himal Climbing</a>
+                    <a href="#" class="submenu-link">Chulu West Peak</a>
+                    <a href="#" class="submenu-link">Dhampus Peak Climbing</a>
+                  </div>
+                </div> -->
+
+              </div>
+               
+              <a href="#" class="destination-tour-link">
+                <span class="flex items-center gap-3">
+                  <span class="desktop-menu-icon"><i data-lucide="map-pinned" class="h-4 w-4"></i></span>
+                  <span>Tours in Nepal</span>
+                </span>
+                <i data-lucide="arrow-right" class="h-4 w-4"></i>
+              </a>
             </div>
-          </div>
-          
-          <!-- Desktop Contact -->
-          <div class="hidden items-center gap-2 lg:flex">
-            <a href="#" class="flex h-7 w-7 items-center justify-center rounded bg-[#7360F2] transition hover:-translate-y-0.5 hover:shadow-lg" aria-label="Viber">
-              <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/viber.svg" class="h-5 w-5 invert" alt="" />
-            </a>
-            <a href="https://wa.me/9779848532201" class="flex h-7 w-7 items-center justify-center rounded bg-[#25D366] transition hover:-translate-y-0.5 hover:shadow-lg" aria-label="WhatsApp">
-              <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/whatsapp.svg" class="h-5 w-5 invert" alt="" />
-            </a>
-            <a href="tel:+9779848532201" class="desktop-contact-number whitespace-nowrap text-sm font-bold text-slate-900 hover:text-blue-600">+977 9848532201</a>
-          </div>
-          
-          <!-- Mobile Hamburger -->
-          <button id="hamburger" class="flex h-6 w-6 sm:h-8 sm:w-8 flex-col items-center justify-center gap-[5px] rounded-full border border-slate-200 bg-white shadow-sm lg:hidden" aria-label="Toggle menu" aria-controls="mobile-menu" aria-expanded="false">
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
+          </li>
+
+          <li class="nav-dropdown">
+            <button type="button" class="nav-dropdown-trigger" aria-expanded="false" aria-controls="day-tours-menu">
+              DAY TOURS <i data-lucide="chevron-down" class="nav-chevron h-4 w-4"></i>
+            </button>
+            <div id="day-tours-menu" class="desktop-dropdown w-80 p-3">
+              <a href="#" class="desktop-menu-link justify-between">
+                <span>Kathmandu Heritage Tour</span>
+                <span class="tour-duration">1 Day</span>
+              </a>
+              <a href="#" class="desktop-menu-link justify-between">
+                <span>Bhaktapur & Patan Tour</span>
+                <span class="tour-duration">1 Day</span>
+              </a>
+              <a href="#" class="desktop-menu-link justify-between">
+                <span>Nagarkot Sunrise Hike</span>
+                <span class="tour-duration">1 Day</span>
+              </a>
+              <a href="#" class="desktop-menu-link justify-between">
+                <span>Pokhara Sightseeing</span>
+                <span class="tour-duration">1 Day</span>
+              </a>
+            </div>
+          </li>
+
+          <li><a href="#testimonials" class="nav-link">TESTIMONIALS</a></li>
+          <li><a href="#blog" class="nav-link">BLOG</a></li>
+          <li><a href="#contact" class="nav-link">CONTACT</a></li>
+        </ul>
+      </nav>
+
+      <div class="flex items-center gap-2">
+        <!-- Compact Header Search -->
+        <div class="header-search relative">
+          <button type="button"
+            class="header-search-trigger flex h-6 w-6 sm:h-8 sm:w-8 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-900 transition duration-200 hover:border-blue-200 hover:bg-blue-50 hover:text-blue-600 hover:shadow-[0_8px_20px_rgba(37,99,235,0.12)] focus-visible:border-blue-200 focus-visible:bg-blue-50 focus-visible:text-blue-600 focus-visible:outline-none focus-visible:shadow-[0_8px_20px_rgba(37,99,235,0.12)]"
+            aria-label="Open search" aria-controls="header-search-panel" aria-expanded="false">
+            <i data-lucide="search" class="h-4 w-4"></i>
           </button>
+          <div id="header-search-panel"
+            class="header-search-panel invisible pointer-events-none absolute -right-12 top-[calc(100%+0.75rem)] z-[60] w-[calc(100vw-2rem)] max-w-xs -translate-y-1.5 rounded-[14px] border border-slate-200/95 bg-white/95 p-2 opacity-0 shadow-[0_18px_45px_rgba(15,23,42,0.16)] transition duration-200 lg:right-0">
+            <label for="header-search-input" class="sr-only">Search</label>
+            <input id="header-search-input"
+              class="header-search-input w-full rounded-[10px] border border-slate-200 px-3 py-2.5 text-sm text-slate-900 outline-none transition duration-200 focus:border-blue-300 focus:shadow-[0_0_0_3px_rgba(147,197,253,0.28)]"
+              type="search" name="q" placeholder="Search..." autocomplete="off" />
+          </div>
+        </div>
+
+        <!-- Desktop Contact -->
+        <div class="hidden items-center gap-2 lg:flex">
+          <a href="#"
+            class="flex h-7 w-7 items-center justify-center rounded bg-[#7360F2] transition hover:-translate-y-0.5 hover:shadow-lg"
+            aria-label="Viber">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/viber.svg" class="h-5 w-5 invert" alt="" />
+          </a>
+          <a href="https://wa.me/9779848532201"
+            class="flex h-7 w-7 items-center justify-center rounded bg-[#25D366] transition hover:-translate-y-0.5 hover:shadow-lg"
+            aria-label="WhatsApp">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/whatsapp.svg" class="h-5 w-5 invert" alt="" />
+          </a>
+          <a href="tel:+9779848532201"
+            class="desktop-contact-number whitespace-nowrap text-sm font-bold text-slate-900 hover:text-blue-600">+977
+            9848532201</a>
+        </div>
+
+        <!-- Mobile Hamburger -->
+        <button id="hamburger"
+          class="flex h-6 w-6 sm:h-8 sm:w-8 flex-col items-center justify-center gap-[5px] rounded-full border border-slate-200 bg-white shadow-sm lg:hidden"
+          aria-label="Toggle menu" aria-controls="mobile-menu" aria-expanded="false">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="flex-col gap-1 border-t border-slate-100 bg-white px-3 pb-4 pt-2 shadow-xl lg:hidden">
+      <div class="mobile-dropdown">
+        <button type="button"
+          class="mobile-dropdown-trigger flex w-full items-center justify-between px-3 text-sm font-bold"
+          aria-expanded="false">
+          ABOUT US <i data-lucide="chevron-down" class="mobile-chevron h-4 w-4"></i>
+        </button>
+        <div class="mobile-submenu">
+          <div class="mobile-submenu-inner">
+            <a href="#about" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-600">Why
+              Travel With Us</a>
+            <a href="#about" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-600">Terms
+              & Conditions</a>
+            <a href="#about"
+              class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-600">Privacy Policy</a>
+            <a href="#faq" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-600">FAQ</a>
+          </div>
         </div>
       </div>
 
-      <!-- Mobile Menu -->
-      <div id="mobile-menu" class="flex-col gap-1 border-t border-slate-100 bg-white px-3 pb-4 pt-2 shadow-xl lg:hidden">
-        <div class="mobile-dropdown">
-          <button type="button" class="mobile-dropdown-trigger flex w-full items-center justify-between px-3 text-sm font-bold" aria-expanded="false">
-            ABOUT US <i data-lucide="chevron-down" class="mobile-chevron h-4 w-4"></i>
-          </button>
-          <div class="mobile-submenu">
-            <div class="mobile-submenu-inner">
-              <a href="#about" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-600">Why Travel With Us</a>
-              <a href="#about" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-600">Terms & Conditions</a>
-              <a href="#about" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-600">Privacy Policy</a>
-              <a href="#faq" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-600">FAQ</a>
-            </div>
-          </div>
-        </div>
+      <div class="mobile-dropdown">
+        <button type="button"
+          class="mobile-dropdown-trigger flex w-full items-center justify-between px-3 text-sm font-bold"
+          aria-expanded="false" aria-controls="mobile-nepal-menu">
+          NEPAL <i data-lucide="chevron-down" class="mobile-chevron h-4 w-4"></i>
+        </button>
+        <div id="mobile-nepal-menu" class="mobile-submenu">
+          <div class="mobile-submenu-inner">
+            <div class="mobile-nested-dropdown">
+              <button type="button"
+                class="mobile-nested-trigger flex w-full items-center justify-between px-3 text-sm font-bold text-slate-700"
+                aria-expanded="false" aria-controls="mobile-trekking-nepal-menu">
+                Trekking in Nepal
+                <i data-lucide="chevron-down" class="mobile-nested-chevron h-4 w-4"></i>
+              </button>
+              <div id="mobile-trekking-nepal-menu" class="mobile-nested-submenu" aria-hidden="true">
+                <div class="grid gap-1 pl-3 pt-1">
+                  <div class="mobile-grandchild-dropdown">
+                    <button type="button"
+                      class="mobile-grandchild-trigger flex w-full items-center justify-between px-3 text-sm font-semibold text-slate-500"
+                      aria-expanded="false" aria-controls="mobile-everest-region-menu">
+                      Everest Region
+                      <i data-lucide="chevron-down" class="mobile-grandchild-chevron h-4 w-4"></i>
+                    </button>
+                    <div id="mobile-everest-region-menu" class="mobile-grandchild-submenu" aria-hidden="true">
+                      <div class="grid gap-1 pl-3 pt-1">
+                        <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Everest Base Camp Trek</a>
+                        <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Gokyo Lake Trek</a>
+                        <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Three Passes Trek</a>
+                        <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Everest Panorama Trek</a>
+                        <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Everest View Trek</a>
+                      </div>
+                    </div>
+                  </div>
 
-        <div class="mobile-dropdown">
-          <button type="button" class="mobile-dropdown-trigger flex w-full items-center justify-between px-3 text-sm font-bold" aria-expanded="false">
-            NEPAL <i data-lucide="chevron-down" class="mobile-chevron h-4 w-4"></i>
-          </button>
-          <div class="mobile-submenu">
-            <div class="mobile-submenu-inner">
-              <div class="mobile-nested-dropdown">
-                <button type="button" class="mobile-nested-trigger flex w-full items-center justify-between px-3 text-sm font-bold text-slate-700" aria-expanded="false">
-                  Trekking in Nepal
-                  <i data-lucide="chevron-down" class="mobile-nested-chevron h-4 w-4"></i>
-                </button>
-                <div class="mobile-nested-submenu">
-                  <div class="grid gap-1 pl-3 pt-1">
-                    <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Everest Region</a>
-                    <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Annapurna Region</a>
-                    <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Langtang Region</a>
-                    <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Manaslu Region</a>
-                    <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Kanchanjunga Region</a>
-                    <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Ganesh Himal Region</a>
-                    <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Dhulagiri Region</a>
+                  <div class="mobile-grandchild-dropdown">
+                    <button type="button"
+                      class="mobile-grandchild-trigger flex w-full items-center justify-between px-3 text-sm font-semibold text-slate-500"
+                      aria-expanded="false" aria-controls="mobile-annapurna-region-menu">
+                      Annapurna Region
+                      <i data-lucide="chevron-down" class="mobile-grandchild-chevron h-4 w-4"></i>
+                    </button>
+                    <div id="mobile-annapurna-region-menu" class="mobile-grandchild-submenu" aria-hidden="true">
+                      <div class="grid gap-1 pl-3 pt-1">
+                        <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Annapurna Base Camp Hike</a>
+                        <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Short Annapurna Circuit Trek</a>
+                        <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Mardi Himal Trek</a>
+                        <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Ghorepani Poon Hill Trek</a>
+                        <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Kapuche Lake Trek</a>
+                        <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Khokhe Danda Trek</a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="mobile-grandchild-dropdown">
+                    <button type="button"
+                      class="mobile-grandchild-trigger flex w-full items-center justify-between px-3 text-sm font-semibold text-slate-500"
+                      aria-expanded="false" aria-controls="mobile-langtang-region-menu">
+                      Langtang Region
+                      <i data-lucide="chevron-down" class="mobile-grandchild-chevron h-4 w-4"></i>
+                    </button>
+                    <div id="mobile-langtang-region-menu" class="mobile-grandchild-submenu" aria-hidden="true">
+                      <div class="grid gap-1 pl-3 pt-1">
+                        <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Langtang Valley Trek</a>
+                        <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Gosaikunda Lake Trek</a>
+                        <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Short Nagthali Taruche Trek</a>
+                        <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Langtang Gosaikunda Helambu Trek</a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="mobile-grandchild-dropdown">
+                    <button type="button"
+                      class="mobile-grandchild-trigger flex w-full items-center justify-between px-3 text-sm font-semibold text-slate-500"
+                      aria-expanded="false" aria-controls="mobile-manaslu-region-menu">
+                      Manaslu Region
+                      <i data-lucide="chevron-down" class="mobile-grandchild-chevron h-4 w-4"></i>
+                    </button>
+                    <div id="mobile-manaslu-region-menu" class="mobile-grandchild-submenu" aria-hidden="true">
+                      <div class="grid gap-1 pl-3 pt-1">
+                        <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Manaslu Base Camp Trek</a>
+                        <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Tsum Valley Trek</a>
+                        <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Manaslu Circuit Trek</a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="mobile-grandchild-dropdown">
+                    <button type="button"
+                      class="mobile-grandchild-trigger flex w-full items-center justify-between px-3 text-sm font-semibold text-slate-500"
+                      aria-expanded="false" aria-controls="mobile-kanchanjunga-region-menu">
+                      Kanchanjunga Region
+                      <i data-lucide="chevron-down" class="mobile-grandchild-chevron h-4 w-4"></i>
+                    </button>
+                    <div id="mobile-kanchanjunga-region-menu" class="mobile-grandchild-submenu" aria-hidden="true">
+                      <div class="grid gap-1 pl-3 pt-1">
+                        <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Kanchanjunga Base Camp Trek</a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="mobile-grandchild-dropdown">
+                    <button type="button"
+                      class="mobile-grandchild-trigger flex w-full items-center justify-between px-3 text-sm font-semibold text-slate-500"
+                      aria-expanded="false" aria-controls="mobile-ganesh-himal-region-menu">
+                      Ganesh Himal Region
+                      <i data-lucide="chevron-down" class="mobile-grandchild-chevron h-4 w-4"></i>
+                    </button>
+                    <div id="mobile-ganesh-himal-region-menu" class="mobile-grandchild-submenu" aria-hidden="true">
+                      <div class="grid gap-1 pl-3 pt-1">
+                        <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Ruby Valley</a>
+                        <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Ganesh Himal Base Camp Trek</a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="mobile-grandchild-dropdown">
+                    <button type="button"
+                      class="mobile-grandchild-trigger flex w-full items-center justify-between px-3 text-sm font-semibold text-slate-500"
+                      aria-expanded="false" aria-controls="mobile-dhulagiri-region-menu">
+                      Dhulagiri Region
+                      <i data-lucide="chevron-down" class="mobile-grandchild-chevron h-4 w-4"></i>
+                    </button>
+                    <div id="mobile-dhulagiri-region-menu" class="mobile-grandchild-submenu" aria-hidden="true">
+                      <div class="grid gap-1 pl-3 pt-1">
+                        <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Dhaulagiri Base Camp Trek</a>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
+            </div>
 
-              <div class="mobile-nested-dropdown">
-                <button type="button" class="mobile-nested-trigger flex w-full items-center justify-between px-3 text-sm font-bold text-slate-700" aria-expanded="false">
-                  Peak Climbing
-                  <i data-lucide="chevron-down" class="mobile-nested-chevron h-4 w-4"></i>
-                </button>
-                <div class="mobile-nested-submenu">
-                  <div class="grid gap-1 pl-3 pt-1">
-                    <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Yala Peak Climbing</a>
-                    <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Island Peak Climbing with EBC</a>
-                    <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Pokalade Peak Climbing</a>
-                    <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Lobuche Peak Climbing</a>
-                    <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Mardi Himal Climbing</a>
-                    <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Chulu West Peak</a>
-                    <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Dhampus Peak Climbing</a>
-                  </div>
+            <!-- <div class="mobile-nested-dropdown">
+              <button type="button"
+                class="mobile-nested-trigger flex w-full items-center justify-between px-3 text-sm font-bold text-slate-700"
+                aria-expanded="false">
+                Peak Climbing
+                <i data-lucide="chevron-down" class="mobile-nested-chevron h-4 w-4"></i>
+              </button>
+              <div class="mobile-nested-submenu">
+                <div class="grid gap-1 pl-3 pt-1">
+                  <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Yala
+                    Peak Climbing</a>
+                  <a href="#"
+                    class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Island Peak
+                    Climbing with EBC</a>
+                  <a href="#"
+                    class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Pokalade Peak
+                    Climbing</a>
+                  <a href="#"
+                    class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Lobuche Peak
+                    Climbing</a>
+                  <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Mardi
+                    Himal Climbing</a>
+                  <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Chulu
+                    West Peak</a>
+                  <a href="#"
+                    class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Dhampus Peak
+                    Climbing</a>
                 </div>
               </div>
+            </div> -->
 
-              <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-bold text-slate-700">Tours in Nepal</a>
-            </div>
+            <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-bold text-slate-700">Tours in
+              Nepal</a>
           </div>
-        </div>
-
-        <div class="mobile-dropdown">
-          <button type="button" class="mobile-dropdown-trigger flex w-full items-center justify-between px-3 text-sm font-bold" aria-expanded="false">
-            DAY TOURS <i data-lucide="chevron-down" class="mobile-chevron h-4 w-4"></i>
-          </button>
-          <div class="mobile-submenu">
-            <div class="mobile-submenu-inner">
-              <a href="#contact" class="mobile-menu-link flex items-center justify-between px-3 text-sm font-semibold text-slate-600">Kathmandu Heritage Tour <span class="tour-duration">1 Day</span></a>
-              <a href="#contact" class="mobile-menu-link flex items-center justify-between px-3 text-sm font-semibold text-slate-600">Bhaktapur & Patan Tour <span class="tour-duration">1 Day</span></a>
-              <a href="#contact" class="mobile-menu-link flex items-center justify-between px-3 text-sm font-semibold text-slate-600">Nagarkot Sunrise Hike <span class="tour-duration">1 Day</span></a>
-              <a href="#contact" class="mobile-menu-link flex items-center justify-between px-3 text-sm font-semibold text-slate-600">Pokhara Sightseeing <span class="tour-duration">1 Day</span></a>
-            </div>
-          </div>
-        </div>
-
-        <a href="#testimonials" class="mobile-menu-link flex items-center px-3 text-sm font-bold">TESTIMONIALS</a>
-        <a href="#blog" class="mobile-menu-link flex items-center px-3 text-sm font-bold">BLOG</a>
-        <a href="#contact" class="mobile-menu-link flex items-center px-3 text-sm font-bold">CONTACT</a>
-
-        <div class="mt-2 flex items-center gap-3 border-t border-slate-100 px-3 pt-4">
-          <span class="flex h-9 w-9 items-center justify-center rounded-full bg-[#7360F2]">
-            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/viber.svg" class="h-5 w-5 invert" alt="Viber" />
-          </span>
-          <span class="flex h-9 w-9 items-center justify-center rounded-full bg-[#25D366]">
-            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/whatsapp.svg" class="h-5 w-5 invert" alt="Whatsapp" />
-          </span>
-          <a href="tel:+9779851205116" class="text-sm font-bold text-slate-900">+977 9851205116</a>
         </div>
       </div>
-    </header>
-    <!-- Header End -->
+
+      <div class="mobile-dropdown">
+        <button type="button"
+          class="mobile-dropdown-trigger flex w-full items-center justify-between px-3 text-sm font-bold"
+          aria-expanded="false">
+          DAY TOURS <i data-lucide="chevron-down" class="mobile-chevron h-4 w-4"></i>
+        </button>
+        <div class="mobile-submenu">
+          <div class="mobile-submenu-inner">
+            <a href="#contact"
+              class="mobile-menu-link flex items-center justify-between px-3 text-sm font-semibold text-slate-600">Kathmandu
+              Heritage Tour <span class="tour-duration">1 Day</span></a>
+            <a href="#contact"
+              class="mobile-menu-link flex items-center justify-between px-3 text-sm font-semibold text-slate-600">Bhaktapur
+              & Patan Tour <span class="tour-duration">1 Day</span></a>
+            <a href="#contact"
+              class="mobile-menu-link flex items-center justify-between px-3 text-sm font-semibold text-slate-600">Nagarkot
+              Sunrise Hike <span class="tour-duration">1 Day</span></a>
+            <a href="#contact"
+              class="mobile-menu-link flex items-center justify-between px-3 text-sm font-semibold text-slate-600">Pokhara
+              Sightseeing <span class="tour-duration">1 Day</span></a>
+          </div>
+        </div>
+      </div>
+
+      <a href="#testimonials" class="mobile-menu-link flex items-center px-3 text-sm font-bold">TESTIMONIALS</a>
+      <a href="#blog" class="mobile-menu-link flex items-center px-3 text-sm font-bold">BLOG</a>
+      <a href="#contact" class="mobile-menu-link flex items-center px-3 text-sm font-bold">CONTACT</a>
+
+      <div class="mt-2 flex items-center gap-3 border-t border-slate-100 px-3 pt-4">
+        <span class="flex h-9 w-9 items-center justify-center rounded-full bg-[#7360F2]">
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/viber.svg" class="h-5 w-5 invert" alt="Viber" />
+        </span>
+        <span class="flex h-9 w-9 items-center justify-center rounded-full bg-[#25D366]">
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/whatsapp.svg" class="h-5 w-5 invert"
+            alt="Whatsapp" />
+        </span>
+        <a href="tel:+9779851205116" class="text-sm font-bold text-slate-900">+977 9851205116</a>
+      </div>
+    </div>
+  </header>
+  <!-- Header End -->
 
     <!-- Banner Start -->
     <section id="home-banner" class="relative h-[calc(100vh_-_80px)] min-h-[620px] w-full overflow-hidden bg-slate-900 supports-[height:100svh]:h-[calc(100svh_-_80px)] sm:min-h-[560px]" aria-label="Himalayan adventure highlights">
