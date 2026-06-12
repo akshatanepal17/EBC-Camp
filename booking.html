@@ -14,7 +14,7 @@
   </head>
   <body>
   <style>
-    html {
+     html {
       scroll-behavior: smooth;
     }
 
@@ -53,11 +53,11 @@
       gap: 0.35rem;
       border-radius: 999px;
       padding: 0 0.75rem;
-      color: #0f172a;
+      color: #001B2F;
       font-size: 0.875rem;
       font-weight: 700;
       letter-spacing: 0.02em;
-      transition:
+      transition: 
         background-color 180ms ease,
         color 180ms ease,
         box-shadow 180ms ease;
@@ -69,8 +69,9 @@
     .nav-dropdown:focus-within>.nav-dropdown-trigger,
     .nav-link:hover,
     .nav-link:focus-visible {
-      background: #eff6ff;
-      color: #2563eb;
+      background: #D3EAD8;
+      opacity: 25;
+      color: #001B2F;
       outline: none;
     }
 
@@ -89,7 +90,7 @@
       border: 1px solid rgba(226, 232, 240, 0.95);
       border-radius: 16px;
       background: rgba(255, 255, 255, 0.98);
-      box-shadow: 0 22px 60px rgba(15, 23, 42, 0.16);
+      box-shadow: 0 22px 60px #001B2F;
       opacity: 0;
       pointer-events: none;
       transform: translateY(10px);
@@ -165,7 +166,7 @@
       gap: 0.75rem;
       border-radius: 12px;
       padding: 0.7rem 0.75rem;
-      color: #111827;
+      color: #001B2F;
       font-size: 0.875rem;
       font-weight: 700;
       line-height: 1.25;
@@ -181,8 +182,8 @@
     .desktop-menu-link:focus-visible,
     .submenu-link:focus-visible,
     .destination-tour-link:focus-visible {
-      background: #eff6ff;
-      color: #2563eb;
+      background: #C3D5C7;
+      color: #001B2F;
       outline: none;
       transform: translateX(2px);
     }
@@ -195,8 +196,8 @@
       align-items: center;
       justify-content: center;
       border-radius: 999px;
-      background: #dbeafe;
-      color: #2563eb;
+      background: #C3D5C7;
+      color: #001B2F;
       transition:
         background-color 180ms ease,
         color 180ms ease;
@@ -204,7 +205,7 @@
 
     .desktop-menu-link:hover .desktop-menu-icon,
     .desktop-menu-link:focus-visible .desktop-menu-icon {
-      background: #2563eb;
+      background: #001B2F;
       color: #fff;
     }
 
@@ -217,7 +218,7 @@
     .dropdown-section-title {
       margin: 0 0 0.45rem;
       padding: 0 0.75rem;
-      color: #64748b;
+      color: #001B2F;
       font-size: 0.72rem;
       font-weight: 800;
       letter-spacing: 0.09em;
@@ -270,8 +271,8 @@
 }
 
 .submenu-dropdown.open > .submenu-link {
-  background: #eff6ff;
-  color: #2563eb;
+  background: #C3D5C7;
+  color: #001B2F;
 }
 
 .submenu-dropdown.open > .submenu-link i {
@@ -304,9 +305,9 @@
     .tour-duration {
       flex: 0 0 auto;
       border-radius: 999px;
-      background: #f1f5f9;
+      background: #C3D5C7;
       padding: 0.15rem 0.5rem;
-      color: #64748b;
+      color: #001B2F;
       font-size: 0.72rem;
       font-weight: 800;
     }
@@ -355,8 +356,9 @@
     .mobile-dropdown.open>.mobile-dropdown-trigger,
     .mobile-nested-dropdown.open>.mobile-nested-trigger,
     .mobile-grandchild-dropdown.open>.mobile-grandchild-trigger {
-      background: #eff6ff;
-      color: #2563eb;
+      background: #C3D5C7;
+      color: #0C2130
+;
     }
 
     .mobile-submenu {
@@ -442,29 +444,6 @@
 
     #hamburger.is-open .hamburger-line:nth-child(3) {
       transform: translateY(-7px) rotate(-45deg);
-    }
-
-    @keyframes faq-reveal {
-      from {
-        opacity: 0;
-        transform: translateY(18px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .faq-added-item {
-      animation: faq-reveal 480ms ease-out both;
-      scroll-margin-top: 6rem;
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .faq-added-item {
-        animation: none;
-      }
     }
 
     @media (min-width: 1024px) and (max-width: 1180px) {
@@ -1010,7 +989,7 @@
       <!-- Intro Section -->
       <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 sm:gap-4 mb-6 md:mb-8 lg:mb-10">
         <div>
-          <h1 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black leading-tight">Traveller Details</h1>
+          <h1 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-[#001B2F] leading-tight">Traveller Details</h1>
         </div>
       </div>
       
@@ -1018,15 +997,15 @@
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6 lg:gap-7 items-start">
         
         <!-- Form Card -->
-        <div class="lg:col-span-2 bg-white border border-blue-100 hover:shadow-[0_16px_30px_rgba(59,130,246,0.32)] shadow-md p-4 sm:p-6 md:p-8">
+        <div class="lg:col-span-2 bg-white border border-[#001B2F]/10 hover:shadow-[0_16px_30px_rgba(0,27,47,0.32)] shadow-md p-4 sm:p-6 md:p-8">
           
           <!-- Form Heading -->
           <div class="flex gap-3 mb-5 sm:mb-6">
-            <span class="flex items-center justify-center flex-shrink-0 w-10 h-10 rounded-lg bg-blue-100 text-blue-600">
+            <span class="flex items-center justify-center flex-shrink-0 w-10 h-10 rounded-lg bg-[#C3D5C7]/30 text-[#001B2F]">
               <i data-lucide="send" class="w-5 h-5"></i>
             </span>
             <div class="min-w-0">
-              <h2 class="text-base sm:text-lg font-black leading-tight py-1">Personal details</h2>
+              <h2 class="text-base sm:text-lg font-[#001B2F] font-bold leading-tight py-1">Personal details</h2>
             </div>
           </div>
  
@@ -1042,7 +1021,7 @@
               <span class="block text-xs font-black uppercase tracking-wider text-slate-800 mb-2">Full Name</span>
               <div class="relative">
                 <i data-lucide="user-round" class="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-slate-500"></i>
-                <input class="w-full bg-blue-50 border border-transparent rounded-lg text-slate-900 text-sm font-semibold outline-none px-10 py-3 placeholder-slate-500 focus:bg-white focus:border-blue-300 focus:ring-4 focus:ring-blue-100 transition-all" type="text" name="name" autocomplete="name" placeholder="Your full name" required />
+                <input class="w-full bg-[#C3D5C7]/30 border border-transparent rounded-lg text-slate-900 text-sm font-semibold outline-none px-10 py-3 placeholder-slate-500 focus:bg-white focus:border-[#001B2F] focus:ring-4 focus:ring-[#C3D5C7]/30 transition-all" type="text" name="name" autocomplete="name" placeholder="Your full name" required />
               </div>
             </label>
  
@@ -1051,7 +1030,7 @@
               <span class="block text-xs font-black uppercase tracking-wider text-slate-800 mb-2">Email Address</span>
               <div class="relative">
                 <i data-lucide="mail" class="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-slate-500"></i>
-                <input class="w-full bg-blue-50 border border-transparent rounded-lg text-slate-900 text-sm font-semibold outline-none px-10 py-3 placeholder-slate-500 focus:bg-white focus:border-blue-300 focus:ring-4 focus:ring-blue-100 transition-all" type="email" name="email" autocomplete="email" placeholder="you@example.com" required />
+                <input class="w-full bg-[#C3D5C7]/30 border border-transparent rounded-lg text-slate-900 text-sm font-semibold outline-none px-10 py-3 placeholder-slate-500 focus:bg-white focus:border-[#001B2F] focus:ring-4 focus:ring-[#C3D5C7]/30 transition-all" type="email" name="email" autocomplete="email" placeholder="you@example.com" required />
               </div>
             </label>
  
@@ -1060,7 +1039,7 @@
               <span class="block text-xs font-black uppercase tracking-wider text-slate-800 mb-2">Phone Number</span>
               <div class="relative">
                 <i data-lucide="phone" class="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-slate-500"></i>
-                <input class="w-full bg-blue-50 border border-transparent rounded-lg text-slate-900 text-sm font-semibold outline-none px-10 py-3 placeholder-slate-500 focus:bg-white focus:border-blue-300 focus:ring-4 focus:ring-blue-100 transition-all" type="tel" name="phone" autocomplete="tel" inputmode="tel" placeholder="+1 234 567 890" required />
+                <input id="phone" class="w-full bg-[#C3D5C7]/30 border border-transparent rounded-lg text-slate-900 text-sm font-semibold outline-none px-10 py-3 placeholder-slate-500 focus:bg-white focus:border-[#001B2F] focus:ring-4 focus:ring-[#C3D5C7]/30 transition-all" type="tel" name="phone" autocomplete="tel" inputmode="tel" placeholder="+1 234 567 890" required />
               </div>
             </label>
  
@@ -1069,7 +1048,7 @@
               <span class="block text-xs font-black uppercase tracking-wider text-slate-800 mb-2">Country</span>
               <div class="relative">
                 <i data-lucide="globe" class="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-slate-500"></i>
-                <select class="w-full appearance-none bg-blue-50 border border-transparent rounded-lg text-slate-900 text-sm font-semibold outline-none px-10 py-3 focus:bg-white focus:border-blue-300 focus:ring-4 focus:ring-blue-100 transition-all" name="country" required>
+                <select class="w-full bg-[#C3D5C7]/30 border border-transparent rounded-lg text-slate-900 text-sm font-semibold outline-none px-10 py-3 placeholder-slate-500 focus:bg-white focus:border-[#001B2F] focus:ring-4 focus:ring-[#C3D5C7]/30 transition-all" name="country" required>
                   <option value="" disabled selected>Select country</option>
                   <option value="Nepal">Nepal</option>
                   <option value="India">India</option>
@@ -1092,14 +1071,14 @@
               <span class="block text-xs font-black uppercase tracking-wider text-slate-800 mb-2">Preferred Travel Date</span>
               <div class="relative">
                 <i data-lucide="calendar" class="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-slate-500"></i>
-                <input id="travel-date" class="w-full bg-blue-50 border border-transparent rounded-lg text-slate-900 text-sm font-semibold outline-none px-10 py-3 focus:bg-white focus:border-blue-300 focus:ring-4 focus:ring-blue-100 transition-all" type="date" name="travelDate" required />
+                <input id="travel-date" class="w-full bg-[#C3D5C7]/30 border border-transparent rounded-lg text-slate-900 text-sm font-semibold outline-none px-10 py-3 placeholder-slate-500 focus:bg-white focus:border-[#001B2F] focus:ring-4 focus:ring-[#C3D5C7]/30 transition-all" type="date" name="travelDate" required />
               </div>
             </label>
  
             <!-- Message -->
             <label class="col-span-1 sm:col-span-2">
               <span class="block text-xs font-black uppercase tracking-wider text-slate-800 mb-2">Message</span>
-              <textarea class="w-full bg-blue-50 border border-transparent rounded-lg text-slate-400 text-sm font-semibold outline-none px-4 py-3 " name="message" rows="4" placeholder="Tell us about dietary needs, equipment rental, arrival plans, or any questions..."></textarea>
+              <textarea class="w-full bg-[#C3D5C7]/30 border border-transparent rounded-lg text-slate-900 text-sm font-semibold outline-none px-10 py-3 placeholder-slate-500 focus:bg-white focus:border-[#001B2F] focus:ring-4 focus:ring-[#C3D5C7]/30 transition-all" name="message" rows="4" placeholder="Tell us about dietary needs, equipment rental, arrival plans, or any questions..."></textarea>
             </label>
           </form>
         </div>
@@ -1108,19 +1087,19 @@
         <div class="flex flex-col gap-4 sm:gap-5">
           
           <!-- Trip Card -->
-          <div class="bg-white border border-blue-100 shadow-md hover:shadow-[0_16px_30px_rgba(59,130,246,0.32)] overflow-hidden">
+          <div class="bg-white borderborder-[#001B2F]/10 hover:shadow-[0_16px_30px_rgba(0,27,47,0.32)] overflow-hidden">
             <div class="relative w-full h-40 sm:h-48 overflow-hidden bg-gray-200">
               <img src="Images/Everest/Everest.jpg" alt="Snow-covered peaks on the Everest Base Camp trek" class="w-full h-full object-cover" />
             </div>
             <div class="p-4">
-              <h2 class="text-base sm:text-lg font-black leading-tight mb-2 sm:mb-2">Everest Base Camp Trek</h2>
+              <h2 class="text-base sm:text-lg font-bold text-[#001B2F] leading-tight mb-2 sm:mb-2">Everest Base Camp Trek</h2>
               <div class="flex flex-wrap gap-2 sm:gap-3">
                 <span class="inline-flex items-center gap-1 text-xs sm:text-sm font-black text-slate-700">
-                  <i data-lucide="calendar-days" class="w-3.5 h-3.5 text-blue-600 flex-shrink-0"></i>
+                  <i data-lucide="calendar-days" class="w-3.5 h-3.5 text-[#001B2F] flex-shrink-0"></i>
                   <span>14 days</span>
                 </span>
                 <span class="inline-flex items-center gap-1 text-xs sm:text-sm font-black text-slate-700">
-                  <i data-lucide="mountain" class="w-3.5 h-3.5 text-blue-600 flex-shrink-0"></i>
+                  <i data-lucide="mountain" class="w-3.5 h-3.5 text-[#001B2F] flex-shrink-0"></i>
                   <span>5,364 m</span>
                 </span>
               </div>
@@ -1128,11 +1107,11 @@
           </div>
  
           <!-- Price Card -->
-          <div class="bg-blue-50 border border-blue-200 shadow-md hover:shadow-[0_16px_30px_rgba(59,130,246,0.32)] p-4 sm:p-5">
+          <div class="bg-white border border-[#001B2F]/10 hover:shadow-[0_16px_30px_rgba(0,27,47,0.32)] shadow-md overflow-hidden p-4 sm:p-5">
             
             <!-- Header -->
             <div class="flex gap-2 mb-4">
-              <span class="flex items-center justify-center flex-shrink-0 w-9 h-9 bg-blue-200 text-blue-600">
+              <span class="flex items-center justify-center flex-shrink-0 rounded w-9 h-9 bg-[#001B2F]/10 text-[#001B2F]">
                 <i data-lucide="receipt-text" class="w-4 h-4"></i>
               </span>
               <h2 class="text-base sm:text-lg font-black">Price summary</h2>
@@ -1141,10 +1120,10 @@
             <!-- Traveler Count -->
             <div class="flex items-center justify-between mb-3 text-sm font-black text-slate-700">
               <span class="text-xs sm:text-sm">No of Pax</span>
-              <div class="inline-flex items-center gap-2 bg-white border border-blue-500 rounded-full p-1">
-                <button id="pax-minus" class="flex items-center justify-center w-6 h-6 sm:w-7 sm:h-7 bg-blue-50 text-blue-600 rounded-full font-black hover:bg-blue-200 transition text-sm sm:text-base" type="button" aria-label="Decrease travelers">−</button>
+              <div class="inline-flex items-center gap-2 bg-white border border-[#001B2F] rounded-full p-1">
+                <button id="pax-minus" class="flex items-center justify-center w-6 h-6 sm:w-7 sm:h-7 bg-[#001B2F]/10 text-white rounded-full font-black hover:bg-[#001B2F] transition text-sm sm:text-base" type="button" aria-label="Decrease travelers">−</button>
                 <strong id="pax-count" class="min-w-4 text-center text-slate-900 font-black text-sm">1</strong>
-                <button id="pax-plus" class="flex items-center justify-center w-6 h-6 sm:w-7 sm:h-7 bg-blue-600 text-white rounded-full font-black hover:bg-blue-500 transition text-sm sm:text-base" type="button" aria-label="Increase travelers">+</button>
+                <button id="pax-plus" class="flex items-center justify-center w-6 h-6 sm:w-7 sm:h-7 bg-[#001B2F]/60 text-white rounded-full font-black hover:bg-[#001B2F] transition text-sm sm:text-base" type="button" aria-label="Increase travelers">+</button>
               </div>
             </div>
  
@@ -1161,7 +1140,7 @@
             </div>
  
             <!-- Total Price -->
-            <div class="flex justify-between items-center gap-2 sm:gap-3 bg-blue-500 text-white rounded-lg p-3 mb-3 font-black text-xs sm:text-sm">
+            <div class="flex justify-between items-center gap-2 sm:gap-3 bg-[#43704A] text-white rounded-lg p-3 mb-3 font-black text-xs sm:text-sm">
               <span class="uppercase tracking-wider">Total price</span>
               <strong id="total-price" class="text-base sm:text-lg whitespace-nowrap">USD $1,390</strong>
             </div>
@@ -1171,13 +1150,13 @@
             <img src="Images/Everest/we accept.png" alt="Accepted payment methods" class="w-full mb-4 rounded">
  
             <!-- Book Button -->
-            <button class="w-full bg-blue-500 hover:bg-blue-700 text-white font-black py-3 px-4 rounded-lg transition shadow-lg mb-3 text-sm sm:text-base">
+            <button class="w-full bg-[#43704A] hover:bg-[#001B2F] text-white font-black py-3 px-4 rounded-lg transition shadow-lg mb-3 text-sm sm:text-base">
                <!-- type="submit" form="trip-booking-form -->
               Book now
             </button>
  
             <!-- WhatsApp Inquiry -->
-            <a class="flex items-center justify-center gap-2 text-green-600 hover:text-green-700 text-base font-black py-2 w-full transition" href="https://wa.me/9779848532201?text=Hello%2C%20I%20would%20like%20to%20inquire%20about%20Everest%20Base%20Camp%20Trek." target="_blank" rel="noopener noreferrer">
+            <a class="flex items-center justify-center gap-2 text-[#43704A] hover:text-[#001B2F] text-base font-black py-2 w-full transition" href="https://wa.me/9779848532201?text=Hello%2C%20I%20would%20like%20to%20inquire%20about%20Everest%20Base%20Camp%20Trek." target="_blank" rel="noopener noreferrer">
               Send inquiry <i data-lucide="arrow-up-right" class="w-3 h-3"></i>
             </a>
           </div>
