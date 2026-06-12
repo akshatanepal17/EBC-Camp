@@ -79,11 +79,11 @@
       flex-shrink: 0;
       flex-direction: column;
       justify-content: space-between;
-      border: 1px solid rgba(226, 232, 240, 0.9);
+      border: 1.5px solid rgba(191, 212, 185, 0.9);
       border-radius: 18px;
       background: #fff;
       padding: 1.5rem;
-      box-shadow: 0 14px 34px rgba(15, 23, 42, 0.06);
+      box-shadow: #43704A;
       transition:
         border-color 240ms ease,
         box-shadow 240ms ease,
@@ -91,8 +91,8 @@
     }
 
     .google-review-card:hover {
-      border-color: rgba(66, 133, 244, 0.38);
-      box-shadow: 0 20px 42px rgba(66, 133, 244, 0.12);
+      border-color: #C3D5C7;
+      box-shadow: #43704A;
       transform: translateY(-4px);
     }
 
@@ -202,11 +202,11 @@
       gap: 0.35rem;
       border-radius: 999px;
       padding: 0 0.75rem;
-      color: #0f172a;
+      color: #001B2F;
       font-size: 0.875rem;
       font-weight: 700;
       letter-spacing: 0.02em;
-      transition:
+      transition: 
         background-color 180ms ease,
         color 180ms ease,
         box-shadow 180ms ease;
@@ -218,8 +218,9 @@
     .nav-dropdown:focus-within>.nav-dropdown-trigger,
     .nav-link:hover,
     .nav-link:focus-visible {
-      background: #eff6ff;
-      color: #2563eb;
+      background: #D3EAD8;
+      opacity: 25;
+      color: #001B2F;
       outline: none;
     }
 
@@ -238,7 +239,7 @@
       border: 1px solid rgba(226, 232, 240, 0.95);
       border-radius: 16px;
       background: rgba(255, 255, 255, 0.98);
-      box-shadow: 0 22px 60px rgba(15, 23, 42, 0.16);
+      box-shadow: 0 22px 60px #001B2F;
       opacity: 0;
       pointer-events: none;
       transform: translateY(10px);
@@ -314,7 +315,7 @@
       gap: 0.75rem;
       border-radius: 12px;
       padding: 0.7rem 0.75rem;
-      color: #111827;
+      color: #001B2F;
       font-size: 0.875rem;
       font-weight: 700;
       line-height: 1.25;
@@ -330,8 +331,8 @@
     .desktop-menu-link:focus-visible,
     .submenu-link:focus-visible,
     .destination-tour-link:focus-visible {
-      background: #eff6ff;
-      color: #2563eb;
+      background: #C3D5C7;
+      color: #001B2F;
       outline: none;
       transform: translateX(2px);
     }
@@ -344,8 +345,8 @@
       align-items: center;
       justify-content: center;
       border-radius: 999px;
-      background: #dbeafe;
-      color: #2563eb;
+      background: #C3D5C7;
+      color: #001B2F;
       transition:
         background-color 180ms ease,
         color 180ms ease;
@@ -353,7 +354,7 @@
 
     .desktop-menu-link:hover .desktop-menu-icon,
     .desktop-menu-link:focus-visible .desktop-menu-icon {
-      background: #2563eb;
+      background: #001B2F;
       color: #fff;
     }
 
@@ -366,7 +367,7 @@
     .dropdown-section-title {
       margin: 0 0 0.45rem;
       padding: 0 0.75rem;
-      color: #64748b;
+      color: #001B2F;
       font-size: 0.72rem;
       font-weight: 800;
       letter-spacing: 0.09em;
@@ -419,8 +420,8 @@
 }
 
 .submenu-dropdown.open > .submenu-link {
-  background: #eff6ff;
-  color: #2563eb;
+  background: #C3D5C7;
+  color: #001B2F;
 }
 
 .submenu-dropdown.open > .submenu-link i {
@@ -453,9 +454,9 @@
     .tour-duration {
       flex: 0 0 auto;
       border-radius: 999px;
-      background: #f1f5f9;
+      background: #C3D5C7;
       padding: 0.15rem 0.5rem;
-      color: #64748b;
+      color: #001B2F;
       font-size: 0.72rem;
       font-weight: 800;
     }
@@ -504,8 +505,9 @@
     .mobile-dropdown.open>.mobile-dropdown-trigger,
     .mobile-nested-dropdown.open>.mobile-nested-trigger,
     .mobile-grandchild-dropdown.open>.mobile-grandchild-trigger {
-      background: #eff6ff;
-      color: #2563eb;
+      background: #C3D5C7;
+      color: #0C2130
+;
     }
 
     .mobile-submenu {
@@ -640,7 +642,7 @@
         display: none;
       }
     }
-
+    
     /* Custom CSS for subnav and other elements */
     .no-scrollbar::-webkit-scrollbar {
       display: none;
@@ -884,11 +886,11 @@
   <!-- Header -->
   <header class="sticky-header sticky top-0 z-50 bg-white/95 shadow-sm backdrop-blur">
     <div
-      class="mx-auto flex box-border w-full items-center justify-between gap-3 px-0 py-3 sm:w-full sm:max-w-[1440px] px-6 lg:px-8">
+      class="mx-auto flex box-border w-full items-center justify-between gap-3 py-3 sm:w-full sm:max-w-[1440px] px-6 lg:px-16">
 
       <!-- Logo -->
       <a href="#" class="flex min-w-[96px] flex-shrink-0 items-center" aria-label="Everest Base Camp home">
-        <img src="images/Everest/Logo.png" class="h-auto w-16 object-contain sm:w-20 lg:w-28 xl:w-32"
+        <img src="images/Everest/rubyalpine.png" class="h-auto w-10 object-contain sm:w-12 lg:w-14 xl:w-16"
           alt="Everest Base Camp" />
       </a>
 
@@ -964,8 +966,8 @@
             <button type="button" class="nav-dropdown-trigger" aria-expanded="false" aria-controls="nepal-menu">
               NEPAL <i data-lucide="chevron-down" class="nav-chevron h-4 w-4"></i>
             </button>
-            <div id="nepal-menu" class="desktop-dropdown dropdown-center w-[760px] max-w-[calc(100vw-2rem)] p-5">
-              <div class="destination-grid">
+            <div id="nepal-menu" class="desktop-dropdown dropdown-center w-[300px] p-5">
+              <div class="destination-col">
                 <div>
                   <p class="dropdown-section-title">Trekking Regions</p>
                   <div class="menu-list">
@@ -1117,15 +1119,15 @@
         <!-- Compact Header Search -->
         <div class="header-search relative">
           <button type="button"
-            class="header-search-trigger flex h-6 w-6 sm:h-8 sm:w-8 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-900 transition duration-200 hover:border-blue-200 hover:bg-blue-50 hover:text-blue-600 hover:shadow-[0_8px_20px_rgba(37,99,235,0.12)] focus-visible:border-blue-200 focus-visible:bg-blue-50 focus-visible:text-blue-600 focus-visible:outline-none focus-visible:shadow-[0_8px_20px_rgba(37,99,235,0.12)]"
+            class="header-search-trigger flex h-6 w-6 sm:h-8 sm:w-8 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-900 transition duration-200 hover:border-[#001B2F] hover:bg-green-50 hover:text-[#001B2F] hover:shadow-[0_8px_20px_rgba(6,20,28,0.12)] focus-visible:border-[#001B2F] focus-visible:bg-green-50 focus-visible:text-[#001B2F] focus-visible:outline-none focus-visible:shadow-[0_8px_20px_rgba(6,20,28,0.12)]"
             aria-label="Open search" aria-controls="header-search-panel" aria-expanded="false">
             <i data-lucide="search" class="h-4 w-4"></i>
           </button>
           <div id="header-search-panel"
-            class="header-search-panel invisible pointer-events-none absolute -right-12 top-[calc(100%+0.75rem)] z-[60] w-[calc(100vw-2rem)] max-w-xs -translate-y-1.5 rounded-[14px] border border-slate-200/95 bg-white/95 p-2 opacity-0 shadow-[0_18px_45px_rgba(15,23,42,0.16)] transition duration-200 lg:right-0">
+            class="header-search-panel invisible pointer-events-none absolute -right-12 top-[calc(100%+0.75rem)] z-[60] w-[calc(100vw-2rem)] max-w-xs -translate-y-1.5 rounded-[14px] border border-slate-200/95 bg-white/95 p-2 opacity-0 shadow-[0_8px_20px_rgba(6,20,28,0.12)] transition duration-200 lg:right-0">
             <label for="header-search-input" class="sr-only">Search</label>
             <input id="header-search-input"
-              class="header-search-input w-full rounded-[10px] border border-slate-200 px-3 py-2.5 text-sm text-slate-900 outline-none transition duration-200 focus:border-blue-300 focus:shadow-[0_0_0_3px_rgba(147,197,253,0.28)]"
+              class="header-search-input w-full rounded-[10px] border border-slate-200 px-3 py-2.5 text-sm text-slate-900 outline-none transition duration-200 focus:border-[#001B2F] focus:shadow-[0_8px_20px_rgba(6,20,28,0.12)]"
               type="search" name="q" placeholder="Search..." autocomplete="off" />
           </div>
         </div>
@@ -1143,7 +1145,7 @@
             <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/whatsapp.svg" class="h-5 w-5 invert" alt="" />
           </a>
           <a href="tel:+9779848532201"
-            class="desktop-contact-number whitespace-nowrap text-sm font-bold text-slate-900 hover:text-blue-600">+977
+            class="desktop-contact-number whitespace-nowrap text-sm font-bold text-slate-900 hover:text-orange-600">+977
             9848532201</a>
         </div>
 
@@ -1385,7 +1387,7 @@
           <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/whatsapp.svg" class="h-5 w-5 invert"
             alt="Whatsapp" />
         </span>
-        <a href="tel:+9779851205116" class="text-sm font-bold text-slate-900">+977 9851205116</a>
+        <a href="tel:+9779851205116" class="text-sm font-bold text-orange-600">+977 9851205116</a>
       </div>
     </div>
   </header>
