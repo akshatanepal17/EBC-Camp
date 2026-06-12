@@ -75,11 +75,11 @@
       flex-shrink: 0;
       flex-direction: column;
       justify-content: space-between;
-      border: 1px solid rgba(226, 232, 240, 0.9);
+      border: 1.5px solid rgba(191, 212, 185, 0.9);
       border-radius: 18px;
       background: #fff;
       padding: 1.5rem;
-      box-shadow: 0 14px 34px rgba(15, 23, 42, 0.06);
+      box-shadow: #43704A;
       transition:
         border-color 240ms ease,
         box-shadow 240ms ease,
@@ -87,8 +87,8 @@
     }
 
     .google-review-card:hover {
-      border-color: rgba(66, 133, 244, 0.38);
-      box-shadow: 0 20px 42px rgba(66, 133, 244, 0.12);
+      border-color: #C3D5C7;
+      box-shadow: #43704A;
       transform: translateY(-4px);
     }
 
@@ -198,11 +198,11 @@
       gap: 0.35rem;
       border-radius: 999px;
       padding: 0 0.75rem;
-      color: #0f172a;
+      color: #001B2F;
       font-size: 0.875rem;
       font-weight: 700;
       letter-spacing: 0.02em;
-      transition:
+      transition: 
         background-color 180ms ease,
         color 180ms ease,
         box-shadow 180ms ease;
@@ -214,8 +214,9 @@
     .nav-dropdown:focus-within>.nav-dropdown-trigger,
     .nav-link:hover,
     .nav-link:focus-visible {
-      background: #eff6ff;
-      color: #2563eb;
+      background: #D3EAD8;
+      opacity: 25;
+      color: #001B2F;
       outline: none;
     }
 
@@ -234,7 +235,7 @@
       border: 1px solid rgba(226, 232, 240, 0.95);
       border-radius: 16px;
       background: rgba(255, 255, 255, 0.98);
-      box-shadow: 0 22px 60px rgba(15, 23, 42, 0.16);
+      box-shadow: 0 22px 60px #001B2F;
       opacity: 0;
       pointer-events: none;
       transform: translateY(10px);
@@ -310,7 +311,7 @@
       gap: 0.75rem;
       border-radius: 12px;
       padding: 0.7rem 0.75rem;
-      color: #111827;
+      color: #001B2F;
       font-size: 0.875rem;
       font-weight: 700;
       line-height: 1.25;
@@ -326,8 +327,8 @@
     .desktop-menu-link:focus-visible,
     .submenu-link:focus-visible,
     .destination-tour-link:focus-visible {
-      background: #eff6ff;
-      color: #2563eb;
+      background: #C3D5C7;
+      color: #001B2F;
       outline: none;
       transform: translateX(2px);
     }
@@ -340,8 +341,8 @@
       align-items: center;
       justify-content: center;
       border-radius: 999px;
-      background: #dbeafe;
-      color: #2563eb;
+      background: #C3D5C7;
+      color: #001B2F;
       transition:
         background-color 180ms ease,
         color 180ms ease;
@@ -349,7 +350,7 @@
 
     .desktop-menu-link:hover .desktop-menu-icon,
     .desktop-menu-link:focus-visible .desktop-menu-icon {
-      background: #2563eb;
+      background: #001B2F;
       color: #fff;
     }
 
@@ -362,7 +363,7 @@
     .dropdown-section-title {
       margin: 0 0 0.45rem;
       padding: 0 0.75rem;
-      color: #64748b;
+      color: #001B2F;
       font-size: 0.72rem;
       font-weight: 800;
       letter-spacing: 0.09em;
@@ -415,8 +416,8 @@
 }
 
 .submenu-dropdown.open > .submenu-link {
-  background: #eff6ff;
-  color: #2563eb;
+  background: #C3D5C7;
+  color: #001B2F;
 }
 
 .submenu-dropdown.open > .submenu-link i {
@@ -449,9 +450,9 @@
     .tour-duration {
       flex: 0 0 auto;
       border-radius: 999px;
-      background: #f1f5f9;
+      background: #C3D5C7;
       padding: 0.15rem 0.5rem;
-      color: #64748b;
+      color: #001B2F;
       font-size: 0.72rem;
       font-weight: 800;
     }
@@ -500,8 +501,9 @@
     .mobile-dropdown.open>.mobile-dropdown-trigger,
     .mobile-nested-dropdown.open>.mobile-nested-trigger,
     .mobile-grandchild-dropdown.open>.mobile-grandchild-trigger {
-      background: #eff6ff;
-      color: #2563eb;
+      background: #C3D5C7;
+      color: #0C2130
+;
     }
 
     .mobile-submenu {
@@ -643,11 +645,11 @@
 <!-- Header -->
   <header class="sticky-header sticky top-0 z-50 bg-white/95 shadow-sm backdrop-blur">
     <div
-      class="mx-auto flex box-border w-full items-center justify-between gap-3 px-0 py-3 sm:w-full sm:max-w-[1440px] px-6 lg:px-8">
+      class="mx-auto flex box-border w-full items-center justify-between gap-3 py-3 sm:w-full sm:max-w-[1440px] px-6 lg:px-16">
 
       <!-- Logo -->
       <a href="#" class="flex min-w-[96px] flex-shrink-0 items-center" aria-label="Everest Base Camp home">
-        <img src="images/Everest/Logo.png" class="h-auto w-16 object-contain sm:w-20 lg:w-28 xl:w-32"
+        <img src="images/Everest/rubyalpine.png" class="h-auto w-10 object-contain sm:w-12 lg:w-14 xl:w-16"
           alt="Everest Base Camp" />
       </a>
 
@@ -876,15 +878,15 @@
         <!-- Compact Header Search -->
         <div class="header-search relative">
           <button type="button"
-            class="header-search-trigger flex h-6 w-6 sm:h-8 sm:w-8 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-900 transition duration-200 hover:border-blue-200 hover:bg-blue-50 hover:text-blue-600 hover:shadow-[0_8px_20px_rgba(37,99,235,0.12)] focus-visible:border-blue-200 focus-visible:bg-blue-50 focus-visible:text-blue-600 focus-visible:outline-none focus-visible:shadow-[0_8px_20px_rgba(37,99,235,0.12)]"
+            class="header-search-trigger flex h-6 w-6 sm:h-8 sm:w-8 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-900 transition duration-200 hover:border-[#001B2F] hover:bg-green-50 hover:text-[#001B2F] hover:shadow-[0_8px_20px_rgba(6,20,28,0.12)] focus-visible:border-[#001B2F] focus-visible:bg-green-50 focus-visible:text-[#001B2F] focus-visible:outline-none focus-visible:shadow-[0_8px_20px_rgba(6,20,28,0.12)]"
             aria-label="Open search" aria-controls="header-search-panel" aria-expanded="false">
             <i data-lucide="search" class="h-4 w-4"></i>
           </button>
           <div id="header-search-panel"
-            class="header-search-panel invisible pointer-events-none absolute -right-12 top-[calc(100%+0.75rem)] z-[60] w-[calc(100vw-2rem)] max-w-xs -translate-y-1.5 rounded-[14px] border border-slate-200/95 bg-white/95 p-2 opacity-0 shadow-[0_18px_45px_rgba(15,23,42,0.16)] transition duration-200 lg:right-0">
+            class="header-search-panel invisible pointer-events-none absolute -right-12 top-[calc(100%+0.75rem)] z-[60] w-[calc(100vw-2rem)] max-w-xs -translate-y-1.5 rounded-[14px] border border-slate-200/95 bg-white/95 p-2 opacity-0 shadow-[0_8px_20px_rgba(6,20,28,0.12)] transition duration-200 lg:right-0">
             <label for="header-search-input" class="sr-only">Search</label>
             <input id="header-search-input"
-              class="header-search-input w-full rounded-[10px] border border-slate-200 px-3 py-2.5 text-sm text-slate-900 outline-none transition duration-200 focus:border-blue-300 focus:shadow-[0_0_0_3px_rgba(147,197,253,0.28)]"
+              class="header-search-input w-full rounded-[10px] border border-slate-200 px-3 py-2.5 text-sm text-slate-900 outline-none transition duration-200 focus:border-[#001B2F] focus:shadow-[0_8px_20px_rgba(6,20,28,0.12)]"
               type="search" name="q" placeholder="Search..." autocomplete="off" />
           </div>
         </div>
@@ -902,7 +904,7 @@
             <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/whatsapp.svg" class="h-5 w-5 invert" alt="" />
           </a>
           <a href="tel:+9779848532201"
-            class="desktop-contact-number whitespace-nowrap text-sm font-bold text-slate-900 hover:text-blue-600">+977
+            class="desktop-contact-number whitespace-nowrap text-sm font-bold text-slate-900 hover:text-orange-600">+977
             9848532201</a>
         </div>
 
@@ -1144,7 +1146,7 @@
           <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/whatsapp.svg" class="h-5 w-5 invert"
             alt="Whatsapp" />
         </span>
-        <a href="tel:+9779851205116" class="text-sm font-bold text-slate-900">+977 9851205116</a>
+        <a href="tel:+9779851205116" class="text-sm font-bold text-orange-600">+977 9851205116</a>
       </div>
     </div>
   </header>
@@ -1268,12 +1270,12 @@
     <!-- Featured Destinations Start-->
     <section id="featured-destinations" class="relative overflow-hidden bg-gradient-to-b from-[#F8FBFF] via-white to-[#EEF5F2] px-3 py-14 sm:px-8 sm:py-[72px] lg:py-[72px]">
       <div class="container mx-auto max-w-7xl">
-        <div class="mb-3 flex items-center justify-center gap-2 sm:mb-4 lg:gap-8">
-          <span class="hidden h-px w-10 bg-blue-600/40 sm:w-16 lg:block"></span>
-          <p class="px-3 py-1.5 text-xs font-extrabold uppercase tracking-wider text-blue-600 sm:px-4 sm:py-2 lg:text-sm">Trending Gateways</p>
-          <span class="hidden h-px w-10 bg-blue-600/40 sm:w-16 lg:block"></span>
+        <div class="mb-1 flex items-center justify-center gap-2">
+          <span class="hidden h-px w-10 bg-[#43704A] sm:w-16 lg:block"></span>
+          <p class="px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-[#43704A] sm:px-4 sm:py-2 lg:text-sm">Trending Gateways</p>
+          <span class="hidden h-px w-10 bg-[#43704A] sm:w-16 lg:block"></span>
         </div>
-        <h2 class="mx-auto mb-8 max-w-3xl text-center text-[2rem] font-extrabold leading-tight text-slate-950 sm:mb-14 sm:text-4xl md:text-5xl lg:text-6xl">
+        <h2 class="mx-auto mb-8 max-w-3xl text-center text-[2rem] font-extrabold leading-tight text-[#001B2F] sm:mb-14 sm:text-4xl md:text-5xl lg:text-6xl">
           Featured Destinations
         </h2>
 
@@ -1281,18 +1283,18 @@
           <!-- Card 1 -->
           <div class="group relative flex h-full flex-col overflow-hidden bg-white shadow-lg ring-1 ring-slate-200/70 transition-all duration-300 hover:-translate-y-1 sm:rounded-none sm:shadow-md">
             <img src="Images/Everest/Featured img1.png" class="w-full object-cover transition-transform duration-700 group-hover:scale-105 sm:aspect-[6/4]" alt="" />
-            <span class="absolute right-4 top-4 rounded border border-white/20 bg-white px-3.5 py-1.5 text-xs font-bold text-orange-500 backdrop-blur-md ring-1 ring-white/25 sm:text-sm hidden sm:block">★ Featured</span>
+            <span class="absolute right-2 top-2 rounded border border-white/20 bg-white px-2 py-1 text-xs font-regular text-[#001B2F] backdrop-blur-md ring-1 ring-white/25 sm:text-sm hidden sm:block">★ Featured</span>
             <div class="flex flex-1 flex-col p-4 sm:p-5">
               <div class="mb-2 flex items-center justify-between gap-3 sm:mb-3">
                 <div class="flex text-xs tracking-[0.18em] text-yellow-400 sm:text-sm">★ ★ ★ ★ ★</div>
-                <span class="px-2.5 py-1 text-xs font-bold sm:text-sm">5.0</span>
+                <span class="px-2.5 py-1 text-xs font-bold sm:text-sm text-[#001B2F]">5.0</span>
               </div>
-              <h2 class="mb-3 text-base font-bold">Annapurna Base Camp Trek</h2>
+              <h2 class="mb-3 text-lg font-bold text-[#001B2F]">Annapurna Base Camp Trek</h2>
               <div class="mt-auto flex items-center justify-between gap-2 pt-1 sm:gap-4">
-                <h3 class="text-base font-bold text-blue-600 sm:text-xl">USD $1090</h3>
+                <h3 class="text-base font-bold text-orange-600 sm:text-xl">USD $1090</h3>
                 <div class="flex items-center gap-1.5 rounded-full bg-gray-100 px-2.5 py-1.5 sm:gap-2 sm:px-3">
-                  <i data-lucide="calendar" class="h-4 w-4 text-blue-600"></i>
-                  <span class="text-xs font-bold sm:text-sm">14 Days</span>
+                  <i data-lucide="calendar" class="h-4 w-4 text-orange-600"></i>
+                  <span class="text-xs font-bold sm:text-sm text-[#001B2F]">14 Days</span>
                 </div>
               </div>
             </div>
@@ -1301,18 +1303,18 @@
           <!-- Card 2 -->
           <div class="group relative flex h-full flex-col overflow-hidden bg-white shadow-lg ring-1 ring-slate-200/70 transition-all duration-300 hover:-translate-y-1 sm:rounded-none sm:shadow-md">
             <img src="Images/Everest/Featured img2.png" class="w-full object-cover transition-transform duration-700 group-hover:scale-105 sm:aspect-[6/4]" alt="" />
-            <span class="absolute right-4 top-4 rounded border border-white/20 bg-white px-3.5 py-1.5 text-xs font-bold text-orange-600 backdrop-blur-md ring-1 ring-white/25 sm:text-sm hidden sm:block">★ Featured</span>
+             <span class="absolute right-2 top-2 rounded border border-white/20 bg-white px-2 py-1 text-xs font-regular text-[#001B2F] backdrop-blur-md ring-1 ring-white/25 sm:text-sm hidden sm:block">★ Featured</span>
             <div class="flex flex-1 flex-col p-4 sm:p-5">
               <div class="mb-2 flex items-center justify-between gap-3 sm:mb-3">
                 <div class="flex text-xs tracking-[0.18em] text-yellow-400 sm:text-sm">★ ★ ★ ★ ★</div>
-                <span class="px-2.5 py-1 text-xs font-bold sm:text-sm">5.0</span>
+                <span class="px-2.5 py-1 text-xs font-bold sm:text-sm text-[#001B2F]">5.0</span>
               </div>
-              <h2 class="mb-3 text-base font-bold">Manaslu Circuit Trek</h2>
+              <h2 class="mb-3 text-lg font-bold text-[#001B2F]">Manaslu Circuit Trek</h2>
               <div class="mt-auto flex items-center justify-between gap-2 pt-1 sm:gap-4">
-                <h3 class="text-base font-bold text-blue-600 sm:text-xl">USD $1380</h3>
+                <h3 class="text-base font-bold text-orange-600 sm:text-xl">USD $1380</h3>
                 <div class="flex items-center gap-1.5 rounded-full bg-gray-100 px-2.5 py-1.5 sm:gap-2 sm:px-3">
-                  <i data-lucide="calendar" class="h-4 w-4 text-blue-600"></i>
-                  <span class="text-xs font-bold sm:text-sm">14 Days</span>
+                  <i data-lucide="calendar" class="h-4 w-4 text-orange-600"></i>
+                  <span class="text-xs font-bold sm:text-sm text-[#001B2F]">14 Days</span>
                 </div>
               </div>
             </div>
@@ -1321,18 +1323,18 @@
           <!-- Card 3 -->
           <div class="group relative flex h-full flex-col overflow-hidden bg-white shadow-lg ring-1 ring-slate-200/70 transition-all duration-300 hover:-translate-y-1 sm:rounded-none sm:shadow-md">
             <img src="Images/Everest/Featured img3.png" class="w-full object-cover transition-transform duration-700 group-hover:scale-105 sm:aspect-[6/4]" alt="" />
-            <span class="absolute right-4 top-4 rounded border border-white/20 bg-white px-3.5 py-1.5 text-xs font-bold text-orange-600 backdrop-blur-md ring-1 ring-white/25 sm:text-sm hidden sm:block">★ Featured</span>
+             <span class="absolute right-2 top-2 rounded border border-white/20 bg-white px-2 py-1 text-xs font-regular text-[#001B2F] backdrop-blur-md ring-1 ring-white/25 sm:text-sm hidden sm:block">★ Featured</span>
             <div class="flex flex-1 flex-col p-4 sm:p-5">
               <div class="mb-2 flex items-center justify-between gap-3 sm:mb-3">
                 <div class="flex text-xs tracking-[0.18em] text-yellow-400 sm:text-sm">★ ★ ★ ★ ★</div>
-                <span class="px-2.5 py-1 text-xs font-bold sm:text-sm">5.0</span>
+                <span class="px-2.5 py-1 text-xs font-bold sm:text-sm text-[#001B2F]">5.0</span>
               </div>
-              <h2 class="mb-3 text-base font-bold">Everest Base Camp Trek</h2>
+              <h2 class="mb-3 text-lg font-bold text-[#001B2F] text-[#001B2F]">Everest Base Camp Trek</h2>
               <div class="mt-auto flex items-center justify-between gap-2 sm:gap-4 pt-1">
-                <h3 class="text-base font-bold text-blue-600 sm:text-xl">USD $1525</h3>
+                <h3 class="text-base font-bold text-orange-600 sm:text-xl">USD $1525</h3>
                 <div class="flex items-center gap-1.5 rounded-full bg-gray-100 px-2.5 py-1.5 sm:gap-2 sm:px-3">
-                  <i data-lucide="calendar" class="h-4 w-4 text-blue-600"></i>
-                  <span class="text-xs font-bold sm:text-sm">14 Days</span>
+                  <i data-lucide="calendar" class="h-4 w-4 text-orange-600"></i>
+                  <span class="text-xs font-bold sm:text-sm text-[#001B2F]">14 Days</span>
                 </div>
               </div>
             </div>
@@ -1341,18 +1343,18 @@
           <!-- Card 4 -->
           <div class="group relative flex h-full flex-col overflow-hidden bg-white shadow-lg ring-1 ring-slate-200/70 transition-all duration-300 hover:-translate-y-1 sm:rounded-none sm:shadow-md">
             <img src="Images/Everest/Featured img4.png" class="w-full object-cover transition-transform duration-700 group-hover:scale-105 sm:aspect-[6/4]" alt="" />
-            <span class="absolute right-4 top-4 hidden rounded border border-white/20 bg-white px-3.5 py-1.5 text-xs font-bold text-orange-600 backdrop-blur-md ring-1 ring-white/25 sm:block sm:text-sm">★ Featured</span>
+             <span class="absolute right-2 top-2 rounded border border-white/20 bg-white px-2 py-1 text-xs font-regular text-[#001B2F] backdrop-blur-md ring-1 ring-white/25 sm:text-sm hidden sm:block">★ Featured</span>
             <div class="flex flex-1 flex-col p-4 sm:p-5">
               <div class="mb-2 flex items-center justify-between gap-3 sm:mb-3">
                 <div class="flex text-xs tracking-[0.18em] text-yellow-400 sm:text-sm">★ ★ ★ ★ ★</div>
-                <span class="px-2.5 py-1 text-xs font-bold sm:text-sm">5.0</span>
+                <span class="px-2.5 py-1 text-xs font-bold sm:text-sm text-[#001B2F]">5.0</span>
               </div>
-              <h2 class="mb-3 text-base font-bold">Langtang Valley Trek</h2>
+              <h2 class="mb-3 text-lg font-bold text-[#001B2F]">Langtang Valley Trek</h2>
               <div class="mt-auto flex items-center justify-between gap-2 pt-1 sm:gap-4">
-                <h3 class="text-base font-bold text-blue-600 sm:text-xl">USD $1000</h3>
+                <h3 class="text-base font-bold text-orange-600 sm:text-xl">USD $1000</h3>
                 <div class="flex items-center gap-1.5 rounded-full bg-gray-100 px-2.5 py-1.5 sm:gap-2 sm:px-3">
-                  <i data-lucide="calendar" class="h-4 w-4 text-blue-600"></i>
-                  <span class="text-xs font-bold sm:text-sm">14 Days</span>
+                  <i data-lucide="calendar" class="h-4 w-4 text-orange-600"></i>
+                  <span class="text-xs font-bold sm:text-sm text-[#001B2F]">14 Days</span>
                 </div>
               </div>
             </div>
@@ -1361,18 +1363,18 @@
           <!-- Card 5 -->
           <div class="group relative flex h-full flex-col overflow-hidden bg-white shadow-lg ring-1 ring-slate-200/70 transition-all duration-300 hover:-translate-y-1 sm:rounded-none sm:shadow-md">
             <img src="Images/Everest/Featured img5.png" class="w-full object-cover transition-transform duration-700 group-hover:scale-105 sm:aspect-[6/4]" alt="" />
-            <span class="absolute right-4 top-4 hidden rounded border border-white/20 bg-white px-3.5 py-1.5 text-xs font-bold text-orange-600 backdrop-blur-md ring-1 ring-white/25 sm:block sm:text-sm">★ Featured</span>
+             <span class="absolute right-2 top-2 rounded border border-white/20 bg-white px-2 py-1 text-xs font-regular text-[#001B2F] backdrop-blur-md ring-1 ring-white/25 sm:text-sm hidden sm:block">★ Featured</span>
             <div class="flex flex-1 flex-col p-4 sm:p-5">
               <div class="mb-2 flex items-center justify-between gap-3 sm:mb-3">
                 <div class="flex text-xs tracking-[0.18em] text-yellow-400 sm:text-sm">★ ★ ★ ★ ★</div>
-                <span class="px-2.5 py-1 text-xs font-bold sm:text-sm">5.0</span>
+                <span class="px-2.5 py-1 text-xs font-bold sm:text-sm text-[#001B2F]">5.0</span>
               </div>
-              <h2 class="mb-3 text-base font-bold">Gosaikunda Holy Lake Trek</h2>
+              <h2 class="mb-3 text-lg font-bold text-[#001B2F]">Gosaikunda Holy Lake Trek</h2>
               <div class="mt-auto flex items-center justify-between gap-2 pt-1 sm:gap-4">
-                <h3 class="text-base font-bold text-blue-600 sm:text-xl">USD $1280</h3>
+                <h3 class="text-base font-bold text-orange-600 sm:text-xl">USD $1280</h3>
                 <div class="flex items-center gap-1.5 rounded-full bg-gray-100 px-2.5 py-1.5 sm:gap-2 sm:px-3">
-                  <i data-lucide="calendar" class="h-4 w-4 text-blue-600"></i>
-                  <span class="text-xs font-bold sm:text-sm">14 Days</span>
+                  <i data-lucide="calendar" class="h-4 w-4 text-orange-600"></i>
+                  <span class="text-xs font-bold sm:text-sm text-[#001B2F]">14 Days</span>
                 </div>
               </div>
             </div>
@@ -1381,18 +1383,18 @@
           <!-- Card 6 -->
           <div class="group relative flex h-full flex-col overflow-hidden bg-white shadow-lg ring-1 ring-slate-200/70 transition-all duration-300 hover:-translate-y-1 sm:rounded-none sm:shadow-md">
             <img src="Images/Everest/Featured img6.png" class="w-full object-cover transition-transform duration-700 group-hover:scale-105 sm:aspect-[6/4]" alt="" />
-            <span class="absolute right-4 top-4 hidden rounded border border-white/20 bg-white px-3.5 py-1.5 text-xs font-bold text-orange-600 backdrop-blur-md ring-1 ring-white/25 sm:block sm:text-sm">★ Featured</span>
+             <span class="absolute right-2 top-2 rounded border border-white/20 bg-white px-2 py-1 text-xs font-regular text-[#001B2F] backdrop-blur-md ring-1 ring-white/25 sm:text-sm hidden sm:block">★ Featured</span>
             <div class="flex flex-1 flex-col p-4 sm:p-5">
               <div class="mb-2 flex items-center justify-between gap-3 sm:mb-3">
                 <div class="flex text-xs tracking-[0.18em] text-yellow-400 sm:text-sm">★ ★ ★ ★ ★</div>
-                <span class="px-2.5 py-1 text-xs font-bold sm:text-sm">5.0</span>
+                <span class="px-2.5 py-1 text-xs font-bold sm:text-sm text-[#001B2F]">5.0</span>
               </div>
-              <h2 class="mb-3 text-base font-bold">Upper Mustang Trek</h2>
+              <h2 class="mb-3 text-lg font-bold text-[#001B2F]">Upper Mustang Trek</h2>
               <div class="mt-auto flex items-center justify-between gap-2 pt-1 sm:gap-4">
-                <h3 class="text-base font-bold text-blue-600 sm:text-xl">USD $1200</h3>
+                <h3 class="text-base font-bold text-orange-600 sm:text-xl">USD $1200</h3>
                 <div class="flex items-center gap-1.5 rounded-full bg-gray-100 px-2.5 py-1.5 sm:gap-2 sm:px-3">
-                  <i data-lucide="calendar" class="h-4 w-4 text-blue-600"></i>
-                  <span class="text-xs font-bold sm:text-sm">14 Days</span>
+                  <i data-lucide="calendar" class="h-4 w-4 text-orange-600"></i>
+                  <span class="text-xs font-bold sm:text-sm text-[#001B2F]">14 Days</span>
                 </div>
               </div>
             </div>
@@ -1403,46 +1405,46 @@
     <!-- Featured Destinations End -->
 
     <!-- Trust Badge Start -->
-    <section class="relative overflow-hidden border-y border-slate-100 bg-gradient-to-br from-white via-[#F8FBFF] to-[#EEF5FF] px-4 py-10 sm:px-8 sm:py-14 lg:px-20 lg:py-16">
+    <section class="relative overflow-hidden border-y border-slate-100 bg-gradient-to-br from-white via-[#F1F5F8] to-[#E6EDF3] px-4 py-10 sm:px-8 sm:py-14 lg:px-20 lg:py-16">
       <div class="container mx-auto grid max-w-7xl grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4 lg:gap-6">
 
-        <div class="group flex h-full items-start gap-4 bg-white/90 p-4 shadow-sm transition-all duration-300 sm:p-5 lg:flex-col lg:gap-5 lg:p-6 hover:-translate-y-1.5 hover:shadow-[0_18px_38px_-20px_rgba(37,99,235,0.28)] hover:border-blue-200">
-          <div class="flex size-10 shrink-0 items-center justify-center rounded border border-blue-100 bg-blue-50 transition-all duration-300 sm:size-14">
+        <div class="group flex h-full items-start gap-4 bg-white/90 p-4 shadow-sm transition-all duration-300 sm:p-5 lg:flex-col lg:gap-5 lg:p-6 hover:-translate-y-1.5 hover:shadow-[#C3D5C7] hover:border-[#001B2F]">
+          <div class="flex size-10 shrink-0 items-center justify-center rounded border border-[#001B2F]/20 bg-[#C3D5C7]/30 transition-all duration-300 sm:size-14">
             <img src="Images/Everest/mail.png" alt="" class="h-7 w-7 object-contain transition-transform duration-300 group-hover:scale-105 sm:h-8 sm:w-8">
           </div>
           <div class="min-w-0">
-            <h3 class="mb-1.5 text-xs sm:text-base font-bold leading-snug text-slate-900 transition-colors duration-300 group-hover:text-blue-700 sm:mb-2">Trusted Reviews</h3>
-            <p class="text-xs leading-5 text-slate-600 sm:text-sm sm:leading-6">Reviews by travellers who recently returned from their trip.</p>
+            <h3 class="mb-1.5 text-xs sm:text-base font-bold leading-snug text-[#001B2F] transition-colors duration-300 group-hover:text-[#001B2F] sm:mb-2">Trusted Reviews</h3>
+            <p class="text-xs leading-5 text-slate-500 sm:text-sm sm:leading-6">Reviews by travellers who recently returned from their trip.</p>
           </div>
         </div>
 
-        <div class="group flex h-full items-start gap-4 bg-white/90 p-4 shadow-sm transition-all duration-300 sm:p-5 lg:flex-col lg:gap-5 lg:p-6 hover:-translate-y-1.5 hover:shadow-[0_18px_38px_-20px_rgba(37,99,235,0.28)] hover:border-blue-200">
-          <div class="flex size-10 shrink-0 items-center justify-center rounded border border-blue-100 bg-blue-50 transition-all duration-300 sm:size-14">
+         <div class="group flex h-full items-start gap-4 bg-white/90 p-4 shadow-sm transition-all duration-300 sm:p-5 lg:flex-col lg:gap-5 lg:p-6 hover:-translate-y-1.5 hover:shadow-[#C3D5C7] hover:border-[#001B2F]">
+          <div class="flex size-10 shrink-0 items-center justify-center rounded border border-[#001B2F]/20 bg-[#C3D5C7]/30 transition-all duration-300 sm:size-14">
             <img src="Images/Everest/price tag.png" alt="" class="h-7 w-7 object-contain transition-transform duration-300 group-hover:scale-105 sm:h-8 sm:w-8">
           </div>
           <div class="min-w-0">
-            <h3 class="mb-1.5 text-xs sm:text-base font-bold leading-snug text-slate-900 transition-colors duration-300 group-hover:text-blue-700 sm:mb-2">Best Price Guaranteed</h3>
-            <p class="text-xs leading-5 text-slate-600 sm:text-sm sm:leading-6">Found a lower price elsewhere? We will match it!</p>
+            <h3 class="mb-1.5 text-xs sm:text-base font-bold leading-snug text-[#001B2F] transition-colors duration-300 group-hover:text-[#001B2F] sm:mb-2">Best Price Guaranteed</h3>
+            <p class="text-xs leading-5 text-slate-500 sm:text-sm sm:leading-6">Found a lower price elsewhere? We will match it!</p>
           </div>
         </div>
 
-        <div class="group flex h-full items-start gap-4 bg-white/90 p-4 shadow-sm transition-all duration-300 sm:p-5 lg:flex-col lg:gap-5 lg:p-6 hover:-translate-y-1.5 hover:shadow-[0_18px_38px_-20px_rgba(37,99,235,0.28)] hover:border-blue-200">
-          <div class="flex size-10 shrink-0 items-center justify-center rounded border border-blue-100 bg-blue-50 transition-all duration-300 sm:size-14">
-            <img src="Images/Everest/wallet.png" alt="" class="h-7 w-7 object-contain transition-transform duration-300 group-hover:scale-105 sm:h-8 sm:w-8">
+        <div class="group flex h-full items-start gap-4 bg-white/90 p-4 shadow-sm transition-all duration-300 sm:p-5 lg:flex-col lg:gap-5 lg:p-6 hover:-translate-y-1.5 hover:shadow-[#C3D5C7] hover:border-[#001B2F]">
+          <div class="flex size-10 shrink-0 items-center justify-center rounded border border-[#001B2F]/20 bg-[#C3D5C7]/30 transition-all duration-300 sm:size-14">
+            <img src="Images/Everest/securepayment.png" alt="" class="h-7 w-7 object-contain transition-transform duration-300 group-hover:scale-105 sm:h-8 sm:w-8">
           </div>
           <div class="min-w-0">
-            <h3 class="mb-1.5 text-xs sm:text-base font-bold leading-snug text-slate-900 transition-colors duration-300 group-hover:text-blue-700 sm:mb-2">Easy Payment</h3>
-            <p class="text-xs leading-5 text-slate-600 sm:text-sm sm:leading-6">Pay with a credit card or PayPal. Hassle free booking.</p>
+            <h3 class="mb-1.5 text-xs sm:text-base font-bold leading-snug text-[#001B2F] transition-colors duration-300 group-hover:text-[#001B2F] sm:mb-2">Easy Payment</h3>
+            <p class="text-xs leading-5 text-slate-500 sm:text-sm sm:leading-6">Pay with a credit card or PayPal. Hassle free booking.</p>
           </div>
         </div>
 
-        <div class="group flex h-full items-start gap-4 bg-white/90 p-4 shadow-sm transition-all duration-300 sm:p-5 lg:flex-col lg:gap-5 lg:p-6 hover:-translate-y-1.5 hover:shadow-[0_18px_38px_-20px_rgba(37,99,235,0.28)] hover:border-blue-200">
-          <div class="flex size-10 shrink-0 items-center justify-center rounded border border-blue-100 bg-blue-50 transition-all duration-300 sm:size-14">
-            <img src="Images/Everest/headphone.png" alt="" class="h-7 w-7 object-contain transition-transform duration-300 group-hover:scale-105 sm:h-8 sm:w-8">
+        <div class="group flex h-full items-start gap-4 bg-white/90 p-4 shadow-sm transition-all duration-300 sm:p-5 lg:flex-col lg:gap-5 lg:p-6 hover:-translate-y-1.5 hover:shadow-[#C3D5C7] hover:border-[#001B2F]">
+          <div class="flex size-10 shrink-0 items-center justify-center rounded border border-[#001B2F]/20 bg-[#C3D5C7]/30 transition-all duration-300 sm:size-14">
+            <img src="Images/Everest/support icon.png" alt="" class="h-7 w-7 object-contain transition-transform duration-300 group-hover:scale-105 sm:h-8 sm:w-8">
           </div>
           <div class="min-w-0">
-            <h3 class="mb-1.5 text-xs sm:text-base font-bold leading-snug text-slate-900 transition-colors duration-300 group-hover:text-blue-700 sm:mb-2">24/7 Support</h3>
-            <p class="text-xs leading-5 text-slate-600 sm:text-sm sm:leading-6">Get local support 24/7 during the trek.</p>
+            <h3 class="mb-1.5 text-xs sm:text-base font-bold leading-snug text-[#001B2F] transition-colors duration-300 group-hover:text-[#001B2F] sm:mb-2">24/7 Support</h3>
+            <p class="text-xs leading-5 text-slate-500 sm:text-sm sm:leading-6">Get local support 24/7 during the trek.</p>
           </div>
         </div>
       </div>
@@ -1475,14 +1477,14 @@
     <!-- Adventure Specialist End -->
 
     <!-- Best Seller Trek Start -->
-    <section id="featured-destinations" class="relative overflow-hidden bg-gradient-to-b from-[#F8FBFF] via-white to-[#EEF5F2] px-3 py-14 sm:px-8 sm:py-[72px] lg:py-[72px]">
+    <section id="seller trek" class="relative overflow-hidden bg-gradient-to-b from-[#F8FBFF] via-white to-[#EEF5F2] px-3 py-14 sm:px-8 sm:py-[72px] lg:py-[72px]">
       <div class="container mx-auto max-w-7xl">
-        <div class="mb-3 flex items-center justify-center gap-2 sm:mb-4 lg:gap-8">
-          <span class="hidden h-px w-10 bg-blue-600/40 sm:w-16 lg:block"></span>
-          <p class="px-3 py-1.5 text-xs font-extrabold uppercase tracking-wider text-blue-600 sm:px-4 sm:py-2 lg:text-sm">Trending Holidays</p>
-          <span class="hidden h-px w-10 bg-blue-600/40 sm:w-16 lg:block"></span>
+        <div class="mb-1 flex items-center justify-center gap-2">
+          <span class="hidden h-px w-10 bg-[#43704A] sm:w-16 lg:block"></span>
+          <p class="px-3 py-1.5 text-xs font-extrabold uppercase tracking-wider text-[#43704A] sm:px-4 sm:py-2 lg:text-sm">Trending Holidays</p>
+          <span class="hidden h-px w-10 bg-[#43704A] sm:w-16 lg:block"></span>
         </div>
-        <h2 class="mx-auto mb-8 max-w-3xl text-center text-[2rem] font-extrabold leading-tight text-slate-950 sm:mb-14 sm:text-4xl md:text-5xl lg:text-6xl">
+        <h2 class="mx-auto mb-8 max-w-3xl text-center text-[2rem] font-bold leading-tight text-[#001B2F] sm:mb-14 sm:text-4xl md:text-5xl lg:text-6xl">
           Best Seller Treks
         </h2>
 
@@ -1490,15 +1492,15 @@
           <!-- Card 1 -->
            <div class="group relative flex h-full flex-col overflow-hidden bg-white shadow-lg ring-1 ring-slate-200/70 transition-all duration-300 hover:-translate-y-1 sm:rounded-none sm:shadow-md">
             <img src="Images/Everest/seller img1.png" class="w-full object-cover transition-transform duration-700 group-hover:scale-105 sm:aspect-[6/4]" alt="" />
-            <span class="absolute right-4 top-4 rounded border border-white/20 bg-white px-3.5 py-1.5 text-xs font-bold text-orange-500 backdrop-blur-md ring-1 ring-white/25 sm:text-sm hidden sm:block">★ Featured</span>
+            <span class="absolute right-2 top-2 rounded border border-white/20 bg-white px-2 py-1 text-xs font-regular text-[#43704A] backdrop-blur-md ring-1 ring-white/25 sm:text-sm hidden sm:block">★ Featured</span>
             <div class="flex flex-1 flex-col p-4 sm:p-5">
-              <div class="mb-2 flex items-center justify-between gap-3 sm:mb-3">
+              <div class="mb-2 flex items-center justify-between gap-3">
                 <div class="flex text-xs tracking-[0.18em] text-yellow-400 sm:text-sm">★ ★ ★ ★ ★</div>
-                <span class="px-2.5 py-1 text-xs font-bold sm:text-sm">346 Reviews</span>
+                <span class="px-2 py-1 text-xs font-bold sm:text-sm">346 Reviews</span>
               </div>
-              <h2 class="mb-3 text-base font-bold">Everest Base Camp Trek</h2>
+              <h2 class="mb-3 text-lg font-bold">Everest Base Camp Trek</h2>
               <div class="mt-auto flex items-center justify-between gap-2 pt-1 sm:gap-4">
-                <h3 class="text-base font-bold text-blue-600 sm:text-xl">USD $1525</h3>
+                <h3 class="text-base font-bold text-orange-600 sm:text-xl">USD $1525</h3>
               </div>
             </div>
           </div> 
@@ -1506,15 +1508,15 @@
           <!-- Card 2 -->
            <div class="group relative flex h-full flex-col overflow-hidden bg-white shadow-lg ring-1 ring-slate-200/70 transition-all duration-300 hover:-translate-y-1 sm:rounded-none sm:shadow-md">
             <img src="Images/Everest/seller img2.png" class="w-full object-cover transition-transform duration-700 group-hover:scale-105 sm:aspect-[6/4]" alt="" />
-            <span class="absolute right-4 top-4 rounded border border-white/20 bg-white px-3.5 py-1.5 text-xs font-bold text-green-500 backdrop-blur-md ring-1 ring-white/25 sm:text-sm hidden sm:block">★ Best Price</span>
+            <span class="absolute right-2 top-2 rounded border border-white/20 bg-white px-2 py-1 text-xs font-regular text-[#43704A] backdrop-blur-md ring-1 ring-white/25 sm:text-sm hidden sm:block">★ Best Price</span>
             <div class="flex flex-1 flex-col p-4 sm:p-5">
-              <div class="mb-2 flex items-center justify-between gap-3 sm:mb-3">
+              <div class="mb-1 flex items-center justify-between gap-3">
                 <div class="flex text-xs tracking-[0.18em] text-yellow-400 sm:text-sm">★ ★ ★ ★ ★</div>
-                <span class="px-2.5 py-1 text-xs font-bold sm:text-sm">346 Reviews</span>
+                <span class="px-2 py-1 text-xs font-bold sm:text-sm">346 Reviews</span>
               </div>
-              <h2 class="mb-3 text-base font-bold">Annapurna Base Camp Trek</h2>
+              <h2 class="mb-3 text-lg font-bold">Annapurna Base Camp Trek</h2>
               <div class="mt-auto flex items-center justify-between gap-2 pt-1 sm:gap-4">
-                <h3 class="text-base font-bold text-blue-600 sm:text-xl">USD $1380</h3>
+                <h3 class="text-base font-bold text-orange-600 sm:text-xl">USD $1380</h3>
               </div>
             </div>
           </div> 
@@ -1522,15 +1524,15 @@
           <!-- Card 3 -->
            <div class="group relative flex h-full flex-col overflow-hidden bg-white shadow-lg ring-1 ring-slate-200/70 transition-all duration-300 hover:-translate-y-1 sm:rounded-none sm:shadow-md">
             <img src="Images/Everest/seller img3.png" class="w-full object-cover transition-transform duration-700 group-hover:scale-105 sm:aspect-[6/4]" alt="" />
-            <span class="absolute right-4 top-4 rounded border border-white/20 bg-white px-3.5 py-1.5 text-xs font-bold text-blue-500 backdrop-blur-md ring-1 ring-white/25 sm:text-sm hidden sm:block">★ Best Seller</span>
+            <span class="absolute right-2 top-2 rounded border border-white/20 bg-white px-2 py-1 text-xs font-regular text-[#43704A] backdrop-blur-md ring-1 ring-white/25 sm:text-sm hidden sm:block">★ Best Seller</span>
             <div class="flex flex-1 flex-col p-4 sm:p-5">
               <div class="mb-2 flex items-center justify-between gap-3 sm:mb-3">
                 <div class="flex text-xs tracking-[0.18em] text-yellow-400 sm:text-sm">★ ★ ★ ★ ★</div>
                 <span class="px-2.5 py-1 text-xs font-bold sm:text-sm">346 Reviews</span>
               </div>
-              <h2 class="mb-3 text-base font-bold">Manaslu Circuit Trek</h2>
+              <h2 class="mb-3 text-lg font-bold">Manaslu Circuit Trek</h2>
               <div class="mt-auto flex items-center justify-between gap-2 pt-1 sm:gap-4">
-                <h3 class="text-base font-bold text-blue-600 sm:text-xl">USD $1090</h3>
+                <h3 class="text-base font-bold text-orange-600 sm:text-xl">USD $1090</h3>
               </div>
             </div>
           </div>
@@ -1540,14 +1542,14 @@
     <!-- Best Seller Trek End -->
 
     <!-- Travel Blog Start -->
-   <section id="blog" aria-labelledby="blog-heading" class="relative isolate overflow-hidden bg-gradient-to-b from-white via-[#F7FAFF] to-white px-4 py-16 sm:px-6 sm:py-20 md:px-8 md:py-12 lg:px-12 lg:py-[72px] xl:px-20 xl:py-24">
+   <section id="blog" aria-labelledby="blog-heading" class="relative isolate overflow-hidden bg-gradient-to-b from-white via-[#F7FAFF] to-white px-4 py-16 sm:px-6 sm:py-20 md:px-8 md:py-12 lg:px-12 lg:py-[72px]">
     
     <div class="container mx-auto max-w-7xl">
-      <div class="mx-auto mb-8 max-w-3xl text-center sm:mb-10 md:mb-12 lg:mb-14 xl:mb-16">
-        <div class="mb-3 flex items-center justify-center gap-3 sm:mb-4 sm:gap-4 md:gap-5 lg:gap-6 xl:gap-8">
-          <span aria-hidden="true" class="h-px w-8 bg-blue-600/40 sm:w-10 md:w-12 lg:w-14 xl:w-16 hidden sm:block"></span>
-          <p class="px-3 py-1.5 text-[0.6875rem] font-extrabold uppercase tracking-[0.18em] text-blue-700 sm:px-4 sm:text-xs md:px-5 lg:text-sm xl:px-6">Travel Blogs</p>
-          <span aria-hidden="true" class="h-px w-8 bg-blue-600/40 sm:w-10 md:w-12 lg:w-14 xl:w-16 hidden sm:block"></span>
+      <div class="mx-auto mb-8 max-w-3xl text-center sm:mb-10 lg:mb-12">
+        <div class="mb-1 flex items-center justify-center gap-2">
+          <span aria-hidden="true" class="h-px w-8 bg-[#43704A] sm:w-10 md:w-12 lg:w-14 xl:w-16 hidden sm:block"></span>
+          <p class="px-3 py-1.5 text-[0.6875rem] font-bold uppercase tracking-[0.18em] text-[#43704A] sm:px-4 sm:text-xs md:px-5 lg:text-sm xl:px-6">Travel Blogs</p>
+          <span aria-hidden="true" class="h-px w-8 bg-[#43704A] sm:w-10 md:w-12 lg:w-14 xl:w-16 hidden sm:block"></span>
         </div>
         <h2 id="blog-heading" class="text-3xl font-bold leading-tight tracking-tight text-slate-950 sm:text-4xl md:text-5xl lg:text-6xl xl:text-[4rem]">Latest Blog</h2>
       </div>
@@ -1555,15 +1557,15 @@
       <div class="grid items-stretch gap-5 sm:gap-6 md:gap-8 lg:grid-cols-[minmax(0,1.08fr)_minmax(0,0.92fr)] lg:gap-8 xl:grid-cols-[minmax(0,1.12fr)_minmax(0,0.88fr)] xl:gap-10">
 
         <!-- Left Big Card -->
-        <div class="group overflow-hidden bg-white shadow-[0_10px_30px_-22px_rgba(15,23,42,0.5)] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_18px_38px_-20px_rgba(37,99,235,0.28)] hover:border-blue-200 lg:flex lg:h-full lg:flex-col">
+        <div class="group overflow-hidden bg-white shadow-[0_10px_30px_-22px_rgba(120,145,125,0.4)] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_10px_30px_-22px_rgba(120,145,125,0.4)] hover:border-[#001B2F] lg:flex lg:h-full lg:flex-col">
          
             <img src="images/Everest/Himal1.png" class="h-52 w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 sm:h-72 md:h-80 lg:h-[390px] xl:h-[430px]" alt="" />
           <div class="flex flex-1 flex-col p-4 sm:p-4">
-            <div class="mb-3 flex w-fit items-center gap-1.5 px-0.5 py-1.5 text-blue-700 sm:mb-4 sm:gap-0.5 xl:py-2">
+            <div class="mb-3 flex w-fit items-center gap-1.5 px-0.5 py-1.5 text-gray-500 sm:mb-4 sm:gap-0.5 xl:py-2">
               <i data-lucide="clock" aria-hidden="true" class="h-3.5 w-3.5 sm:h-4 sm:w-4"></i>
               <time datetime="2026-02-22" class="text-xs font-bold sm:text-sm">Feb 22, 2026</time>
             </div>
-            <h3 class="mb-1 text-sm font-extrabold leading-snug tracking-tight text-slate-950 transition-colors duration-300 group-hover:text-blue-700 sm:mb-3 sm:text-2xl md:text-xl lg:text-3xl xl:text-3xl">Trip to Mardi Himal Trek</h3>
+            <h3 class="mb-1 text-sm font-extrabold leading-snug tracking-tight text-slate-950 transition-colors duration-300 group-hover:text-[#43704A] sm:mb-3 sm:text-2xl md:text-xl lg:text-3xl xl:text-3xl">Trip to Mardi Himal Trek</h3>
             <p class="text-xs leading-6 text-slate-600 sm:text-base sm:leading-7 md:text-base lg:leading-7 xl:text-base xl:leading-8">
               The Mardi Himal Trek offers a short and easy-to-moderate journey through lush forests and stunning ridges with close-up Himalayan views.
             </p>
@@ -1574,46 +1576,46 @@
         <div class="grid gap-4 sm:gap-5 md:gap-6 lg:grid-rows-3 lg:gap-5 xl:gap-6">
 
           <!-- Card 1 -->
-          <div class="group grid min-h-[10rem] grid-row-1 overflow-hidden bg-white shadow-[0_10px_30px_-22px_rgba(15,23,42,0.5)] transition-all duration-500 hover:-translate-y-1 hover:border-blue-200 hover:shadow-[0_18px_38px_-20px_rgba(37,99,235,0.28)] sm:min-h-[11rem] sm:grid-cols-[9.5rem_minmax(0,1fr)] md:min-h-[12rem] md:grid-cols-[12rem_minmax(0,1fr)] lg:min-h-0 lg:grid-cols-[8rem_minmax(0,1fr)] xl:grid-cols-[11rem_minmax(0,1fr)]">
+          <div class="group grid min-h-[10rem] grid-row-1 overflow-hidden bg-white shadow-[0_10px_30px_-22px_rgba(120,145,125,0.4)] transition-all duration-500 hover:-translate-y-1 hover:border-[#C3D5C7] hover:shadow-[0_10px_30px_-22px_rgba(120,145,125,0.4)] sm:min-h-[11rem] sm:grid-cols-[9.5rem_minmax(0,1fr)] md:min-h-[12rem] md:grid-cols-[12rem_minmax(0,1fr)] lg:min-h-0 lg:grid-cols-[8rem_minmax(0,1fr)] xl:grid-cols-[11rem_minmax(0,1fr)]">
             <div class="overflow-hidden">
               <img src="images/Everest/Himal2.png" class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110" alt="" />
             </div>
             <div class="min-w-0 p-3 sm:p-4 md:p-5 lg:p-3 xl:p-5">
-              <div class="mb-2 flex items-center gap-1.5 text-blue-700 sm:gap-2 md:mb-3 lg:mb-1.5 lg:gap-1.5 xl:mb-3 xl:gap-2">
+              <div class="mb-2 flex items-center gap-1.5 text-gray-500 sm:gap-2 md:mb-3 lg:mb-1.5 lg:gap-1.5 xl:mb-3 xl:gap-2">
                 <i data-lucide="clock" aria-hidden="true" class="h-3.5 w-3.5 flex-shrink-0 sm:h-4 sm:w-4 lg:h-3.5 lg:w-3.5 xl:h-4 xl:w-4"></i>
                 <time datetime="2026-02-22" class="text-xs font-bold sm:text-sm lg:text-xs xl:text-sm">Feb 22, 2026</time>
               </div>
-              <h4 class="mb-1.5 text-sm font-bold leading-snug text-slate-950 transition-colors duration-300 group-hover:text-blue-700 sm:mb-2 sm:text-base md:text-lg lg:text-[0.9375rem] xl:text-lg">Trek to Annapurna Region</h4>
+              <h4 class="mb-1.5 text-sm font-bold leading-snug text-slate-950 transition-colors duration-300 group-hover:text-[#43704A] sm:mb-2 sm:text-base md:text-lg lg:text-[0.9375rem] xl:text-lg">Trek to Annapurna Region</h4>
               <p class="text-xs leading-5 text-slate-600 sm:text-sm sm:leading-6 md:text-[0.9375rem] md:leading-6 lg:text-xs lg:leading-5 xl:text-[0.9375rem] xl:leading-6">The Annapurna Trek offers a short yet moderate-level journey.</p>
             </div>
           </div>
 
           <!-- Card 2 -->
-          <div class="group grid min-h-[10rem] grid-row-1 overflow-hidden bg-white shadow-[0_10px_30px_-22px_rgba(15,23,42,0.5)] transition-all duration-500 hover:-translate-y-1 hover:border-blue-200 hover:shadow-[0_18px_38px_-20px_rgba(37,99,235,0.28)] sm:min-h-[11rem] sm:grid-cols-[9.5rem_minmax(0,1fr)] md:min-h-[12rem] md:grid-cols-[12rem_minmax(0,1fr)] lg:min-h-0 lg:grid-cols-[8rem_minmax(0,1fr)] xl:grid-cols-[11rem_minmax(0,1fr)]">
+          <div class="group grid min-h-[10rem] grid-row-1 overflow-hidden bg-white shadow-[0_10px_30px_-22px_rgba(120,145,125,0.4)] transition-all duration-500 hover:-translate-y-1 hover:border-[#C3D5C7] hover:shadow-[0_10px_30px_-22px_rgba(120,145,125,0.4)] sm:min-h-[11rem] sm:grid-cols-[9.5rem_minmax(0,1fr)] md:min-h-[12rem] md:grid-cols-[12rem_minmax(0,1fr)] lg:min-h-0 lg:grid-cols-[8rem_minmax(0,1fr)] xl:grid-cols-[11rem_minmax(0,1fr)]">
             <div class="overflow-hidden">
               <img src="images/Everest/Himal3.png" class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110" alt="" />
             </div>
             <div class="min-w-0 p-3 sm:p-4 md:p-5 lg:p-3 xl:p-5">
-              <div class="mb-2 flex items-center gap-1.5 text-blue-700 sm:gap-2 md:mb-3 lg:mb-1.5 lg:gap-1.5 xl:mb-3 xl:gap-2">
+              <div class="mb-2 flex items-center gap-1.5 text-gray-500 sm:gap-2 md:mb-3 lg:mb-1.5 lg:gap-1.5 xl:mb-3 xl:gap-2">
                 <i data-lucide="clock" aria-hidden="true" class="h-3.5 w-3.5 flex-shrink-0 sm:h-4 sm:w-4 lg:h-3.5 lg:w-3.5 xl:h-4 xl:w-4"></i>
                 <time datetime="2026-02-22" class="text-xs font-bold sm:text-sm lg:text-xs xl:text-sm">Feb 22, 2026</time>
               </div>
-              <h4 class="mb-1.5 text-sm font-bold leading-snug text-slate-950 transition-colors duration-300 group-hover:text-blue-700 sm:mb-2 sm:text-base md:text-lg lg:text-[0.9375rem] xl:text-lg">Trek to Langtang Region</h4>
+              <h4 class="mb-1.5 text-sm font-bold leading-snug text-slate-950 transition-colors duration-300 group-hover:text-[#43704A] sm:mb-2 sm:text-base md:text-lg lg:text-[0.9375rem] xl:text-lg">Trek to Langtang Region</h4>
               <p class="text-xs leading-5 text-slate-600 sm:text-sm sm:leading-6 md:text-[0.9375rem] md:leading-6 lg:text-xs lg:leading-5 xl:text-[0.9375rem] xl:leading-6">The Manaslu Trek offers a remote and challenging journey through the pristine landscapes.</p>
             </div>
           </div>
 
           <!-- Card 3 -->
-          <div class="group grid min-h-[10rem] grid-row-1 overflow-hidden bg-white shadow-[0_10px_30px_-22px_rgba(15,23,42,0.5)] transition-all duration-500 hover:-translate-y-1 hover:border-blue-200 hover:shadow-[0_18px_38px_-20px_rgba(37,99,235,0.28)] sm:min-h-[11rem] sm:grid-cols-[9.5rem_minmax(0,1fr)] md:min-h-[12rem] md:grid-cols-[12rem_minmax(0,1fr)] lg:min-h-0 lg:grid-cols-[8rem_minmax(0,1fr)] xl:grid-cols-[11rem_minmax(0,1fr)]">
+          <div class="group grid min-h-[10rem] grid-row-1 overflow-hidden bg-white shadow-[0_10px_30px_-22px_rgba(120,145,125,0.4)] transition-all duration-500 hover:-translate-y-1 hover:border-[#C3D5C7] hover:shadow-[0_10px_30px_-22px_rgba(120,145,125,0.4)] sm:min-h-[11rem] sm:grid-cols-[9.5rem_minmax(0,1fr)] md:min-h-[12rem] md:grid-cols-[12rem_minmax(0,1fr)] lg:min-h-0 lg:grid-cols-[8rem_minmax(0,1fr)] xl:grid-cols-[11rem_minmax(0,1fr)]">
             <div class="overflow-hidden">
               <img src="images/Everest/Himal4.png" class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110" alt="" />
             </div>
             <div class="min-w-0 p-3 sm:p-4 md:p-5 lg:p-3 xl:p-5">
-              <div class="mb-2 flex items-center gap-1.5 text-blue-700 sm:gap-2 md:mb-3 lg:mb-1.5 lg:gap-1.5 xl:mb-3 xl:gap-2">
+              <div class="mb-2 flex items-center gap-1.5 text-gray-500 sm:gap-2 md:mb-3 lg:mb-1.5 lg:gap-1.5 xl:mb-3 xl:gap-2">
                 <i data-lucide="clock" aria-hidden="true" class="h-3.5 w-3.5 flex-shrink-0 sm:h-4 sm:w-4 lg:h-3.5 lg:w-3.5 xl:h-4 xl:w-4"></i>
                 <time datetime="2026-02-22" class="text-xs font-bold sm:text-sm lg:text-xs xl:text-sm">Feb 22, 2026</time>
               </div>
-              <h4 class="mb-1.5 text-sm font-bold leading-snug text-slate-950 transition-colors duration-300 group-hover:text-blue-700 sm:mb-2 sm:text-base md:text-lg lg:text-[0.9375rem] xl:text-lg">Trek to Manaslu Region</h4>
+              <h4 class="mb-1.5 text-sm font-bold leading-snug text-slate-950 transition-colors duration-300 group-hover:text-[#43704A] sm:mb-2 sm:text-base md:text-lg lg:text-[0.9375rem] xl:text-lg">Trek to Manaslu Region</h4>
               <p class="text-xs leading-5 text-slate-600 sm:text-sm sm:leading-6 md:text-[0.9375rem] md:leading-6 lg:text-xs lg:leading-5 xl:text-[0.9375rem] xl:leading-6">The Manaslu Trek offers a remote and challenging journey through the pristine landscapes.</p>
             </div>
           </div>
@@ -1626,12 +1628,12 @@
 
     <!-- FAQ Section Start -->
     <section id="faq" class="bg-[#F6F8F7] py-[94px] lg:py-[72px] overflow-hidden px-4 sm:px-8">
-      <div class="flex items-center justify-center gap-4 sm:gap-8 mb-4">
-        <span class="h-px w-10 lg:w-16 bg-blue-600 hidden lg:block"></span>
-        <p class="text-xs sm:text-sm font-bold tracking-wider uppercase text-blue-600">FAQs</p>
-        <span class="h-px w-10 lg:w-16 bg-blue-600 hidden lg:block"></span>
+      <div class="flex items-center justify-center gap-6 mb-1">
+        <span class="h-px w-10 lg:w-16 bg-[#43704A] hidden lg:block"></span>
+        <p class="text-xs sm:text-sm font-bold tracking-wider uppercase text-[#43704A]">FAQs</p>
+        <span class="h-px w-10 lg:w-16 bg-[#43704A] hidden lg:block"></span>
       </div>
-      <h2 class="font-extrabold text-center text-2xl sm:text-4xl md:text-5xl lg:text-6xl mb-8 sm:mb-12">
+      <h2 class="font-bold text-center text-2xl text-[#001B2F] sm:text-4xl md:text-5xl lg:text-6xl mb-8 sm:mb-12">
         Frequently Asked Question
       </h2>
 
@@ -1709,12 +1711,12 @@
 
         <div id="faq-controls" class="flex flex-wrap items-center gap-2 pt-3 sm:gap-3">
           <div id="faq-load-more-wrapper">
-            <button id="faq-load-more" type="button" class="inline-flex min-w-[96px] items-center justify-center rounded-md bg-blue-600 px-4 py-2 text-xs font-semibold tracking-[0.4px] text-white shadow-sm transition hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-blue-100 sm:min-w-[108px] sm:px-5 sm:py-2.5 sm:text-sm" aria-controls="faq-list" aria-describedby="faq-load-more-status">
+            <button id="faq-load-more" type="button" class="inline-flex min-w-[96px] items-center justify-center rounded-md bg-[#43704A] px-4 py-2 text-xs font-bold tracking-[0.4px] text-white shadow-sm transition hover:bg-[#001B2F] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#001B2F] sm:min-w-[108px] sm:px-5 sm:py-2.5 sm:text-sm" aria-controls="faq-list" aria-describedby="faq-load-more-status">
               More FAQs
             </button>
           </div>
           <div id="faq-back-wrapper" hidden>
-            <button id="faq-back" type="button" class="inline-flex min-w-[80px] items-center justify-center rounded-md bg-blue-600 px-4 py-2 text-xs font-semibold tracking-[0.4px] text-white shadow-sm transition hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-blue-100 sm:min-w-[92px] sm:px-5 sm:py-2.5 sm:text-sm" aria-controls="faq-list" aria-describedby="faq-load-more-status">
+            <button id="faq-back" type="button" class="inline-flex min-w-[80px] items-center justify-center rounded-md bg-[#43704A] px-4 py-2 text-xs font-semibold tracking-[0.4px] text-white shadow-sm transition hover:bg-[#001B2F] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#001B2F] sm:min-w-[92px] sm:px-5 sm:py-2.5 sm:text-sm" aria-controls="faq-list" aria-describedby="faq-load-more-status">
               Back
             </button>
           </div>
@@ -1725,13 +1727,13 @@
     <!-- FAQ Section End -->
 
     <!-- Clients Review Start -->
-    <section id="testimonials" class="relative overflow-hidden bg-slate-50 px-3 py-[94px] sm:px-8 lg:py-[72px]">
-      <div aria-hidden="true" class="absolute -left-24 top-28 h-64 w-64 rounded-full bg-blue-100/70 blur-3xl"></div>
-      <div aria-hidden="true" class="absolute -right-20 bottom-12 h-64 w-64 rounded-full bg-blue-100/70 blur-3xl"></div>
+    <section id="testimonials" class="relative overflow-hidden bg-white px-3 py-[94px] sm:px-8 lg:py-[72px]">
+      <div aria-hidden="true" class="absolute -left-24 top-28 h-64 w-64 rounded-full bg-[#D3EAD8] blur-3xl"></div>
+      <div aria-hidden="true" class="absolute -right-20 bottom-12 h-64 w-64 rounded-full bg-[#D3EAD8] blur-3xl"></div>
 
       <div class="container relative mx-auto px-4 sm:px-8">
         <div class="mb-8 flex flex-col items-center justify-center text-center sm:mb-12">
-          <h2 class="mb-6 text-center text-2xl font-extrabold text-slate-950 sm:text-4xl md:text-5xl lg:text-6xl">Clients Review</h2>
+          <h2 class="mb-6 text-center text-2xl font-bold text-slate-950 sm:text-4xl md:text-5xl lg:text-6xl">Clients Review</h2>
         </div>
 
         <!-- Google Rating Summary -->
@@ -1777,14 +1779,14 @@
           <div class="google-review-track animate-scroll py-2">
 
             <!-- Card 1 -->
-            <div class="google-review-card bg-gray-100 p-6 sm:p-10 flex flex-col justify-between w-[300px] sm:w-[380px] lg:w-[400px] shrink-0">
+            <div class="google-review-card p-6 sm:p-10 flex flex-col justify-between w-[300px] sm:w-[380px] lg:w-[400px] shrink-0">
               <div class="flex items-start justify-between mb-4 sm:mb-6">
                 <div class="flex items-center gap-1">
-                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
-                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
-                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
-                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
-                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#C3D5C7] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#C3D5C7] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#C3D5C7] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#C3D5C7] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#C3D5C7] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
                 </div>
                 <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center flex-shrink-0 overflow-hidden">
                   <img src="Images/Everest/suresh.png" class="rounded-full object-contain" alt="" />
@@ -1804,11 +1806,11 @@
             <div class="google-review-card bg-gray-100 p-6 sm:p-10 flex flex-col justify-between w-[300px] sm:w-[380px] lg:w-[400px] shrink-0">
               <div class="flex items-start justify-between mb-4 sm:mb-6">
                 <div class="flex items-center gap-1">
-                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
-                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
-                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
-                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
-                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#C3D5C7] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#C3D5C7] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#C3D5C7] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#C3D5C7] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#C3D5C7] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
                 </div>
                <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center flex-shrink-0 overflow-hidden">
                   <img src="Images/Everest/bear grylls.jpg" class="rounded-full object-contain" alt="" />
@@ -1828,11 +1830,11 @@
             <div class="google-review-card bg-gray-100 p-6 sm:p-10 flex flex-col justify-between w-[300px] sm:w-[380px] lg:w-[400px] shrink-0">
               <div class="flex items-start justify-between mb-4 sm:mb-6">
                 <div class="flex items-center gap-1">
-                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
-                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
-                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
-                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
-                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#C3D5C7] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#C3D5C7] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#C3D5C7] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#C3D5C7] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#C3D5C7] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
                 </div>
                <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center flex-shrink-0 overflow-hidden">
                   <img src="Images/Everest/chris.jpg" class="rounded-full object-contain" alt="" />
@@ -1852,11 +1854,11 @@
             <div class="google-review-card bg-gray-100 p-6 sm:p-10 flex flex-col justify-between w-[300px] sm:w-[380px] lg:w-[400px] shrink-0" aria-hidden="true">
               <div class="flex items-start justify-between mb-4 sm:mb-6">
                 <div class="flex items-center gap-1">
-                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
-                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
-                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
-                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
-                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#C3D5C7] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#C3D5C7] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#C3D5C7] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#C3D5C7] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#C3D5C7] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
                 </div>
                 <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center flex-shrink-0 overflow-hidden">
                   <img src="Images/Everest/suresh.png" class="w-full h-full rounded-full object-contain scale-125" alt="" />
@@ -1876,11 +1878,11 @@
             <div class="google-review-card bg-gray-100 p-6 sm:p-10 flex flex-col justify-between w-[300px] sm:w-[380px] lg:w-[400px] shrink-0" aria-hidden="true">
               <div class="flex items-start justify-between mb-4 sm:mb-6">
                 <div class="flex items-center gap-1">
-                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
-                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
-                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
-                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
-                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#C3D5C7] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#C3D5C7] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#C3D5C7] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#C3D5C7] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#C3D5C7] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
                 </div>  
                <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center flex-shrink-0 overflow-hidden">
                   <img src="Images/Everest/bear grylls.jpg" class="w-full h-full rounded-full object-contain scale-125" alt="" />
@@ -1900,11 +1902,11 @@
             <div class="google-review-card bg-gray-100 p-6 sm:p-10 flex flex-col justify-between w-[300px] sm:w-[380px] lg:w-[400px] shrink-0" aria-hidden="true">
               <div class="flex items-start justify-between mb-4 sm:mb-6">
                 <div class="flex items-center gap-1">
-                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
-                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
-                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
-                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
-                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#00AC7E] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#C3D5C7] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#C3D5C7] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#C3D5C7] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#C3D5C7] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
+                  <span class="w-[15px] h-[15px] sm:w-[18px] sm:h-[18px] bg-[#C3D5C7] rounded-full relative inline-flex items-center justify-center before:content-[''] before:w-[6px] before:h-[6px] sm:before:w-[7px] sm:before:h-[7px] before:bg-white before:rounded-full before:absolute"></span>
                 </div>
                 <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center flex-shrink-0 overflow-hidden">
                   <img src="Images/Everest/chris.jpg" class="w-full h-full rounded-full object-contain scale-125" alt="" />
@@ -1963,7 +1965,7 @@
 
             <!-- Logo + We Accept -->
             <div class="flex flex-col gap-4 sm:gap-5 md:gap-6 sm:col-span-2 lg:col-span-1">
-              <img src="Images/Everest/Logo.png" alt="Nepal Wilderness Trekking" class="w-16 sm:w-20 md:w-24 lg:w-32 h-auto object-contain" />
+              <img src="Images/Everest/Alpinelogo.png" alt="Nepal Wilderness Trekking" class="h-auto w-10 object-contain sm:w-12 lg:w-14 xl:w-16" />
               <div>
                 <p class="text-sm font-bold text-black mb-3">We Accept</p>
                 <div class="flex items-center gap-2 flex-wrap">
