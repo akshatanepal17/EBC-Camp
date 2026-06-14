@@ -1764,54 +1764,150 @@ setupLegacyNestedDropdown('.peak-menu-trigger', 'peak-menu');
 
 
 //pax counter
- // Initialize Lucide icons
+(function () {
+  if (window.lucide) {
     lucide.createIcons();
- 
-    // Traveler count logic
-    const paxMinus = document.getElementById('pax-minus');
-    const paxPlus = document.getElementById('pax-plus');
-    const paxCount = document.getElementById('pax-count');
-    const pricePerPax = document.getElementById('price-per-pax');
-    const paxLineLabel = document.getElementById('pax-line-label');
-    const paxLineTotal = document.getElementById('pax-line-total');
-    const totalPrice = document.getElementById('total-price');
-    const basePricePerPerson = 1390;
- 
-    function updatePricing() {
-      const count = parseInt(paxCount.textContent);
-      const total = basePricePerPerson * count;
-      
-      paxLineLabel.textContent = `x ${count} traveler${count > 1 ? 's' : ''}`;
-      paxLineTotal.textContent = `USD $${total.toLocaleString()}`;
-      totalPrice.textContent = `USD $${total.toLocaleString()}`;
-      
-      document.querySelector('input[name="travelers"]').value = `${count} Traveler${count > 1 ? 's' : ''}`;
-    }
- 
-    paxMinus.addEventListener('click', () => {
-      const count = parseInt(paxCount.textContent);
-      if (count > 1) {
-        paxCount.textContent = count - 1;
-        updatePricing();
-      }
-    });
- 
-    paxPlus.addEventListener('click', () => {
-      const count = parseInt(paxCount.textContent);
-      paxCount.textContent = count + 1;
+  }
+
+  const paxMinus = document.getElementById('pax-minus');
+  const paxPlus = document.getElementById('pax-plus');
+  const paxCount = document.getElementById('pax-count');
+  const paxLineLabel = document.getElementById('pax-line-label');
+  const paxLineTotal = document.getElementById('pax-line-total');
+  const totalPrice = document.getElementById('total-price');
+  const dateInput = document.getElementById('travel-date');
+  const tripBookingForm = document.getElementById('trip-booking-form');
+  const travelersInput = document.querySelector('input[name="travelers"]');
+  const basePricePerPerson = 1390;
+
+  if (!paxMinus || !paxPlus || !paxCount || !dateInput || !tripBookingForm) return;
+
+  function updatePricing() {
+    const count = parseInt(paxCount.textContent, 10);
+    const total = basePricePerPerson * count;
+
+    if (paxLineLabel) paxLineLabel.textContent = `x ${count} traveler${count > 1 ? 's' : ''}`;
+    if (paxLineTotal) paxLineTotal.textContent = `USD $${total.toLocaleString()}`;
+    if (totalPrice) totalPrice.textContent = `USD $${total.toLocaleString()}`;
+    if (travelersInput) travelersInput.value = `${count} Traveler${count > 1 ? 's' : ''}`;
+  }
+
+  paxMinus.addEventListener('click', () => {
+    const count = parseInt(paxCount.textContent, 10);
+    if (count > 1) {
+      paxCount.textContent = count - 1;
       updatePricing();
+    }
+  });
+
+  paxPlus.addEventListener('click', () => {
+    const count = parseInt(paxCount.textContent, 10);
+    paxCount.textContent = count + 1;
+    updatePricing();
+  });
+
+  const today = new Date().toISOString().split('T')[0];
+  dateInput.setAttribute('min', today);
+
+  tripBookingForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    alert('Booking submitted! (This is a demo)');
+  });
+})();
+
+//contact details
+
+  (function () {
+    const form = document.getElementById('contact-form');
+    if (!form) return;
+
+    const fields = {
+      name: document.getElementById('contact-name'),
+      email: document.getElementById('contact-email'),
+      subject: document.getElementById('contact-subject'),
+      message: document.getElementById('contact-message'),
+    };
+
+    const status = document.getElementById('contact-form-status');
+    const messageCount = document.getElementById('contact-message-count');
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    const rules = {
+      name: value => value.length >= 2 || 'Please enter your full name.',
+      email: value => emailPattern.test(value) || 'Please enter a valid email address.',
+      subject: value => value.length >= 3 || 'Please add a short subject.',
+      message: value => value.length >= 10 || 'Please write at least 10 characters.',
+    };
+
+    function setFieldState(field, errorMessage) {
+      const error = document.getElementById(field.id + '-error');
+      const hasError = Boolean(errorMessage);
+
+      field.classList.toggle('contact-field-error', hasError);
+      field.setAttribute('aria-invalid', String(hasError));
+
+      if (error) {
+        error.textContent = errorMessage || '';
+        error.classList.toggle('hidden', !hasError);
+      }
+    }
+
+    function validateField(name) {
+      const field = fields[name];
+      if (!field) return true;
+
+      const value = field.value.trim();
+      const result = rules[name](value);
+      const errorMessage = result === true ? '' : result;
+
+      setFieldState(field, errorMessage);
+      return !errorMessage;
+    }
+
+    function updateMessageCount() {
+      if (!fields.message || !messageCount) return;
+      const length = fields.message.value.trim().length;
+      messageCount.textContent = Math.min(length, 600) + ' / 600';
+    }
+
+    Object.keys(fields).forEach(name => {
+      const field = fields[name];
+      if (!field) return;
+
+      field.addEventListener('blur', () => validateField(name));
+      field.addEventListener('input', () => {
+        if (field.getAttribute('aria-invalid') === 'true') validateField(name);
+        if (name === 'message') updateMessageCount();
+        if (status) status.classList.add('hidden');
+      });
     });
- 
-    // Set minimum date to today
-    const dateInput = document.getElementById('travel-date');
-    const today = new Date().toISOString().split('T')[0];
-    dateInput.setAttribute('min', today);
- 
-    // Form submission
-    document.getElementById('trip-booking-form').addEventListener('submit', (e) => {
-      e.preventDefault();
-      alert('Booking submitted! (This is a demo)');
+
+    form.addEventListener('submit', event => {
+      event.preventDefault();
+
+      const isValid = Object.keys(fields).map(validateField).every(Boolean);
+      if (!isValid) {
+        const firstInvalid = form.querySelector('[aria-invalid="true"]');
+        firstInvalid?.focus();
+        return;
+      }
+
+      if (status) {
+        status.textContent = 'Thanks for reaching out. Our adventure team will reply shortly.';
+        status.classList.remove('hidden');
+      }
+
+      form.reset();
+      updateMessageCount();
+      Object.values(fields).forEach(field => field?.setAttribute('aria-invalid', 'false'));
     });
+
+    updateMessageCount();
+
+    if (window.lucide) {
+      lucide.createIcons();
+    }
+  })();
 
 //pax counter 1
 // const paxPlus = document.getElementById('pax-plus');

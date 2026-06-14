@@ -1555,28 +1555,31 @@
       <div class="grid items-stretch gap-5 sm:gap-6 md:gap-8 lg:grid-cols-[minmax(0,1.08fr)_minmax(0,0.92fr)] lg:gap-8 xl:grid-cols-[minmax(0,1.12fr)_minmax(0,0.88fr)] xl:gap-10">
 
         <!-- Left Big Card -->
-        <div class="group overflow-hidden bg-white shadow-[0_10px_30px_-22px_rgba(120,145,125,0.4)] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_10px_30px_-22px_rgba(120,145,125,0.4)] hover:border-[#001B2F] lg:flex lg:h-full lg:flex-col">
+        <div class="relative group overflow-hidden bg-white shadow-[0_10px_30px_-22px_rgba(120,145,125,0.4)] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_10px_30px_-22px_rgba(120,145,125,0.4)] hover:border-[#001B2F] lg:flex lg:flex-col">
          
-            <img src="images/Everest/Himal1.png" class="h-52 w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 sm:h-72 md:h-80 lg:h-[390px] xl:h-[430px]" alt="" />
-          <div class="flex flex-1 flex-col p-4 sm:p-4">
-            <div class="mb-3 flex w-fit items-center gap-1.5 px-0.5 py-1.5 text-gray-500 sm:mb-4 sm:gap-0.5 xl:py-2">
+            <img src="images/Everest/Himal1.jpg" class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" alt="" />
+            <div class="absolute inset-0 bg-black/40 z-5"></div>
+          <div class="flex flex-1 flex-col p-4 sm:p-4 absolute bottom-4 left-0">
+            <div class="mb-3 flex w-fit items-center gap-1.5 px-0.5 py-1.5 text-white sm:mb-4 sm:gap-0.5 xl:py-2">
               <i data-lucide="clock" aria-hidden="true" class="h-3.5 w-3.5 sm:h-4 sm:w-4"></i>
               <time datetime="2026-02-22" class="text-xs font-bold sm:text-sm">Feb 22, 2026</time>
             </div>
-            <h3 class="mb-1 text-sm font-extrabold leading-snug tracking-tight text-slate-950 transition-colors duration-300 group-hover:text-[#43704A] sm:mb-3 sm:text-2xl md:text-xl lg:text-3xl xl:text-3xl">Trip to Mardi Himal Trek</h3>
-            <p class="text-xs leading-6 text-slate-600 sm:text-base sm:leading-7 md:text-base lg:leading-7 xl:text-base xl:leading-8">
+            <h3 class="mb-1 text-sm font-bold leading-snug tracking-tight text-white transition-colors duration-300 group-hover:text-white sm:mb-3 sm:text-2xl md:text-xl lg:text-3xl xl:text-3xl">Trip to Mardi Himal Trek</h3>
+            <p class="text-xs leading-6 text-white sm:text-base sm:leading-7 md:text-base lg:leading-7 xl:text-base xl:leading-8">
               The Mardi Himal Trek offers a short and easy-to-moderate journey through lush forests and stunning ridges with close-up Himalayan views.
             </p>
           </div>
         </div>
+        
 
         <!-- Right Cards -->
-        <div class="grid gap-4 sm:gap-5 md:gap-6 lg:grid-rows-3 lg:gap-5 xl:gap-6">
+        <div class="grid gap-4 sm:gap-5 md:gap-6 lg:grid-rows-2 lg:gap-5 xl:gap-6">
 
           <!-- Card 1 -->
           <div class="group grid min-h-[10rem] grid-row-1 overflow-hidden bg-white shadow-[0_10px_30px_-22px_rgba(120,145,125,0.4)] transition-all duration-500 hover:-translate-y-1 hover:border-[#C3D5C7] hover:shadow-[0_10px_30px_-22px_rgba(120,145,125,0.4)] sm:min-h-[11rem] sm:grid-cols-[9.5rem_minmax(0,1fr)] md:min-h-[12rem] md:grid-cols-[12rem_minmax(0,1fr)] lg:min-h-0 lg:grid-cols-[8rem_minmax(0,1fr)] xl:grid-cols-[11rem_minmax(0,1fr)]">
             <div class="overflow-hidden">
               <img src="images/Everest/Himal2.png" class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110" alt="" />
+              <div></div>
             </div>
             <div class="min-w-0 p-3 sm:p-4 md:p-5 lg:p-3 xl:p-5">
               <div class="mb-2 flex items-center gap-1.5 text-gray-500 sm:gap-2 md:mb-3 lg:mb-1.5 lg:gap-1.5 xl:mb-3 xl:gap-2">
@@ -1604,7 +1607,7 @@
           </div>
 
           <!-- Card 3 -->
-          <div class="group grid min-h-[10rem] grid-row-1 overflow-hidden bg-white shadow-[0_10px_30px_-22px_rgba(120,145,125,0.4)] transition-all duration-500 hover:-translate-y-1 hover:border-[#C3D5C7] hover:shadow-[0_10px_30px_-22px_rgba(120,145,125,0.4)] sm:min-h-[11rem] sm:grid-cols-[9.5rem_minmax(0,1fr)] md:min-h-[12rem] md:grid-cols-[12rem_minmax(0,1fr)] lg:min-h-0 lg:grid-cols-[8rem_minmax(0,1fr)] xl:grid-cols-[11rem_minmax(0,1fr)]">
+          <!-- <div class="group grid min-h-[10rem] grid-row-1 overflow-hidden bg-white shadow-[0_10px_30px_-22px_rgba(120,145,125,0.4)] transition-all duration-500 hover:-translate-y-1 hover:border-[#C3D5C7] hover:shadow-[0_10px_30px_-22px_rgba(120,145,125,0.4)] sm:min-h-[11rem] sm:grid-cols-[9.5rem_minmax(0,1fr)] md:min-h-[12rem] md:grid-cols-[12rem_minmax(0,1fr)] lg:min-h-0 lg:grid-cols-[8rem_minmax(0,1fr)] xl:grid-cols-[11rem_minmax(0,1fr)]">
             <div class="overflow-hidden">
               <img src="images/Everest/Himal4.png" class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110" alt="" />
             </div>
@@ -1616,7 +1619,7 @@
               <h4 class="mb-1.5 text-sm font-bold leading-snug text-slate-950 transition-colors duration-300 group-hover:text-[#43704A] sm:mb-2 sm:text-base md:text-lg lg:text-[0.9375rem] xl:text-lg">Trek to Manaslu Region</h4>
               <p class="text-xs leading-5 text-slate-600 sm:text-sm sm:leading-6 md:text-[0.9375rem] md:leading-6 lg:text-xs lg:leading-5 xl:text-[0.9375rem] xl:leading-6">The Manaslu Trek offers a remote and challenging journey through the pristine landscapes.</p>
             </div>
-          </div>
+          </div> -->
 
         </div>
       </div>
