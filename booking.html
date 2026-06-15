@@ -714,18 +714,22 @@
       }
 
       #nepal-menu .submenu-child .submenu-link::before {
-        content: "";
-        position: absolute;
-        left: 0.85rem;
-        width: 1.55rem;
-        height: 1.55rem;
-        border-radius: 8px;
-        background:
-          linear-gradient(135deg, #0F766E, #9BC8A4 52%, #F59E0B);
-        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.72);
-        transition: transform 220ms ease;
-      }
+       content: "";
+       position: absolute;
+       left: 0.85rem;
+       width: 1.55rem;
+       height: 1.55rem;
+       border-radius: 8px;
 
+       /* 👇 IMAGE instead of gradient */
+       background-image: url("Images/Everest/Mountain pic.jpg");
+       background-size: cover;
+       background-position: center;
+       background-repeat: no-repeat;
+       box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.72);
+       transition: transform 220ms ease;
+     }
+     
       #nepal-menu .submenu-child .submenu-link:hover,
       #nepal-menu .submenu-child .submenu-link:focus-visible {
         border-color: rgba(0, 172, 126, 0.22);
