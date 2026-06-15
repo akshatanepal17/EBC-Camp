@@ -1843,7 +1843,6 @@ setupLegacyNestedDropdown('.peak-menu-trigger', 'peak-menu');
       const error = document.getElementById(field.id + '-error');
       const hasError = Boolean(errorMessage);
 
-      field.classList.toggle('contact-field-error', hasError);
       field.setAttribute('aria-invalid', String(hasError));
 
       if (error) {
