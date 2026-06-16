@@ -1321,106 +1321,121 @@
   <!-- Contact Details Start  -->
   <main id="contact" class="overflow-hidden bg-white text-[#001B2F]">
     <section aria-labelledby="contact-heading" class="bg-[#f4f7f5]">
-      <div class="mx-auto grid w-full max-w-[1440px] gap-12 px-6 py-16 sm:px-16 sm:py-20 lg:grid-cols-[0.95fr_1.05fr]">
-        <div class="flex flex-col">
-          <p class="text-2xl font-bold text-[#001B2F] sm:text-5xl">Contact Info</p>
+      <div class="mx-auto grid w-full max-w-[1440px] gap-8 sm:gap-12 px-6 py-12 sm:px-16 sm:py-14 lg:grid-cols-[0.95fr_1.05fr]">
+       
+        <form id="contact-form" class="w-full" novalidate>
+          <div class="bg-white rounded-md">
+          <div class="grid gap-2 px-6 py-4">
+            <p class="text-2xl font-bold text-[#001B2F] sm:text-4xl">Contact Info</p>
           <!-- <h1 id="contact-heading" class="mt-6 text-4xl font-black leading-tight text-black sm:text-3xl">Get In Touch</h1> -->
-          <p class="mt-7 max-w-2xl text-[15px] font-medium leading-7 tracking-[0.02em] text-neutral-700 sm:text-base">
+          <p class="max-w-2xl text-[15px] font-regular leading-7 text-neutral-700 sm:text-base mb-4">
             We'd love to hear from you.</p>
+            <div>
+              <label for="contact-name" class="block text-sm font-regular text-neutral-900 mb-2">Your Name</label>
+              <input id="contact-name" name="name" type="text" autocomplete="name" required minlength="2" placeholder="Full Name" aria-describedby="contact-name-error" aria-invalid="false" class="h-12 w-full rounded-md border border-gray-200 bg-gray-100 px-5 text-base font-regular text-[#001B2F] outline-none transition duration-200 placeholder:text-neutral-400 focus:border-[#C3D5C7] focus:ring-4 focus:ring-[#C3D5C7]/15 sm:h-[64px] aria-[invalid=true]:border-red-600 aria-[invalid=true]:bg-red-50 aria-[invalid=true]:focus:border-red-600 aria-[invalid=true]:focus:ring-red-500/15" />
+              <p id="contact-name-error" class="mt-2 hidden text-sm font-semibold text-red-600"></p>
+            </div>
 
-          <div class="mt-10 grid gap-x-10 gap-y-9 sm:grid-cols-2">
-            <a href="tel:+9779851205116" class="group grid grid-cols-[44px_1fr] items-start gap-4 rounded-[4px] transition duration-300 hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#43704A]/20">
-              <span class="flex h-11 w-11 items-center justify-center text-[#43704A] transition duration-300 group-hover:scale-110 group-hover:text-[#001B2F]">
-                <i data-lucide="phone" class="h-7 w-7 stroke-2"></i>
+            <div>
+              <label for="contact-email" class="block text-sm font-regular text-neutral-900 mb-2">Your Email</label>
+              <input id="contact-email" name="email" type="email" autocomplete="email" required placeholder="Email Address" aria-describedby="contact-email-error" aria-invalid="false" class="h-12 w-full rounded-md border border-gray-200 bg-gray-100 px-5 text-base font-regular text-[#001B2F] outline-none transition duration-200 placeholder:text-neutral-400 focus:border-[#C3D5C7] focus:ring-4 focus:ring-[#C3D5C7]/15 sm:h-[64px] aria-[invalid=true]:border-red-600 aria-[invalid=true]:bg-red-50 aria-[invalid=true]:focus:border-red-600 aria-[invalid=true]:focus:ring-red-500/15" />
+              <p id="contact-email-error" class="mt-2 hidden text-sm font-semibold text-red-600"></p>
+            </div>
+
+            <div>
+              <label for="contact-subject" class="block text-sm font-regular text-neutral-900 mb-2">Subject</label>
+              <input id="contact-subject" name="subject" type="text" required minlength="3" placeholder="Subject" aria-describedby="contact-subject-error" aria-invalid="false" class="h-12 w-full rounded-md border border-gray-200 bg-gray-100 px-5 text-base font-regular text-[#001B2F] outline-none transition duration-200 placeholder:text-neutral-400 focus:border-[#C3D5C7] focus:ring-4 focus:ring-[#C3D5C7]/15 sm:h-[64px] aria-[invalid=true]:border-red-600 aria-[invalid=true]:bg-red-50 aria-[invalid=true]:focus:border-red-600 aria-[invalid=true]:focus:ring-red-500/15" />
+              <p id="contact-subject-error" class="mt-2 hidden text-sm font-semibold text-red-600"></p>
+            </div>
+
+            <div>
+              <label for="contact-message" class="block text-sm font-regular text-neutral-900 mb-2">Your Message</label>
+              <textarea id="contact-message" name="message" required minlength="10" maxlength="600" rows="6" placeholder="Message" aria-describedby="contact-message-error contact-message-count" aria-invalid="false" class="min-h-[120px] w-full resize-y rounded-md border border-gray-200 bg-gray-100 px-5 text-base font-regular text-[#001B2F] outline-none transition duration-200 placeholder:text-neutral-400 focus:border-[#C3D5C7] focus:ring-4 focus:ring-[#C3D5C7]/15 sm:h-[64px] aria-[invalid=true]:border-red-600 aria-[invalid=true]:bg-red-50 aria-[invalid=true]:focus:border-red-600 aria-[invalid=true]:focus:ring-red-500/15"></textarea>
+              <div class="flex items-center justify-between gap-4">
+                <p id="contact-message-error" class="hidden text-sm font-semibold text-red-600"></p>
+                <p id="contact-message-count" class="ml-auto text-xs font-bold text-neutral-500">0 / 600</p>
+              </div>
+            </div>
+
+            <button type="submit" class="mb-8 inline-flex h-[52px] w-full items-center justify-center rounded-[4px] bg-[#43704A] px-8 text-base font-bold text-white shadow-[0_8px_20px_rgba(6,20,28,0.12)] transition duration-300 hover:-translate-y-1 hover:bg-[#001B2F] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#2E5BFF]/30 sm:w-[220px]">
+            Send Message
+          </button>
+          </div>
+
+          
+        </div>
+          <p id="contact-form-status" class="mt-5 hidden rounded-[4px] border border-[#C3D5C7] bg-white px-4 py-3 text-sm font-bold text-[#001B2F]" role="status" aria-live="polite"></p>
+        </form>
+
+          <div class="flex flex-col gap-4">
+        <div class="bg-white rounded-md px-6 py-6">
+
+          <div class="mb-2 grid gap-x-[0.25rem] gap-y-[1.25rem] sm:grid-cols-2">
+            <a href="tel:+9779851205116" class="group grid grid-cols-[44px_1fr] items-start gap-2 transition duration-300 hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#43704A]/20">
+              <span class="flex h-7 w-7 items-center justify-center text-[#43704A] transition duration-300 group-hover:scale-110 group-hover:text-[#001B2F]">
+                <i data-lucide="phone" class="h-6 w-6 stroke-2"></i>
               </span>
               <span>
-                <span class="block text-xl font-black text-black">Call Us</span>
-                <span class="mt-2 block text-xs text-neutral-700">+9779851205116</span>
+                <span class="mb-2 block text-xl font-black text-black">Call Us</span>
+                <span class="block text-xs text-neutral-700">+9779851205116</span>
               </span>
             </a>
 
-            <a href="mailto:info@everestbasecamphike.com" class="group grid grid-cols-[44px_1fr] items-start gap-4 rounded-[4px] transition duration-300 hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#43704A]/20">
-              <span class="flex h-11 w-11 items-center justify-center text-[#43704A] transition duration-300 group-hover:scale-110 group-hover:text-[#001B2F]">
-                <i data-lucide="mail" class="h-7 w-7 stroke-2"></i>
+            <a href="mailto:info@everestbasecamphike.com" class="group grid grid-cols-[44px_1fr] items-start gap-2 transition duration-300 hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#43704A]/20">
+              <span class="flex h-7 w-7 items-center justify-center text-[#43704A] transition duration-300 group-hover:scale-110 group-hover:text-[#001B2F]">
+                <i data-lucide="mail" class="h-6 w-6 stroke-2"></i>
               </span>
               <span>
                 <span class="block text-xl font-black text-black">Email Us</span>
-                <span class="mt-2 block break-all text-xs text-neutral-700">info@everestbasecamphike.com</span>
+                <span class="mb-2 block break-all text-xs text-neutral-700">info@everestbasecamphike.com</span>
               </span>
             </a>
 
-            <a href="https://www.everestbasecamphike.com" target="_blank" rel="noopener noreferrer" class="group grid grid-cols-[44px_1fr] items-start gap-4 rounded-[4px] transition duration-300 hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#43704A]/20">
-              <span class="flex h-11 w-11 items-center justify-center text-[#43704A] transition duration-300 group-hover:scale-110 group-hover:text-[#001B2F]">
-                <i data-lucide="globe-2" class="h-7 w-7 stroke-2"></i>
+            <a href="https://www.everestbasecamphike.com" target="_blank" rel="noopener noreferrer" class="group grid grid-cols-[44px_1fr] items-start gap-2 transition duration-300 hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#43704A]/20">
+              <span class="flex h-7 w-7 items-center justify-center text-[#43704A] transition duration-300 group-hover:scale-110 group-hover:text-[#001B2F]">
+                <i data-lucide="globe-2" class="h-6 w-6 stroke-2"></i>
               </span>
               <span>
-                <span class="block text-xl font-black text-black">Website</span>
-                <span class="mt-2 block break-all text-xs text-neutral-700">www.everestbasecamphike.com</span>
+                <span class="mb-2 block text-xl font-black text-black">Website</span>
+                <span class="block break-all text-xs text-neutral-700">www.everestbasecamphike.com</span>
               </span>
             </a>
 
-            <a href="https://www.google.com/maps/search/?api=1&amp;query=Nepal%20Wilderness%20Trekking%20Pvt%2C%20Thamel%2C%20Kathmandu%2C%20Nepal" target="_blank" rel="noopener noreferrer" class="group grid grid-cols-[44px_1fr] items-start gap-4 rounded-[4px] transition duration-300 hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#43704A]/20">
-              <span class="flex h-11 w-11 items-center justify-center text-[#43704A] transition duration-300 group-hover:scale-110 group-hover:text-[#001B2F]">
-                <i data-lucide="map-pin" class="h-7 w-7 stroke-2"></i>
+            <a href="https://www.google.com/maps/search/?api=1&amp;query=Nepal%20Wilderness%20Trekking%20Pvt%2C%20Thamel%2C%20Kathmandu%2C%20Nepal" target="_blank" rel="noopener noreferrer" class="group grid grid-cols-[44px_1fr] items-start gap-2 transition duration-300 hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#43704A]/20">
+              <span class="flex h-7 w-7 items-center justify-center text-[#43704A] transition duration-300 group-hover:scale-110 group-hover:text-[#001B2F]">
+                <i data-lucide="map-pin" class="h-6 w-6 stroke-2"></i>
               </span>
               <span>
-                <span class="block text-xl font-black text-black">Address</span>
-                <span class="mt-2 block text-xs leading-5 text-neutral-700">(PVT 2024 Z Street Thamel, Kathmandu, Nepal)</span>
+                <span class="mb-2 block text-xl font-black text-black">Address</span>
+                <span class="block text-xs leading-5 text-neutral-700">(PVT 2024 Z Street Thamel, Kathmandu, Nepal)</span>
               </span>
             </a>
           </div>
 
-          <div class="mt-10">
-            <h2 class="text-xl font-black tracking-[0.03em] text-black">Follow Us On</h2>
-            <div class="mt-5 flex flex-wrap items-center gap-3">
-              <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Facebook" class="flex h-7 w-7 items-center justify-center rounded-full bg-[#43704A] text-white shadow-[0_8px_20px_rgba(6,20,28,0.12)] transition duration-300 hover:-translate-y-1 hover:bg-[#001B2F] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#001B2F]/25">
+          <div class="px-2 pb-4">
+            <h2 class="sm:text-xl text-sm font-bold text-[#001B2F] mb-2">Follow Us On</h2>
+            <div class="flex flex-wrap items-center sm:gap-3 gap-1">
+              <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Facebook" class="flex sm:h-7 sm:w-7 h-6 w-6 items-center justify-center rounded-full bg-[#43704A] text-white shadow-[0_8px_20px_rgba(6,20,28,0.12)] transition duration-300 hover:-translate-y-1 hover:bg-[#001B2F] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#001B2F]/25">
                 <i class="fa-brands fa-facebook-f text-[13px]" aria-hidden="true"></i>
               </a>
-              <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram" class="flex h-7 w-7 items-center justify-center rounded-full bg-[#43704A] text-white shadow-[0_8px_20px_rgba(6,20,28,0.12)] transition duration-300 hover:-translate-y-1 hover:bg-[#001B2F] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#001B2F]/25">
+              <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram" class="flex sm:h-7 sm:w-7 h-6 w-6 items-center justify-center rounded-full bg-[#43704A] text-white shadow-[0_8px_20px_rgba(6,20,28,0.12)] transition duration-300 hover:-translate-y-1 hover:bg-[#001B2F] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#001B2F]/25">
                 <i class="fa-brands fa-instagram text-[13px]" aria-hidden="true"></i>
               </a>
-              <a href="https://wa.me/9779851205116" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp" class="flex h-7 w-7 items-center justify-center rounded-full bg-[#43704A] text-white shadow-[0_8px_20px_rgba(6,20,28,0.12)] transition duration-300 hover:-translate-y-1 hover:bg-[#001B2F]focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#001B2F]/25">
+              <a href="https://wa.me/9779851205116" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp" class="flex sm:h-7 sm:w-7 h-6 w-6 items-center justify-center rounded-full bg-[#43704A] text-white shadow-[0_8px_20px_rgba(6,20,28,0.12)] transition duration-300 hover:-translate-y-1 hover:bg-[#001B2F] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#001B2F]/25">
                 <i class="fa-brands fa-whatsapp text-[13px]" aria-hidden="true"></i>
               </a>
             </div>
           </div>
         </div>
 
-        <form id="contact-form" class="w-full" novalidate>
-          <div class="grid gap-6">
-            <div>
-              <label for="contact-name" class="block text-sm font-medium tracking-[0.03em] text-neutral-900">Your Name</label>
-              <input id="contact-name" name="name" type="text" autocomplete="name" required minlength="2" placeholder="Full Name" aria-describedby="contact-name-error" aria-invalid="false" class="mt-3 h-14 w-full rounded-none border border-transparent bg-white px-5 text-base font-medium text-[#001B2F] outline-none transition duration-200 placeholder:text-neutral-400 focus:border-[#C3D5C7] focus:ring-4 focus:ring-[#C3D5C7]/15 sm:h-[64px] aria-[invalid=true]:border-red-600 aria-[invalid=true]:bg-red-50 aria-[invalid=true]:focus:border-red-600 aria-[invalid=true]:focus:ring-red-500/15" />
-              <p id="contact-name-error" class="mt-2 hidden text-sm font-semibold text-red-600"></p>
-            </div>
+      <div class="mb-2 pb-6 h-[32px] ">
+      <section aria-labelledby="map-heading" class="rounded-md">
+      <h2 id="map-heading" class="sr-only">Map showing our office in Thamel, Kathmandu</h2>
+      <iframe title="Google map showing Nepal Wilderness Trekking Pvt in Thamel Kathmandu Nepal" src="https://www.google.com/maps?q=Nepal%20Wilderness%20Trekking%20Pvt%2C%20Thamel%2C%20Kathmandu%2C%20Nepal&amp;output=embed" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" class="rounded block h-[360px] w-full border-0 sm:h-[395px]"></iframe>
+    </section>
+    </div>
+        </div>
 
-            <div>
-              <label for="contact-email" class="block text-sm font-medium tracking-[0.03em] text-neutral-900">Your Email</label>
-              <input id="contact-email" name="email" type="email" autocomplete="email" required placeholder="Email Address" aria-describedby="contact-email-error" aria-invalid="false" class="mt-3 h-14 w-full rounded-none border border-transparent bg-white px-5 text-base font-medium text-[#C3D5C7] outline-none transition duration-200 placeholder:text-neutral-400 focus:border-[#C3D5C7] focus:ring-4 focus:ring-[#C3D5C7]/15 sm:h-[64px] aria-[invalid=true]:border-red-600 aria-[invalid=true]:bg-red-50 aria-[invalid=true]:focus:border-red-600 aria-[invalid=true]:focus:ring-red-500/15" />
-              <p id="contact-email-error" class="mt-2 hidden text-sm font-semibold text-red-600"></p>
-            </div>
-
-            <div>
-              <label for="contact-subject" class="block text-sm font-medium tracking-[0.03em] text-neutral-900">Subject</label>
-              <input id="contact-subject" name="subject" type="text" required minlength="3" placeholder="Subject" aria-describedby="contact-subject-error" aria-invalid="false" class="mt-3 h-14 w-full rounded-none border border-transparent bg-white px-5 text-base font-medium text-[#C3D5C7] outline-none transition duration-200 placeholder:text-neutral-400 focus:border-[#C3D5C7] focus:ring-4 focus:ring-[#C3D5C7]/15 sm:h-[64px] aria-[invalid=true]:border-red-600 aria-[invalid=true]:bg-red-50 aria-[invalid=true]:focus:border-red-600 aria-[invalid=true]:focus:ring-red-500/15" />
-              <p id="contact-subject-error" class="mt-2 hidden text-sm font-semibold text-red-600"></p>
-            </div>
-
-            <div>
-              <label for="contact-message" class="block text-sm font-medium tracking-[0.03em] text-neutral-900">Your Message</label>
-              <textarea id="contact-message" name="message" required minlength="10" maxlength="600" rows="6" placeholder="Message" aria-describedby="contact-message-error contact-message-count" aria-invalid="false" class="mt-3 min-h-[180px] w-full resize-y rounded-none border border-transparent bg-white px-5 py-5 text-base font-medium text-[#C3D5C7] outline-none transition duration-200 placeholder:text-neutral-400 focus:border-[#C3D5C7] focus:ring-4 focus:ring-[#C3D5C7]/15 sm:min-h-[210px] aria-[invalid=true]:border-red-600 aria-[invalid=true]:bg-red-50 aria-[invalid=true]:focus:border-red-600 aria-[invalid=true]:focus:ring-red-500/15"></textarea>
-              <div class="mt-2 flex items-center justify-between gap-4">
-                <p id="contact-message-error" class="hidden text-sm font-semibold text-red-600"></p>
-                <p id="contact-message-count" class="ml-auto text-xs font-bold text-neutral-500">0 / 600</p>
-              </div>
-            </div>
-          </div>
-
-          <button type="submit" class="mt-4 inline-flex h-[52px] w-full items-center justify-center rounded-[4px] bg-[#43704A] px-8 text-base font-bold text-white shadow-[0_8px_20px_rgba(6,20,28,0.12)] transition duration-300 hover:-translate-y-1 hover:bg-[#001B2F] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#2E5BFF]/30 sm:mt-6 sm:w-[220px]">
-            Send Message
-          </button>
-          <p id="contact-form-status" class="mt-5 hidden rounded-[4px] border border-[#C3D5C7] bg-white px-4 py-3 text-sm font-bold text-[#001B2F]" role="status" aria-live="polite"></p>
-        </form>
       </div>
     </section>
 
@@ -1432,7 +1447,7 @@
               <i data-lucide="phone-call" class="h-8 w-8 stroke-2"></i>
             </span>
             <span class="mt-9 block text-xl font-black tracking-[0.04em] text-black">Voice Communications</span>
-            <span class="mt-7 block text-sm font-medium tracking-[0.03em] text-neutral-700">+9779851205116</span>
+            <span class="mt-7 block text-sm font-regular tracking-[0.03em] text-neutral-700">+9779851205116</span>
           </a>
 
           <a href="mailto:info@everestbasecamphike.com" class="group flex min-h-[235px] flex-col items-center justify-center border border-white/20 bg-[#f4f7f5] p-6 text-center shadow-[0_18px_48px_rgba(0,0,0,0.22)] transition duration-300 hover:-translate-y-2 hover:border-[#C3D5C7] hover:shadow-[0_26px_70px_rgba(46,91,255,0.24)] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#2E5BFF]/35 sm:min-h-[260px]">
@@ -1440,7 +1455,7 @@
               <i data-lucide="at-sign" class="h-8 w-8 stroke-2"></i>
             </span>
             <span class="mt-9 block text-xl font-black tracking-[0.04em] text-black">Secure Transmission</span>
-            <span class="mt-7 block break-all text-sm font-medium tracking-[0.03em] text-neutral-700">info@everestbasecamphike.com</span>
+            <span class="mt-7 block break-all text-sm font-regular tracking-[0.03em] text-neutral-700">info@everestbasecamphike.com</span>
           </a>
 
           <a href="https://www.google.com/maps/search/?api=1&amp;query=Nepal%20Wilderness%20Trekking%20Pvt%2C%20Thamel%2C%20Kathmandu%2C%20Nepal" target="_blank" rel="noopener noreferrer" class="group flex min-h-[235px] flex-col items-center justify-center border border-white/20 bg-[#f4f7f5] p-6 text-center shadow-[0_18px_48px_rgba(0,0,0,0.22)] transition duration-300 hover:-translate-y-2 hover:border-[#C3D5C7] hover:shadow-[0_26px_70px_rgba(46,91,255,0.24)] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#2E5BFF]/35 sm:min-h-[260px]">
@@ -1448,7 +1463,7 @@
               <i data-lucide="map-pin" class="h-8 w-8 stroke-2"></i>
             </span>
             <span class="mt-9 block text-xl font-black tracking-[0.04em] text-black">Physical Coordinates</span>
-            <span class="mt-7 block text-sm font-medium tracking-[0.03em] text-neutral-700">PVT 2024 Z Street Thamel</span>
+            <span class="mt-7 block text-sm font-regular tracking-[0.03em] text-neutral-700">PVT 2024 Z Street Thamel</span>
           </a>
 
           <a href="https://www.everestbasecamphike.com" target="_blank" rel="noopener noreferrer" class="group flex min-h-[235px] flex-col items-center justify-center border border-white/20 bg-[#f4f7f5] p-6 text-center shadow-[0_18px_48px_rgba(0,0,0,0.22)] transition duration-300 hover:-translate-y-2 hover:border-[#C3D5C7] hover:shadow-[0_26px_70px_rgba(46,91,255,0.24)] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#2E5BFF]/35 sm:min-h-[260px]">
@@ -1456,17 +1471,14 @@
               <i data-lucide="globe-2" class="h-8 w-8 stroke-2"></i>
             </span>
             <span class="mt-9 block text-xl font-black tracking-[0.04em] text-black">Global Network</span>
-            <span class="mt-7 block break-all text-sm font-medium tracking-[0.03em] text-neutral-700">www.everestbasecamphike.com</span>
+            <span class="mt-7 block break-all text-sm font-regular tracking-[0.03em] text-neutral-700">www.everestbasecamphike.com</span>
           </a>
         </div>
       </div>
     </section> -->
 
     
-    <section aria-labelledby="map-heading">
-      <h2 id="map-heading" class="sr-only">Map showing our office in Thamel, Kathmandu</h2>
-      <iframe title="Google map showing Nepal Wilderness Trekking Pvt in Thamel Kathmandu Nepal" src="https://www.google.com/maps?q=Nepal%20Wilderness%20Trekking%20Pvt%2C%20Thamel%2C%20Kathmandu%2C%20Nepal&amp;output=embed" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" class="block h-[360px] w-full border-0 sm:h-[470px] lg:h-[620px]"></iframe>
-    </section>
+    
   </main>
   <!-- Contact Details End -->
 
