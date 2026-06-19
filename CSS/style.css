@@ -244,9 +244,6 @@ body {
 }
 
 @media (max-width: 639px) {
-  .availability-heading {
-    font-size: 22px;
-  }
 
   .availability-panel {
     padding: 20px 16px;

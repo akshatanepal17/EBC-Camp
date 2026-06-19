@@ -2701,7 +2701,7 @@
 
        <!-- Departure Section Start -->
       <div id="departures" class="availability-section">
-        <h2 class="availability-heading">Availability</h2>
+        <h2 class="availability-heading text-2xl font-bold">Availability</h2>
 
         <div class="availability-panel">
           <div class="availability-toolbar">
@@ -2915,15 +2915,15 @@
 
         <!-- Trip Details Start -->
         <div id="trip-details" class="px-0 sm:px-4 lg:px-8">
-          <h2 class="mb-4 text-xl font-bold text-[#001B2F] tracking-wide text-gray-950 sm:mb-5 sm:text-2xl">Trip Details</h2>
+          <h2 class="mb-4 text-xl font-bold text-[#001B2F] text-[#03132A] sm:mb-5 sm:text-2xl">Trip Details</h2>
 
-          <div class="bg-gray-50 p-3 ring-1 ring-gray-100 sm:p-5 lg:p-6">
-            <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+          <div class="overflow-hidden">
+            <div class="flex flex-col gap-4">
 
               <!-- Essential Trip Information -->
-              <div class="group bg-white p-4 shadow-sm ring-1 ring-slate-200 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md sm:p-5">
-                <div class="mb-4 flex min-w-0 items-center gap-3 sm:mb-5 sm:gap-4">
-                  <div class="flex h-11 w-11 shrink-0 items-center justify-center bg-[#43704A] text-white shadow-sm transition-colors duration-200 group-hover:bg-[#001B2F]">
+              <div class="bg-gray-100 p-4 sm:p-6">
+                <div class="mb-4 flex min-w-0 items-center gap-3 sm:gap-4">
+                  <div class="flex h-6 w-6 shrink-0 items-center justify-center bg-[#2775BD]/70 text-white shadow-[0_18px_50px_rgba(39,117,189,0.12)] sm:h-8 sm:w-8">
                     <svg width="22" height="27" viewBox="0 0 22 27" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path
                         d="M7.25 13.4985L9.75 15.998L14.75 10.9989M21 14.7483C21 20.9972 16.625 24.1217 11.425 25.9339C11.1527 26.0261 10.8569 26.0217 10.5875 25.9214C5.375 24.1217 1 20.9972 1 14.7483V5.99972C1 5.66826 1.1317 5.35037 1.36612 5.11599C1.60054 4.88161 1.91848 4.74993 2.25 4.74993C4.75 4.74993 7.875 3.25018 10.05 1.3505C10.3148 1.12429 10.6517 1 11 1C11.3483 1 11.6852 1.12429 11.95 1.3505C14.1375 3.26268 17.25 4.74993 19.75 4.74993C20.0815 4.74993 20.3995 4.88161 20.6339 5.11599C20.8683 5.35037 21 5.66826 21 5.99972V14.7483Z"
@@ -2931,91 +2931,120 @@
                     </svg>
 
                   </div>
-                  <span class="min-w-0 text-base font-bold tracking-wide text-[#001B2F] sm:text-lg">Essential trip information</span>
+                  <div class="min-w-0">
+                   
+                    <h3 class="text-sm font-bold text-[#03132A] sm:text-xl">Essential Trip Information</h3>
+                  </div>
                 </div>
-                <ul class="flex flex-col gap-2.5">
-                  <li class="flex min-w-0 items-center gap-3 rounded-md border border-transparent bg-slate-50/80 px-3 py-3 text-gray-800 transition-all duration-200 hover:-translate-y-0.5 hover:border-[#43704A]/20 hover:bg-[#C3D5C7]/30 hover:text-[#001B2F] hover:shadow-sm [&_svg]:shrink-0">
+                <ul class="flex flex-col gap-2">
+                  <li class="group flex min-w-0 items-start gap-2 p-1 transition-all duration-300 sm:gap-3 sm:p-1 [&_svg]:h-6 [&_svg]:w-6 [&_svg]:shrink-0 [&_svg]:p-2 sm:[&_svg]:h-8 sm:[&_svg]:w-8">
                     <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path
                         d="M8 11L10 13L14 9M21 11C21 16.5228 16.5228 21 11 21C5.47715 21 1 16.5228 1 11C1 5.47715 5.47715 1 11 1C16.5228 1 21 5.47715 21 11Z"
                         stroke="#10A300" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
 
-                    <span class="min-w-0 text-sm font-semibold leading-5 sm:text-base">Travel insurance</span>
+                    <div class="min-w-0">
+                      <h4 class="mb-1 text-sm font-bold text-[#001B2F] sm:text-base">Travel insurance</h4>
+                      <p class="text-sm leading-6 text-slate-600">Plan suitable coverage for medical needs, evacuation, delays, and high-altitude trekking.</p>
+                    </div>
                   </li>
-                  <li class="flex min-w-0 items-center gap-3 rounded-md border border-transparent bg-slate-50/80 px-3 py-3 text-gray-800 transition-all duration-200 hover:-translate-y-0.5 hover:border-[#43704A]/20 hover:bg-[#C3D5C7]/30 hover:text-[#001B2F] hover:shadow-sm [&_svg]:shrink-0">
+                  <li class="group flex min-w-0 items-start gap-2 p-1 transition-all duration-300 sm:gap-3 sm:p-1 [&_svg]:h-6 [&_svg]:w-6 [&_svg]:shrink-0 [&_svg]:p-2 sm:[&_svg]:h-8 sm:[&_svg]:w-8">
                     <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path
                         d="M8 11L10 13L14 9M21 11C21 16.5228 16.5228 21 11 21C5.47715 21 1 16.5228 1 11C1 5.47715 5.47715 1 11 1C16.5228 1 21 5.47715 21 11Z"
                         stroke="#10A300" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
 
-                    <span class="min-w-0 text-sm font-semibold leading-5 sm:text-base">Accommodation</span>
+                    <div class="min-w-0">
+                      <h4 class="mb-1 text-sm font-bold text-[#001B2F] sm:text-base">Accommodation</h4>
+                      <p class="text-sm leading-6 text-slate-600">Review the lodging arrangements and comfort expectations for each stage of the trek.</p>
+                    </div>
                   </li>
-                  <li class="flex min-w-0 items-center gap-3 rounded-md border border-transparent bg-slate-50/80 px-3 py-3 text-gray-800 transition-all duration-200 hover:-translate-y-0.5 hover:border-[#43704A]/20 hover:bg-[#C3D5C7]/30 hover:text-[#001B2F] hover:shadow-sm [&_svg]:shrink-0">
+                  <li class="group flex min-w-0 items-start gap-2 p-1 transition-all duration-300 sm:gap-3 sm:p-1 [&_svg]:h-6 [&_svg]:w-6 [&_svg]:shrink-0 [&_svg]:p-2 sm:[&_svg]:h-8 sm:[&_svg]:w-8">
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                       <circle cx="10" cy="10" r="9" stroke="#15803d" stroke-width="1.8" />
                       <path d="M6.5 10l2.5 2.5 4.5-5" stroke="#15803d" stroke-width="1.8" stroke-linecap="round"
                         stroke-linejoin="round" />
                     </svg>
-                    <span class="min-w-0 text-sm font-semibold leading-5 sm:text-base">Lukla flights</span>
+                    <div class="min-w-0">
+                      <h4 class="mb-1 text-sm font-bold text-[#001B2F] sm:text-base">Lukla flights</h4>
+                      <p class="text-sm leading-6 text-slate-600">Find key guidance for flight schedules, baggage planning, and weather-related changes.</p>
+                    </div>
                   </li>
-                  <li class="flex min-w-0 items-center gap-3 rounded-md border border-transparent bg-slate-50/80 px-3 py-3 text-gray-800 transition-all duration-200 hover:-translate-y-0.5 hover:border-[#43704A]/20 hover:bg-[#C3D5C7]/30 hover:text-[#001B2F] hover:shadow-sm [&_svg]:shrink-0">
+                  <li class="group flex min-w-0 items-start gap-2 p-1 transition-all duration-300 sm:gap-3 sm:p-1 [&_svg]:h-6 [&_svg]:w-6 [&_svg]:shrink-0 [&_svg]:p-2 sm:[&_svg]:h-8 sm:[&_svg]:w-8">
                     <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path
                         d="M8 11L10 13L14 9M21 11C21 16.5228 16.5228 21 11 21C5.47715 21 1 16.5228 1 11C1 5.47715 5.47715 1 11 1C16.5228 1 21 5.47715 21 11Z"
                         stroke="#10A300" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
 
-                    <span class="min-w-0 text-sm font-semibold leading-5 sm:text-base">Internet services</span>
+                    <div class="min-w-0">
+                      <h4 class="mb-1 text-sm font-bold text-[#001B2F] sm:text-base">Internet services</h4>
+                      <p class="text-sm leading-6 text-slate-600">Understand expected connectivity, charging access, and communication options along the route.</p>
+                    </div>
                   </li>
                 </ul>
               </div>
 
               <!-- Packing Essentials -->
-              <div class="group bg-white p-4 shadow-sm ring-1 ring-slate-200 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md sm:p-5">
-                <div class="mb-4 flex min-w-0 items-center gap-3 sm:mb-5 sm:gap-4">
-                  <div class="flex h-11 w-11 shrink-0 items-center justify-center bg-[#43704A] text-white shadow-sm transition-colors duration-200 group-hover:bg-[#001B2F]">
+              <div class="bg-gray-100 p-4 sm:p-6 lg:p-8">
+                <div class="mb-4 flex min-w-0 items-center gap-3 sm:gap-4">
+                  <div class="flex h-6 w-6 shrink-0 items-center justify-center bg-[#2775BD]/70 text-white shadow-[0_18px_50px_rgba(39,117,189,0.12)] sm:h-8 sm:w-8">
                     <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path
                         d="M25 20.2H5.8C5.16348 20.2 4.55303 19.9471 4.10294 19.4971C3.65286 19.047 3.4 18.4365 3.4 17.8V7C3.4 6.36348 3.14714 5.75303 2.69706 5.30294C2.24697 4.85286 1.63652 4.6 1 4.6M19 15.4V3.4C19 2.76348 18.7471 2.15303 18.2971 1.70294C17.847 1.25286 17.2365 1 16.6 1H15.4C14.7635 1 14.153 1.25286 13.7029 1.70294C13.2529 2.15303 13 2.76348 13 3.4V15.4M9.4 5.8H22.6C23.2627 5.8 23.8 6.33726 23.8 7V14.2C23.8 14.8627 23.2627 15.4 22.6 15.4H9.4C8.73726 15.4 8.2 14.8627 8.2 14.2V7C8.2 6.33726 8.73726 5.8 9.4 5.8ZM22.6 22.6C22.6 23.9255 21.5255 25 20.2 25C18.8745 25 17.8 23.9255 17.8 22.6C17.8 21.2745 18.8745 20.2 20.2 20.2C21.5255 20.2 22.6 21.2745 22.6 22.6ZM11.8 22.6C11.8 23.9255 10.7255 25 9.4 25C8.07452 25 7 23.9255 7 22.6C7 21.2745 8.07452 20.2 9.4 20.2C10.7255 20.2 11.8 21.2745 11.8 22.6Z"
                         stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
                   </div>
-                  <span class="min-w-0 text-base font-bold tracking-wide text-[#001B2F] sm:text-lg">Packing Essentials</span>
+                  <div class="min-w-0">
+                    <h3 class="text-sm font-bold text-[#03132A] sm:text-xl">Packing Essentials</h3>
+                  </div>
                 </div>
-                <ul class="flex flex-col gap-2.5">
-                  <li class="flex min-w-0 items-center gap-3 rounded-md border border-transparent bg-slate-50/80 px-3 py-3 text-gray-800 transition-all duration-200 hover:-translate-y-0.5 hover:border-[#43704A]/20 hover:bg-[#C3D5C7]/30 hover:text-[#001B2F] hover:shadow-sm [&_svg]:shrink-0">
+                <ul class="flex flex-col gap-2">
+                  <li class="group flex min-w-0 items-start gap-2 p-1 transition-all duration-300 sm:gap-3 sm:p-1 [&_svg]:h-6 [&_svg]:w-6 [&_svg]:shrink-0 [&_svg]:p-2 sm:[&_svg]:h-8 sm:[&_svg]:w-8">
                     <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path
                         d="M8 11L10 13L14 9M21 11C21 16.5228 16.5228 21 11 21C5.47715 21 1 16.5228 1 11C1 5.47715 5.47715 1 11 1C16.5228 1 21 5.47715 21 11Z"
                         stroke="#10A300" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
-                    <span class="min-w-0 text-sm font-semibold leading-5 sm:text-base">Clothing</span>
+                    <div class="min-w-0">
+                      <h4 class="mb-1 text-sm font-bold text-[#001B2F] sm:text-base">Clothing</h4>
+                      <p class="text-sm leading-6 text-slate-600">Layering guidance for changing temperatures, wind, sun, and high-altitude conditions.</p>
+                    </div>
                   </li>
-                  <li class="flex min-w-0 items-center gap-3 rounded-md border border-transparent bg-slate-50/80 px-3 py-3 text-gray-800 transition-all duration-200 hover:-translate-y-0.5 hover:border-[#43704A]/20 hover:bg-[#C3D5C7]/30 hover:text-[#001B2F] hover:shadow-sm [&_svg]:shrink-0">
+                  <li class="group flex min-w-0 items-start gap-2 p-1 transition-all duration-300 sm:gap-3 sm:p-1 [&_svg]:h-6 [&_svg]:w-6 [&_svg]:shrink-0 [&_svg]:p-2 sm:[&_svg]:h-8 sm:[&_svg]:w-8">
                     <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path
                         d="M8 11L10 13L14 9M21 11C21 16.5228 16.5228 21 11 21C5.47715 21 1 16.5228 1 11C1 5.47715 5.47715 1 11 1C16.5228 1 21 5.47715 21 11Z"
                         stroke="#10A300" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
-                    <span class="min-w-0 text-sm font-semibold leading-5 sm:text-base">Gear</span>
+                    <div class="min-w-0">
+                      <h4 class="mb-1 text-sm font-bold text-[#001B2F] sm:text-base">Gear</h4>
+                      <p class="text-sm leading-6 text-slate-600">Essential trekking equipment selected for comfort, safety, and reliable performance on the trail.</p>
+                    </div>
                   </li>
-                  <li class="flex min-w-0 items-center gap-3 rounded-md border border-transparent bg-slate-50/80 px-3 py-3 text-gray-800 transition-all duration-200 hover:-translate-y-0.5 hover:border-[#43704A]/20 hover:bg-[#C3D5C7]/30 hover:text-[#001B2F] hover:shadow-sm [&_svg]:shrink-0">
+                  <li class="group flex min-w-0 items-start gap-2 p-1 transition-all duration-300 sm:gap-3 sm:p-1 [&_svg]:h-6 [&_svg]:w-6 [&_svg]:shrink-0 [&_svg]:p-2 sm:[&_svg]:h-8 sm:[&_svg]:w-8">
                     <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path
                         d="M8 11L10 13L14 9M21 11C21 16.5228 16.5228 21 11 21C5.47715 21 1 16.5228 1 11C1 5.47715 5.47715 1 11 1C16.5228 1 21 5.47715 21 11Z"
                         stroke="#10A300" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
-                    <span class="min-w-0 text-sm font-semibold leading-5 sm:text-base">Accessories</span>
+                    <div class="min-w-0">
+                      <h4 class="mb-1 text-sm font-bold text-[#001B2F] sm:text-base">Accessories</h4>
+                      <p class="text-sm leading-6 text-slate-600">Useful smaller essentials that support hydration, sun protection, organization, and daily comfort.</p>
+                    </div>
                   </li>
-                  <li class="flex min-w-0 items-center gap-3 rounded-md border border-transparent bg-slate-50/80 px-3 py-3 text-gray-800 transition-all duration-200 hover:-translate-y-0.5 hover:border-[#43704A]/20 hover:bg-[#C3D5C7]/30 hover:text-[#001B2F] hover:shadow-sm [&_svg]:shrink-0">
+                  <li class="group flex min-w-0 items-start gap-2 p-1 transition-all duration-300 sm:gap-3 sm:p-1 [&_svg]:h-6 [&_svg]:w-6 [&_svg]:shrink-0 [&_svg]:p-2 sm:[&_svg]:h-8 sm:[&_svg]:w-8">
                     <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path
                         d="M8 11L10 13L14 9M21 11C21 16.5228 16.5228 21 11 21C5.47715 21 1 16.5228 1 11C1 5.47715 5.47715 1 11 1C16.5228 1 21 5.47715 21 11Z"
                         stroke="#10A300" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
-                    <span class="min-w-0 text-sm font-semibold leading-5 sm:text-base">Documents</span>
+                    <div class="min-w-0">
+                      <h4 class="mb-1 text-sm font-bold text-[#001B2F] sm:text-base">Documents</h4>
+                      <p class="text-sm leading-6 text-slate-600">Keep permits, identification, insurance details, and travel records organized and accessible.</p>
+                    </div>
                   </li>
                 </ul>
               </div>
@@ -3024,6 +3053,7 @@
           </div>
         </div>
         <!-- Trip Details End -->
+
       </div>
       <!-- left section end -->
 
@@ -3032,93 +3062,86 @@
         <div class="sticky top-10 space-y-10">
 
           <!-- Pricing Card -->
-         <div class="bg-gray-100 p-5 shadow-sm">
+          <div class="w-full border border-slate-200 bg-white p-4 shadow-[0_10px_30px_rgba(15,23,42,0.08)] sm:p-5 lg:p-4 xl:p-5">
+            <div class="mb-2 flex flex-wrap items-center justify-between gap-2 border-b border-slate-200 pb-2">
+              <div class="flex items-center gap-1.5">
+                <span class="text-xs tracking-wide text-yellow-400" aria-label="5 out of 5 stars">★★★★★</span>
+                <a href="#" class="whitespace-nowrap text-sm font-bold text-[#2775BD] hover:underline">49 Reviews</a>
+              </div>
+              <span class="whitespace-nowrap text-lg font-extrabold text-[#2775BD]">USD $1,290</span>
+            </div>
 
-  <div class="flex items-center justify-between mb-4">
-    <div class="flex items-center gap-1">
-      <span class="text-yellow-400 text-xs">★★★★★</span>
-      <a href="#" class="text-[#2775BD] text-sm font-bold">49 Reviews</a>
-    </div>
-    <span class="text-[#2775BD] font-bold text-lg">USD $1,290</span>
-  </div>
+            <!-- Table Header -->
+            <div class="mb-1 flex items-center justify-between gap-3 px-2">
+              <span class="text-xs font-bold uppercase tracking-wide text-slate-500">No. of Pax</span>
+              <span class="text-right text-xs font-bold uppercase tracking-wide text-slate-500">Price per Pax</span>
+            </div>
 
-  <!-- <p class="text-base text-gray-700 font-medium mb-3">Starting From</p> -->
+            <!-- Pax Rows -->
+            <div id="pax-price-table" class="overflow-hidden border border-slate-200 bg-slate-50/70">
+              <div data-tier="1" class="pax-tier flex justify-between gap-3 border-b border-slate-200 px-3 py-2 text-sm text-slate-600">
+                <span>1 Pax</span><span class="whitespace-nowrap font-semibold text-slate-900">USD $1390</span>
+              </div>
+              <div data-tier="2" class="pax-tier flex justify-between gap-3 border-b border-slate-200 px-3 py-2 text-sm text-slate-600">
+                <span>2 Pax</span><span class="whitespace-nowrap font-semibold text-slate-900">USD $1320</span>
+              </div>
+              <div data-tier="3" class="pax-tier flex justify-between gap-3 border-b border-slate-200 px-3 py-2 text-sm text-slate-600">
+                <span>3–4 Pax</span><span class="whitespace-nowrap font-semibold text-slate-900">USD $1270</span>
+              </div>
+              <div data-tier="5" class="pax-tier flex justify-between gap-3 px-3 py-2 text-sm text-slate-600">
+                <span>5–6 Pax</span><span class="whitespace-nowrap font-semibold text-slate-900">USD $1230</span>
+              </div>
+              <span class="block border-t border-slate-200 bg-white px-3 py-1.5 text-center text-xs text-slate-400">see more.....</span>
+              <!--<div data-tier="7" class="pax-tier flex justify-between py-2 text-sm text-gray-700">
+                <span>7–10 Pax</span><span class="font-medium">USD $1200</span>
+              </div>
+              <hr>
+              <div data-tier="11" class="pax-tier flex justify-between py-2 text-sm text-gray-700">
+                <span>10+ Pax</span><span class="font-medium">USD $1150</span>
+              </div> -->
+            </div>
 
-  <!-- Table Header -->
-  <div class="flex justify-between pb-2 mb-1">
-    <span class="text-md font-bold text-gray-900">No. of Pax</span>
-    <span class="text-md font-bold text-gray-900">Price per Pax</span>
-  </div>
+            <!-- Counter -->
+            <p class="mb-2 text-sm font-bold text-slate-900">No. of Pax</p>
+            <div class="mb-2 flex items-center justify-between rounded-lg border border-slate-200 bg-slate-50 p-1">
+              <button id="pax-minus" type="button" aria-label="Decrease number of travelers"
+                class="flex h-9 w-9 items-center justify-center rounded-md bg-slate-900 text-xl font-bold text-white transition hover:bg-black focus:outline-none focus:ring-2 focus:ring-[#43704A]">−</button>
+              <span id="pax-count" class="min-w-10 text-center text-xl font-bold tabular-nums text-slate-900">1</span>
+              <button id="pax-plus" type="button" aria-label="Increase number of travelers"
+                class="flex h-9 w-9 items-center justify-center rounded-md bg-slate-900 text-xl font-bold text-white transition hover:bg-black focus:outline-none focus:ring-2 focus:ring-[#43704A]">+</button>
+            </div>
 
-  <!-- Pax Rows -->
-  <div id="pax-price-table">
-    <div data-tier="1" class="pax-tier flex justify-between py-2 text-sm text-gray-700">
-      <span>1 Pax</span><span class="font-medium">USD $1390</span>
-    </div>
-    <hr>
-    <div data-tier="2" class="pax-tier flex justify-between py-2 text-sm text-gray-700">
-      <span>2 Pax</span><span class="font-medium">USD $1320</span>
-    </div>
-    <hr>
-    <div data-tier="3" class="pax-tier flex justify-between py-2 text-sm text-gray-700">
-      <span>3–4 Pax</span><span class="font-medium">USD $1270</span>
-    </div>
-    <hr>
-    <div data-tier="5" class="pax-tier flex justify-between py-2 text-sm text-gray-700">
-      <span>5–6 Pax</span><span class="font-medium">USD $1230</span>
-    </div>
-    <hr>
-    <span class="text-slate-400">see more.....</span>
-    <!--<div data-tier="7" class="pax-tier flex justify-between py-2 text-sm text-gray-700">
-      <span>7–10 Pax</span><span class="font-medium">USD $1200</span>
-    </div>
-    <hr>
-    <div data-tier="11" class="pax-tier flex justify-between py-2 text-sm text-gray-700">
-      <span>10+ Pax</span><span class="font-medium">USD $1150</span>
-    </div> -->
-  </div>
+            <!-- Live Price Summary -->
+            <div class="mb-4 space-y-1.5  border border-[#2775BD]/20 bg-[#DEEFFF]/20 p-3">
+              <div class="flex justify-between gap-3 text-sm text-slate-600">
+                <span>Price per person</span>
+                <span id="price-per-pax" class="whitespace-nowrap font-bold tabular-nums text-slate-900">USD $1,390</span>
+              </div>
+              <div class="flex justify-between gap-3 text-sm text-slate-600">
+                <span>No. of travelers</span>
+                <span id="summary-pax-count" class="font-bold tabular-nums text-slate-900">1</span>
+              </div>
+              <hr class="border-[#43704A]/20">
+              <div class="flex flex-wrap items-center justify-between gap-x-3 gap-y-1 pt-1 font-bold text-slate-900">
+                <span>Total Price</span>
+                <span id="total-price" class="whitespace-nowrap text-base font-extrabold tabular-nums text-orange-600">USD $1,390</span>
+              </div>
+            </div>
 
-  <!-- Counter -->
-  <p class="text-sm font-bold text-gray-900 mt-4 mb-3">No. of Pax</p>
-  <div class="flex items-center justify-between border border-gray-200 bg-gray-50 mb-4">
-    <button id="pax-minus"
-      class="w-9 h-9 bg-gray-900 text-white text-xl font-bold flex items-center justify-center hover:bg-black transition">−</button>
-    <span id="pax-count" class="text-2xl font-bold text-gray-900 w-10 text-center">1</span>
-    <button id="pax-plus"
-      class="w-9 h-9 bg-gray-900 text-white text-xl font-bold flex items-center justify-center hover:bg-black transition">+</button>
-  </div>
+            <!-- Buttons -->
+            <div class="grid gap-2.5 sm:grid-cols-2 lg:grid-cols-1">
+              <a href="https://wa.me/9779848532201?text=Hello%2C%20I%20would%20like%20to%20book%20a%20trip.%0A%0ATrip%20Name%3A%20Everest%20Base%20Camp%20Trek%0A%0APlease%20provide%20me%20with%20the%20booking%20details%20and%20next%20steps."
+                target="_blank" rel="noopener noreferrer"
+                class="block w-full rounded-lg bg-green-500 px-4 py-2.5 text-center text-sm font-bold text-white transition hover:bg-green-700 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2">
+                Send Inquiry
+              </a>
 
-  <!-- Live Price Summary -->
-  <div class="bg-white border border-gray-200 rounded p-3 mb-4 space-y-1.5">
-    <div class="flex justify-between text-sm text-gray-600">
-      <span>Price per person</span>
-      <span id="price-per-pax" class="font-bold text-gray-900">USD $1,390</span>
-    </div>
-    <div class="flex justify-between text-sm text-gray-600">
-      <span>No. of travelers</span>
-      <span id="summary-pax-count" class="font-bold text-gray-900">1</span>
-    </div>
-    <hr class="my-1">
-    <div class="flex justify-between text-base font-bold text-gray-900">
-      <span>Total Price</span>
-      <span id="total-price" class="text-orange-600">USD $1,390</span>
-    </div>
-  </div>
-
-  <!-- Buttons -->
-   <a href="https://wa.me/9779848532201?text=Hello%2C%20I%20would%20like%20to%20book%20a%20trip.%0A%0ATrip%20Name%3A%20Everest%20Base%20Camp%20Trek%0A%0APlease%20provide%20me%20with%20the%20booking%20details%20and%20next%20steps."
-    target="_blank" rel="noopener noreferrer"
-    class="block mb-3 w-full bg-green-500 text-white font-bold py-3 rounded hover:bg-green-700 text-base transition text-center hover:shadow-[0_16px_30px_rgba(32,184,90,0.32)]">
-    Send Inquiry
-  </a>
-
-  <a href="booking.html"
-    class="block w-full bg-[#43704A] text-white font-bold py-3 rounded hover:bg-[#001B2F] text-base transition text-center hover:shadow-[0_16px_30px_rgba(0,27,47,0.32)]">
-    Book Now
-  </a>
-  
-
-         </div>
+              <a href="booking.html"
+                class="block w-full rounded-lg bg-[#43704A] px-4 py-2.5 text-center text-sm font-bold text-white transition hover:bg-[#001B2F] hover:shadow-md focus:outline-none focus:ring-2 focus:ring-[#43704A] focus:ring-offset-2">
+                Book Now
+              </a>
+            </div>
+          </div>
 
           <!-- TripAdvisor Card -->
           <div class="bg-gray-100 p-5 shadow-sm">
