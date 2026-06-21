@@ -2865,22 +2865,38 @@
         <div class="availability-panel">
           <div class="availability-toolbar">
             <label class="availability-month-label" for="trip-month">Select a trip month</label>
-
-            <span class="availability-select-wrap flex flex-row gap-3">
-              <select id="trip-month" class="availability-select flex">
+            <div class="flex gap-2">
+              <div>
+                <span class="availability-select-wrap flex flex-row gap-3">
+                <select id="trip-month" class="availability-select flex">
+                <option>January</option>
+                <option>February</option>
+                <option>March</option>
+                <option>April</option>
+                <option>May</option>
                 <option>June</option>
                 <option>July</option>
                 <option>August</option>
+                <option>September</option>
+                <option>October</option>
+                <option>November</option>
+                <option>December</option>
               </select>
               <i data-lucide="chevron-down" class="availability-select-icon"></i>
-              
-              <select id="trip-year" class="availability-select">
+            </span>
+              </div>
+
+              <div>
+                <span class="availability-select-wrap flex flex-row gap-3">   
+                <select id="trip-year" class="availability-select">
                 <option>2025</option>
                 <option>2026</option>
                 <option>2027</option>
               </select>
               <i data-lucide="chevron-down" class="availability-select-icon"></i>
             </span>
+            </div>
+            </div>
           </div>
 
           <div class="space-y-4">
