@@ -41,11 +41,11 @@
 
     @keyframes scroll {
       0% {
-        transform: translateX(0);
+        transform: trangrayX(0);
       }
 
       100% {
-        transform: translateX(calc(-50% - (var(--review-gap) / 2)));
+        transform: trangrayX(calc(-50% - (var(--review-gap) / 2)));
       }
     }
 
@@ -93,7 +93,7 @@
     .google-review-card:hover {
       border-color: #2775BD;
       box-shadow: #DDEFFF;
-      transform: translateY(-4px);
+      transform: trangrayY(-4px);
     }
 
     .google-review-card .gap-1>span {
@@ -178,7 +178,7 @@
     body.subnav-is-visible .sticky-header {
       opacity: 0;
       pointer-events: none;
-      transform: translateY(-100%);
+      transform: trangrayY(-100%);
     }
 
     .nav-dropdown {
@@ -242,7 +242,7 @@
       box-shadow: 0 22px 60px #03132A;
       opacity: 0;
       pointer-events: none;
-      transform: translateY(10px);
+      transform: trangrayY(10px);
       transition:
         opacity 180ms ease,
         transform 180ms ease,
@@ -274,12 +274,12 @@
 
     .desktop-dropdown.dropdown-center {
       left: 50%;
-      transform: translate(-50%, 10px);
+      transform: trangray(-50%, 10px);
     }
 
     .desktop-dropdown.dropdown-center::before {
       left: 50%;
-      transform: translateX(-50%) rotate(45deg);
+      transform: trangrayX(-50%) rotate(45deg);
     }
 
     .nav-dropdown:hover>.desktop-dropdown,
@@ -287,14 +287,14 @@
     .nav-dropdown.open>.desktop-dropdown {
       opacity: 1;
       pointer-events: auto;
-      transform: translateY(0);
+      transform: trangrayY(0);
       visibility: visible;
     }
 
     .nav-dropdown:hover>.desktop-dropdown.dropdown-center,
     .nav-dropdown:focus-within>.desktop-dropdown.dropdown-center,
     .nav-dropdown.open>.desktop-dropdown.dropdown-center {
-      transform: translate(-50%, 0);
+      transform: trangray(-50%, 0);
     }
 
     .nav-dropdown:hover>.nav-dropdown-trigger .nav-chevron,
@@ -334,7 +334,7 @@
       background: #C3D5C7;
       color: #03132A;
       outline: none;
-      transform: translateX(2px);
+      transform: trangrayX(2px);
     }
 
     .desktop-menu-icon {
@@ -407,7 +407,7 @@
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transform: translateX(8px);
+  transform: trangrayX(8px);
   transition: opacity 180ms ease, transform 180ms ease, visibility 180ms ease;
 }
 
@@ -416,7 +416,7 @@
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
-  transform: translateX(0);
+  transform: trangrayX(0);
 }
 
 .submenu-dropdown.open > .submenu-link {
@@ -433,14 +433,14 @@
   max-height: 0;
   opacity: 0;
   overflow: hidden;
-  transform: translateY(-4px);
+  transform: trangrayY(-4px);
   transition: max-height 240ms ease, opacity 180ms ease, transform 180ms ease;
 }
 
 .mobile-nested-dropdown.open > .mobile-nested-submenu {
   max-height: 520px;
   opacity: 1;
-  transform: translateY(0);
+  transform: trangrayY(0);
 }
 
     .destination-tour-link {
@@ -470,7 +470,7 @@
       max-height: 0;
       opacity: 0;
       overflow: hidden;
-      transform: translateY(-8px);
+      transform: trangrayY(-8px);
       transition:
         max-height 320ms ease,
         opacity 220ms ease,
@@ -483,7 +483,7 @@
       max-height: calc(100vh - 68px);
       opacity: 1;
       overflow-y: auto;
-      transform: translateY(0);
+      transform: trangrayY(0);
       visibility: visible;
     }
 
@@ -513,7 +513,7 @@
       max-height: 0;
       opacity: 0;
       overflow: hidden;
-      transform: translateY(-4px);
+      transform: trangrayY(-4px);
       transition:
         max-height 280ms ease,
         opacity 200ms ease,
@@ -523,7 +523,7 @@
     .mobile-dropdown.open .mobile-submenu {
       max-height: 980px;
       opacity: 1;
-      transform: translateY(0);
+      transform: trangrayY(0);
     }
 
     .mobile-submenu-inner {
@@ -536,7 +536,7 @@
       max-height: 0;
       opacity: 0;
       overflow: hidden;
-      transform: translateY(-4px);
+      transform: trangrayY(-4px);
       transition:
         max-height 240ms ease,
         opacity 180ms ease,
@@ -546,14 +546,14 @@
     .mobile-nested-dropdown.open .mobile-nested-submenu {
       max-height: 860px;
       opacity: 1;
-      transform: translateY(0);
+      transform: trangrayY(0);
     }
 
     .mobile-grandchild-submenu {
       max-height: 0;
       opacity: 0;
       overflow: hidden;
-      transform: translateY(-4px);
+      transform: trangrayY(-4px);
       transition:
         max-height 220ms ease,
         opacity 180ms ease,
@@ -563,7 +563,7 @@
     .mobile-grandchild-dropdown.open>.mobile-grandchild-submenu {
       max-height: 340px;
       opacity: 1;
-      transform: translateY(0);
+      transform: trangrayY(0);
     }
 
     .mobile-grandchild-trigger {
@@ -583,7 +583,7 @@
     }
 
     #hamburger.is-open .hamburger-line:nth-child(1) {
-      transform: translateY(7px) rotate(45deg);
+      transform: trangrayY(7px) rotate(45deg);
     }
 
     #hamburger.is-open .hamburger-line:nth-child(2) {
@@ -591,18 +591,18 @@
     }
 
     #hamburger.is-open .hamburger-line:nth-child(3) {
-      transform: translateY(-7px) rotate(-45deg);
+      transform: trangrayY(-7px) rotate(-45deg);
     }
 
     @keyframes faq-reveal {
       from {
         opacity: 0;
-        transform: translateY(18px);
+        transform: trangrayY(18px);
       }
 
       to {
         opacity: 1;
-        transform: translateY(0);
+        transform: trangrayY(0);
       }
     }
 
@@ -645,7 +645,7 @@
       box-shadow: 0 10px 26px rgba(0, 27, 47, 0.08);
       color: #03132A;
       opacity: 1;
-      transform: translateY(-1px);
+      transform: trangrayY(-1px);
     }
 
     .desktop-dropdown {
@@ -658,7 +658,7 @@
         0 30px 70px rgba(0, 27, 47, 0.16),
         0 10px 26px rgba(0, 172, 126, 0.08);
       overflow: visible;
-      transform: translateY(14px) scale(0.985);
+      transform: trangrayY(14px) scale(0.985);
       transform-origin: top center;
       transition:
         opacity 240ms ease,
@@ -680,19 +680,19 @@
     }
 
     .desktop-dropdown.dropdown-center {
-      transform: translate(-50%, 14px) scale(0.985);
+      transform: trangray(-50%, 14px) scale(0.985);
     }
 
     .nav-dropdown:hover>.desktop-dropdown,
     .nav-dropdown:focus-within>.desktop-dropdown,
     .nav-dropdown.open>.desktop-dropdown {
-      transform: translateY(0) scale(1);
+      transform: trangrayY(0) scale(1);
     }
 
     .nav-dropdown:hover>.desktop-dropdown.dropdown-center,
     .nav-dropdown:focus-within>.desktop-dropdown.dropdown-center,
     .nav-dropdown.open>.desktop-dropdown.dropdown-center {
-      transform: translate(-50%, 0) scale(1);
+      transform: trangray(-50%, 0) scale(1);
     }
 
     .desktop-menu-link,
@@ -721,7 +721,7 @@
       border-color: rgba(0, 135, 172, 0.16);
       box-shadow: 0 10px 24px rgba(0, 27, 47, 0.08);
       color: #03132A;
-      transform: translateX(4px);
+      transform: trangrayX(4px);
     }
 
     .desktop-menu-icon {
@@ -761,7 +761,7 @@
 
     .submenu-dropdown.open > .submenu-link i {
       color: #2D5F23;
-      transform: translateX(2px);
+      transform: trangrayX(2px);
     }
 
     .submenu-child {
@@ -771,7 +771,7 @@
       box-shadow:
         0 24px 55px rgba(0, 27, 47, 0.15),
         0 8px 24px rgba(0, 172, 126, 0.08);
-      transform: translateX(12px) scale(0.985);
+      transform: trangrayX(12px) scale(0.985);
       transform-origin: left top;
       transition:
         opacity 220ms ease,
@@ -782,7 +782,7 @@
     }
 
     .submenu-dropdown.open > .submenu-child {
-      transform: translateX(0) scale(1);
+      transform: trangrayX(0) scale(1);
     }
 
     .destination-tour-link {
@@ -904,7 +904,7 @@
       #nepal-menu .submenu-child .submenu-link:focus-visible {
         border-color: rgba(0, 172, 126, 0.22);
         background: rgba(255, 255, 255, 0.95);
-        transform: translateY(-2px);
+        transform: trangrayY(-2px);
       }
 
       #nepal-menu .submenu-child .submenu-link:hover::before,
@@ -998,7 +998,7 @@
       left: 0;
       right: 0;
       z-index: 60;
-      transform: translate3d(0, calc(-100% - 12px), 0);
+      transform: trangray3d(0, calc(-100% - 12px), 0);
       opacity: 0;
       visibility: hidden;
       pointer-events: none;
@@ -1010,7 +1010,7 @@
     }
 
     #subnav.subnav-visible {
-      transform: translate3d(0, 0, 0);
+      transform: trangray3d(0, 0, 0);
       opacity: 1;
       visibility: visible;
       pointer-events: auto;
@@ -1079,7 +1079,7 @@
       box-shadow:
         inset 0 0 0 1px rgba(148, 163, 184, 0.55),
         0 0 0 3px rgba(37, 166, 235, 0.14);
-      transform: translateY(-1px);
+      transform: trangrayY(-1px);
     }
 
     #subnav a.active {
@@ -1453,15 +1453,15 @@
         <!-- Compact Header Search -->
         <div class="header-search relative">
           <button type="button"
-            class="header-search-trigger flex h-6 w-6 sm:h-8 sm:w-8 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-900 transition duration-200 hover:border-[#03132A] hover:bg-blue-50 hover:text-[#03132A] hover:shadow-[0_8px_20px_rgba(221,239,255,0.35)] focus-visible:border-[#03132A] focus-visible:bg-green-50 focus-visible:text-[#03132A] focus-visible:outline-none focus-visible:shadow-[0_8px_20px_rgba(221,239,255,0.35)]"
+            class="header-search-trigger flex h-6 w-6 sm:h-8 sm:w-8 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-900 transition duration-200 hover:border-[#03132A] hover:bg-blue-50 hover:text-[#03132A] hover:shadow-[0_8px_20px_rgba(221,239,255,0.35)] focus-visible:border-[#03132A] focus-visible:bg-green-50 focus-visible:text-[#03132A] focus-visible:outline-none focus-visible:shadow-[0_8px_20px_rgba(221,239,255,0.35)]"
             aria-label="Open search" aria-controls="header-search-panel" aria-expanded="false">
             <i data-lucide="search" class="h-4 w-4"></i>
           </button>
           <div id="header-search-panel"
-            class="header-search-panel invisible pointer-events-none absolute -right-12 top-[calc(100%+0.75rem)] z-[60] w-[calc(100vw-2rem)] max-w-xs -translate-y-1.5 rounded-[14px] border border-slate-200/95 bg-white/95 p-2 opacity-0 shadow-[0_8px_20px_rgba(221,239,255,0.35)] transition duration-200 lg:right-0">
+            class="header-search-panel invisible pointer-events-none absolute -right-12 top-[calc(100%+0.75rem)] z-[60] w-[calc(100vw-2rem)] max-w-xs -trangray-y-1.5 rounded-[14px] border border-gray-200/95 bg-white/95 p-2 opacity-0 shadow-[0_8px_20px_rgba(221,239,255,0.35)] transition duration-200 lg:right-0">
             <label for="header-search-input" class="sr-only">Search</label>
             <input id="header-search-input"
-              class="header-search-input w-full rounded-[10px] border border-slate-200 px-3 py-2.5 text-sm text-slate-900 outline-none transition duration-200 focus:border-[#03132A] focus:shadow-[0_8px_20px_rgba(221,239,255,0.35)]"
+              class="header-search-input w-full rounded-[10px] border border-gray-200 px-3 py-2.5 text-sm text-gray-900 outline-none transition duration-200 focus:border-[#03132A] focus:shadow-[0_8px_20px_rgba(221,239,255,0.35)]"
               type="search" name="q" placeholder="Search..." autocomplete="off" />
           </div>
         </div>
@@ -1469,23 +1469,23 @@
         <!-- Desktop Contact -->
         <div class="hidden items-center gap-2 lg:flex">
           <a href="#"
-            class="flex h-7 w-7 items-center justify-center rounded bg-[#7360F2] transition hover:-translate-y-0.5 hover:shadow-lg"
+            class="flex h-7 w-7 items-center justify-center rounded bg-[#7360F2] transition hover:-trangray-y-0.5 hover:shadow-lg"
             aria-label="Viber">
             <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/viber.svg" class="h-5 w-5 invert" alt="" />
           </a>
           <a href="https://wa.me/9779848532201"
-            class="flex h-7 w-7 items-center justify-center rounded bg-[#25D366] transition hover:-translate-y-0.5 hover:shadow-lg"
+            class="flex h-7 w-7 items-center justify-center rounded bg-[#25D366] transition hover:-trangray-y-0.5 hover:shadow-lg"
             aria-label="WhatsApp">
             <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/whatsapp.svg" class="h-5 w-5 invert" alt="" />
           </a>
           <a href="tel:+9779848532201"
-            class="desktop-contact-number whitespace-nowrap text-sm font-bold text-slate-900 hover:text-[#03132A]">+977
+            class="desktop-contact-number whitespace-nowrap text-sm font-bold text-gray-900 hover:text-[#03132A]">+977
             9848532201</a>
         </div>
 
         <!-- Mobile Hamburger -->
         <button id="hamburger"
-          class="flex h-6 w-6 sm:h-8 sm:w-8 flex-col items-center justify-center gap-[5px] rounded-full border border-slate-200 bg-white shadow-sm lg:hidden"
+          class="flex h-6 w-6 sm:h-8 sm:w-8 flex-col items-center justify-center gap-[5px] rounded-full border border-gray-200 bg-white shadow-sm lg:hidden"
           aria-label="Toggle menu" aria-controls="mobile-menu" aria-expanded="false">
           <span class="hamburger-line"></span>
           <span class="hamburger-line"></span>
@@ -1495,7 +1495,7 @@
     </div>
 
     <!-- Mobile Menu -->
-    <div id="mobile-menu" class="flex-col gap-1 border-t border-slate-100 bg-white px-3 pb-4 pt-2 shadow-xl lg:hidden">
+    <div id="mobile-menu" class="flex-col gap-1 border-t border-gray-100 bg-white px-3 pb-4 pt-2 shadow-xl lg:hidden">
       <div class="mobile-dropdown">
         <button type="button"
           class="mobile-dropdown-trigger flex w-full items-center justify-between px-3 text-sm font-bold"
@@ -1504,13 +1504,13 @@
         </button>
         <div class="mobile-submenu">
           <div class="mobile-submenu-inner">
-            <a href="#about" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-600">Why
+            <a href="#about" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-gray-600">Why
               Travel With Us</a>
-            <a href="#about" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-600">Terms
+            <a href="#about" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-gray-600">Terms
               & Conditions</a>
             <a href="#about"
-              class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-600">Privacy Policy</a>
-            <a href="#faq" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-600">FAQ</a>
+              class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-gray-600">Privacy Policy</a>
+            <a href="#faq" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-gray-600">FAQ</a>
           </div>
         </div>
       </div>
@@ -1525,7 +1525,7 @@
           <div class="mobile-submenu-inner">
             <div class="mobile-nested-dropdown">
               <button type="button"
-                class="mobile-nested-trigger flex w-full items-center justify-between px-3 text-sm font-bold text-slate-700"
+                class="mobile-nested-trigger flex w-full items-center justify-between px-3 text-sm font-bold text-gray-700"
                 aria-expanded="false" aria-controls="mobile-trekking-nepal-menu">
                 Trekking in Nepal
                 <i data-lucide="chevron-down" class="mobile-nested-chevron h-4 w-4"></i>
@@ -1534,113 +1534,113 @@
                 <div class="grid gap-1 pl-3 pt-1">
                   <div class="mobile-grandchild-dropdown">
                     <button type="button"
-                      class="mobile-grandchild-trigger flex w-full items-center justify-between px-3 text-sm font-semibold text-slate-500"
+                      class="mobile-grandchild-trigger flex w-full items-center justify-between px-3 text-sm font-semibold text-gray-500"
                       aria-expanded="false" aria-controls="mobile-everest-region-menu">
                       Everest Region
                       <i data-lucide="chevron-down" class="mobile-grandchild-chevron h-4 w-4"></i>
                     </button>
                     <div id="mobile-everest-region-menu" class="mobile-grandchild-submenu" aria-hidden="true">
                       <div class="grid gap-1 pl-3 pt-1">
-                        <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Everest Base Camp Trek</a>
-                        <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Gokyo Lake Trek</a>
-                        <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Three Passes Trek</a>
-                        <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Everest Panorama Trek</a>
-                        <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Everest View Trek</a>
+                        <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-gray-500">Everest Base Camp Trek</a>
+                        <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-gray-500">Gokyo Lake Trek</a>
+                        <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-gray-500">Three Passes Trek</a>
+                        <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-gray-500">Everest Panorama Trek</a>
+                        <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-gray-500">Everest View Trek</a>
                       </div>
                     </div>
                   </div>
 
                   <div class="mobile-grandchild-dropdown">
                     <button type="button"
-                      class="mobile-grandchild-trigger flex w-full items-center justify-between px-3 text-sm font-semibold text-slate-500"
+                      class="mobile-grandchild-trigger flex w-full items-center justify-between px-3 text-sm font-semibold text-gray-500"
                       aria-expanded="false" aria-controls="mobile-annapurna-region-menu">
                       Annapurna Region
                       <i data-lucide="chevron-down" class="mobile-grandchild-chevron h-4 w-4"></i>
                     </button>
                     <div id="mobile-annapurna-region-menu" class="mobile-grandchild-submenu" aria-hidden="true">
                       <div class="grid gap-1 pl-3 pt-1">
-                        <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Annapurna Base Camp Hike</a>
-                        <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Short Annapurna Circuit Trek</a>
-                        <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Mardi Himal Trek</a>
-                        <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Ghorepani Poon Hill Trek</a>
-                        <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Kapuche Lake Trek</a>
-                        <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Khokhe Danda Trek</a>
+                        <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-gray-500">Annapurna Base Camp Hike</a>
+                        <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-gray-500">Short Annapurna Circuit Trek</a>
+                        <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-gray-500">Mardi Himal Trek</a>
+                        <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-gray-500">Ghorepani Poon Hill Trek</a>
+                        <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-gray-500">Kapuche Lake Trek</a>
+                        <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-gray-500">Khokhe Danda Trek</a>
                       </div>
                     </div>
                   </div>
 
                   <div class="mobile-grandchild-dropdown">
                     <button type="button"
-                      class="mobile-grandchild-trigger flex w-full items-center justify-between px-3 text-sm font-semibold text-slate-500"
+                      class="mobile-grandchild-trigger flex w-full items-center justify-between px-3 text-sm font-semibold text-gray-500"
                       aria-expanded="false" aria-controls="mobile-langtang-region-menu">
                       Langtang Region
                       <i data-lucide="chevron-down" class="mobile-grandchild-chevron h-4 w-4"></i>
                     </button>
                     <div id="mobile-langtang-region-menu" class="mobile-grandchild-submenu" aria-hidden="true">
                       <div class="grid gap-1 pl-3 pt-1">
-                        <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Langtang Valley Trek</a>
-                        <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Gosaikunda Lake Trek</a>
-                        <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Short Nagthali Taruche Trek</a>
-                        <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Langtang Gosaikunda Helambu Trek</a>
+                        <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-gray-500">Langtang Valley Trek</a>
+                        <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-gray-500">Gosaikunda Lake Trek</a>
+                        <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-gray-500">Short Nagthali Taruche Trek</a>
+                        <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-gray-500">Langtang Gosaikunda Helambu Trek</a>
                       </div>
                     </div>
                   </div>
 
                   <div class="mobile-grandchild-dropdown">
                     <button type="button"
-                      class="mobile-grandchild-trigger flex w-full items-center justify-between px-3 text-sm font-semibold text-slate-500"
+                      class="mobile-grandchild-trigger flex w-full items-center justify-between px-3 text-sm font-semibold text-gray-500"
                       aria-expanded="false" aria-controls="mobile-manaslu-region-menu">
                       Manaslu Region
                       <i data-lucide="chevron-down" class="mobile-grandchild-chevron h-4 w-4"></i>
                     </button>
                     <div id="mobile-manaslu-region-menu" class="mobile-grandchild-submenu" aria-hidden="true">
                       <div class="grid gap-1 pl-3 pt-1">
-                        <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Manaslu Base Camp Trek</a>
-                        <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Tsum Valley Trek</a>
-                        <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Manaslu Circuit Trek</a>
+                        <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-gray-500">Manaslu Base Camp Trek</a>
+                        <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-gray-500">Tsum Valley Trek</a>
+                        <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-gray-500">Manaslu Circuit Trek</a>
                       </div>
                     </div>
                   </div>
 
                   <div class="mobile-grandchild-dropdown">
                     <button type="button"
-                      class="mobile-grandchild-trigger flex w-full items-center justify-between px-3 text-sm font-semibold text-slate-500"
+                      class="mobile-grandchild-trigger flex w-full items-center justify-between px-3 text-sm font-semibold text-gray-500"
                       aria-expanded="false" aria-controls="mobile-kanchanjunga-region-menu">
                       Kanchanjunga Region
                       <i data-lucide="chevron-down" class="mobile-grandchild-chevron h-4 w-4"></i>
                     </button>
                     <div id="mobile-kanchanjunga-region-menu" class="mobile-grandchild-submenu" aria-hidden="true">
                       <div class="grid gap-1 pl-3 pt-1">
-                        <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Kanchanjunga Base Camp Trek</a>
+                        <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-gray-500">Kanchanjunga Base Camp Trek</a>
                       </div>
                     </div>
                   </div>
 
                   <div class="mobile-grandchild-dropdown">
                     <button type="button"
-                      class="mobile-grandchild-trigger flex w-full items-center justify-between px-3 text-sm font-semibold text-slate-500"
+                      class="mobile-grandchild-trigger flex w-full items-center justify-between px-3 text-sm font-semibold text-gray-500"
                       aria-expanded="false" aria-controls="mobile-ganesh-himal-region-menu">
                       Ganesh Himal Region
                       <i data-lucide="chevron-down" class="mobile-grandchild-chevron h-4 w-4"></i>
                     </button>
                     <div id="mobile-ganesh-himal-region-menu" class="mobile-grandchild-submenu" aria-hidden="true">
                       <div class="grid gap-1 pl-3 pt-1">
-                        <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Ruby Valley</a>
-                        <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Ganesh Himal Base Camp Trek</a>
+                        <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-gray-500">Ruby Valley</a>
+                        <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-gray-500">Ganesh Himal Base Camp Trek</a>
                       </div>
                     </div>
                   </div>
 
                   <div class="mobile-grandchild-dropdown">
                     <button type="button"
-                      class="mobile-grandchild-trigger flex w-full items-center justify-between px-3 text-sm font-semibold text-slate-500"
+                      class="mobile-grandchild-trigger flex w-full items-center justify-between px-3 text-sm font-semibold text-gray-500"
                       aria-expanded="false" aria-controls="mobile-dhulagiri-region-menu">
                       Dhulagiri Region
                       <i data-lucide="chevron-down" class="mobile-grandchild-chevron h-4 w-4"></i>
                     </button>
                     <div id="mobile-dhulagiri-region-menu" class="mobile-grandchild-submenu" aria-hidden="true">
                       <div class="grid gap-1 pl-3 pt-1">
-                        <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Dhaulagiri Base Camp Trek</a>
+                        <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-gray-500">Dhaulagiri Base Camp Trek</a>
                       </div>
                     </div>
                   </div>
@@ -1650,36 +1650,36 @@
 
             <!-- <div class="mobile-nested-dropdown">
               <button type="button"
-                class="mobile-nested-trigger flex w-full items-center justify-between px-3 text-sm font-bold text-slate-700"
+                class="mobile-nested-trigger flex w-full items-center justify-between px-3 text-sm font-bold text-gray-700"
                 aria-expanded="false">
                 Peak Climbing
                 <i data-lucide="chevron-down" class="mobile-nested-chevron h-4 w-4"></i>
               </button>
               <div class="mobile-nested-submenu">
                 <div class="grid gap-1 pl-3 pt-1">
-                  <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Yala
+                  <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-gray-500">Yala
                     Peak Climbing</a>
                   <a href="#"
-                    class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Island Peak
+                    class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-gray-500">Island Peak
                     Climbing with EBC</a>
                   <a href="#"
-                    class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Pokalade Peak
+                    class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-gray-500">Pokalade Peak
                     Climbing</a>
                   <a href="#"
-                    class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Lobuche Peak
+                    class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-gray-500">Lobuche Peak
                     Climbing</a>
-                  <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Mardi
+                  <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-gray-500">Mardi
                     Himal Climbing</a>
-                  <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Chulu
+                  <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-gray-500">Chulu
                     West Peak</a>
                   <a href="#"
-                    class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-slate-500">Dhampus Peak
+                    class="mobile-menu-link flex items-center px-3 text-sm font-semibold text-gray-500">Dhampus Peak
                     Climbing</a>
                 </div>
               </div>
             </div> -->
 
-            <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-bold text-slate-700">Tours in
+            <a href="#" class="mobile-menu-link flex items-center px-3 text-sm font-bold text-gray-700">Tours in
               Nepal</a>
           </div>
         </div>
@@ -1694,16 +1694,16 @@
         <div class="mobile-submenu">
           <div class="mobile-submenu-inner">
             <a href="#contact"
-              class="mobile-menu-link flex items-center justify-between px-3 text-sm font-semibold text-slate-600">Kathmandu
+              class="mobile-menu-link flex items-center justify-between px-3 text-sm font-semibold text-gray-600">Kathmandu
               Heritage Tour <span class="tour-duration">1 Day</span></a>
             <a href="#contact"
-              class="mobile-menu-link flex items-center justify-between px-3 text-sm font-semibold text-slate-600">Bhaktapur
+              class="mobile-menu-link flex items-center justify-between px-3 text-sm font-semibold text-gray-600">Bhaktapur
               & Patan Tour <span class="tour-duration">1 Day</span></a>
             <a href="#contact"
-              class="mobile-menu-link flex items-center justify-between px-3 text-sm font-semibold text-slate-600">Nagarkot
+              class="mobile-menu-link flex items-center justify-between px-3 text-sm font-semibold text-gray-600">Nagarkot
               Sunrise Hike <span class="tour-duration">1 Day</span></a>
             <a href="#contact"
-              class="mobile-menu-link flex items-center justify-between px-3 text-sm font-semibold text-slate-600">Pokhara
+              class="mobile-menu-link flex items-center justify-between px-3 text-sm font-semibold text-gray-600">Pokhara
               Sightseeing <span class="tour-duration">3 Day</span></a>
           </div>
         </div>
@@ -1713,7 +1713,7 @@
       <a href="#blog" class="mobile-menu-link flex items-center px-3 text-sm font-bold">BLOG</a>
       <a href="#contact" class="mobile-menu-link flex items-center px-3 text-sm font-bold">CONTACT</a>
 
-      <div class="mt-2 flex items-center gap-3 border-t border-slate-100 px-3 pt-4">
+      <div class="mt-2 flex items-center gap-3 border-t border-gray-100 px-3 pt-4">
         <span class="flex h-9 w-9 items-center justify-center rounded-full bg-[#7360F2]">
           <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/viber.svg" class="h-5 w-5 invert" alt="Viber" />
         </span>
@@ -1729,7 +1729,7 @@
 
   <!-- Banner Start -->
   <section id="hero-slider"
-    class="relative isolate flex min-h-[calc(100svh_-_68px)] w-full overflow-hidden bg-slate-950 text-white outline-none sm:min-h-[calc(100svh_-_76px)]"
+    class="relative isolate flex min-h-[calc(100svh_-_68px)] w-full overflow-hidden bg-gray-950 text-white outline-none sm:min-h-[calc(100svh_-_76px)]"
     tabindex="0" aria-label="Everest Base Camp trek banner slider" role="region">
     <div
       class="slide active absolute inset-0 z-[2] scale-100 opacity-100 transition-[opacity,transform] duration-700 ease-out motion-reduce:transition-none"
@@ -1785,21 +1785,21 @@
             </p>
 
             <div class="mt-6 grid box-border w-full max-w-full grid-cols-3 gap-2 sm:mt-7 sm:max-w-2xl sm:gap-3">
-              <div class="box-border overflow-hidden rounded-lg border border-white/16 bg-white/10 p-3 backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-white/35 hover:bg-white/15 sm:p-4">
+              <div class="box-border overflow-hidden rounded-lg border border-white/16 bg-white/10 p-3 backdrop-blur-md transition duration-300 hover:-trangray-y-1 hover:border-white/35 hover:bg-white/15 sm:p-4">
                 <span class="flex h-8 w-8 items-center justify-center rounded-md bg-emerald-400/20 text-emerald-200 sm:h-9 sm:w-9">
                   <i data-lucide="calendar-days" class="h-4 w-4 sm:h-5 sm:w-5" aria-hidden="true"></i>
                 </span>
                 <p class="mt-2 text-[10px] font-bold uppercase leading-tight text-white/62 sm:mt-3 sm:text-xs">Duration</p>
                 <p class="mt-1 text-[13px] font-bold leading-tight text-white sm:text-lg">14 Days</p>
               </div>
-              <div class="box-border overflow-hidden rounded-lg border border-white/16 bg-white/10 p-3 backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-white/35 hover:bg-white/15 sm:p-4">
+              <div class="box-border overflow-hidden rounded-lg border border-white/16 bg-white/10 p-3 backdrop-blur-md transition duration-300 hover:-trangray-y-1 hover:border-white/35 hover:bg-white/15 sm:p-4">
                 <span class="flex h-8 w-8 items-center justify-center rounded-md bg-sky-400/20 text-sky-200 sm:h-9 sm:w-9">
                   <i data-lucide="mountain" class="h-4 w-4 sm:h-5 sm:w-5" aria-hidden="true"></i>
                 </span>
                 <p class="mt-2 text-[10px] font-bold uppercase leading-tight text-white/62 sm:mt-3 sm:text-xs">Highest Point</p>
                 <p class="mt-1 text-[13px] font-bold leading-tight text-white sm:text-lg">5,364m</p>
               </div>
-              <div class="box-border overflow-hidden rounded-lg border border-white/16 bg-white/10 p-3 backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-white/35 hover:bg-white/15 sm:p-4">
+              <div class="box-border overflow-hidden rounded-lg border border-white/16 bg-white/10 p-3 backdrop-blur-md transition duration-300 hover:-trangray-y-1 hover:border-white/35 hover:bg-white/15 sm:p-4">
                 <span class="flex h-8 w-8 items-center justify-center rounded-md bg-amber-300/20 text-amber-200 sm:h-9 sm:w-9">
                   <i data-lucide="gauge" class="h-4 w-4 sm:h-5 sm:w-5" aria-hidden="true"></i>
                 </span>
@@ -1809,11 +1809,11 @@
             </div>
 
             <div class="mt-6 flex w-full flex-col gap-3 sm:mt-8 sm:w-auto sm:flex-row">
-              <a href="https://wa.me/9779851205116?text=Hello%2C%20I%20would%20like%20to%20book%20a%20trip.%0A%0ATrip%20Name%3A%20Everest%20Base%20Camp%20Trek%0A%0APlease%20provide%20me%20with%20the%20booking%20details%20and%20next%20steps." target="_blank" rel="noopener noreferrer" data-whatsapp-booking data-trip-name="Everest Base Camp Trek" class="inline-flex box-border min-h-12 w-full items-center justify-center gap-2 rounded-md bg-white px-6 py-3 text-sm font-bold text-slate-950 shadow-[0_18px_42px_rgba(15,23,42,0.30)] transition duration-300 hover:-translate-y-1 hover:bg-emerald-300 hover:shadow-[0_24px_52px_rgba(16,185,129,0.22)] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-white/35 active:translate-y-0 sm:w-auto">
+              <a href="https://wa.me/9779851205116?text=Hello%2C%20I%20would%20like%20to%20book%20a%20trip.%0A%0ATrip%20Name%3A%20Everest%20Base%20Camp%20Trek%0A%0APlease%20provide%20me%20with%20the%20booking%20details%20and%20next%20steps." target="_blank" rel="noopener noreferrer" data-whatsapp-booking data-trip-name="Everest Base Camp Trek" class="inline-flex box-border min-h-12 w-full items-center justify-center gap-2 rounded-md bg-white px-6 py-3 text-sm font-bold text-gray-950 shadow-[0_18px_42px_rgba(15,23,42,0.30)] transition duration-300 hover:-trangray-y-1 hover:bg-emerald-300 hover:shadow-[0_24px_52px_rgba(16,185,129,0.22)] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-white/35 active:trangray-y-0 sm:w-auto">
                 Book Your Trip
                 <i data-lucide="arrow-right" class="h-4 w-4" aria-hidden="true"></i>
               </a>
-              <a href="#itinerary" class="inline-flex box-border min-h-12 w-full items-center justify-center gap-2 rounded-md border border-white/30 bg-white/10 px-6 py-3 text-sm font-bold text-white backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-white/60 hover:bg-white/18 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-white/25 active:translate-y-0 sm:w-auto">
+              <a href="#itinerary" class="inline-flex box-border min-h-12 w-full items-center justify-center gap-2 rounded-md border border-white/30 bg-white/10 px-6 py-3 text-sm font-bold text-white backdrop-blur-md transition duration-300 hover:-trangray-y-1 hover:border-white/60 hover:bg-white/18 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-white/25 active:trangray-y-0 sm:w-auto">
                 View Itinerary
                 <i data-lucide="map" class="h-4 w-4" aria-hidden="true"></i>
               </a>
@@ -1822,15 +1822,15 @@
         </div>
       </div>
 
-      <div id="counter" class="absolute right-4 top-4 z-20 rounded-md border border-white/20 bg-slate-950/35 px-3 py-2 text-xs font-bold text-white backdrop-blur-md sm:right-6 sm:top-6">1 / 4</div> -->
+      <div id="counter" class="absolute right-4 top-4 z-20 rounded-md border border-white/20 bg-gray-950/35 px-3 py-2 text-xs font-bold text-white backdrop-blur-md sm:right-6 sm:top-6">1 / 4</div> -->
 
     <button id="arrow-left" type="button"
-      class="arrow-btn absolute left-4 top-1/2 z-20 hidden h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/25 bg-slate-950/30 text-white backdrop-blur-md transition duration-300 hover:scale-110 hover:border-white/60 hover:bg-white/20 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-white/25 active:scale-95 md:flex lg:hidden"
+      class="arrow-btn absolute left-4 top-1/2 z-20 hidden h-11 w-11 -trangray-y-1/2 items-center justify-center rounded-full border border-white/25 bg-gray-950/30 text-white backdrop-blur-md transition duration-300 hover:scale-110 hover:border-white/60 hover:bg-white/20 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-white/25 active:scale-95 md:flex lg:hidden"
       aria-label="Previous slide">
       <i data-lucide="chevron-left" class="h-6 w-6" aria-hidden="true"></i>
     </button>
     <button id="arrow-right" type="button"
-      class="arrow-btn absolute right-4 top-1/2 z-20 hidden h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/25 bg-slate-950/30 text-white backdrop-blur-md transition duration-300 hover:scale-110 hover:border-white/60 hover:bg-white/20 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-white/25 active:scale-95 md:flex lg:hidden"
+      class="arrow-btn absolute right-4 top-1/2 z-20 hidden h-11 w-11 -trangray-y-1/2 items-center justify-center rounded-full border border-white/25 bg-gray-950/30 text-white backdrop-blur-md transition duration-300 hover:scale-110 hover:border-white/60 hover:bg-white/20 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-white/25 active:scale-95 md:flex lg:hidden"
       aria-label="Next slide">
       <i data-lucide="chevron-right" class="h-6 w-6" aria-hidden="true"></i>
     </button>
@@ -1838,19 +1838,19 @@
     <div id="thumb-bar" class="absolute bottom-6 right-6 z-20 hidden max-w-[42vw] items-center gap-2 lg:flex xl:gap-3"
       aria-label="Slide thumbnails" role="tablist">
       <img
-        class="thumb active h-16 w-24 cursor-pointer rounded-md border-2 border-white object-cover opacity-100 shadow-[0_18px_45px_rgba(15,23,42,0.40)] ring-2 ring-white/70 transition duration-300 hover:-translate-y-1 hover:opacity-100 hover:shadow-[0_22px_52px_rgba(15,23,42,0.46)] xl:h-20 xl:w-28"
+        class="thumb active h-16 w-24 cursor-pointer rounded-md border-2 border-white object-cover opacity-100 shadow-[0_18px_45px_rgba(15,23,42,0.40)] ring-2 ring-white/70 transition duration-300 hover:-trangray-y-1 hover:opacity-100 hover:shadow-[0_22px_52px_rgba(15,23,42,0.46)] xl:h-20 xl:w-28"
         src="Images/Everest/Trek Banner.png" alt="Everest Base Camp Trek" role="tab" aria-selected="true"
         tabindex="0" />
       <img
-        class="thumb h-16 w-24 cursor-pointer rounded-md border-2 border-white/25 object-cover opacity-70 shadow-none ring-0 ring-transparent transition duration-300 hover:-translate-y-1 hover:border-white/60 hover:opacity-100 hover:shadow-[0_18px_42px_rgba(15,23,42,0.34)] xl:h-20 xl:w-28"
+        class="thumb h-16 w-24 cursor-pointer rounded-md border-2 border-white/25 object-cover opacity-70 shadow-none ring-0 ring-transparent transition duration-300 hover:-trangray-y-1 hover:border-white/60 hover:opacity-100 hover:shadow-[0_18px_42px_rgba(15,23,42,0.34)] xl:h-20 xl:w-28"
         src="images/Everest/Trek Banner1.png" alt="Trekkers on the Everest trail" role="tab" aria-selected="false"
         tabindex="0" />
       <img
-        class="thumb h-16 w-24 cursor-pointer rounded-md border-2 border-white/25 object-cover opacity-70 shadow-none ring-0 ring-transparent transition duration-300 hover:-translate-y-1 hover:border-white/60 hover:opacity-100 hover:shadow-[0_18px_42px_rgba(15,23,42,0.34)] xl:h-20 xl:w-28"
+        class="thumb h-16 w-24 cursor-pointer rounded-md border-2 border-white/25 object-cover opacity-70 shadow-none ring-0 ring-transparent transition duration-300 hover:-trangray-y-1 hover:border-white/60 hover:opacity-100 hover:shadow-[0_18px_42px_rgba(15,23,42,0.34)] xl:h-20 xl:w-28"
         src="images/Everest/Trek Banner2.png" alt="Himalayan trek landscape" role="tab" aria-selected="false"
         tabindex="0" />
       <img
-        class="thumb h-16 w-24 cursor-pointer rounded-md border-2 border-white/25 object-cover opacity-70 shadow-none ring-0 ring-transparent transition duration-300 hover:-translate-y-1 hover:border-white/60 hover:opacity-100 hover:shadow-[0_18px_42px_rgba(15,23,42,0.34)] xl:h-20 xl:w-28"
+        class="thumb h-16 w-24 cursor-pointer rounded-md border-2 border-white/25 object-cover opacity-70 shadow-none ring-0 ring-transparent transition duration-300 hover:-trangray-y-1 hover:border-white/60 hover:opacity-100 hover:shadow-[0_18px_42px_rgba(15,23,42,0.34)] xl:h-20 xl:w-28"
         src="images/Everest/Trek Banner3.png" alt="Everest Base Camp high altitude scenery" role="tab"
         aria-selected="false" tabindex="0" />
     </div>
@@ -1863,12 +1863,12 @@
 
   <!-- Subnavigation start -->
   <nav id="subnav"
-    class="bg-white/95 border-y border-slate-200 shadow-[0_10px_26px_rgba(15,23,42,0.08)] backdrop-blur supports-[backdrop-filter]:bg-white/80"
+    class="bg-white/95 border-y border-gray-200 shadow-[0_10px_26px_rgba(15,23,42,0.08)] backdrop-blur supports-[backdrop-filter]:bg-white/80"
     aria-hidden="true"
     aria-label="Trip section navigation">
     <div class="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8">
       <div class="subnav-scroll no-scrollbar -mx-3 overflow-x-auto overflow-y-hidden px-3 sm:mx-0 sm:px-0">
-        <ul class="flex min-w-max items-center gap-1.5 py-1.5 text-sm text-slate-700 sm:gap-2 md:justify-center md:py-2">
+        <ul class="flex min-w-max items-center gap-1.5 py-1.5 text-sm text-gray-700 sm:gap-2 md:justify-center md:py-2">
           <li><a href="#overview" class="" aria-current="location"><svg
                 xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -2099,43 +2099,43 @@
           <h2 class="text-xl lg:text-2xl text-[#001] font-bold tracking-wide leading-tight">
             Highlights</h2>
           <ul role="list" class="flex flex-col text-[15px] font-light leading-7 tracking-wide text-black/75 sm:grid-cols-2 sm:text-base">
-            <li class="flex min-w-0 items-start gap-3 px-2 py-1.5 transition duration-200 hover:-translate-y-0.5 hover:border-[#DEEFFF]/45 hover:bg-[#DDEFFF]/20 hover:shadow-md mb-0.5">
+            <li class="flex min-w-0 items-start gap-3 px-2 py-1.5 transition duration-200 hover:-trangray-y-0.5 hover:border-[#DEEFFF]/45 hover:bg-[#DDEFFF]/20 hover:shadow-md mb-0.5">
               <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#DEEFFF]/35 text-[#2775BD] ring-1 ring-[#DEEFFF]/30" aria-hidden="true">
                 <i data-lucide="trees" class="h-4 w-4"></i>
               </span>
               <span class="min-w-0">Stunning views of Mount Everest, Lhotse, Nuptse, and Ama Dablam</span>
             </li>
-            <li class="flex min-w-0 items-start gap-3 px-2 py-1.5 transition duration-200 hover:-translate-y-0.5 hover:border-[#DEEFFF]/45 hover:bg-[#DDEFFF]/20 hover:shadow-md mb-0.5">
+            <li class="flex min-w-0 items-start gap-3 px-2 py-1.5 transition duration-200 hover:-trangray-y-0.5 hover:border-[#DEEFFF]/45 hover:bg-[#DDEFFF]/20 hover:shadow-md mb-0.5">
               <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#DEEFFF]/35 text-[#2775BD] ring-1 ring-[#DEEFFF]/30" aria-hidden="true">
                 <i data-lucide="trees" class="h-4 w-4"></i>
               </span>
               <span class="min-w-0">Experience Sherpa culture and Buddhist traditions</span>
             </li>
-            <li class="flex min-w-0 items-start gap-3 px-2 py-1.5 transition duration-200 hover:-translate-y-0.5 hover:border-[#DEEFFF]/45 hover:bg-[#DDEFFF]/20 hover:shadow-md mb-0.5">
+            <li class="flex min-w-0 items-start gap-3 px-2 py-1.5 transition duration-200 hover:-trangray-y-0.5 hover:border-[#DEEFFF]/45 hover:bg-[#DDEFFF]/20 hover:shadow-md mb-0.5">
               <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#DEEFFF]/35 text-[#2775BD] ring-1 ring-[#DEEFFF]/30" aria-hidden="true">
                 <i data-lucide="trees" class="h-4 w-4"></i>
               </span>
               <span class="min-w-0">Visit Tengboche Monastery</span>
             </li>
-            <li class="flex min-w-0 items-start gap-3 px-2 py-1.5 transition duration-200 hover:-translate-y-0.5 hover:border-[#DEEFFF]/45 hover:bg-[#DDEFFF]/20 hover:shadow-md mb-0.5">
+            <li class="flex min-w-0 items-start gap-3 px-2 py-1.5 transition duration-200 hover:-trangray-y-0.5 hover:border-[#DEEFFF]/45 hover:bg-[#DDEFFF]/20 hover:shadow-md mb-0.5">
               <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#DEEFFF]/35 text-[#2775BD] ring-1 ring-[#DEEFFF]/30" aria-hidden="true">
                 <i data-lucide="trees" class="h-4 w-4"></i>
               </span>
               <span class="min-w-0">Explore Namche Bazaar</span>
             </li>
-            <li class="flex min-w-0 items-start gap-3 px-2 py-1.5 transition duration-200 hover:-translate-y-0.5 hover:border-[#DEEFFF]/45 hover:bg-[#DDEFFF]/20 hover:shadow-md mb-0.5">
+            <li class="flex min-w-0 items-start gap-3 px-2 py-1.5 transition duration-200 hover:-trangray-y-0.5 hover:border-[#DEEFFF]/45 hover:bg-[#DDEFFF]/20 hover:shadow-md mb-0.5">
               <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#DEEFFF]/35 text-[#2775BD] ring-1 ring-[#DEEFFF]/30" aria-hidden="true">
                 <i data-lucide="trees" class="h-4 w-4"></i>
               </span>
               <span class="min-w-0">Trek through diverse landscapes</span>
             </li>
-            <li class="flex min-w-0 items-start gap-3 px-2 py-1.5 transition duration-200 hover:-translate-y-0.5 hover:border-[#DEEFFF]/45 hover:bg-[#DDEFFF]/20 hover:shadow-md mb-0.5">
+            <li class="flex min-w-0 items-start gap-3 px-2 py-1.5 transition duration-200 hover:-trangray-y-0.5 hover:border-[#DEEFFF]/45 hover:bg-[#DDEFFF]/20 hover:shadow-md mb-0.5">
               <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#DEEFFF]/35 text-[#2775BD] ring-1 ring-[#DEEFFF]/30" aria-hidden="true">
                 <i data-lucide="trees" class="h-4 w-4"></i>
               </span>
               <span class="min-w-0">Sunrise view from Kala Patthar</span>
             </li>
-            <li class="flex min-w-0 items-start gap-3 px-2 py-1.5 transition duration-200 hover:-translate-y-0.5 hover:border-[#DEEFFF]/45 hover:bg-[#DDEFFF]/20 hover:shadow-md mb-0.5">
+            <li class="flex min-w-0 items-start gap-3 px-2 py-1.5 transition duration-200 hover:-trangray-y-0.5 hover:border-[#DEEFFF]/45 hover:bg-[#DDEFFF]/20 hover:shadow-md mb-0.5">
               <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#DEEFFF]/35 text-[#2775BD] ring-1 ring-[#DEEFFF]/30" aria-hidden="true">
                 <i data-lucide="trees" class="h-4 w-4"></i>
               </span>
@@ -2333,7 +2333,7 @@
 
             <div class="space-y-1 sm:space-y-2 mb-4 sm:mb-6">
               <article
-                class="group flex items-start gap-2 border border-white/80 bg-white/90 p-3 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-[#2775BD]/30 hover:bg-white hover:shadow-[0_14px_30px_rgba(39,117,189,0.12)] sm:gap-4 sm:p-4">
+                class="group flex items-start gap-2 border border-white/80 bg-white/90 p-3 shadow-sm transition-all duration-300 hover:-trangray-y-0.5 hover:border-[#2775BD]/30 hover:bg-white hover:shadow-[0_14px_30px_rgba(39,117,189,0.12)] sm:gap-4 sm:p-4">
                 <span
                   class="flex h-5 w-5 shrink-0 items-center justify-center rounded-lg bg-[#2775BD]/10 text-[#2775BD] transition-colors duration-300 group-hover:bg-[#2775BD] group-hover:text-white sm:h-10 sm:w-10"
                   aria-hidden="true">
@@ -2350,7 +2350,7 @@
               </article>
 
               <article
-                class="group flex items-start gap-2 border border-white/80 bg-white/90 p-3 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-[#2775BD]/30 hover:bg-white hover:shadow-[0_14px_30px_rgba(39,117,189,0.12)] sm:gap-4 sm:p-4">
+                class="group flex items-start gap-2 border border-white/80 bg-white/90 p-3 shadow-sm transition-all duration-300 hover:-trangray-y-0.5 hover:border-[#2775BD]/30 hover:bg-white hover:shadow-[0_14px_30px_rgba(39,117,189,0.12)] sm:gap-4 sm:p-4">
                 <span
                   class="flex h-5 w-5 shrink-0 items-center justify-center rounded-lg bg-[#2775BD]/10 text-[#2775BD] transition-colors duration-300 group-hover:bg-[#2775BD] group-hover:text-white sm:h-10 sm:w-10"
                   aria-hidden="true">
@@ -2367,7 +2367,7 @@
               </article>
 
               <article
-                class="group flex items-start gap-2 border border-white/80 bg-white/90 p-3 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-[#2775BD]/30 hover:bg-white hover:shadow-[0_14px_30px_rgba(39,117,189,0.12)] sm:gap-4 sm:p-4">
+                class="group flex items-start gap-2 border border-white/80 bg-white/90 p-3 shadow-sm transition-all duration-300 hover:-trangray-y-0.5 hover:border-[#2775BD]/30 hover:bg-white hover:shadow-[0_14px_30px_rgba(39,117,189,0.12)] sm:gap-4 sm:p-4">
                 <span
                   class="flex h-5 w-5 shrink-0 items-center justify-center rounded-lg bg-[#2775BD]/10 text-[#2775BD] transition-colors duration-300 group-hover:bg-[#2775BD] group-hover:text-white sm:h-10 sm:w-10"
                   aria-hidden="true">
@@ -2383,7 +2383,7 @@
               </article>
 
               <article
-                class="group flex items-start gap-2 border border-white/80 bg-white/90 p-3 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-[#2775BD]/30 hover:bg-white hover:shadow-[0_14px_30px_rgba(39,117,189,0.12)] sm:gap-4 sm:p-4">
+                class="group flex items-start gap-2 border border-white/80 bg-white/90 p-3 shadow-sm transition-all duration-300 hover:-trangray-y-0.5 hover:border-[#2775BD]/30 hover:bg-white hover:shadow-[0_14px_30px_rgba(39,117,189,0.12)] sm:gap-4 sm:p-4">
                 <span
                   class="flex h-5 w-5 shrink-0 items-center justify-center rounded-lg bg-[#2775BD]/10 text-[#2775BD] transition-colors duration-300 group-hover:bg-[#2775BD] group-hover:text-white sm:h-10 sm:w-10"
                   aria-hidden="true">
@@ -2400,7 +2400,7 @@
               </article>
 
               <article
-                class="group flex items-start gap-2 border border-white/80 bg-white/90 p-3 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-[#2775BD]/30 hover:bg-white hover:shadow-[0_14px_30px_rgba(39,117,189,0.12)] sm:gap-4 sm:p-4">
+                class="group flex items-start gap-2 border border-white/80 bg-white/90 p-3 shadow-sm transition-all duration-300 hover:-trangray-y-0.5 hover:border-[#2775BD]/30 hover:bg-white hover:shadow-[0_14px_30px_rgba(39,117,189,0.12)] sm:gap-4 sm:p-4">
                 <span
                   class="flex h-5 w-5 shrink-0 items-center justify-center rounded-lg bg-[#2775BD]/10 text-[#2775BD] transition-colors duration-300 group-hover:bg-[#2775BD] group-hover:text-white sm:h-10 sm:w-10"
                   aria-hidden="true">
@@ -2416,7 +2416,7 @@
               </article>
 
               <article
-                class="group flex items-start gap-2 border border-white/80 bg-white/90 p-3 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-[#2775BD]/30 hover:bg-white hover:shadow-[0_14px_30px_rgba(39,117,189,0.12)] sm:gap-4 sm:p-4">
+                class="group flex items-start gap-2 border border-white/80 bg-white/90 p-3 shadow-sm transition-all duration-300 hover:-trangray-y-0.5 hover:border-[#2775BD]/30 hover:bg-white hover:shadow-[0_14px_30px_rgba(39,117,189,0.12)] sm:gap-4 sm:p-4">
                 <span
                   class="flex h-5 w-5 shrink-0 items-center justify-center rounded-lg bg-[#2775BD]/10 text-[#2775BD] transition-colors duration-300 group-hover:bg-[#2775BD] group-hover:text-white sm:h-10 sm:w-10"
                   aria-hidden="true">
@@ -2437,7 +2437,7 @@
               <div class="mb-5 sm:mb-6">
                 <p class="text-xs font-bold uppercase text-[#2775BD] mb-1">Booking process</p>
                 <h3 class="text-lg font-bold text-[#001B2F] sm:text-xl mb-2">How to Add Options</h3>
-                <p class="max-w-2xl text-sm leading-6 text-slate-600">Personalizing your Everest Base Camp Trek is
+                <p class="max-w-2xl text-sm leading-6 text-gray-600">Personalizing your Everest Base Camp Trek is
                   simple—follow these five steps.</p>
               </div>
 
@@ -2445,27 +2445,27 @@
                 <li class="flex gap-3 rounded border border-[#2775BD]/15 bg-white p-3.5 sm:flex-col sm:p-4">
                   <span
                     class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#2775BD] text-xs font-bold text-white shadow-[0_6px_14px_rgba(39,117,189,0.25)]">01</span>
-                  <p class="text-sm font-semibold leading-5 text-slate-700">Choose your preferred departure date.</p>
+                  <p class="text-sm font-semibold leading-5 text-gray-700">Choose your preferred departure date.</p>
                 </li>
                 <li class="flex gap-3 rounded border border-[#2775BD]/15 bg-white p-3.5 sm:flex-col sm:p-4">
                   <span
                     class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#2775BD] text-xs font-bold text-white shadow-[0_6px_14px_rgba(39,117,189,0.25)]">02</span>
-                  <p class="text-sm font-semibold leading-5 text-slate-700">Indicate the number of travelers.</p>
+                  <p class="text-sm font-semibold leading-5 text-gray-700">Indicate the number of travelers.</p>
                 </li>
                 <li class="flex gap-3 rounded border border-[#2775BD]/15 bg-white p-3.5 sm:flex-col sm:p-4">
                   <span
                     class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#2775BD] text-xs font-bold text-white shadow-[0_6px_14px_rgba(39,117,189,0.25)]">03</span>
-                  <p class="text-sm font-semibold leading-5 text-slate-700">Click the “Book Now” button.</p>
+                  <p class="text-sm font-semibold leading-5 text-gray-700">Click the “Book Now” button.</p>
                 </li>
                 <li class="flex gap-3 rounded border border-[#2775BD]/15 bg-white p-3.5 sm:flex-col sm:p-4">
                   <span
                     class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#2775BD] text-xs font-bold text-white shadow-[0_6px_14px_rgba(39,117,189,0.25)]">04</span>
-                  <p class="text-sm font-semibold leading-5 text-slate-700">Select your preferred add-ons.</p>
+                  <p class="text-sm font-semibold leading-5 text-gray-700">Select your preferred add-ons.</p>
                 </li>
                 <li class="flex gap-3 rounded border border-[#2775BD]/15 bg-white p-3.5 sm:flex-col sm:p-4">
                   <span
                     class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#2775BD] text-xs font-bold text-white shadow-[0_6px_14px_rgba(39,117,189,0.25)]">05</span>
-                  <p class="text-sm font-semibold leading-5 text-slate-700">Complete the payment process.</p>
+                  <p class="text-sm font-semibold leading-5 text-gray-700">Complete the payment process.</p>
                 </li>
               </ol>
             </div>
@@ -2482,25 +2482,25 @@
 
           <div class="relative space-y-4 before:absolute before:bottom-6 before:left-6 before:top-6 before:w-px before:bg-gradient-to-b before:from-blue-200 before:via-emerald-200 before:to-transparent sm:before:left-7">
 
-            <article class="itinerary-card is-open group relative overflow-hidden rounded-lg border border-[#2775BD]/30 bg-white shadow-[0_18px_50px_rgba(39,117,189,0.12)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#2775BD] hover:shadow-[0_18px_50px_rgba(39,117,189,0.12)]" data-itinerary-card>
+            <article class="itinerary-card is-open group relative overflow-hidden rounded-lg border border-[#2775BD]/30 bg-white shadow-[0_18px_50px_rgba(39,117,189,0.12)] transition-all duration-300 hover:-trangray-y-0.5 hover:border-[#2775BD] hover:shadow-[0_18px_50px_rgba(39,117,189,0.12)]" data-itinerary-card>
               <button type="button" class="itinerary-trigger flex w-full items-start gap-4 px-4 py-4 text-left sm:gap-5 sm:px-5 sm:py-5" aria-expanded="true" aria-controls="itinerary-day-01" data-itinerary-toggle>
                 <span class="flex h-7 w-7 sm:w-10 sm:h-10  shrink-0 items-center justify-center rounded-full bg-[#2775BD] text-sm font-bold text-white shadow-[0_18px_50px_rgba(39,117,189,0.12)] ring-4 ring-white">01</span>
                 <span class="min-w-0 flex-1">
                   <span class="mb-2 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-                    <span class="text-sm font-bold text-slate-950 sm:text-xl">Arrival in Kathmandu</span>
+                    <span class="text-sm font-bold text-gray-950 sm:text-xl">Arrival in Kathmandu</span>
                     <span class="inline-flex w-fit items-center gap-1.5 rounded-full bg-[#DDEFFF]/20 px-3 py-1.5 text-xs font-bold text-[#2775BD] ring-1 ring-[#2775BD]">
                       <i data-lucide="trending-up" class="h-3.5 w-3.5" aria-hidden="true"></i>
                       1,400m
                     </span>
                   </span>
-                  <span class="block text-sm leading-6 text-slate-500">Meet the team, settle into the city, and prepare your trekking gear.</span>
+                  <span class="block text-sm leading-6 text-gray-500">Meet the team, settle into the city, and prepare your trekking gear.</span>
                 </span>
-                <span class="itinerary-chevron mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 transition duration-300 group-hover:border-[#2775BD] group-hover:text-[#2775BD]">
+                <span class="itinerary-chevron mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 transition duration-300 group-hover:border-[#2775BD] group-hover:text-[#2775BD]">
                   <i data-lucide="chevron-down" class="h-4 w-4" aria-hidden="true"></i>
                 </span>
               </button>
               <div id="itinerary-day-01" class="itinerary-content overflow-hidden transition-[max-height] duration-500 ease-in-out" role="region" aria-hidden="false">
-                <div class="grid gap-5 border-t border-slate-100 px-4 pb-5 pt-4 sm:px-5 lg:grid-cols-[minmax(0,1fr)_220px]">
+                <div class="grid gap-5 border-t border-gray-100 px-4 pb-5 pt-4 sm:px-5 lg:grid-cols-[minmax(0,1fr)_220px]">
                   <div>
                     <div class="grid gap-3 sm:grid-cols-2 mb-4">
                       <div class="itinerary-meta"><i data-lucide="map-pin" aria-hidden="true"></i><span><strong>Location</strong>Kathmandu</span></div>
@@ -2508,7 +2508,7 @@
                       <div class="itinerary-meta"><i data-lucide="utensils" aria-hidden="true"></i><span><strong>Meals</strong>Welcome dinner</span></div>
                       <div class="itinerary-meta"><i data-lucide="clock" aria-hidden="true"></i><span><strong>Duration</strong>Arrival day</span></div>
                     </div>
-                    <p class="mb-4 text-sm leading-7 text-slate-600">Arrive in Kathmandu and transfer to your hotel. Your guide reviews the route, checks essential gear, and introduces the rhythm of the days ahead.</p>
+                    <p class="mb-4 text-sm leading-7 text-gray-600">Arrive in Kathmandu and transfer to your hotel. Your guide reviews the route, checks essential gear, and introduces the rhythm of the days ahead.</p>
                     <div class="mb-4 flex flex-wrap gap-2">
                       <span class="itinerary-chip">Airport transfer</span>
                       <span class="itinerary-chip">Trip briefing</span>
@@ -2524,21 +2524,21 @@
               </div>
             </article>
 
-            <article class="itinerary-card is-open group relative overflow-hidden rounded-lg border border-[#2775BD]/30 bg-white shadow-[0_18px_50px_rgba(39,117,189,0.12)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#2775BD] hover:shadow-[0_18px_50px_rgba(39,117,189,0.12)]" data-itinerary-card>
+            <article class="itinerary-card is-open group relative overflow-hidden rounded-lg border border-[#2775BD]/30 bg-white shadow-[0_18px_50px_rgba(39,117,189,0.12)] transition-all duration-300 hover:-trangray-y-0.5 hover:border-[#2775BD] hover:shadow-[0_18px_50px_rgba(39,117,189,0.12)]" data-itinerary-card>
               <button type="button" class="itinerary-trigger flex w-full items-start gap-4 px-4 py-4 text-left sm:gap-5 sm:px-5 sm:py-5" aria-expanded="false" aria-controls="itinerary-day-02" data-itinerary-toggle>
                 <span class="flex h-7 w-7 sm:w-10 sm:h-10  shrink-0 items-center justify-center rounded-full bg-[#2775BD] text-sm font-bold text-white shadow-[0_18px_50px_rgba(39,117,189,0.12)] ring-4 ring-white">02</span>
                 <span class="min-w-0 flex-1">
                   <span class="mb-2 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-                    <span class="text-sm font-bold text-slate-950 sm:text-xl">Flight to Lukla and Trek to Phakding</span>
+                    <span class="text-sm font-bold text-gray-950 sm:text-xl">Flight to Lukla and Trek to Phakding</span>
                     <span class="inline-flex w-fit items-center gap-1.5 rounded-full bg-[#DDEFFF]/20 px-3 py-1.5 text-xs font-bold text-[#2775BD] ring-1 ring-[#2775BD]">
                       <i data-lucide="trending-up" class="h-3.5 w-3.5" aria-hidden="true"></i>2,610m</span>
                   </span>
-                  <span class="block text-sm leading-6 text-slate-500">A dramatic mountain flight leads into the first easy trail walk.</span>
+                  <span class="block text-sm leading-6 text-gray-500">A dramatic mountain flight leads into the first easy trail walk.</span>
                 </span>
-                <span class="itinerary-chevron mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 transition duration-300 group-hover:border-[#2775BD] group-hover:text-[#2775BD]"><i data-lucide="chevron-down" class="h-4 w-4" aria-hidden="true"></i></span>
+                <span class="itinerary-chevron mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 transition duration-300 group-hover:border-[#2775BD] group-hover:text-[#2775BD]"><i data-lucide="chevron-down" class="h-4 w-4" aria-hidden="true"></i></span>
               </button>
               <div id="itinerary-day-02" class="itinerary-content overflow-hidden transition-[max-height] duration-500 ease-in-out" role="region" aria-hidden="true">
-                <div class="grid gap-5 border-t border-slate-100 px-4 pb-5 pt-4 sm:px-5 lg:grid-cols-[minmax(0,1fr)_220px]">
+                <div class="grid gap-5 border-t border-gray-100 px-4 pb-5 pt-4 sm:px-5 lg:grid-cols-[minmax(0,1fr)_220px]">
                   <div>
                     <div class="grid gap-3 sm:grid-cols-2 mb-4">
                       <div class="itinerary-meta"><i data-lucide="map-pin" aria-hidden="true"></i><span><strong>Location</strong>Lukla to Phakding</span></div>
@@ -2546,7 +2546,7 @@
                       <div class="itinerary-meta"><i data-lucide="utensils" aria-hidden="true"></i><span><strong>Meals</strong>Breakfast, lunch, dinner</span></div>
                       <div class="itinerary-meta"><i data-lucide="clock" aria-hidden="true"></i><span><strong>Duration</strong>3 to 4 hours trek</span></div>
                     </div>
-                    <p class="mb-4 text-sm leading-7 text-slate-600">Fly into Lukla and begin on a gentle trail beside the Dudh Koshi, crossing small villages, mani walls, and forested river bends.</p>
+                    <p class="mb-4 text-sm leading-7 text-gray-600">Fly into Lukla and begin on a gentle trail beside the Dudh Koshi, crossing small villages, mani walls, and forested river bends.</p>
                     <div class="mb-4 flex flex-wrap gap-2"><span class="itinerary-chip">Mountain flight</span><span class="itinerary-chip">Dudh Koshi trail</span><span class="itinerary-chip">Sherpa villages</span>
                     </div>
                     <div class="flex flex-row gap-2">
@@ -2560,19 +2560,19 @@
               </div>
             </article>
 
-            <article class="itinerary-card is-open group relative overflow-hidden rounded-lg border border-[#2775BD]/30 bg-white shadow-[0_18px_50px_rgba(39,117,189,0.12)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#2775BD] hover:shadow-[0_18px_50px_rgba(39,117,189,0.12)]" data-itinerary-card>
+            <article class="itinerary-card is-open group relative overflow-hidden rounded-lg border border-[#2775BD]/30 bg-white shadow-[0_18px_50px_rgba(39,117,189,0.12)] transition-all duration-300 hover:-trangray-y-0.5 hover:border-[#2775BD] hover:shadow-[0_18px_50px_rgba(39,117,189,0.12)]" data-itinerary-card>
               <button type="button" class="itinerary-trigger flex w-full items-start gap-4 px-4 py-4 text-left sm:gap-5 sm:px-5 sm:py-5" aria-expanded="false" aria-controls="itinerary-day-03" data-itinerary-toggle>
                 <span class="flex h-7 w-7 sm:w-10 sm:h-10  shrink-0 items-center justify-center rounded-full bg-[#2775BD] text-sm font-bold text-white shadow-[0_18px_50px_rgba(39,117,189,0.12)] ring-4 ring-white">03</span>
                 <span class="min-w-0 flex-1">
                   <span class="mb-2 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-                  <span class="text-sm font-bold text-slate-950 sm:text-xl">Phakding to Namche Bazaar</span>
+                  <span class="text-sm font-bold text-gray-950 sm:text-xl">Phakding to Namche Bazaar</span>
                   <span class="inline-flex w-fit items-center gap-1.5 rounded-full bg-[#DDEFFF]/20 px-3 py-1.5 text-xs font-bold text-[#2775BD] ring-1 ring-[#2775BD]">
-                    <i data-lucide="trending-up" class="h-3.5 w-3.5" aria-hidden="true"></i>3,440m</span></span><span class="block text-sm leading-6 text-slate-500">Enter Sagarmatha National Park and climb toward the Khumbu capital.</span></span>
-                <span class="itinerary-chevron mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 transition duration-300 group-hover:border-[#2775BD] group-hover:text-[#2775BD]"><i data-lucide="chevron-down" class="h-4 w-4" aria-hidden="true"></i></span>
+                    <i data-lucide="trending-up" class="h-3.5 w-3.5" aria-hidden="true"></i>3,440m</span></span><span class="block text-sm leading-6 text-gray-500">Enter Sagarmatha National Park and climb toward the Khumbu capital.</span></span>
+                <span class="itinerary-chevron mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 transition duration-300 group-hover:border-[#2775BD] group-hover:text-[#2775BD]"><i data-lucide="chevron-down" class="h-4 w-4" aria-hidden="true"></i></span>
               </button>
               <div id="itinerary-day-03" class="itinerary-content overflow-hidden transition-[max-height] duration-500 ease-in-out" role="region" aria-hidden="true">
-                <div class="grid gap-5 border-t border-slate-100 px-4 pb-5 pt-4 sm:px-5 lg:grid-cols-[minmax(0,1fr)_220px]">
-                  <div><div class="grid gap-3 sm:grid-cols-2 mb-4"><div class="itinerary-meta"><i data-lucide="map-pin" aria-hidden="true"></i><span><strong>Location</strong>Phakding to Namche</span></div><div class="itinerary-meta"><i data-lucide="bed" aria-hidden="true"></i><span><strong>Accommodation</strong>Tea house</span></div><div class="itinerary-meta"><i data-lucide="utensils" aria-hidden="true"></i><span><strong>Meals</strong>Breakfast, lunch, dinner</span></div><div class="itinerary-meta"><i data-lucide="clock" aria-hidden="true"></i><span><strong>Duration</strong>5 to 6 hours trek</span></div></div><p class="mb-4 text-sm leading-7 text-slate-600">Cross high suspension bridges and climb through pine forest toward Namche Bazaar, with the first clear glimpses of Everest on a good day.</p>
+                <div class="grid gap-5 border-t border-gray-100 px-4 pb-5 pt-4 sm:px-5 lg:grid-cols-[minmax(0,1fr)_220px]">
+                  <div><div class="grid gap-3 sm:grid-cols-2 mb-4"><div class="itinerary-meta"><i data-lucide="map-pin" aria-hidden="true"></i><span><strong>Location</strong>Phakding to Namche</span></div><div class="itinerary-meta"><i data-lucide="bed" aria-hidden="true"></i><span><strong>Accommodation</strong>Tea house</span></div><div class="itinerary-meta"><i data-lucide="utensils" aria-hidden="true"></i><span><strong>Meals</strong>Breakfast, lunch, dinner</span></div><div class="itinerary-meta"><i data-lucide="clock" aria-hidden="true"></i><span><strong>Duration</strong>5 to 6 hours trek</span></div></div><p class="mb-4 text-sm leading-7 text-gray-600">Cross high suspension bridges and climb through pine forest toward Namche Bazaar, with the first clear glimpses of Everest on a good day.</p>
                   <div class="mb-4 flex flex-wrap gap-2">
                     <span class="itinerary-chip">Sagarmatha permit gate</span>
                     <span class="itinerary-chip">Hillary Bridge</span>
@@ -2588,16 +2588,16 @@
               </div>
             </article>
 
-            <article class="itinerary-card is-open group relative overflow-hidden rounded-lg border border-[#2775BD]/30 bg-white shadow-[0_18px_50px_rgba(39,117,189,0.12)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#2775BD] hover:shadow-[0_18px_50px_rgba(39,117,189,0.12)]" data-itinerary-card>
+            <article class="itinerary-card is-open group relative overflow-hidden rounded-lg border border-[#2775BD]/30 bg-white shadow-[0_18px_50px_rgba(39,117,189,0.12)] transition-all duration-300 hover:-trangray-y-0.5 hover:border-[#2775BD] hover:shadow-[0_18px_50px_rgba(39,117,189,0.12)]" data-itinerary-card>
               <button type="button" class="itinerary-trigger flex w-full items-start gap-4 px-4 py-4 text-left sm:gap-5 sm:px-5 sm:py-5" aria-expanded="false" aria-controls="itinerary-day-04" data-itinerary-toggle>
                 <span class="flex h-7 w-7 sm:w-10 sm:h-10  shrink-0 items-center justify-center rounded-full bg-[#2775BD] text-sm font-bold text-white shadow-[0_18px_50px_rgba(39,117,189,0.12)] ring-4 ring-white">04</span>
-                <span class="min-w-0 flex-1"><span class="mb-2 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between"><span class="text-sm font-bold text-slate-950 sm:text-xl">Acclimatization Day at Namche Bazaar</span>
-                <span class="inline-flex w-fit items-center gap-1.5 rounded-full bg-[#DDEFFF]/20 px-3 py-1.5 text-xs font-bold text-[#2775BD] ring-1 ring-[#2775BD]"><i data-lucide="activity" class="h-3.5 w-3.5" aria-hidden="true"></i>3,440m</span></span><span class="block text-sm leading-6 text-slate-500">A strategic rest day with a short hike and panoramic viewpoints.</span></span>
-                <span class="itinerary-chevron mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 transition duration-300 group-hover:border-[#2775BD] group-hover:text-[#2775BD]"><i data-lucide="chevron-down" class="h-4 w-4" aria-hidden="true"></i></span>
+                <span class="min-w-0 flex-1"><span class="mb-2 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between"><span class="text-sm font-bold text-gray-950 sm:text-xl">Acclimatization Day at Namche Bazaar</span>
+                <span class="inline-flex w-fit items-center gap-1.5 rounded-full bg-[#DDEFFF]/20 px-3 py-1.5 text-xs font-bold text-[#2775BD] ring-1 ring-[#2775BD]"><i data-lucide="activity" class="h-3.5 w-3.5" aria-hidden="true"></i>3,440m</span></span><span class="block text-sm leading-6 text-gray-500">A strategic rest day with a short hike and panoramic viewpoints.</span></span>
+                <span class="itinerary-chevron mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 transition duration-300 group-hover:border-[#2775BD] group-hover:text-[#2775BD]"><i data-lucide="chevron-down" class="h-4 w-4" aria-hidden="true"></i></span>
               </button>
               <div id="itinerary-day-04" class="itinerary-content overflow-hidden transition-[max-height] duration-500 ease-in-out" role="region" aria-hidden="true">
-                <div class="grid gap-5 border-t border-slate-100 px-4 pb-5 pt-4 sm:px-5 lg:grid-cols-[minmax(0,1fr)_220px]">
-                  <div><div class="grid gap-3 sm:grid-cols-2 mb-4"><div class="itinerary-meta"><i data-lucide="map-pin" aria-hidden="true"></i><span><strong>Location</strong>Namche Bazaar</span></div><div class="itinerary-meta"><i data-lucide="bed" aria-hidden="true"></i><span><strong>Accommodation</strong>Tea house</span></div><div class="itinerary-meta"><i data-lucide="utensils" aria-hidden="true"></i><span><strong>Meals</strong>Breakfast, lunch, dinner</span></div><div class="itinerary-meta"><i data-lucide="clock" aria-hidden="true"></i><span><strong>Duration</strong>2 to 4 hours hike</span></div></div><p class="mb-4 text-sm leading-7 text-slate-600">Hike high and sleep low with an acclimatization walk to Everest View Hotel or nearby ridges, then explore Namche's bakeries and markets.</p>
+                <div class="grid gap-5 border-t border-gray-100 px-4 pb-5 pt-4 sm:px-5 lg:grid-cols-[minmax(0,1fr)_220px]">
+                  <div><div class="grid gap-3 sm:grid-cols-2 mb-4"><div class="itinerary-meta"><i data-lucide="map-pin" aria-hidden="true"></i><span><strong>Location</strong>Namche Bazaar</span></div><div class="itinerary-meta"><i data-lucide="bed" aria-hidden="true"></i><span><strong>Accommodation</strong>Tea house</span></div><div class="itinerary-meta"><i data-lucide="utensils" aria-hidden="true"></i><span><strong>Meals</strong>Breakfast, lunch, dinner</span></div><div class="itinerary-meta"><i data-lucide="clock" aria-hidden="true"></i><span><strong>Duration</strong>2 to 4 hours hike</span></div></div><p class="mb-4 text-sm leading-7 text-gray-600">Hike high and sleep low with an acclimatization walk to Everest View Hotel or nearby ridges, then explore Namche's bakeries and markets.</p>
                   <div class="mb-4 flex flex-wrap gap-2">
                     <span class="itinerary-chip">Acclimatization hike</span>
                     <span class="itinerary-chip">Everest View Hotel</span>
@@ -2613,15 +2613,15 @@
               </div>
             </article>
 
-            <article class="itinerary-card is-open group relative overflow-hidden rounded-lg border border-[#2775BD]/30 bg-white shadow-[0_18px_50px_rgba(39,117,189,0.12)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#2775BD] hover:shadow-[0_18px_50px_rgba(39,117,189,0.12)]" data-itinerary-card>
+            <article class="itinerary-card is-open group relative overflow-hidden rounded-lg border border-[#2775BD]/30 bg-white shadow-[0_18px_50px_rgba(39,117,189,0.12)] transition-all duration-300 hover:-trangray-y-0.5 hover:border-[#2775BD] hover:shadow-[0_18px_50px_rgba(39,117,189,0.12)]" data-itinerary-card>
               <button type="button" class="itinerary-trigger flex w-full items-start gap-4 px-4 py-4 text-left sm:gap-5 sm:px-5 sm:py-5" aria-expanded="false" aria-controls="itinerary-day-05" data-itinerary-toggle>
                 <span class="flex h-7 w-7 sm:w-10 sm:h-10  shrink-0 items-center justify-center rounded-full bg-[#2775BD] text-sm font-bold text-white shadow-[0_18px_50px_rgba(39,117,189,0.12)] ring-4 ring-white">05</span>
-                <span class="min-w-0 flex-1"><span class="mb-2 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between"><span class="text-sm font-bold text-slate-950 sm:text-xl">Namche Bazaar to Tengboche</span><span class="inline-flex w-fit items-center gap-1.5 rounded-full bg-[#DDEFFF]/20 px-3 py-1.5 text-xs font-bold text-[#2775BD] ring-1 ring-[#2775BD]"><i data-lucide="trending-up" class="h-3.5 w-3.5" aria-hidden="true"></i>3,860m</span></span><span class="block text-sm leading-6 text-slate-500">Traverse scenic ridges to the spiritual heart of the Khumbu.</span></span>
-                <span class="itinerary-chevron mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 transition duration-300 group-hover:border-[#2775BD] group-hover:text-[#2775BD]"><i data-lucide="chevron-down" class="h-4 w-4" aria-hidden="true"></i></span>
+                <span class="min-w-0 flex-1"><span class="mb-2 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between"><span class="text-sm font-bold text-gray-950 sm:text-xl">Namche Bazaar to Tengboche</span><span class="inline-flex w-fit items-center gap-1.5 rounded-full bg-[#DDEFFF]/20 px-3 py-1.5 text-xs font-bold text-[#2775BD] ring-1 ring-[#2775BD]"><i data-lucide="trending-up" class="h-3.5 w-3.5" aria-hidden="true"></i>3,860m</span></span><span class="block text-sm leading-6 text-gray-500">Traverse scenic ridges to the spiritual heart of the Khumbu.</span></span>
+                <span class="itinerary-chevron mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 transition duration-300 group-hover:border-[#2775BD] group-hover:text-[#2775BD]"><i data-lucide="chevron-down" class="h-4 w-4" aria-hidden="true"></i></span>
               </button>
               <div id="itinerary-day-05" class="itinerary-content overflow-hidden transition-[max-height] duration-500 ease-in-out" role="region" aria-hidden="true">
-                <div class="grid gap-5 border-t border-slate-100 px-4 pb-5 pt-4 sm:px-5 lg:grid-cols-[minmax(0,1fr)_220px]">
-                  <div><div class="grid gap-3 sm:grid-cols-2 mb-4"><div class="itinerary-meta"><i data-lucide="map-pin" aria-hidden="true"></i><span><strong>Location</strong>Namche to Tengboche</span></div><div class="itinerary-meta"><i data-lucide="bed" aria-hidden="true"></i><span><strong>Accommodation</strong>Tea house</span></div><div class="itinerary-meta"><i data-lucide="utensils" aria-hidden="true"></i><span><strong>Meals</strong>Breakfast, lunch, dinner</span></div><div class="itinerary-meta"><i data-lucide="clock" aria-hidden="true"></i><span><strong>Duration</strong>5 to 6 hours trek</span></div></div><p class="mb-4 text-sm leading-7 text-slate-600">Walk with views of Ama Dablam and Everest before climbing through rhododendron forest to Tengboche Monastery.</p>
+                <div class="grid gap-5 border-t border-gray-100 px-4 pb-5 pt-4 sm:px-5 lg:grid-cols-[minmax(0,1fr)_220px]">
+                  <div><div class="grid gap-3 sm:grid-cols-2 mb-4"><div class="itinerary-meta"><i data-lucide="map-pin" aria-hidden="true"></i><span><strong>Location</strong>Namche to Tengboche</span></div><div class="itinerary-meta"><i data-lucide="bed" aria-hidden="true"></i><span><strong>Accommodation</strong>Tea house</span></div><div class="itinerary-meta"><i data-lucide="utensils" aria-hidden="true"></i><span><strong>Meals</strong>Breakfast, lunch, dinner</span></div><div class="itinerary-meta"><i data-lucide="clock" aria-hidden="true"></i><span><strong>Duration</strong>5 to 6 hours trek</span></div></div><p class="mb-4 text-sm leading-7 text-gray-600">Walk with views of Ama Dablam and Everest before climbing through rhododendron forest to Tengboche Monastery.</p>
                   <div class="mb-4 flex flex-wrap gap-2">
                     <span class="itinerary-chip">Tengboche Monastery</span>
                     <span class="itinerary-chip">Ama Dablam views</span>
@@ -2637,15 +2637,15 @@
               </div>
             </article>
 
-            <article class="itinerary-card is-open group relative overflow-hidden rounded-lg border border-[#2775BD]/30 bg-white shadow-[0_18px_50px_rgba(39,117,189,0.12)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#2775BD] hover:shadow-[0_18px_50px_rgba(39,117,189,0.12)]" data-itinerary-card>
+            <article class="itinerary-card is-open group relative overflow-hidden rounded-lg border border-[#2775BD]/30 bg-white shadow-[0_18px_50px_rgba(39,117,189,0.12)] transition-all duration-300 hover:-trangray-y-0.5 hover:border-[#2775BD] hover:shadow-[0_18px_50px_rgba(39,117,189,0.12)]" data-itinerary-card>
               <button type="button" class="itinerary-trigger flex w-full items-start gap-4 px-4 py-4 text-left sm:gap-5 sm:px-5 sm:py-5" aria-expanded="false" aria-controls="itinerary-day-06" data-itinerary-toggle>
                 <span class="flex h-7 w-7 sm:w-10 sm:h-10  shrink-0 items-center justify-center rounded-full bg-[#2775BD] text-sm font-bold text-white shadow-[0_18px_50px_rgba(39,117,189,0.12)] ring-4 ring-white">06</span>
-                <span class="min-w-0 flex-1"><span class="mb-2 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between"><span class="text-sm font-bold text-slate-950 sm:text-xl">Trek from Tengboche to Dingboche</span><span class="inline-flex w-fit items-center gap-1.5 rounded-full bg-[#DDEFFF]/20 px-3 py-1.5 text-xs font-bold text-[#2775BD] ring-1 ring-[#2775BD]"><i data-lucide="trending-up" class="h-3.5 w-3.5" aria-hidden="true"></i>4,410m</span></span><span class="block text-sm leading-6 text-slate-500">Move above the tree line into broader alpine landscapes.</span></span>
-                <span class="itinerary-chevron mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 transition duration-300 group-hover:border-[#2775BD] group-hover:text-[#2775BD]"><i data-lucide="chevron-down" class="h-4 w-4" aria-hidden="true"></i></span>
+                <span class="min-w-0 flex-1"><span class="mb-2 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between"><span class="text-sm font-bold text-gray-950 sm:text-xl">Trek from Tengboche to Dingboche</span><span class="inline-flex w-fit items-center gap-1.5 rounded-full bg-[#DDEFFF]/20 px-3 py-1.5 text-xs font-bold text-[#2775BD] ring-1 ring-[#2775BD]"><i data-lucide="trending-up" class="h-3.5 w-3.5" aria-hidden="true"></i>4,410m</span></span><span class="block text-sm leading-6 text-gray-500">Move above the tree line into broader alpine landscapes.</span></span>
+                <span class="itinerary-chevron mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 transition duration-300 group-hover:border-[#2775BD] group-hover:text-[#2775BD]"><i data-lucide="chevron-down" class="h-4 w-4" aria-hidden="true"></i></span>
               </button>
               <div id="itinerary-day-06" class="itinerary-content overflow-hidden transition-[max-height] duration-500 ease-in-out" role="region" aria-hidden="true">
-                <div class="grid gap-5 border-t border-slate-100 px-4 pb-5 pt-4 sm:px-5 lg:grid-cols-[minmax(0,1fr)_220px]">
-                  <div><div class="grid gap-3 sm:grid-cols-2 mb-4"><div class="itinerary-meta"><i data-lucide="map-pin" aria-hidden="true"></i><span><strong>Location</strong>Tengboche to Dingboche</span></div><div class="itinerary-meta"><i data-lucide="bed" aria-hidden="true"></i><span><strong>Accommodation</strong>Tea house</span></div><div class="itinerary-meta"><i data-lucide="utensils" aria-hidden="true"></i><span><strong>Meals</strong>Breakfast, lunch, dinner</span></div><div class="itinerary-meta"><i data-lucide="clock" aria-hidden="true"></i><span><strong>Duration</strong>5 to 6 hours trek</span></div></div><p class="mb-4 text-sm leading-7 text-slate-600">Descend briefly to Deboche, cross the Imja Khola, and climb gradually toward Dingboche with sweeping views of Lhotse and Island Peak.</p>
+                <div class="grid gap-5 border-t border-gray-100 px-4 pb-5 pt-4 sm:px-5 lg:grid-cols-[minmax(0,1fr)_220px]">
+                  <div><div class="grid gap-3 sm:grid-cols-2 mb-4"><div class="itinerary-meta"><i data-lucide="map-pin" aria-hidden="true"></i><span><strong>Location</strong>Tengboche to Dingboche</span></div><div class="itinerary-meta"><i data-lucide="bed" aria-hidden="true"></i><span><strong>Accommodation</strong>Tea house</span></div><div class="itinerary-meta"><i data-lucide="utensils" aria-hidden="true"></i><span><strong>Meals</strong>Breakfast, lunch, dinner</span></div><div class="itinerary-meta"><i data-lucide="clock" aria-hidden="true"></i><span><strong>Duration</strong>5 to 6 hours trek</span></div></div><p class="mb-4 text-sm leading-7 text-gray-600">Descend briefly to Deboche, cross the Imja Khola, and climb gradually toward Dingboche with sweeping views of Lhotse and Island Peak.</p>
                   <div class="mb-4 flex flex-wrap gap-2">
                     <span class="itinerary-chip">High alpine trail</span>
                     <span class="itinerary-chip">Lhotse views</span>
@@ -2661,15 +2661,15 @@
               </div>
             </article>
 
-            <article class="itinerary-card is-open group relative overflow-hidden rounded-lg border border-[#2775BD]/30 bg-white shadow-[0_18px_50px_rgba(39,117,189,0.12)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#2775BD] hover:shadow-[0_18px_50px_rgba(39,117,189,0.12)]" data-itinerary-card>
+            <article class="itinerary-card is-open group relative overflow-hidden rounded-lg border border-[#2775BD]/30 bg-white shadow-[0_18px_50px_rgba(39,117,189,0.12)] transition-all duration-300 hover:-trangray-y-0.5 hover:border-[#2775BD] hover:shadow-[0_18px_50px_rgba(39,117,189,0.12)]" data-itinerary-card>
               <button type="button" class="itinerary-trigger flex w-full items-start gap-4 px-4 py-4 text-left sm:gap-5 sm:px-5 sm:py-5" aria-expanded="false" aria-controls="itinerary-day-07" data-itinerary-toggle>
                 <span class="flex h-7 w-7 sm:w-10 sm:h-10  shrink-0 items-center justify-center rounded-full bg-[#2775BD] text-sm font-bold text-white shadow-[0_18px_50px_rgba(39,117,189,0.12)] ring-4 ring-white">07</span>
-                <span class="min-w-0 flex-1"><span class="mb-2 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between"><span class="text-sm font-bold text-slate-950 sm:text-xl">Acclimatization Day at Dingboche</span><span class="inline-flex w-fit items-center gap-1.5 rounded-full bg-[#DDEFFF]/20 px-3 py-1.5 text-xs font-bold text-[#2775BD] ring-1 ring-[#2775BD]"><i data-lucide="activity" class="h-3.5 w-3.5" aria-hidden="true"></i>4,410m</span></span><span class="block text-sm leading-6 text-slate-500">Rest, hydrate, and hike above Dingboche for better adaptation.</span></span>
-                <span class="itinerary-chevron mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 transition duration-300 group-hover:border-[#2775BD] group-hover:text-[#2775BD]"><i data-lucide="chevron-down" class="h-4 w-4" aria-hidden="true"></i></span>
+                <span class="min-w-0 flex-1"><span class="mb-2 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between"><span class="text-sm font-bold text-gray-950 sm:text-xl">Acclimatization Day at Dingboche</span><span class="inline-flex w-fit items-center gap-1.5 rounded-full bg-[#DDEFFF]/20 px-3 py-1.5 text-xs font-bold text-[#2775BD] ring-1 ring-[#2775BD]"><i data-lucide="activity" class="h-3.5 w-3.5" aria-hidden="true"></i>4,410m</span></span><span class="block text-sm leading-6 text-gray-500">Rest, hydrate, and hike above Dingboche for better adaptation.</span></span>
+                <span class="itinerary-chevron mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 transition duration-300 group-hover:border-[#2775BD] group-hover:text-[#2775BD]"><i data-lucide="chevron-down" class="h-4 w-4" aria-hidden="true"></i></span>
               </button>
               <div id="itinerary-day-07" class="itinerary-content overflow-hidden transition-[max-height] duration-500 ease-in-out" role="region" aria-hidden="true">
-                <div class="grid gap-5 border-t border-slate-100 px-4 pb-5 pt-4 sm:px-5 lg:grid-cols-[minmax(0,1fr)_220px]">
-                  <div><div class="grid gap-3 sm:grid-cols-2 mb-4"><div class="itinerary-meta"><i data-lucide="map-pin" aria-hidden="true"></i><span><strong>Location</strong>Dingboche</span></div><div class="itinerary-meta"><i data-lucide="bed" aria-hidden="true"></i><span><strong>Accommodation</strong>Tea house</span></div><div class="itinerary-meta"><i data-lucide="utensils" aria-hidden="true"></i><span><strong>Meals</strong>Breakfast, lunch, dinner</span></div><div class="itinerary-meta"><i data-lucide="clock" aria-hidden="true"></i><span><strong>Duration</strong>2 to 4 hours hike</span></div></div><p class="mb-4 text-sm leading-7 text-slate-600">A relaxed acclimatization day supports safe altitude gain. Optional hikes above the village open views toward Makalu, Ama Dablam, and the Imja Valley.</p>
+                <div class="grid gap-5 border-t border-gray-100 px-4 pb-5 pt-4 sm:px-5 lg:grid-cols-[minmax(0,1fr)_220px]">
+                  <div><div class="grid gap-3 sm:grid-cols-2 mb-4"><div class="itinerary-meta"><i data-lucide="map-pin" aria-hidden="true"></i><span><strong>Location</strong>Dingboche</span></div><div class="itinerary-meta"><i data-lucide="bed" aria-hidden="true"></i><span><strong>Accommodation</strong>Tea house</span></div><div class="itinerary-meta"><i data-lucide="utensils" aria-hidden="true"></i><span><strong>Meals</strong>Breakfast, lunch, dinner</span></div><div class="itinerary-meta"><i data-lucide="clock" aria-hidden="true"></i><span><strong>Duration</strong>2 to 4 hours hike</span></div></div><p class="mb-4 text-sm leading-7 text-gray-600">A relaxed acclimatization day supports safe altitude gain. Optional hikes above the village open views toward Makalu, Ama Dablam, and the Imja Valley.</p>
                   <div class="mb-4 flex flex-wrap gap-2">
                     <span class="itinerary-chip">Altitude adaptation</span>
                     <span class="itinerary-chip">Valley views</span>
@@ -2685,15 +2685,15 @@
               </div>
             </article>
 
-            <article class="itinerary-card is-open group relative overflow-hidden rounded-lg border border-[#2775BD]/30 bg-white shadow-[0_18px_50px_rgba(39,117,189,0.12)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#2775BD] hover:shadow-[0_18px_50px_rgba(39,117,189,0.12)]" data-itinerary-card>
+            <article class="itinerary-card is-open group relative overflow-hidden rounded-lg border border-[#2775BD]/30 bg-white shadow-[0_18px_50px_rgba(39,117,189,0.12)] transition-all duration-300 hover:-trangray-y-0.5 hover:border-[#2775BD] hover:shadow-[0_18px_50px_rgba(39,117,189,0.12)]" data-itinerary-card>
               <button type="button" class="itinerary-trigger flex w-full items-start gap-4 px-4 py-4 text-left sm:gap-5 sm:px-5 sm:py-5" aria-expanded="false" aria-controls="itinerary-day-08" data-itinerary-toggle>
                 <span class="flex h-7 w-7 sm:w-10 sm:h-10  shrink-0 items-center justify-center rounded-full bg-[#2775BD] text-sm font-bold text-white shadow-[0_18px_50px_rgba(39,117,189,0.12)] ring-4 ring-white">08</span>
-                <span class="min-w-0 flex-1"><span class="mb-2 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between"><span class="text-sm font-bold text-slate-950 sm:text-xl">Dingboche to Lobuche</span><span class="inline-flex w-fit items-center gap-1.5 rounded-full bg-[#DDEFFF]/20 px-3 py-1.5 text-xs font-bold text-[#2775BD] ring-1 ring-[#2775BD]"><i data-lucide="trending-up" class="h-3.5 w-3.5" aria-hidden="true"></i>4,940m</span></span><span class="block text-sm leading-6 text-slate-500">A solemn, scenic day through the moraine and memorial landscape.</span></span>
-                <span class="itinerary-chevron mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 transition duration-300 group-hover:border-[#2775BD] group-hover:text-[#2775BD]"><i data-lucide="chevron-down" class="h-4 w-4" aria-hidden="true"></i></span>
+                <span class="min-w-0 flex-1"><span class="mb-2 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between"><span class="text-sm font-bold text-gray-950 sm:text-xl">Dingboche to Lobuche</span><span class="inline-flex w-fit items-center gap-1.5 rounded-full bg-[#DDEFFF]/20 px-3 py-1.5 text-xs font-bold text-[#2775BD] ring-1 ring-[#2775BD]"><i data-lucide="trending-up" class="h-3.5 w-3.5" aria-hidden="true"></i>4,940m</span></span><span class="block text-sm leading-6 text-gray-500">A solemn, scenic day through the moraine and memorial landscape.</span></span>
+                <span class="itinerary-chevron mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 transition duration-300 group-hover:border-[#2775BD] group-hover:text-[#2775BD]"><i data-lucide="chevron-down" class="h-4 w-4" aria-hidden="true"></i></span>
               </button>
               <div id="itinerary-day-08" class="itinerary-content overflow-hidden transition-[max-height] duration-500 ease-in-out" role="region" aria-hidden="true">
-                <div class="grid gap-5 border-t border-slate-100 px-4 pb-5 pt-4 sm:px-5 lg:grid-cols-[minmax(0,1fr)_220px]">
-                  <div><div class="grid gap-3 sm:grid-cols-2 mb-4"><div class="itinerary-meta"><i data-lucide="map-pin" aria-hidden="true"></i><span><strong>Location</strong>Dingboche to Lobuche</span></div><div class="itinerary-meta"><i data-lucide="bed" aria-hidden="true"></i><span><strong>Accommodation</strong>Tea house</span></div><div class="itinerary-meta"><i data-lucide="utensils" aria-hidden="true"></i><span><strong>Meals</strong>Breakfast, lunch, dinner</span></div><div class="itinerary-meta"><i data-lucide="clock" aria-hidden="true"></i><span><strong>Duration</strong>5 to 6 hours trek</span></div></div><p class="mb-4 text-sm leading-7 text-slate-600">Climb gently past Dughla and the climbers' memorials, then follow glacial terrain toward Lobuche below Nuptse's rugged wall.</p>
+                <div class="grid gap-5 border-t border-gray-100 px-4 pb-5 pt-4 sm:px-5 lg:grid-cols-[minmax(0,1fr)_220px]">
+                  <div><div class="grid gap-3 sm:grid-cols-2 mb-4"><div class="itinerary-meta"><i data-lucide="map-pin" aria-hidden="true"></i><span><strong>Location</strong>Dingboche to Lobuche</span></div><div class="itinerary-meta"><i data-lucide="bed" aria-hidden="true"></i><span><strong>Accommodation</strong>Tea house</span></div><div class="itinerary-meta"><i data-lucide="utensils" aria-hidden="true"></i><span><strong>Meals</strong>Breakfast, lunch, dinner</span></div><div class="itinerary-meta"><i data-lucide="clock" aria-hidden="true"></i><span><strong>Duration</strong>5 to 6 hours trek</span></div></div><p class="mb-4 text-sm leading-7 text-gray-600">Climb gently past Dughla and the climbers' memorials, then follow glacial terrain toward Lobuche below Nuptse's rugged wall.</p>
                   <div class="mb-4 flex flex-wrap gap-2">
                     <span class="itinerary-chip">Memorial ridge</span>
                     <span class="itinerary-chip">Glacial valley</span>
@@ -2709,15 +2709,15 @@
               </div>
             </article>
 
-            <article class="itinerary-card is-open group relative overflow-hidden rounded-lg border border-[#2775BD]/30 bg-white shadow-[0_18px_50px_rgba(39,117,189,0.12)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#2775BD] hover:shadow-[0_18px_50px_rgba(39,117,189,0.12)]" data-itinerary-card>
+            <article class="itinerary-card is-open group relative overflow-hidden rounded-lg border border-[#2775BD]/30 bg-white shadow-[0_18px_50px_rgba(39,117,189,0.12)] transition-all duration-300 hover:-trangray-y-0.5 hover:border-[#2775BD] hover:shadow-[0_18px_50px_rgba(39,117,189,0.12)]" data-itinerary-card>
               <button type="button" class="itinerary-trigger flex w-full items-start gap-4 px-4 py-4 text-left sm:gap-5 sm:px-5 sm:py-5" aria-expanded="false" aria-controls="itinerary-day-09" data-itinerary-toggle>
                 <span class="flex h-7 w-7 sm:w-10 sm:h-10  shrink-0 items-center justify-center rounded-full bg-[#2775BD] text-sm font-bold text-white shadow-[0_18px_50px_rgba(39,117,189,0.12)] ring-4 ring-white">09</span>
-                <span class="min-w-0 flex-1"><span class="mb-2 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between"><span class="text-sm font-bold text-slate-950 sm:text-xl">Lobuche to Gorak Shep and Everest Base Camp</span><span class="inline-flex w-fit items-center gap-1.5 rounded-full bg-[#DDEFFF]/20 px-3 py-1.5 text-xs font-bold text-[#2775BD] ring-1 ring-[#2775BD]"><i data-lucide="flag" class="h-3.5 w-3.5" aria-hidden="true"></i>5,364m</span></span><span class="block text-sm leading-6 text-slate-500">Reach the iconic base of the world's highest mountain.</span></span>
-                <span class="itinerary-chevron mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 transition duration-300 group-hover:border-[#2775BD] group-hover:text-[#2775BD]"><i data-lucide="chevron-down" class="h-4 w-4" aria-hidden="true"></i></span>
+                <span class="min-w-0 flex-1"><span class="mb-2 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between"><span class="text-sm font-bold text-gray-950 sm:text-xl">Lobuche to Gorak Shep and Everest Base Camp</span><span class="inline-flex w-fit items-center gap-1.5 rounded-full bg-[#DDEFFF]/20 px-3 py-1.5 text-xs font-bold text-[#2775BD] ring-1 ring-[#2775BD]"><i data-lucide="flag" class="h-3.5 w-3.5" aria-hidden="true"></i>5,364m</span></span><span class="block text-sm leading-6 text-gray-500">Reach the iconic base of the world's highest mountain.</span></span>
+                <span class="itinerary-chevron mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 transition duration-300 group-hover:border-[#2775BD] group-hover:text-[#2775BD]"><i data-lucide="chevron-down" class="h-4 w-4" aria-hidden="true"></i></span>
               </button>
               <div id="itinerary-day-09" class="itinerary-content overflow-hidden transition-[max-height] duration-500 ease-in-out" role="region" aria-hidden="true">
-                <div class="grid gap-5 border-t border-slate-100 px-4 pb-5 pt-4 sm:px-5 lg:grid-cols-[minmax(0,1fr)_220px]">
-                  <div><div class="grid gap-3 sm:grid-cols-2 mb-4"><div class="itinerary-meta"><i data-lucide="map-pin" aria-hidden="true"></i><span><strong>Location</strong>Lobuche, Gorak Shep, EBC</span></div><div class="itinerary-meta"><i data-lucide="bed" aria-hidden="true"></i><span><strong>Accommodation</strong>Tea house at Gorak Shep</span></div><div class="itinerary-meta"><i data-lucide="utensils" aria-hidden="true"></i><span><strong>Meals</strong>Breakfast, lunch, dinner</span></div><div class="itinerary-meta"><i data-lucide="clock" aria-hidden="true"></i><span><strong>Duration</strong>7 to 8 hours trek</span></div></div><p class="mb-4 text-sm leading-7 text-slate-600">Walk through moraine to Gorak Shep, then continue to Everest Base Camp for prayer flags, Khumbu Icefall views, and the trip's signature achievement.</p>
+                <div class="grid gap-5 border-t border-gray-100 px-4 pb-5 pt-4 sm:px-5 lg:grid-cols-[minmax(0,1fr)_220px]">
+                  <div><div class="grid gap-3 sm:grid-cols-2 mb-4"><div class="itinerary-meta"><i data-lucide="map-pin" aria-hidden="true"></i><span><strong>Location</strong>Lobuche, Gorak Shep, EBC</span></div><div class="itinerary-meta"><i data-lucide="bed" aria-hidden="true"></i><span><strong>Accommodation</strong>Tea house at Gorak Shep</span></div><div class="itinerary-meta"><i data-lucide="utensils" aria-hidden="true"></i><span><strong>Meals</strong>Breakfast, lunch, dinner</span></div><div class="itinerary-meta"><i data-lucide="clock" aria-hidden="true"></i><span><strong>Duration</strong>7 to 8 hours trek</span></div></div><p class="mb-4 text-sm leading-7 text-gray-600">Walk through moraine to Gorak Shep, then continue to Everest Base Camp for prayer flags, Khumbu Icefall views, and the trip's signature achievement.</p>
                   <div class="mb-4 flex flex-wrap gap-2">
                     <span class="itinerary-chip">Everest Base Camp</span>
                     <span class="itinerary-chip">Khumbu Icefall</span>
@@ -2733,15 +2733,15 @@
               </div>
             </article>
 
-            <article class="itinerary-card is-open group relative overflow-hidden rounded-lg border border-[#2775BD]/30 bg-white shadow-[0_18px_50px_rgba(39,117,189,0.12)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#2775BD] hover:shadow-[0_18px_50px_rgba(39,117,189,0.12)]" data-itinerary-card>
+            <article class="itinerary-card is-open group relative overflow-hidden rounded-lg border border-[#2775BD]/30 bg-white shadow-[0_18px_50px_rgba(39,117,189,0.12)] transition-all duration-300 hover:-trangray-y-0.5 hover:border-[#2775BD] hover:shadow-[0_18px_50px_rgba(39,117,189,0.12)]" data-itinerary-card>
               <button type="button" class="itinerary-trigger flex w-full items-start gap-4 px-4 py-4 text-left sm:gap-5 sm:px-5 sm:py-5" aria-expanded="false" aria-controls="itinerary-day-10" data-itinerary-toggle>
                 <span class="flex h-7 w-7 sm:w-10 sm:h-10  shrink-0 items-center justify-center rounded-full bg-[#2775BD] text-sm font-bold text-white shadow-[0_18px_50px_rgba(39,117,189,0.12)] ring-4 ring-white">10</span>
-                <span class="min-w-0 flex-1"><span class="mb-2 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between"><span class="text-sm font-bold text-slate-950 sm:text-xl">Kala Patthar Sunrise and Return to Pheriche</span><span class="inline-flex w-fit items-center gap-1.5 rounded-full bg-[#DDEFFF]/20 px-3 py-1.5 text-xs font-bold text-[#2775BD] ring-1 ring-[#2775BD]"><i data-lucide="sunrise" class="h-3.5 w-3.5" aria-hidden="true"></i>5,545m</span></span><span class="block text-sm leading-6 text-slate-500">The highest viewpoint day, followed by a careful descent.</span></span>
-                <span class="itinerary-chevron mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 transition duration-300 group-hover:border-[#2775BD] group-hover:text-[#2775BD]"><i data-lucide="chevron-down" class="h-4 w-4" aria-hidden="true"></i></span>
+                <span class="min-w-0 flex-1"><span class="mb-2 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between"><span class="text-sm font-bold text-gray-950 sm:text-xl">Kala Patthar Sunrise and Return to Pheriche</span><span class="inline-flex w-fit items-center gap-1.5 rounded-full bg-[#DDEFFF]/20 px-3 py-1.5 text-xs font-bold text-[#2775BD] ring-1 ring-[#2775BD]"><i data-lucide="sunrise" class="h-3.5 w-3.5" aria-hidden="true"></i>5,545m</span></span><span class="block text-sm leading-6 text-gray-500">The highest viewpoint day, followed by a careful descent.</span></span>
+                <span class="itinerary-chevron mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 transition duration-300 group-hover:border-[#2775BD] group-hover:text-[#2775BD]"><i data-lucide="chevron-down" class="h-4 w-4" aria-hidden="true"></i></span>
               </button>
               <div id="itinerary-day-10" class="itinerary-content overflow-hidden transition-[max-height] duration-500 ease-in-out" role="region" aria-hidden="true">
-                <div class="grid gap-5 border-t border-slate-100 px-4 pb-5 pt-4 sm:px-5 lg:grid-cols-[minmax(0,1fr)_220px]">
-                  <div><div class="grid gap-3 sm:grid-cols-2 mb-4"><div class="itinerary-meta"><i data-lucide="map-pin" aria-hidden="true"></i><span><strong>Location</strong>Gorak Shep to Pheriche</span></div><div class="itinerary-meta"><i data-lucide="bed" aria-hidden="true"></i><span><strong>Accommodation</strong>Tea house</span></div><div class="itinerary-meta"><i data-lucide="utensils" aria-hidden="true"></i><span><strong>Meals</strong>Breakfast, lunch, dinner</span></div><div class="itinerary-meta"><i data-lucide="clock" aria-hidden="true"></i><span><strong>Duration</strong>7 to 8 hours trek</span></div></div><p class="mb-4 text-sm leading-7 text-slate-600">Start early for Kala Patthar's close Everest panorama, then descend through Gorak Shep and Lobuche to the calmer air of Pheriche.</p>
+                <div class="grid gap-5 border-t border-gray-100 px-4 pb-5 pt-4 sm:px-5 lg:grid-cols-[minmax(0,1fr)_220px]">
+                  <div><div class="grid gap-3 sm:grid-cols-2 mb-4"><div class="itinerary-meta"><i data-lucide="map-pin" aria-hidden="true"></i><span><strong>Location</strong>Gorak Shep to Pheriche</span></div><div class="itinerary-meta"><i data-lucide="bed" aria-hidden="true"></i><span><strong>Accommodation</strong>Tea house</span></div><div class="itinerary-meta"><i data-lucide="utensils" aria-hidden="true"></i><span><strong>Meals</strong>Breakfast, lunch, dinner</span></div><div class="itinerary-meta"><i data-lucide="clock" aria-hidden="true"></i><span><strong>Duration</strong>7 to 8 hours trek</span></div></div><p class="mb-4 text-sm leading-7 text-gray-600">Start early for Kala Patthar's close Everest panorama, then descend through Gorak Shep and Lobuche to the calmer air of Pheriche.</p>
                   <div class="mb-4 flex flex-wrap gap-2">
                     <span class="itinerary-chip">Kala Patthar</span>
                     <span class="itinerary-chip">Everest panorama</span>
@@ -2757,15 +2757,15 @@
               </div>
             </article>
 
-            <article class="itinerary-card is-open group relative overflow-hidden rounded-lg border border-[#2775BD]/30 bg-white shadow-[0_18px_50px_rgba(39,117,189,0.12)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#2775BD] hover:shadow-[0_18px_50px_rgba(39,117,189,0.12)]" data-itinerary-card>
+            <article class="itinerary-card is-open group relative overflow-hidden rounded-lg border border-[#2775BD]/30 bg-white shadow-[0_18px_50px_rgba(39,117,189,0.12)] transition-all duration-300 hover:-trangray-y-0.5 hover:border-[#2775BD] hover:shadow-[0_18px_50px_rgba(39,117,189,0.12)]" data-itinerary-card>
               <button type="button" class="itinerary-trigger flex w-full items-start gap-4 px-4 py-4 text-left sm:gap-5 sm:px-5 sm:py-5" aria-expanded="false" aria-controls="itinerary-day-11" data-itinerary-toggle>
                 <span class="flex h-7 w-7 sm:w-10 sm:h-10  shrink-0 items-center justify-center rounded-full bg-[#2775BD] text-sm font-bold text-white shadow-[0_18px_50px_rgba(39,117,189,0.12)] ring-4 ring-white">11</span>
-                <span class="min-w-0 flex-1"><span class="mb-2 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between"><span class="text-sm font-bold text-slate-950 sm:text-xl">Pheriche to Namche Bazaar</span><span class="inline-flex w-fit items-center gap-1.5 rounded-full bg-[#DDEFFF]/20 px-3 py-1.5 text-xs font-bold text-[#2775BD] ring-1 ring-[#2775BD]"><i data-lucide="trending-down" class="h-3.5 w-3.5" aria-hidden="true"></i>3,440m</span></span><span class="block text-sm leading-6 text-slate-500">Retrace the trail to warmer villages and familiar ridges.</span></span>
-                <span class="itinerary-chevron mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 transition duration-300 group-hover:border-[#2775BD] group-hover:text-[#2775BD]"><i data-lucide="chevron-down" class="h-4 w-4" aria-hidden="true"></i></span>
+                <span class="min-w-0 flex-1"><span class="mb-2 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between"><span class="text-sm font-bold text-gray-950 sm:text-xl">Pheriche to Namche Bazaar</span><span class="inline-flex w-fit items-center gap-1.5 rounded-full bg-[#DDEFFF]/20 px-3 py-1.5 text-xs font-bold text-[#2775BD] ring-1 ring-[#2775BD]"><i data-lucide="trending-down" class="h-3.5 w-3.5" aria-hidden="true"></i>3,440m</span></span><span class="block text-sm leading-6 text-gray-500">Retrace the trail to warmer villages and familiar ridges.</span></span>
+                <span class="itinerary-chevron mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 transition duration-300 group-hover:border-[#2775BD] group-hover:text-[#2775BD]"><i data-lucide="chevron-down" class="h-4 w-4" aria-hidden="true"></i></span>
               </button>
               <div id="itinerary-day-11" class="itinerary-content overflow-hidden transition-[max-height] duration-500 ease-in-out" role="region" aria-hidden="true">
-                <div class="grid gap-5 border-t border-slate-100 px-4 pb-5 pt-4 sm:px-5 lg:grid-cols-[minmax(0,1fr)_220px]">
-                  <div><div class="grid gap-3 sm:grid-cols-2 mb-4"><div class="itinerary-meta"><i data-lucide="map-pin" aria-hidden="true"></i><span><strong>Location</strong>Pheriche to Namche</span></div><div class="itinerary-meta"><i data-lucide="bed" aria-hidden="true"></i><span><strong>Accommodation</strong>Tea house</span></div><div class="itinerary-meta"><i data-lucide="utensils" aria-hidden="true"></i><span><strong>Meals</strong>Breakfast, lunch, dinner</span></div><div class="itinerary-meta"><i data-lucide="clock" aria-hidden="true"></i><span><strong>Duration</strong>6 to 7 hours trek</span></div></div><p class="mb-4 text-sm leading-7 text-slate-600">Descend past Pangboche and Tengboche, enjoying thicker air and a more relaxed pace back toward Namche Bazaar.</p>
+                <div class="grid gap-5 border-t border-gray-100 px-4 pb-5 pt-4 sm:px-5 lg:grid-cols-[minmax(0,1fr)_220px]">
+                  <div><div class="grid gap-3 sm:grid-cols-2 mb-4"><div class="itinerary-meta"><i data-lucide="map-pin" aria-hidden="true"></i><span><strong>Location</strong>Pheriche to Namche</span></div><div class="itinerary-meta"><i data-lucide="bed" aria-hidden="true"></i><span><strong>Accommodation</strong>Tea house</span></div><div class="itinerary-meta"><i data-lucide="utensils" aria-hidden="true"></i><span><strong>Meals</strong>Breakfast, lunch, dinner</span></div><div class="itinerary-meta"><i data-lucide="clock" aria-hidden="true"></i><span><strong>Duration</strong>6 to 7 hours trek</span></div></div><p class="mb-4 text-sm leading-7 text-gray-600">Descend past Pangboche and Tengboche, enjoying thicker air and a more relaxed pace back toward Namche Bazaar.</p>
                   <div class="mb-4 flex flex-wrap gap-2">
                     <span class="itinerary-chip">Pangboche village</span>
                     <span class="itinerary-chip">Forest trail</span>
@@ -2781,15 +2781,15 @@
               </div>
             </article>
 
-            <article class="itinerary-card is-open group relative overflow-hidden rounded-lg border border-[#2775BD]/30 bg-white shadow-[0_18px_50px_rgba(39,117,189,0.12)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#2775BD] hover:shadow-[0_18px_50px_rgba(39,117,189,0.12)]" data-itinerary-card>
+            <article class="itinerary-card is-open group relative overflow-hidden rounded-lg border border-[#2775BD]/30 bg-white shadow-[0_18px_50px_rgba(39,117,189,0.12)] transition-all duration-300 hover:-trangray-y-0.5 hover:border-[#2775BD] hover:shadow-[0_18px_50px_rgba(39,117,189,0.12)]" data-itinerary-card>
               <button type="button" class="itinerary-trigger flex w-full items-start gap-4 px-4 py-4 text-left sm:gap-5 sm:px-5 sm:py-5" aria-expanded="false" aria-controls="itinerary-day-12" data-itinerary-toggle>
                 <span class="flex h-7 w-7 sm:w-10 sm:h-10  shrink-0 items-center justify-center rounded-full bg-[#2775BD] text-sm font-bold text-white shadow-[0_18px_50px_rgba(39,117,189,0.12)] ring-4 ring-white">12</span>
-                <span class="min-w-0 flex-1"><span class="mb-2 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between"><span class="text-sm font-bold text-slate-950 sm:text-xl">Namche Bazaar to Lukla</span><span class="inline-flex w-fit items-center gap-1.5 rounded-full bg-[#DDEFFF]/20 px-3 py-1.5 text-xs font-bold text-[#2775BD] ring-1 ring-[#2775BD]"><i data-lucide="trending-down" class="h-3.5 w-3.5" aria-hidden="true"></i>2,860m</span></span><span class="block text-sm leading-6 text-slate-500">A final full trekking day along the Dudh Koshi valley.</span></span>
-                <span class="itinerary-chevron mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 transition duration-300 group-hover:border-[#2775BD] group-hover:text-[#2775BD]"><i data-lucide="chevron-down" class="h-4 w-4" aria-hidden="true"></i></span>
+                <span class="min-w-0 flex-1"><span class="mb-2 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between"><span class="text-sm font-bold text-gray-950 sm:text-xl">Namche Bazaar to Lukla</span><span class="inline-flex w-fit items-center gap-1.5 rounded-full bg-[#DDEFFF]/20 px-3 py-1.5 text-xs font-bold text-[#2775BD] ring-1 ring-[#2775BD]"><i data-lucide="trending-down" class="h-3.5 w-3.5" aria-hidden="true"></i>2,860m</span></span><span class="block text-sm leading-6 text-gray-500">A final full trekking day along the Dudh Koshi valley.</span></span>
+                <span class="itinerary-chevron mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 transition duration-300 group-hover:border-[#2775BD] group-hover:text-[#2775BD]"><i data-lucide="chevron-down" class="h-4 w-4" aria-hidden="true"></i></span>
               </button>
               <div id="itinerary-day-12" class="itinerary-content overflow-hidden transition-[max-height] duration-500 ease-in-out" role="region" aria-hidden="true">
-                <div class="grid gap-5 border-t border-slate-100 px-4 pb-5 pt-4 sm:px-5 lg:grid-cols-[minmax(0,1fr)_220px]">
-                  <div><div class="grid gap-3 sm:grid-cols-2"><div class="itinerary-meta"><i data-lucide="map-pin" aria-hidden="true"></i><span><strong>Location</strong>Namche to Lukla</span></div><div class="itinerary-meta"><i data-lucide="bed" aria-hidden="true"></i><span><strong>Accommodation</strong>Tea house</span></div><div class="itinerary-meta"><i data-lucide="utensils" aria-hidden="true"></i><span><strong>Meals</strong>Breakfast, lunch, dinner</span></div><div class="itinerary-meta"><i data-lucide="clock" aria-hidden="true"></i><span><strong>Duration</strong>6 to 7 hours trek</span></div></div><p class="mb-4 text-sm leading-7 text-slate-600">Cross familiar suspension bridges and villages on the way back to Lukla, where the trekking portion ends with a final evening in the mountains.</p>
+                <div class="grid gap-5 border-t border-gray-100 px-4 pb-5 pt-4 sm:px-5 lg:grid-cols-[minmax(0,1fr)_220px]">
+                  <div><div class="grid gap-3 sm:grid-cols-2"><div class="itinerary-meta"><i data-lucide="map-pin" aria-hidden="true"></i><span><strong>Location</strong>Namche to Lukla</span></div><div class="itinerary-meta"><i data-lucide="bed" aria-hidden="true"></i><span><strong>Accommodation</strong>Tea house</span></div><div class="itinerary-meta"><i data-lucide="utensils" aria-hidden="true"></i><span><strong>Meals</strong>Breakfast, lunch, dinner</span></div><div class="itinerary-meta"><i data-lucide="clock" aria-hidden="true"></i><span><strong>Duration</strong>6 to 7 hours trek</span></div></div><p class="mb-4 text-sm leading-7 text-gray-600">Cross familiar suspension bridges and villages on the way back to Lukla, where the trekking portion ends with a final evening in the mountains.</p>
                   <div class="mb-4 flex flex-wrap gap-2">
                     <span class="itinerary-chip">Suspension bridges</span>
                     <span class="itinerary-chip">Final trail day</span>
@@ -2805,15 +2805,15 @@
               </div>
             </article>
 
-            <article class="itinerary-card is-open group relative overflow-hidden rounded-lg border border-[#2775BD]/30 bg-white shadow-[0_18px_50px_rgba(39,117,189,0.12)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#2775BD] hover:shadow-[0_18px_50px_rgba(39,117,189,0.12)]" data-itinerary-card>
+            <article class="itinerary-card is-open group relative overflow-hidden rounded-lg border border-[#2775BD]/30 bg-white shadow-[0_18px_50px_rgba(39,117,189,0.12)] transition-all duration-300 hover:-trangray-y-0.5 hover:border-[#2775BD] hover:shadow-[0_18px_50px_rgba(39,117,189,0.12)]" data-itinerary-card>
               <button type="button" class="itinerary-trigger flex w-full items-start gap-4 px-4 py-4 text-left sm:gap-5 sm:px-5 sm:py-5" aria-expanded="false" aria-controls="itinerary-day-13" data-itinerary-toggle>
                 <span class="flex h-7 w-7 sm:w-10 sm:h-10  shrink-0 items-center justify-center rounded-full bg-[#2775BD] text-sm font-bold text-white shadow-[0_18px_50px_rgba(39,117,189,0.12)] ring-4 ring-white">13</span>
-                <span class="min-w-0 flex-1"><span class="mb-2 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between"><span class="text-sm font-bold text-slate-950 sm:text-xl">Flight to Kathmandu</span><span class="inline-flex w-fit items-center gap-1.5 rounded-full bg-[#DDEFFF]/20 px-3 py-1.5 text-xs font-bold text-[#2775BD] ring-1 ring-[#2775BD]"><i data-lucide="plane" class="h-3.5 w-3.5" aria-hidden="true"></i>1,400m</span></span><span class="block text-sm leading-6 text-slate-500">Return to the capital with time to rest, shower, and celebrate.</span></span>
-                <span class="itinerary-chevron mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 transition duration-300 group-hover:border-[#2775BD] group-hover:text-[#2775BD]"><i data-lucide="chevron-down" class="h-4 w-4" aria-hidden="true"></i></span>
+                <span class="min-w-0 flex-1"><span class="mb-2 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between"><span class="text-sm font-bold text-gray-950 sm:text-xl">Flight to Kathmandu</span><span class="inline-flex w-fit items-center gap-1.5 rounded-full bg-[#DDEFFF]/20 px-3 py-1.5 text-xs font-bold text-[#2775BD] ring-1 ring-[#2775BD]"><i data-lucide="plane" class="h-3.5 w-3.5" aria-hidden="true"></i>1,400m</span></span><span class="block text-sm leading-6 text-gray-500">Return to the capital with time to rest, shower, and celebrate.</span></span>
+                <span class="itinerary-chevron mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 transition duration-300 group-hover:border-[#2775BD] group-hover:text-[#2775BD]"><i data-lucide="chevron-down" class="h-4 w-4" aria-hidden="true"></i></span>
               </button>
               <div id="itinerary-day-13" class="itinerary-content overflow-hidden transition-[max-height] duration-500 ease-in-out" role="region" aria-hidden="true">
-                <div class="grid gap-5 border-t border-slate-100 px-4 pb-5 pt-4 sm:px-5 lg:grid-cols-[minmax(0,1fr)_220px]">
-                  <div><div class="grid gap-3 sm:grid-cols-2 mb-4"><div class="itinerary-meta"><i data-lucide="map-pin" aria-hidden="true"></i><span><strong>Location</strong>Lukla to Kathmandu</span></div><div class="itinerary-meta"><i data-lucide="bed" aria-hidden="true"></i><span><strong>Accommodation</strong>Hotel in Kathmandu</span></div><div class="itinerary-meta"><i data-lucide="utensils" aria-hidden="true"></i><span><strong>Meals</strong>Breakfast</span></div><div class="itinerary-meta"><i data-lucide="clock" aria-hidden="true"></i><span><strong>Duration</strong>Morning flight</span></div></div><p class="mb-4 text-sm leading-7 text-slate-600">Take the scenic flight back to Kathmandu. The afternoon is open for recovery, extra sightseeing, or a celebratory dinner in Thamel.</p>
+                <div class="grid gap-5 border-t border-gray-100 px-4 pb-5 pt-4 sm:px-5 lg:grid-cols-[minmax(0,1fr)_220px]">
+                  <div><div class="grid gap-3 sm:grid-cols-2 mb-4"><div class="itinerary-meta"><i data-lucide="map-pin" aria-hidden="true"></i><span><strong>Location</strong>Lukla to Kathmandu</span></div><div class="itinerary-meta"><i data-lucide="bed" aria-hidden="true"></i><span><strong>Accommodation</strong>Hotel in Kathmandu</span></div><div class="itinerary-meta"><i data-lucide="utensils" aria-hidden="true"></i><span><strong>Meals</strong>Breakfast</span></div><div class="itinerary-meta"><i data-lucide="clock" aria-hidden="true"></i><span><strong>Duration</strong>Morning flight</span></div></div><p class="mb-4 text-sm leading-7 text-gray-600">Take the scenic flight back to Kathmandu. The afternoon is open for recovery, extra sightseeing, or a celebratory dinner in Thamel.</p>
                   <div class="mb-4 flex flex-wrap gap-2">
                     <span class="itinerary-chip">Scenic flight</span>
                     <span class="itinerary-chip">Kathmandu hotel</span>
@@ -2834,11 +2834,11 @@
 
         <!-- Routes Start-->
         <div id="routes" class="group mb-[56px] px-0 sm:px-4 lg:mb-[72px] lg:scroll-mt-28 lg:px-8">
-          <h2 class="mb-4 flex items-center gap-3 text-xl sm:text-2xl font-bold leading-tight  text-slate-950 lg:mb-5">
+          <h2 class="mb-4 flex items-center gap-3 text-xl sm:text-2xl font-bold leading-tight  text-gray-950 lg:mb-5">
             Routes
           </h2>
-          <figure class="overflow-hidden rounded-lg border border-slate-200 bg-gradient-to-br from-white via-slate-50 to-[#DDEFFF]/30 p-2 shadow-[0_18px_50px_rgba(39,117,189,0.12)] transition-all duration-300 group-hover:border-[#2775BD] group-hover:shadow-[0_18px_50px_rgba(39,117,189,0.12)]">
-            <div class="flex max-h-[560px] items-center justify-center overflow-hidden rounded-md bg-white p-3 ring-1 ring-slate-100 sm:max-h-[680px] lg:max-h-[720px]">
+          <figure class="overflow-hidden rounded-lg border border-gray-200 bg-gradient-to-br from-white via-gray-50 to-[#DDEFFF]/30 p-2 shadow-[0_18px_50px_rgba(39,117,189,0.12)] transition-all duration-300 group-hover:border-[#2775BD] group-hover:shadow-[0_18px_50px_rgba(39,117,189,0.12)]">
+            <div class="flex max-h-[560px] items-center justify-center overflow-hidden rounded-md bg-white p-3 ring-1 ring-gray-100 sm:max-h-[680px] lg:max-h-[720px]">
               <img src="Images/Everest/trekroute.png" alt="Everest Base Camp trek route map" class="h-auto max-h-[530px] w-auto max-w-full object-contain transition duration-500 group-hover:scale-[1.01] sm:max-h-[650px] lg:max-h-[690px]">
             </div>
           </figure>
@@ -2847,11 +2847,11 @@
 
         <!-- Altitude Start -->
         <div id="altitude" class="group mb-[56px] px-0 sm:px-4 lg:mb-[72px] lg:px-8">
-          <h2 class="mb-4 flex items-center gap-3 text-xl sm:text-2xl font-bold leading-tight text-slate-950 lg:mb-5 lg:text-2xl">
+          <h2 class="mb-4 flex items-center gap-3 text-xl sm:text-2xl font-bold leading-tight text-gray-950 lg:mb-5 lg:text-2xl">
             Altitude
           </h2>
-          <figure class="overflow-hidden rounded-lg border border-slate-200 bg-gradient-to-br from-white via-slate-50 to-[#DDEFFF]/30 p-2 shadow-[0_18px_50px_rgba(39,117,189,0.12)] transition-all duration-300 group-hover:border-[#2775BD] group-hover:shadow-[0_18px_50px_rgba(39,117,189,0.12)]">
-            <div class="overflow-hidden rounded-md bg-white p-3 ring-1 ring-slate-100">
+          <figure class="overflow-hidden rounded-lg border border-gray-200 bg-gradient-to-br from-white via-gray-50 to-[#DDEFFF]/30 p-2 shadow-[0_18px_50px_rgba(39,117,189,0.12)] transition-all duration-300 group-hover:border-[#2775BD] group-hover:shadow-[0_18px_50px_rgba(39,117,189,0.12)]">
+            <div class="overflow-hidden rounded-md bg-white p-3 ring-1 ring-gray-100">
               <img src="Images/Everest/ebcaltitude.png" alt="Everest Base Camp trek altitude chart" class="mx-auto h-auto w-full max-w-full object-contain transition duration-500 group-hover:scale-[1.01]">
             </div>
           </figure>
@@ -2884,7 +2884,7 @@
           </div>
 
           <div class="space-y-4">
-            <article class="group grid grid-cols-1 gap-2 p-4 shadow-[0_12px_30px_rgba(15,23,42,0.06)] transition-all duration-200 hover:-translate-y-0.5 hover:border-blue-200 hover:shadow-[0_18px_42px_rgba(37,99,235,0.12)] sm:grid-cols-2 sm:gap-4 sm:p-5 lg:grid-cols-[1.35fr_0.9fr_0.9fr_0.9fr_140px] lg:items-center lg:gap-6">
+            <article class="group grid grid-cols-1 gap-2 p-4 shadow-[0_12px_30px_rgba(15,23,42,0.06)] transition-all duration-200 hover:-trangray-y-0.5 hover:border-blue-200 hover:shadow-[0_18px_42px_rgba(37,99,235,0.12)] sm:grid-cols-2 sm:gap-4 sm:p-5 lg:grid-cols-[1.35fr_0.9fr_0.9fr_0.9fr_140px] lg:items-center lg:gap-6">
             <div class="flex min-w-0 items-center gap-3 p-3.5 transition-colors duration-200 group-hover:bg-blue-50/70 group-hover:ring-blue-100 lg:bg-transparent lg:p-0 lg:ring-0 lg:group-hover:bg-transparent lg:group-hover:ring-0">
               <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-white text-gray-900 ring-1 ring-gray-200 transition-colors duration-200 group-hover:bg-blue-50 group-hover:text-blue-700">
                 <i data-lucide="calendar" class="h-4 w-4"></i>
@@ -2925,12 +2925,12 @@
               </div>
             </div>
 
-            <a href="booking.html" class="flex w-full items-center justify-center gap-2 rounded bg-[#03132A] px-5 py-3.5 text-sm font-bold text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#2775BD] hover:shadow-[0_16px_30px_rgba(39,117,189,0.32)] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#2775BD] active:translate-y-0 active:scale-[0.98] sm:col-span-2 lg:col-span-1 lg:w-full lg:whitespace-nowrap"> 
+            <a href="booking.html" class="flex w-full items-center justify-center gap-2 rounded bg-[#03132A] px-5 py-3.5 text-sm font-bold text-white transition-all duration-200 hover:-trangray-y-0.5 hover:bg-[#2775BD] hover:shadow-[0_16px_30px_rgba(39,117,189,0.32)] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#2775BD] active:trangray-y-0 active:scale-[0.98] sm:col-span-2 lg:col-span-1 lg:w-full lg:whitespace-nowrap"> 
               Book Now
             </a>
           </article>
 
-            <article class="group grid grid-cols-1 gap-2 p-4 shadow-[0_12px_30px_rgba(15,23,42,0.06)] transition-all duration-200 hover:-translate-y-0.5 hover:border-blue-200 hover:shadow-[0_18px_42px_rgba(37,99,235,0.12)] sm:grid-cols-2 sm:gap-4 sm:p-5 lg:grid-cols-[1.35fr_0.9fr_0.9fr_0.9fr_140px] lg:items-center lg:gap-6">
+            <article class="group grid grid-cols-1 gap-2 p-4 shadow-[0_12px_30px_rgba(15,23,42,0.06)] transition-all duration-200 hover:-trangray-y-0.5 hover:border-blue-200 hover:shadow-[0_18px_42px_rgba(37,99,235,0.12)] sm:grid-cols-2 sm:gap-4 sm:p-5 lg:grid-cols-[1.35fr_0.9fr_0.9fr_0.9fr_140px] lg:items-center lg:gap-6">
             <div class="flex min-w-0 items-center gap-3 p-3.5 transition-colors duration-200 group-hover:bg-blue-50/70 group-hover:ring-blue-100 lg:bg-transparent lg:p-0 lg:ring-0 lg:group-hover:bg-transparent lg:group-hover:ring-0">
               <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-white text-gray-900 ring-1 ring-gray-200 transition-colors duration-200 group-hover:bg-blue-50 group-hover:text-blue-700">
                 <i data-lucide="calendar" class="h-4 w-4"></i>
@@ -2971,12 +2971,12 @@
               </div>
             </div>
 
-            <a href="booking.html" class="flex w-full items-center justify-center gap-2 rounded bg-[#03132A] px-5 py-3.5 text-sm font-bold text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#2775BD] hover:shadow-[0_16px_30px_rgba(39,117,189,0.32)] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#2775BD] active:translate-y-0 active:scale-[0.98] sm:col-span-2 lg:col-span-1 lg:w-full lg:whitespace-nowrap">
+            <a href="booking.html" class="flex w-full items-center justify-center gap-2 rounded bg-[#03132A] px-5 py-3.5 text-sm font-bold text-white transition-all duration-200 hover:-trangray-y-0.5 hover:bg-[#2775BD] hover:shadow-[0_16px_30px_rgba(39,117,189,0.32)] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#2775BD] active:trangray-y-0 active:scale-[0.98] sm:col-span-2 lg:col-span-1 lg:w-full lg:whitespace-nowrap">
               Book Now
             </a>
           </article>
 
-            <article class="group grid grid-cols-1 gap-2 p-4 shadow-[0_12px_30px_rgba(15,23,42,0.06)] transition-all duration-200 hover:-translate-y-0.5 hover:border-blue-200 hover:shadow-[0_18px_42px_rgba(37,99,235,0.12)] sm:grid-cols-2 sm:gap-4 sm:p-5 lg:grid-cols-[1.35fr_0.9fr_0.9fr_0.9fr_140px] lg:items-center lg:gap-6">
+            <article class="group grid grid-cols-1 gap-2 p-4 shadow-[0_12px_30px_rgba(15,23,42,0.06)] transition-all duration-200 hover:-trangray-y-0.5 hover:border-blue-200 hover:shadow-[0_18px_42px_rgba(37,99,235,0.12)] sm:grid-cols-2 sm:gap-4 sm:p-5 lg:grid-cols-[1.35fr_0.9fr_0.9fr_0.9fr_140px] lg:items-center lg:gap-6">
             <div class="flex min-w-0 items-center gap-3 p-3.5 transition-colors duration-200 group-hover:bg-blue-50/70 group-hover:ring-blue-100 lg:bg-transparent lg:p-0 lg:ring-0 lg:group-hover:bg-transparent lg:group-hover:ring-0">
               <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-white text-gray-900 ring-1 ring-gray-200 transition-colors duration-200 group-hover:bg-blue-50 group-hover:text-blue-700">
                 <i data-lucide="calendar" class="h-4 w-4"></i>
@@ -3017,12 +3017,12 @@
               </div>
             </div>
 
-            <a href="booking.html" class="flex w-full items-center justify-center gap-2 rounded bg-[#03132A] px-5 py-3.5 text-sm font-bold text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#2775BD] hover:shadow-[0_16px_30px_rgba(39,117,189,0.32)] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#2775BD] active:translate-y-0 active:scale-[0.98] sm:col-span-2 lg:col-span-1 lg:w-full lg:whitespace-nowrap">
+            <a href="booking.html" class="flex w-full items-center justify-center gap-2 rounded bg-[#03132A] px-5 py-3.5 text-sm font-bold text-white transition-all duration-200 hover:-trangray-y-0.5 hover:bg-[#2775BD] hover:shadow-[0_16px_30px_rgba(39,117,189,0.32)] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#2775BD] active:trangray-y-0 active:scale-[0.98] sm:col-span-2 lg:col-span-1 lg:w-full lg:whitespace-nowrap">
               Book Now
             </a>
           </article>
 
-            <article class="group grid grid-cols-1 gap-2 p-4 shadow-[0_12px_30px_rgba(15,23,42,0.06)] transition-all duration-200 hover:-translate-y-0.5 hover:border-blue-200 hover:shadow-[0_18px_42px_rgba(37,99,235,0.12)] sm:grid-cols-2 sm:gap-4 sm:p-5 lg:grid-cols-[1.35fr_0.9fr_0.9fr_0.9fr_140px] lg:items-center lg:gap-6">
+            <article class="group grid grid-cols-1 gap-2 p-4 shadow-[0_12px_30px_rgba(15,23,42,0.06)] transition-all duration-200 hover:-trangray-y-0.5 hover:border-blue-200 hover:shadow-[0_18px_42px_rgba(37,99,235,0.12)] sm:grid-cols-2 sm:gap-4 sm:p-5 lg:grid-cols-[1.35fr_0.9fr_0.9fr_0.9fr_140px] lg:items-center lg:gap-6">
             <div class="flex min-w-0 items-center gap-3 p-3.5 transition-colors duration-200 group-hover:bg-blue-50/70 group-hover:ring-blue-100 lg:bg-transparent lg:p-0 lg:ring-0 lg:group-hover:bg-transparent lg:group-hover:ring-0">
               <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-white text-gray-900 ring-1 ring-gray-200 transition-colors duration-200 group-hover:bg-blue-50 group-hover:text-blue-700">
                 <i data-lucide="calendar" class="h-4 w-4"></i>
@@ -3063,7 +3063,7 @@
               </div>
             </div>
 
-            <a href="booking.html" class="flex w-full items-center justify-center gap-2 rounded bg-[#03132A] px-5 py-3.5 text-sm font-bold text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#2775BD] hover:shadow-[0_16px_30px_rgba(39,117,189,0.32)] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#2775BD] active:translate-y-0 active:scale-[0.98] sm:col-span-2 lg:col-span-1 lg:w-full lg:whitespace-nowrap">
+            <a href="booking.html" class="flex w-full items-center justify-center gap-2 rounded bg-[#03132A] px-5 py-3.5 text-sm font-bold text-white transition-all duration-200 hover:-trangray-y-0.5 hover:bg-[#2775BD] hover:shadow-[0_16px_30px_rgba(39,117,189,0.32)] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#2775BD] active:trangray-y-0 active:scale-[0.98] sm:col-span-2 lg:col-span-1 lg:w-full lg:whitespace-nowrap">
               Book Now
             </a>
           </article>
@@ -3105,7 +3105,7 @@
 
                     <div class="min-w-0">
                       <h4 class="mb-1 text-sm font-bold text-[#001B2F] sm:text-base">Travel insurance</h4>
-                      <p class="text-sm leading-6 text-slate-600">Plan suitable coverage for medical needs, evacuation, delays, and high-altitude trekking.</p>
+                      <p class="text-sm leading-6 text-gray-600">Plan suitable coverage for medical needs, evacuation, delays, and high-altitude trekking.</p>
                     </div>
                   </li>
                   <li class="group flex min-w-0 items-start gap-2 p-1 transition-all duration-300 sm:gap-3 sm:p-1 [&_svg]:h-7 [&_svg]:w-7 [&_svg]:shrink-0 [&_svg]:p-2 sm:[&_svg]:h-8 sm:[&_svg]:w-8">
@@ -3117,7 +3117,7 @@
 
                     <div class="min-w-0">
                       <h4 class="mb-1 text-sm font-bold text-[#001B2F] sm:text-base">Accommodation</h4>
-                      <p class="text-sm leading-6 text-slate-600">Review the lodging arrangements and comfort expectations for each stage of the trek.</p>
+                      <p class="text-sm leading-6 text-gray-600">Review the lodging arrangements and comfort expectations for each stage of the trek.</p>
                     </div>
                   </li>
                   <li class="group flex min-w-0 items-start gap-2 p-1 transition-all duration-300 sm:gap-3 sm:p-1 [&_svg]:h-7 [&_svg]:w-7 [&_svg]:shrink-0 [&_svg]:p-2 sm:[&_svg]:h-8 sm:[&_svg]:w-8">
@@ -3128,7 +3128,7 @@
                     </svg>
                     <div class="min-w-0">
                       <h4 class="mb-1 text-sm font-bold text-[#001B2F] sm:text-base">Lukla flights</h4>
-                      <p class="text-sm leading-6 text-slate-600">Find key guidance for flight schedules, baggage planning, and weather-related changes.</p>
+                      <p class="text-sm leading-6 text-gray-600">Find key guidance for flight schedules, baggage planning, and weather-related changes.</p>
                     </div>
                   </li>
                   <li class="group flex min-w-0 items-start gap-2 p-1 transition-all duration-300 sm:gap-3 sm:p-1 [&_svg]:h-7 [&_svg]:w-7 [&_svg]:shrink-0 [&_svg]:p-2 sm:[&_svg]:h-8 sm:[&_svg]:w-8">
@@ -3140,7 +3140,7 @@
 
                     <div class="min-w-0">
                       <h4 class="mb-1 text-sm font-bold text-[#001B2F] sm:text-base">Internet services</h4>
-                      <p class="text-sm leading-6 text-slate-600">Understand expected connectivity, charging access, and communication options along the route.</p>
+                      <p class="text-sm leading-6 text-gray-600">Understand expected connectivity, charging access, and communication options along the route.</p>
                     </div>
                   </li>
                 </ul>
@@ -3169,7 +3169,7 @@
                     </svg>
                     <div class="min-w-0">
                       <h4 class="mb-1 text-sm font-bold text-[#001B2F] sm:text-base">Clothing</h4>
-                      <p class="text-sm leading-6 text-slate-600">Layering guidance for changing temperatures, wind, sun, and high-altitude conditions.</p>
+                      <p class="text-sm leading-6 text-gray-600">Layering guidance for changing temperatures, wind, sun, and high-altitude conditions.</p>
                     </div>
                   </li>
                   <li class="group flex min-w-0 items-start gap-2 p-1 transition-all duration-300 sm:gap-3 sm:p-1 [&_svg]:h-7 [&_svg]:w-7 [&_svg]:shrink-0 [&_svg]:p-2 sm:[&_svg]:h-8 sm:[&_svg]:w-8">
@@ -3180,7 +3180,7 @@
                     </svg>
                     <div class="min-w-0">
                       <h4 class="mb-1 text-sm font-bold text-[#001B2F] sm:text-base">Gear</h4>
-                      <p class="text-sm leading-6 text-slate-600">Essential trekking equipment selected for comfort, safety, and reliable performance on the trail.</p>
+                      <p class="text-sm leading-6 text-gray-600">Essential trekking equipment selected for comfort, safety, and reliable performance on the trail.</p>
                     </div>
                   </li>
                   <li class="group flex min-w-0 items-start gap-2 p-1 transition-all duration-300 sm:gap-3 sm:p-1 [&_svg]:h-7 [&_svg]:w-7 [&_svg]:shrink-0 [&_svg]:p-2 sm:[&_svg]:h-8 sm:[&_svg]:w-8">
@@ -3191,7 +3191,7 @@
                     </svg>
                     <div class="min-w-0">
                       <h4 class="mb-1 text-sm font-bold text-[#001B2F] sm:text-base">Accessories</h4>
-                      <p class="text-sm leading-6 text-slate-600">Useful smaller essentials that support hydration, sun protection, organization, and daily comfort.</p>
+                      <p class="text-sm leading-6 text-gray-600">Useful smaller essentials that support hydration, sun protection, organization, and daily comfort.</p>
                     </div>
                   </li>
                   <li class="group flex min-w-0 items-start gap-2 p-1 transition-all duration-300 sm:gap-3 sm:p-1 [&_svg]:h-7 [&_svg]:w-7 [&_svg]:shrink-0 [&_svg]:p-2 sm:[&_svg]:h-8 sm:[&_svg]:w-8">
@@ -3202,7 +3202,7 @@
                     </svg>
                     <div class="min-w-0">
                       <h4 class="mb-1 text-sm font-bold text-[#001B2F] sm:text-base">Documents</h4>
-                      <p class="text-sm leading-6 text-slate-600">Keep permits, identification, insurance details, and travel records organized and accessible.</p>
+                      <p class="text-sm leading-6 text-gray-600">Keep permits, identification, insurance details, and travel records organized and accessible.</p>
                     </div>
                   </li>
                 </ul>
@@ -3221,8 +3221,8 @@
         <div class="sticky top-10 space-y-4">
 
           <!-- Pricing Card -->
-          <div class="w-full border border-slate-200 bg-white p-4 shadow-[0_10px_30px_rgba(15,23,42,0.08)] sm:p-5 lg:p-4 xl:p-5">
-            <div class="mb-2 flex flex-wrap items-center justify-between gap-2 border-b border-slate-200 pb-2">
+          <div class="w-full border border-gray-200 bg-white p-4 shadow-[0_10px_30px_rgba(15,23,42,0.08)] sm:p-5 lg:p-4 xl:p-5">
+            <div class="mb-2 flex flex-wrap items-center justify-between gap-2 border-b border-gray-200 pb-2">
               <div class="flex items-center gap-1.5">
                 <span class="text-xs tracking-wide text-yellow-400" aria-label="5 out of 5 stars">★★★★★</span>
                 <a href="#" class="whitespace-nowrap text-sm font-bold text-[#2775BD] hover:underline">49 Reviews</a>
@@ -3232,25 +3232,25 @@
 
             <!-- Table Header -->
             <div class="mb-1 flex items-center justify-between gap-3 px-2">
-              <span class="text-xs font-bold uppercase tracking-wide text-slate-500">No. of Pax</span>
-              <span class="text-right text-xs font-bold uppercase tracking-wide text-slate-500">Price per Pax</span>
+              <span class="text-xs font-bold uppercase tracking-wide text-gray-500">No. of Pax</span>
+              <span class="text-right text-xs font-bold uppercase tracking-wide text-gray-500">Price per Pax</span>
             </div>
 
             <!-- Pax Rows -->
-            <div id="pax-price-table" class="overflow-hidden border border-slate-200 bg-slate-50/70">
-              <div data-tier="1" class="pax-tier flex justify-between gap-3 border-b border-slate-200 px-3 py-2 text-sm text-slate-600">
-                <span>1 Pax</span><span class="whitespace-nowrap font-semibold text-slate-900">USD $1390</span>
+            <div id="pax-price-table" class="overflow-hidden border border-gray-200 bg-gray-50/70 mb-1">
+              <div data-tier="1" class="pax-tier flex justify-between gap-3 border-b border-gray-200 px-3 py-2 text-sm text-gray-600">
+                <span>1 Pax</span><span class="whitespace-nowrap font-semibold text-gray-900">USD $1390</span>
               </div>
-              <div data-tier="2" class="pax-tier flex justify-between gap-3 border-b border-slate-200 px-3 py-2 text-sm text-slate-600">
-                <span>2 Pax</span><span class="whitespace-nowrap font-semibold text-slate-900">USD $1320</span>
+              <div data-tier="2" class="pax-tier flex justify-between gap-3 border-b border-gray-200 px-3 py-2 text-sm text-gray-600">
+                <span>2 Pax</span><span class="whitespace-nowrap font-semibold text-gray-900">USD $1320</span>
               </div>
-              <div data-tier="3" class="pax-tier flex justify-between gap-3 border-b border-slate-200 px-3 py-2 text-sm text-slate-600">
-                <span>3–4 Pax</span><span class="whitespace-nowrap font-semibold text-slate-900">USD $1270</span>
+              <div data-tier="3" class="pax-tier flex justify-between gap-3 border-b border-gray-200 px-3 py-2 text-sm text-gray-600">
+                <span>3–4 Pax</span><span class="whitespace-nowrap font-semibold text-gray-900">USD $1270</span>
               </div>
-              <div data-tier="5" class="pax-tier flex justify-between gap-3 px-3 py-2 text-sm text-slate-600">
-                <span>5–6 Pax</span><span class="whitespace-nowrap font-semibold text-slate-900">USD $1230</span>
+              <div data-tier="5" class="pax-tier flex justify-between gap-3 px-3 py-2 text-sm text-gray-600">
+                <span>5–6 Pax</span><span class="whitespace-nowrap font-semibold text-gray-900">USD $1230</span>
               </div>
-              <span class="block border-t border-slate-200 bg-white px-3 py-1.5 text-center text-xs text-slate-400">see more.....</span>
+              <span class="block border-t border-gray-200 bg-white px-3 py-1.5 text-center text-xs text-gray-400">see more.....</span>
               <!--<div data-tier="7" class="pax-tier flex justify-between py-2 text-sm text-gray-700">
                 <span>7–10 Pax</span><span class="font-medium">USD $1200</span>
               </div>
@@ -3261,27 +3261,27 @@
             </div>
 
             <!-- Counter -->
-            <p class="mb-2 text-sm font-bold text-slate-900">No. of Pax</p>
-            <div class="mb-2 flex items-center justify-between border border-slate-200 bg-slate-50">
+            <p class="mb-1 text-sm font-bold text-gray-900">No. of Pax</p>
+            <div class="mb-2 flex items-center justify-between border border-gray-200 bg-gray-50">
               <button id="pax-minus" type="button" aria-label="Decrease number of travelers"
-                class="flex h-9 w-9 items-center justify-center bg-slate-900 text-xl font-bold text-white transition hover:bg-black focus:outline-none focus:ring-2 focus:ring-[#43704A]">−</button>
-              <span id="pax-count" class="min-w-10 text-center text-xl font-bold tabular-nums text-slate-900">1</span>
+                class="flex h-9 w-9 items-center justify-center bg-gray-900 text-xl font-bold text-white transition hover:bg-black focus:outline-none focus:ring-2 focus:ring-[#43704A]">−</button>
+              <span id="pax-count" class="min-w-10 text-center text-xl font-bold tabular-nums text-gray-900">1</span>
               <button id="pax-plus" type="button" aria-label="Increase number of travelers"
-                class="flex h-9 w-9 items-center justify-center bg-slate-900 text-xl font-bold text-white transition hover:bg-black focus:outline-none focus:ring-2 focus:ring-[#43704A]">+</button>
+                class="flex h-9 w-9 items-center justify-center bg-gray-900 text-xl font-bold text-white transition hover:bg-black focus:outline-none focus:ring-2 focus:ring-[#43704A]">+</button>
             </div>
 
             <!-- Live Price Summary -->
             <div class="mb-2 space-y-1.5  border border-[#2775BD]/20 bg-[#DEEFFF]/20 p-3">
-              <div class="flex justify-between gap-3 text-sm text-slate-600">
+              <div class="flex justify-between gap-3 text-sm text-gray-600">
                 <span>Price per person</span>
-                <span id="price-per-pax" class="whitespace-nowrap font-bold tabular-nums text-slate-900">USD $1,390</span>
+                <span id="price-per-pax" class="whitespace-nowrap font-bold tabular-nums text-gray-900">USD $1,390</span>
               </div>
-              <div class="flex justify-between gap-3 text-sm text-slate-600">
+              <div class="flex justify-between gap-3 text-sm text-gray-600">
                 <span>No. of travelers</span>
-                <span id="summary-pax-count" class="font-bold tabular-nums text-slate-900">1</span>
+                <span id="summary-pax-count" class="font-bold tabular-nums text-gray-900">1</span>
               </div>
               <hr class="border-[#43704A]/20">
-              <div class="flex flex-wrap items-center justify-between gap-x-3 gap-y-1 pt-1 font-bold text-slate-900">
+              <div class="flex flex-wrap items-center justify-between gap-x-3 gap-y-1 pt-1 font-bold text-gray-900">
                 <span>Total Price</span>
                 <span id="total-price" class="whitespace-nowrap text-base font-extrabold tabular-nums text-orange-600">USD $1,390</span>
               </div>
@@ -3615,28 +3615,28 @@
   <!-- FAQ Section End -->
 
   <!-- Clients Review Start -->
-  <section id="testimonials" class="relative overflow-hidden bg-slate-70 px-3 py-[32px] lg:py-[42px] sm:px-8">
+  <section id="testimonials" class="relative overflow-hidden bg-gray-70 px-3 py-[32px] lg:py-[42px] sm:px-8">
     <div aria-hidden="true" class="absolute -left-24 top-28 h-64 w-64 rounded-full bg-[#2775BD]/15 blur-3xl"></div>
     <div aria-hidden="true" class="absolute -right-20 bottom-12 h-64 w-64 rounded-full bg-[#2775BD]/15 blur-3xl"></div>
 
     <div class="container relative mx-auto px-4 sm:px-8">
       <div class="mb-1 flex flex-col items-center justify-center text-center sm:mb-2">
-        <h2 class="text-center text-2xl font-bold text-slate-950 sm:text-5xl mb-4">Clients Review</h2>
+        <h2 class="text-center text-2xl font-bold text-gray-950 sm:text-5xl mb-4">Clients Review</h2>
       </div>
 
       <!-- Google Rating Summary -->
-      <!-- <div class="mx-auto mb-8 flex max-w-3xl flex-col items-center justify-between gap-5 rounded border border-slate-200 bg-white px-5 py-5 shadow-[0_14px_34px_rgba(15,23,42,0.06)] sm:mb-12 sm:flex-row sm:px-7">
+      <!-- <div class="mx-auto mb-8 flex max-w-3xl flex-col items-center justify-between gap-5 rounded border border-gray-200 bg-white px-5 py-5 shadow-[0_14px_34px_rgba(15,23,42,0.06)] sm:mb-12 sm:flex-row sm:px-7">
           <div class="flex items-center gap-4">
-            <div class="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white shadow-sm">
+            <div class="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full border border-gray-200 bg-white shadow-sm">
               <img src="https://www.google.com/favicon.ico" class="h-6 w-6" alt="Google" />
             </div>
             <div>
-              <p class="text-sm font-bold text-slate-950 sm:text-base">Google Reviews</p>
-              <p class="text-xs text-slate-500 sm:text-sm">Based on 589 customer reviews</p>
+              <p class="text-sm font-bold text-gray-950 sm:text-base">Google Reviews</p>
+              <p class="text-xs text-gray-500 sm:text-sm">Based on 589 customer reviews</p>
             </div>
           </div>
           <div class="flex items-center gap-3">
-            <span class="text-3xl font-bold text-slate-950">4.9</span>
+            <span class="text-3xl font-bold text-gray-950">4.9</span>
             <div>
               <div class="google-stars" aria-label="4.9 out of 5 stars">
                 <i data-lucide="star" class="google-star" aria-hidden="true"></i>
@@ -3645,15 +3645,15 @@
                 <i data-lucide="star" class="google-star" aria-hidden="true"></i>
                 <i data-lucide="star" class="google-star" aria-hidden="true"></i>
               </div>
-              <p class="mt-1 text-xs font-medium text-slate-500">Excellent on Google</p>
+              <p class="mt-1 text-xs font-medium text-gray-500">Excellent on Google</p>
             </div>
           </div>
         </div> -->
       <!--
         <div class="flex items-center justify-between gap-4 sm:justify-end">
-            <p id="testimonialStatus" class="text-xs font-bold text-slate-500" aria-live="polite"></p>
+            <p id="testimonialStatus" class="text-xs font-bold text-gray-500" aria-live="polite"></p>
             <div class="flex items-center gap-2">
-              <button id="prevBtn" type="button" class="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-900 shadow-sm transition duration-200 hover:border-blue-600 hover:bg-blue-600 hover:text-white focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-blue-200 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-slate-200 disabled:hover:bg-white disabled:hover:text-slate-900" aria-label="Previous testimonial" aria-controls="testimonialSlider">
+              <button id="prevBtn" type="button" class="flex h-11 w-11 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-900 shadow-sm transition duration-200 hover:border-blue-600 hover:bg-blue-600 hover:text-white focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-blue-200 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-gray-200 disabled:hover:bg-white disabled:hover:text-gray-900" aria-label="Previous testimonial" aria-controls="testimonialSlider">
                 <i data-lucide="chevron-left" class="h-5 w-5" aria-hidden="true"></i>
               </button>
               <button id="nextBtn" type="button" class="flex h-11 w-11 items-center justify-center rounded-full bg-blue-600 text-white shadow-[0_10px_24px_rgba(37,99,235,0.24)] transition duration-200 hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-blue-200 disabled:cursor-not-allowed disabled:opacity-40" aria-label="Next testimonial" aria-controls="testimonialSlider">
@@ -3873,13 +3873,13 @@
   <!-- Explore Trek Start -->
   <section id="featured-destinations" class="relative overflow-hidden bg-[#F6F8F7] px-3 py-[32px] lg:py-[42px]">
       <div class="container mx-auto max-w-7xl">
-        <h2 class="mx-auto mb-2 max-w-3xl text-center text-[2rem] font-extrabold leading-tight text-slate-950 sm:mb-8 text-2xl sm:text-5xl">
+        <h2 class="mx-auto mb-2 max-w-3xl text-center text-[2rem] font-extrabold leading-tight text-gray-950 sm:mb-8 text-2xl sm:text-5xl">
           Explore Peaks
         </h2>
 
         <div class="grid grid-cols-1 items-stretch gap-5 px-0 sm:grid-cols-2 sm:gap-8 sm:px-4 lg:grid-cols-3">
           <!-- Card 1 -->
-           <div class="group relative flex h-full flex-col overflow-hidden bg-white shadow-lg ring-1 ring-slate-200/70 transition-all duration-300 hover:-translate-y-1 sm:rounded-none sm:shadow-md">
+           <div class="group relative flex h-full flex-col overflow-hidden bg-white shadow-lg ring-1 ring-gray-200/70 transition-all duration-300 hover:-trangray-y-1 sm:rounded-none sm:shadow-md">
             <img src="Images/Everest/seller img1.png" class="w-full object-cover transition-transform duration-700 group-hover:scale-105 sm:aspect-[6/4]" alt="" />
             <span class="absolute right-2 top-2 rounded border border-white/20 bg-white px-2 py-1 text-xs font-regular text-[#43704A] backdrop-blur-md ring-1 ring-white/25 sm:text-sm hidden sm:block">★ Featured</span>
             <div class="flex flex-1 flex-col p-4 sm:p-5">
@@ -3895,7 +3895,7 @@
           </div>
 
           <!-- Card 2 -->
-           <div class="group relative flex h-full flex-col overflow-hidden bg-white shadow-lg ring-1 ring-slate-200/70 transition-all duration-300 hover:-translate-y-1 sm:rounded-none sm:shadow-md">
+           <div class="group relative flex h-full flex-col overflow-hidden bg-white shadow-lg ring-1 ring-gray-200/70 transition-all duration-300 hover:-trangray-y-1 sm:rounded-none sm:shadow-md">
             <img src="Images/Everest/seller img2.png" class="w-full object-cover transition-transform duration-700 group-hover:scale-105 sm:aspect-[6/4]" alt="" />
             <span class="absolute right-2 top-2 rounded border border-white/20 bg-white px-2 py-1 text-xs font-regular text-[#43704A] backdrop-blur-md ring-1 ring-white/25 sm:text-sm hidden sm:block">★ Best Price</span>
             <div class="flex flex-1 flex-col p-4 sm:p-5">
@@ -3911,7 +3911,7 @@
           </div>
 
           <!-- Card 3 -->
-           <div class="group relative flex h-full flex-col overflow-hidden bg-white shadow-lg ring-1 ring-slate-200/70 transition-all duration-300 hover:-translate-y-1 sm:rounded-none sm:shadow-md">
+           <div class="group relative flex h-full flex-col overflow-hidden bg-white shadow-lg ring-1 ring-gray-200/70 transition-all duration-300 hover:-trangray-y-1 sm:rounded-none sm:shadow-md">
             <img src="Images/Everest/seller img3.png" class="w-full object-cover transition-transform duration-700 group-hover:scale-105 sm:aspect-[6/4]" alt="" />
             <span class="absolute right-2 top-2 rounded border border-white/20 bg-white px-2 py-1 text-xs font-regular text-[#43704A] backdrop-blur-md ring-1 ring-white/25 sm:text-sm hidden sm:block">★ Best Seller</span>
             <div class="flex flex-1 flex-col p-4 sm:p-5">
@@ -3980,10 +3980,10 @@
             <div>
               <h4 class="text-sm sm:text-base font-bold text-black mb-2 sm:mb-4">Quick Information</h4>
               <ul class="flex flex-col gap-1 sm:gap-2">
-                <li><a href="#" class="text-xs sm:text-sm text-gray-500 hover:text-black hover:translate-x-1 transition-all duration-200 inline-block">About Us</a></li>
-                <li><a href="#" class="text-xs sm:text-sm text-gray-500 hover:text-black hover:translate-x-1 transition-all duration-200 inline-block">Contact Us</a></li>
-                <li><a href="#" class="text-xs sm:text-sm text-gray-500 hover:text-black hover:translate-x-1 transition-all duration-200 inline-block">Terms & Conditions</a></li>
-                <li><a href="#" class="text-xs sm:text-sm text-gray-500 hover:text-black hover:translate-x-1 transition-all duration-200 inline-block">Privacy Policy</a></li>
+                <li><a href="#" class="text-xs sm:text-sm text-gray-500 hover:text-black hover:trangray-x-1 transition-all duration-200 inline-block">About Us</a></li>
+                <li><a href="#" class="text-xs sm:text-sm text-gray-500 hover:text-black hover:trangray-x-1 transition-all duration-200 inline-block">Contact Us</a></li>
+                <li><a href="#" class="text-xs sm:text-sm text-gray-500 hover:text-black hover:trangray-x-1 transition-all duration-200 inline-block">Terms & Conditions</a></li>
+                <li><a href="#" class="text-xs sm:text-sm text-gray-500 hover:text-black hover:trangray-x-1 transition-all duration-200 inline-block">Privacy Policy</a></li>
               </ul>
             </div>
 
@@ -3991,8 +3991,8 @@
             <div>
               <h4 class="text-sm sm:text-base font-bold text-black mb-2 sm:mb-4">Insights</h4>
               <ul class="flex flex-col gap-1 sm:gap-2">
-                <li><a href="#" class="text-xs sm:text-sm text-gray-500 hover:text-black hover:translate-x-1 transition-all duration-200 inline-block">Travel Guide</a></li>
-                <li><a href="#" class="text-xs sm:text-sm text-gray-500 hover:text-black hover:translate-x-1 transition-all duration-200 inline-block">Blog & Insights</a></li>
+                <li><a href="#" class="text-xs sm:text-sm text-gray-500 hover:text-black hover:trangray-x-1 transition-all duration-200 inline-block">Travel Guide</a></li>
+                <li><a href="#" class="text-xs sm:text-sm text-gray-500 hover:text-black hover:trangray-x-1 transition-all duration-200 inline-block">Blog & Insights</a></li>
               </ul>
             </div>
 
@@ -4000,10 +4000,10 @@
             <div>
               <h4 class="text-sm sm:text-base font-bold text-black mb-2 sm:mb-4">Destinations</h4>
               <ul class="flex flex-col gap-1 sm:gap-2">
-                <li><a href="#" class="text-xs sm:text-sm text-gray-500 hover:text-black hover:translate-x-1 transition-all duration-200 inline-block">Trekking in Nepal</a></li>
-                <li><a href="#" class="text-xs sm:text-sm text-gray-500 hover:text-black hover:translate-x-1 transition-all duration-200 inline-block">Peak Climbing</a></li>
-                <li><a href="#" class="text-xs sm:text-sm text-gray-500 hover:text-black hover:translate-x-1 transition-all duration-200 inline-block">Expedition in Nepal</a></li>
-                <li><a href="#" class="text-xs sm:text-sm text-gray-500 hover:text-black hover:translate-x-1 transition-all duration-200 inline-block">Hiking</a></li>
+                <li><a href="#" class="text-xs sm:text-sm text-gray-500 hover:text-black hover:trangray-x-1 transition-all duration-200 inline-block">Trekking in Nepal</a></li>
+                <li><a href="#" class="text-xs sm:text-sm text-gray-500 hover:text-black hover:trangray-x-1 transition-all duration-200 inline-block">Peak Climbing</a></li>
+                <li><a href="#" class="text-xs sm:text-sm text-gray-500 hover:text-black hover:trangray-x-1 transition-all duration-200 inline-block">Expedition in Nepal</a></li>
+                <li><a href="#" class="text-xs sm:text-sm text-gray-500 hover:text-black hover:trangray-x-1 transition-all duration-200 inline-block">Hiking</a></li>
               </ul>
             </div>
 
@@ -4016,7 +4016,7 @@
                     <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"/>
                     <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
                   </svg>
-                  <span class="text-xs sm:text-sm text-gray-500 leading-6 hover:text-black hover:translate-x-1 transition-all duration-200">
+                  <span class="text-xs sm:text-sm text-gray-500 leading-6 hover:text-black hover:trangray-x-1 transition-all duration-200">
                     Nepal Wilderness Trekking <br />
                     (PVT 2024 Z street thamel, <br />
                     Kathmandu, Nepal)
