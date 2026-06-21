@@ -41,11 +41,11 @@
 
     @keyframes scroll {
       0% {
-        transform: trangrayX(0);
+        transform: translateX(0);
       }
 
       100% {
-        transform: trangrayX(calc(-50% - (var(--review-gap) / 2)));
+        transform: translateX(calc(-50% - (var(--review-gap) / 2)));
       }
     }
 
@@ -93,7 +93,7 @@
     .google-review-card:hover {
       border-color: #2775BD;
       box-shadow: #DDEFFF;
-      transform: trangrayY(-4px);
+      transform: translateY(-4px);
     }
 
     .google-review-card .gap-1>span {
@@ -178,7 +178,7 @@
     body.subnav-is-visible .sticky-header {
       opacity: 0;
       pointer-events: none;
-      transform: trangrayY(-100%);
+      transform: translateY(-100%);
     }
 
     .nav-dropdown {
@@ -242,7 +242,7 @@
       box-shadow: 0 22px 60px #03132A;
       opacity: 0;
       pointer-events: none;
-      transform: trangrayY(10px);
+      transform: translateY(10px);
       transition:
         opacity 180ms ease,
         transform 180ms ease,
@@ -274,12 +274,12 @@
 
     .desktop-dropdown.dropdown-center {
       left: 50%;
-      transform: trangray(-50%, 10px);
+      transform: translate(-50%, 10px);
     }
 
     .desktop-dropdown.dropdown-center::before {
       left: 50%;
-      transform: trangrayX(-50%) rotate(45deg);
+      transform: translateX(-50%) rotate(45deg);
     }
 
     .nav-dropdown:hover>.desktop-dropdown,
@@ -287,14 +287,14 @@
     .nav-dropdown.open>.desktop-dropdown {
       opacity: 1;
       pointer-events: auto;
-      transform: trangrayY(0);
+      transform: translateY(0);
       visibility: visible;
     }
 
     .nav-dropdown:hover>.desktop-dropdown.dropdown-center,
     .nav-dropdown:focus-within>.desktop-dropdown.dropdown-center,
     .nav-dropdown.open>.desktop-dropdown.dropdown-center {
-      transform: trangray(-50%, 0);
+      transform: translate(-50%, 0);
     }
 
     .nav-dropdown:hover>.nav-dropdown-trigger .nav-chevron,
@@ -334,7 +334,7 @@
       background: #C3D5C7;
       color: #03132A;
       outline: none;
-      transform: trangrayX(2px);
+      transform: translateX(2px);
     }
 
     .desktop-menu-icon {
@@ -407,7 +407,7 @@
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transform: trangrayX(8px);
+  transform: translateX(8px);
   transition: opacity 180ms ease, transform 180ms ease, visibility 180ms ease;
 }
 
@@ -416,7 +416,7 @@
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
-  transform: trangrayX(0);
+  transform: translateX(0);
 }
 
 .submenu-dropdown.open > .submenu-link {
@@ -433,14 +433,14 @@
   max-height: 0;
   opacity: 0;
   overflow: hidden;
-  transform: trangrayY(-4px);
+  transform: translateY(-4px);
   transition: max-height 240ms ease, opacity 180ms ease, transform 180ms ease;
 }
 
 .mobile-nested-dropdown.open > .mobile-nested-submenu {
   max-height: 520px;
   opacity: 1;
-  transform: trangrayY(0);
+  transform: translateY(0);
 }
 
     .destination-tour-link {
@@ -470,7 +470,7 @@
       max-height: 0;
       opacity: 0;
       overflow: hidden;
-      transform: trangrayY(-8px);
+      transform: translateY(-8px);
       transition:
         max-height 320ms ease,
         opacity 220ms ease,
@@ -483,7 +483,7 @@
       max-height: calc(100vh - 68px);
       opacity: 1;
       overflow-y: auto;
-      transform: trangrayY(0);
+      transform: translateY(0);
       visibility: visible;
     }
 
@@ -513,7 +513,7 @@
       max-height: 0;
       opacity: 0;
       overflow: hidden;
-      transform: trangrayY(-4px);
+      transform: translateY(-4px);
       transition:
         max-height 280ms ease,
         opacity 200ms ease,
@@ -523,7 +523,7 @@
     .mobile-dropdown.open .mobile-submenu {
       max-height: 980px;
       opacity: 1;
-      transform: trangrayY(0);
+      transform: translateY(0);
     }
 
     .mobile-submenu-inner {
@@ -536,7 +536,7 @@
       max-height: 0;
       opacity: 0;
       overflow: hidden;
-      transform: trangrayY(-4px);
+      transform: translateY(-4px);
       transition:
         max-height 240ms ease,
         opacity 180ms ease,
@@ -546,14 +546,14 @@
     .mobile-nested-dropdown.open .mobile-nested-submenu {
       max-height: 860px;
       opacity: 1;
-      transform: trangrayY(0);
+      transform: translateY(0);
     }
 
     .mobile-grandchild-submenu {
       max-height: 0;
       opacity: 0;
       overflow: hidden;
-      transform: trangrayY(-4px);
+      transform: translateY(-4px);
       transition:
         max-height 220ms ease,
         opacity 180ms ease,
@@ -563,7 +563,7 @@
     .mobile-grandchild-dropdown.open>.mobile-grandchild-submenu {
       max-height: 340px;
       opacity: 1;
-      transform: trangrayY(0);
+      transform: translateY(0);
     }
 
     .mobile-grandchild-trigger {
@@ -583,7 +583,7 @@
     }
 
     #hamburger.is-open .hamburger-line:nth-child(1) {
-      transform: trangrayY(7px) rotate(45deg);
+      transform: translateY(7px) rotate(45deg);
     }
 
     #hamburger.is-open .hamburger-line:nth-child(2) {
@@ -591,18 +591,18 @@
     }
 
     #hamburger.is-open .hamburger-line:nth-child(3) {
-      transform: trangrayY(-7px) rotate(-45deg);
+      transform: translateY(-7px) rotate(-45deg);
     }
 
     @keyframes faq-reveal {
       from {
         opacity: 0;
-        transform: trangrayY(18px);
+        transform: translateY(18px);
       }
 
       to {
         opacity: 1;
-        transform: trangrayY(0);
+        transform: translateY(0);
       }
     }
 
@@ -645,7 +645,7 @@
       box-shadow: 0 10px 26px rgba(0, 27, 47, 0.08);
       color: #03132A;
       opacity: 1;
-      transform: trangrayY(-1px);
+      transform: translateY(-1px);
     }
 
     .desktop-dropdown {
@@ -658,7 +658,7 @@
         0 30px 70px rgba(0, 27, 47, 0.16),
         0 10px 26px rgba(0, 172, 126, 0.08);
       overflow: visible;
-      transform: trangrayY(14px) scale(0.985);
+      transform: translateY(14px) scale(0.985);
       transform-origin: top center;
       transition:
         opacity 240ms ease,
@@ -680,19 +680,19 @@
     }
 
     .desktop-dropdown.dropdown-center {
-      transform: trangray(-50%, 14px) scale(0.985);
+      transform: translate(-50%, 14px) scale(0.985);
     }
 
     .nav-dropdown:hover>.desktop-dropdown,
     .nav-dropdown:focus-within>.desktop-dropdown,
     .nav-dropdown.open>.desktop-dropdown {
-      transform: trangrayY(0) scale(1);
+      transform: translateY(0) scale(1);
     }
 
     .nav-dropdown:hover>.desktop-dropdown.dropdown-center,
     .nav-dropdown:focus-within>.desktop-dropdown.dropdown-center,
     .nav-dropdown.open>.desktop-dropdown.dropdown-center {
-      transform: trangray(-50%, 0) scale(1);
+      transform: translate(-50%, 0) scale(1);
     }
 
     .desktop-menu-link,
@@ -721,7 +721,7 @@
       border-color: rgba(0, 135, 172, 0.16);
       box-shadow: 0 10px 24px rgba(0, 27, 47, 0.08);
       color: #03132A;
-      transform: trangrayX(4px);
+      transform: translateX(4px);
     }
 
     .desktop-menu-icon {
@@ -761,7 +761,7 @@
 
     .submenu-dropdown.open > .submenu-link i {
       color: #2D5F23;
-      transform: trangrayX(2px);
+      transform: translateX(2px);
     }
 
     .submenu-child {
@@ -771,7 +771,7 @@
       box-shadow:
         0 24px 55px rgba(0, 27, 47, 0.15),
         0 8px 24px rgba(0, 172, 126, 0.08);
-      transform: trangrayX(12px) scale(0.985);
+      transform: translateX(12px) scale(0.985);
       transform-origin: left top;
       transition:
         opacity 220ms ease,
@@ -782,7 +782,7 @@
     }
 
     .submenu-dropdown.open > .submenu-child {
-      transform: trangrayX(0) scale(1);
+      transform: translateX(0) scale(1);
     }
 
     .destination-tour-link {
@@ -904,7 +904,7 @@
       #nepal-menu .submenu-child .submenu-link:focus-visible {
         border-color: rgba(0, 172, 126, 0.22);
         background: rgba(255, 255, 255, 0.95);
-        transform: trangrayY(-2px);
+        transform: translateY(-2px);
       }
 
       #nepal-menu .submenu-child .submenu-link:hover::before,
