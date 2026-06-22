@@ -23,7 +23,7 @@ html,
 body {
   height: 100%;
   font:
-    20px/1.5 "Calibri", 
+    20px/1.2 "Calibri", 
     sans-serif;
   color: rgba(0, 0, 0, 0.8);
   background: rgb(252, 252, 252);
@@ -34,6 +34,12 @@ body {
   hyphens: auto;
   /* font-family: "Inter", sans-serif; */
   /* font-family: "Calibri" Arial, sans-serif */
+}
+p{
+    font:
+    20px/1.2 "Calibri", 
+    sans-serif;
+    color: rgba(0, 0, 0, 0.1);
 }
 
 /* Availability Section Starts */
