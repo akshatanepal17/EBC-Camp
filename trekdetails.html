@@ -1054,23 +1054,7 @@
       flex-shrink: 0;
     }
 
-    #subnav a::after {
-      content: "";
-      position: absolute;
-      right: 0.8rem;
-      bottom: 0.32rem;
-      left: 0.8rem;
-      height: 2px;
-      border-radius: 999px;
-      background: #2775BD;
-      opacity: 0;
-      transform: scaleX(0.45);
-      transform-origin: center;
-      transition:
-        opacity 180ms ease,
-        transform 180ms ease;
-    }
-
+   
     #subnav a:hover,
     #subnav a:focus-visible {
       background: #e6f2f6;
@@ -1773,7 +1757,7 @@
 
   <!-- Banner Start -->
   <section id="hero-slider"
-    class="relative isolate flex min-h-[calc(100svh_-_68px)] w-full overflow-hidden bg-gray-950 text-white outline-none sm:min-h-[calc(100svh_-_76px)]"
+    class="relative isolate flex min-h-[200px] w-full overflow-hidden bg-gray-950 text-white outline-none sm:min-h-[calc(100svh_-_76px)]"
     tabindex="0" aria-label="Everest Base Camp trek banner slider" role="region">
     <div
       class="slide active absolute inset-0 z-[2] scale-100 opacity-100 transition-[opacity,transform] duration-700 ease-out motion-reduce:transition-none"
@@ -1988,7 +1972,7 @@
     <div class="flex flex-col gap-8 lg:flex-row lg:gap-6">
 
       <!-- left section start -->
-      <div class="w-full lg:w-2/3 space-y-8 lg:space-y-10 scrollable-content">
+      <div class="w-full lg:w-2/3 space-y-8 lg:space-y-10 scrollable-content order-2 sm:order-1">
 
         <!-- Overview Card Start -->
         <section class="px-0 sm:px-4 lg:px-8">
@@ -3276,7 +3260,7 @@
       <!-- left section end -->
 
       <!-- Right Sidebar Start-->
-      <section class="w-full lg:w-1/4">
+      <section class="w-full lg:w-1/4 order-1 sm:order-2">
         <div class="sticky top-10 space-y-4">
 
           <!-- Pricing Card -->
